@@ -13,6 +13,7 @@ namespace Cotizador
         public void EnviarCorreo(string _to, StringBuilder mensaje, string subject, int tipo)
         {
 
+
            string from = "erik.castaneda@unitypromotores.com"; 
             System.Net.Mail.MailMessage mail = new System.Net.Mail.MailMessage();
             mail.To.Add(_to);
