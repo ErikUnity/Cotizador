@@ -1,0 +1,8 @@
+C:\ProyectoCotizadores\Cotizadores\obj\Debug\Cotizadores.csprojResolveAssemblyReference.cache
+C:\ProyectoCotizadores\Cotizadores\bin\Cotizadores.dll.config
+C:\ProyectoCotizadores\Cotizadores\bin\Cotizadores.dll
+C:\ProyectoCotizadores\Cotizadores\bin\Cotizadores.pdb
+C:\ProyectoCotizadores\Cotizadores\bin\Newtonsoft.Json.dll
+C:\ProyectoCotizadores\Cotizadores\bin\Newtonsoft.Json.xml
+C:\ProyectoCotizadores\Cotizadores\obj\Debug\Cotizadores.dll
+C:\ProyectoCotizadores\Cotizadores\obj\Debug\Cotizadores.pdb
