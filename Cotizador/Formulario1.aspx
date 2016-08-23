@@ -314,7 +314,7 @@
                                                                                             <table id="ASPxPageControl1_ASPxPageControl2_TxtPrimerNombre" cellpadding="0" cellspacing="0" class="dxeTextBoxSys dxeTextBox just_morado" style="border-collapse: collapse; border: 1px solid rgb(159, 159, 159); cursor: default; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); font-family: Arial, Helvetica, sans-serif; text-align: left; color: rgb(19, 27, 77); font-size: 12px; text-decoration: none; font-weight: normal; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; text-transform: none; margin-bottom: 0px; width: 150px; background-color: white;">
                                                                                                 <tr>
                                                                                                     <td class="dxic" style="font-family: Arial, Helvetica, sans-serif; font-size: 0px; text-align: center; width: 142px; padding: 3px 3px 2px; overflow: hidden; ">
-                                                                                                        <asp:TextBox ID="txtNombre" runat="server" CssClass="dxeEditArea dxeEditAreaSys" Width="193px"></asp:TextBox>  
+                                                                                                        <asp:TextBox ID="txtNombre" runat="server" CssClass="dxeEditArea dxeEditAreaSys" Width="193px"   AutoCompleteType="Disabled"></asp:TextBox>  
                                                                                                        </td><td>&nbsp;&nbsp;<img alt="" class="auto-style2" src="imagenes/Error.png" id="errNombre" style="visibility: hidden" /></td>
                                                                                                 </tr>
                                                                                             </table>
@@ -365,7 +365,7 @@
                                                                                             <table id="ASPxPageControl1_ASPxPageControl2_TxtPrimerApellido" cellpadding="0" cellspacing="0" class="dxeTextBoxSys dxeTextBox just_morado" style="border-collapse: collapse; border: 1px solid rgb(159, 159, 159); cursor: default; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); font-family: Arial, Helvetica, sans-serif; text-align: left; color: rgb(19, 27, 77); font-size: 12px; text-decoration: none; font-weight: normal; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; text-transform: none; margin-bottom: 0px; width: 150px; background-color: white;">
                                                                                                 <tr>
                                                                                                     <td class="dxic" style="font-family: Arial, Helvetica, sans-serif; font-size: 0px; text-align: center; width: 142px; padding: 3px 3px 2px; overflow: hidden;">
-                                                                                                    <asp:TextBox ID="txtCorreo" runat="server" CssClass="dxeEditArea dxeEditAreaSys" Width="193px"></asp:TextBox>  
+                                                                                                    <asp:TextBox ID="txtCorreo" runat="server" CssClass="dxeEditArea dxeEditAreaSys" Width="193px" AutoCompleteType="Disabled"></asp:TextBox>  
                                                                                                          </td><td>&nbsp;&nbsp;<img alt="" class="auto-style2" src="imagenes/Error.png" id="errCorreo" style="visibility: hidden" /></td>
                                                                                                 
                                                                                                 </tr>
@@ -392,7 +392,7 @@
                                                                                 <table id="ASPxPageControl1_ASPxPageControl2_txtcorreo_ET" cellpadding="0" cellspacing="0" errorframe="errorFrame" style="border-collapse: collapse;">
                                                                                     <tr>
                                                                                         <td id="ASPxPageControl1_ASPxPageControl2_txtcorreo_CC" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; text-align: center;">
-                                                                                                     <asp:TextBox ID="txtTelefono" runat="server" CssClass="dxeEditArea dxeEditAreaSys"  onkeypress="return isNumberKey(event)" Width="193px" MaxLength="8"></asp:TextBox> 
+                                                                                                     <asp:TextBox ID="txtTelefono" runat="server" CssClass="dxeEditArea dxeEditAreaSys"  onkeypress="return isNumberKey(event)" Width="193px" MaxLength="8" AutoCompleteType="Disabled"></asp:TextBox> 
                                                                                                          </td><td>&nbsp;&nbsp;<img alt="" class="auto-style2" src="imagenes/Error.png" id="errTelefono" style="visibility: hidden" /></td>
 
                                                                                         </td>
@@ -493,7 +493,7 @@
                                                                                             <table id="ASPxPageControl1_ASPxPageControl2_txtcorreo" cellpadding="0" cellspacing="0" class="dxeTextBoxSys dxeTextBox just_morado" style="border-collapse: collapse; border: 1px solid rgb(159, 159, 159); cursor: default; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); font-family: Arial, Helvetica, sans-serif; text-align: left; color: rgb(19, 27, 77); font-size: 12px; text-decoration: none; font-weight: normal; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; text-transform: none; margin-bottom: 0px; width: 150px; background-color: white;">
                                                                                                 <tr>
                                                                                                     <td class="dxic" style="font-family: Arial, Helvetica, sans-serif; font-size: 0px; text-align: center; width: 142px; padding: 3px 3px 2px; overflow: hidden;">
-                                                                                                    <asp:TextBox ID="txtValorMercado" runat="server" CssClass="dxeEditArea dxeEditAreaSys" Width="193px" onkeypress="return isNumberKey(event)"></asp:TextBox> 
+                                                                                                    <asp:TextBox ID="txtValorMercado" runat="server" CssClass="dxeEditArea dxeEditAreaSys" Width="193px" onkeypress="return isNumberKey(event)" AutoCompleteType="Disabled"></asp:TextBox> 
                                                                                                 </td><td>&nbsp;&nbsp;<img alt="" class="auto-style2" src="imagenes/Error.png" id="errMontoAsegurado" style="visibility: hidden" /></td>
                                                                                                 </tr>
                                                                                             </table>
@@ -538,7 +538,7 @@
                                                                         </tr>
                          <tr>
                                                                                     <td class="justified_roboto" style="font-family: Roboto; font-size: 15px; text-align: left; color: rgb(19, 27, 77); text-decoration: none; font-weight: normal; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; text-transform: none;">
-                                                                                        <asp:TextBox ID="txtHora" runat="server"></asp:TextBox>
+                                                                                        <asp:TextBox ID="txtHora" runat="server" AutoCompleteType="Disabled"></asp:TextBox>
                                                                                     &nbsp;&nbsp;<img alt="" class="auto-style2" src="imagenes/Error.png" id="errHora" style="visibility: hidden" /></td>
                                                                         </tr>
                                                                         <tr>

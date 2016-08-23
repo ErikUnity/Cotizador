@@ -21,7 +21,8 @@ CREATE TABLE IF NOT EXISTS `coberturas_adicionales` (
   `codigo` varchar(50) NOT NULL DEFAULT '0',
   `base` decimal(10,2) NOT NULL DEFAULT '0.00',
   `suma_asegurada_limite` decimal(10,2) NOT NULL DEFAULT '0.00',
-  `porcentaje` decimal(10,3) NOT NULL DEFAULT '0.000',
+  `porcentaje_menor_100` decimal(10,3) NOT NULL DEFAULT '0.000',
+  `porcentaje_mayor_100` decimal(10,3) NOT NULL DEFAULT '0.000',
   `costo` decimal(10,2) NOT NULL DEFAULT '0.00',
   `robo_parcial` decimal(10,2) DEFAULT '0.00',
   `Menores_desde_16` decimal(10,2) DEFAULT '0.00',
@@ -37,8 +38,8 @@ CREATE TABLE IF NOT EXISTS `coberturas_adicionales` (
 -- Dumping data for table catalogo.coberturas_adicionales: ~1 rows (approximately)
 DELETE FROM `coberturas_adicionales`;
 /*!40000 ALTER TABLE `coberturas_adicionales` DISABLE KEYS */;
-INSERT INTO `coberturas_adicionales` (`indice`, `codigo`, `base`, `suma_asegurada_limite`, `porcentaje`, `costo`, `robo_parcial`, `Menores_desde_16`, `Menores_desde_18`, `Exceso_RC`, `gastos_emision`, `asisto`, `iva`) VALUES
-	(1, 'Roble', 1000.00, 100000.00, 0.025, 500.00, 267.54, 500.00, 1000.00, 1500.00, 0.05, 145.45, 0.12);
+INSERT INTO `coberturas_adicionales` (`indice`, `codigo`, `base`, `suma_asegurada_limite`, `porcentaje_menor_100`, `porcentaje_mayor_100`, `costo`, `robo_parcial`, `Menores_desde_16`, `Menores_desde_18`, `Exceso_RC`, `gastos_emision`, `asisto`, `iva`) VALUES
+	(1, 'Roble', 1000.00, 100000.00, 0.025, 0.020, 500.00, 267.54, 500.00, 1000.00, 1500.00, 0.05, 145.45, 0.12);
 /*!40000 ALTER TABLE `coberturas_adicionales` ENABLE KEYS */;
 
 
@@ -51,7 +52,7 @@ CREATE TABLE IF NOT EXISTS `correoautomatico` (
   PRIMARY KEY (`indice`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
--- Dumping data for table catalogo.correoautomatico: ~2 rows (approximately)
+-- Dumping data for table catalogo.correoautomatico: ~1 rows (approximately)
 DELETE FROM `correoautomatico`;
 /*!40000 ALTER TABLE `correoautomatico` DISABLE KEYS */;
 INSERT INTO `correoautomatico` (`indice`, `codigo`, `mensaje`, `descripcion_codigo`) VALUES
@@ -65,7 +66,7 @@ CREATE TABLE IF NOT EXISTS `iva` (
   `Iva` decimal(8,2) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table catalogo.iva: ~1 rows (approximately)
+-- Dumping data for table catalogo.iva: ~0 rows (approximately)
 DELETE FROM `iva`;
 /*!40000 ALTER TABLE `iva` DISABLE KEYS */;
 INSERT INTO `iva` (`Iva`) VALUES
@@ -81,7 +82,7 @@ CREATE TABLE IF NOT EXISTS `linea` (
   UNIQUE KEY `Descripcion` (`Descripcion`)
 ) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
 
--- Dumping data for table catalogo.linea: ~12 rows (approximately)
+-- Dumping data for table catalogo.linea: ~11 rows (approximately)
 DELETE FROM `linea`;
 /*!40000 ALTER TABLE `linea` DISABLE KEYS */;
 INSERT INTO `linea` (`indice`, `Descripcion`) VALUES
@@ -115,9 +116,9 @@ CREATE TABLE IF NOT EXISTS `logcorreosenviados` (
   `TipoSeguro` varchar(500) DEFAULT NULL,
   `contactar` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`indice`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=utf8;
 
--- Dumping data for table catalogo.logcorreosenviados: ~19 rows (approximately)
+-- Dumping data for table catalogo.logcorreosenviados: ~21 rows (approximately)
 DELETE FROM `logcorreosenviados`;
 /*!40000 ALTER TABLE `logcorreosenviados` DISABLE KEYS */;
 INSERT INTO `logcorreosenviados` (`indice`, `Nombre`, `Correo`, `TipoDeVehiculo`, `Linea`, `Marca`, `Telefono`, `Modelo`, `SumaAsegurada`, `Fecha`, `TipoSeguro`, `contactar`) VALUES
@@ -139,7 +140,25 @@ INSERT INTO `logcorreosenviados` (`indice`, `Nombre`, `Correo`, `TipoDeVehiculo`
 	(17, 'Monica Arce', 'erik.castaneda@unitypromotores.com', 'Automovil', '3 SEDAN', 'BMW', '65465465', '2000', 50000.00, '2016-08-22 13:51:41', 'Seguro Completo', NULL),
 	(18, 'Monica Arce', 'erik.castaneda@unitypromotores.com', 'Automovil', '3 SEDAN', 'BMW', '65465465', '2000', 5000.00, '2016-08-22 13:55:30', 'Seguro Completo', NULL),
 	(19, 'Monica Arce', 'erik.castaneda@unitypromotores.com', 'Automovil', '3 SEDAN', 'BMW', '65465465', '2000', 5000.00, '2016-08-22 13:56:03', 'Responsabilidad Civil', NULL),
-	(20, 'Monica Arce', 'erik.castaneda@unitypromotores.com', 'Agrícola 4x2', '3 SEDAN', 'BMW', '65465465', '2000', 5000.00, '2016-08-23 09:47:56', 'Seguro Completo', 'erik.castaneda@unitypromotores.com');
+	(20, 'Monica Arce', 'erik.castaneda@unitypromotores.com', 'Agrícola 4x2', '3 SEDAN', 'BMW', '65465465', '2000', 5000.00, '2016-08-23 09:47:56', 'Seguro Completo', 'erik.castaneda@unitypromotores.com'),
+	(21, 'Monica Arce', 'erik.castaneda@unitypromotores.com', 'Agrícola 4x2', '3 SEDAN', 'BMW', '13246549', '2000', 50000.00, '2016-08-23 13:39:58', 'Seguro Completo', 'erik.castaneda@unitypromotores.com'),
+	(22, 'Monica Arce', 'erik.castaneda@unitypromotores.com', 'Agrícola 4x2', '3 SEDAN', 'BMW', '65465465', '2000', 5050.00, '2016-08-23 13:44:24', 'Seguro Completo', 'erik.castaneda@unitypromotores.com'),
+	(23, 'Monica Arce', 'erik.castaneda@unitypromotores.com', 'Agrícola 4x2', '3 SEDAN', 'BMW', '65465165', '2000', 47000.00, '2016-08-23 14:33:01', 'Seguro Completo', 'erik.castaneda@unitypromotores.com'),
+	(24, 'Monica Arce', 'erik.castaneda@unitypromotores.com', 'Agrícola 4x2', '3 SEDAN', 'BMW', '65465465', '2000', 47000.00, '2016-08-23 14:42:04', 'Seguro Completo', 'erik.castaneda@unitypromotores.com'),
+	(25, 'Monica Arce', 'erik.castaneda@unitypromotores.com', 'Agrícola 4x2', '3 SEDAN', 'BMW', '65465465', '2000', 470000.00, '2016-08-23 14:47:00', 'Seguro Completo', 'erik.castaneda@unitypromotores.com'),
+	(26, 'Monica Arce', 'erik.castaneda@unitypromotores.com', 'Agrícola 4x2', '3 SEDAN', 'BMW', '65465465', '2000', 47000.00, '2016-08-23 14:49:16', 'Seguro Completo', 'erik.castaneda@unitypromotores.com'),
+	(27, 'monica arce', 'erik.castaneda@unitypromotores.com', 'Agrícola 4x2', '3 SEDAN', 'BMW', '65465465', '2000', 47000.00, '2016-08-23 14:56:39', 'Seguro Completo', 'erik.castaneda@unitypromotores.com'),
+	(28, 'monica arce', 'erik.castaneda@unitypromotores.com', 'Agrícola 4x2', '3 SEDAN', 'BMW', '65465465', '2000', 47000.00, '2016-08-23 14:57:56', 'Seguro Completo', 'erik.castaneda@unitypromotores.com'),
+	(29, 'monica arce', 'erik.castaneda@unitypromotores.com', 'Agrícola 4x2', '3 SEDAN', 'BMW', '65465165', '2000', 47000.00, '2016-08-23 15:07:00', 'Seguro Completo', 'erik.castaneda@unitypromotores.com'),
+	(30, 'monica arce', 'erik.castaneda@unitypromotores.com', 'Agrícola 4x2', '3 SEDAN', 'BMW', '65465465', '2000', 47000.00, '2016-08-23 15:09:46', 'Seguro Completo', 'erik.castaneda@unitypromotores.com'),
+	(31, 'monica arce', 'erik.castaneda@unitypromotores.com', 'Agrícola 4x2', '3 SEDAN', 'BMW', '65465465', '2000', 47000.00, '2016-08-23 15:11:32', 'Seguro Completo', 'erik.castaneda@unitypromotores.com'),
+	(32, 'monica arce', 'erik.castaneda@unitypromotores.com', 'Agrícola 4x2', '3 SEDAN', 'BMW', '65465465', '2000', 470000.00, '2016-08-23 15:13:30', 'Seguro Completo', 'erik.castaneda@unitypromotores.com'),
+	(33, 'monica arce', 'erik.castaneda@unitypromotores.com', 'Agrícola 4x2', '3 SEDAN', 'BMW', '65465465', '2000', 47000.00, '2016-08-23 15:14:25', 'Seguro Completo', 'erik.castaneda@unitypromotores.com'),
+	(34, 'monica arce', 'erik.castaneda@unitypromotores.com', 'Agrícola 4x2', '3 SEDAN', 'BMW', '65465465', '2000', 47000.00, '2016-08-23 15:23:46', 'Seguro Completo', 'erik.castaneda@unitypromotores.com'),
+	(35, 'monica arce', 'erik.castaneda@unitypromotores.com', 'Agrícola 4x2', '3 SEDAN', 'BMW', '65465465', '2000', 47000.00, '2016-08-23 15:45:20', 'Seguro Completo', 'erik.castaneda@unitypromotores.com'),
+	(36, 'monica arce', 'erik.castaneda@unitypromotores.com', 'Agrícola 4x2', '3 SEDAN', 'BMW', '65465465', '2000', 47000.00, '2016-08-23 15:51:31', 'Seguro Completo', 'erik.castaneda@unitypromotores.com'),
+	(37, 'monica arce', 'erik.castaneda@unitypromotores.com', 'Agrícola 4x2', '3 SEDAN', 'BMW', '54987987', '2000', 135000.00, '2016-08-23 15:57:00', 'Seguro Completo', 'erik.castaneda@unitypromotores.com'),
+	(38, 'monica arce', 'erik.castaneda@unitypromotores.com', 'Agrícola 4x2', '3 SEDAN', 'BMW', '65465465', '2000', 135000.00, '2016-08-23 15:57:48', 'Seguro Completo', 'erik.castaneda@unitypromotores.com');
 /*!40000 ALTER TABLE `logcorreosenviados` ENABLE KEYS */;
 
 
@@ -151,7 +170,7 @@ CREATE TABLE IF NOT EXISTS `marca` (
   UNIQUE KEY `Descripcion` (`Descripcion`)
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
--- Dumping data for table catalogo.marca: ~8 rows (approximately)
+-- Dumping data for table catalogo.marca: ~7 rows (approximately)
 DELETE FROM `marca`;
 /*!40000 ALTER TABLE `marca` DISABLE KEYS */;
 INSERT INTO `marca` (`indice`, `Descripcion`) VALUES
