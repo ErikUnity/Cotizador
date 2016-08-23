@@ -111,6 +111,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="imagenes\Error.png" />
+    <Content Include="imagenes\FirmaEjecutivaAdministrativa.png" />
+    <Content Include="imagenes\LogoCity.png" />
+    <Content Include="imagenes\LogoElRoble.png" />
+    <Content Include="imagenes\LogoUnity.png" />
     <Content Include="js\jquery.js" />
     <Content Include="js\jquery.min.js" />
     <Content Include="obj\Debug\Cotizadores.csproj.FileListAbsolute.txt" />

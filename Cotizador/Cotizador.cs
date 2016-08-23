@@ -307,7 +307,7 @@ namespace Cotizador
       public decimal Asisto = 0;
       public decimal Iva = 0;
       public decimal IvaProRata = 0;
-      public decimal Resultado = 0;
+      public decimal CoberturaAdicional = 0;
       public decimal PrimaTotal = 0;
       public decimal PrimaTotalProRata = 0;
       public decimal CalculoIva = 0;
@@ -342,34 +342,34 @@ namespace Cotizador
              {
                  PrimaNeta = (SumaAsegurada * Porcentaje_Menor_100 + Costo);
                  //=SI((B6*0.025+500)<1000,1000,(B6*0.025+500))+D5
-                 Resultado = PrimaNeta;
+           
              }
              else {
                  PrimaNeta = (SumaAsegurada * Porcentaje_Mayor_100 + Costo);
                      //=SI((B6*0.02+500)<1000,1000,(B6*0.02+500))+D5
-                 Resultado = PrimaNeta;
+       
              }
              GastosPorEmision = PrimaNeta * (Cotizadores.ObtieneValor_GastosEmision(_Codigo));
              PrimaNetaProRata = PrimaNeta * DiasTotales / DiasAnuales;
              GastosPorEmisionProRata = PrimaNetaProRata * (Cotizadores.ObtieneValor_GastosEmision(_Codigo));
 
              if (_roboParcial)
-                 Resultado += RoboParcial;
+                 CoberturaAdicional += RoboParcial;
 
             if(_MenoresDesde16)
-                Resultado += MenoresDesde16;
+                CoberturaAdicional += MenoresDesde16;
 
             if (_MenoresDesde18)
-                Resultado += MenoresDesde18;
+                CoberturaAdicional += MenoresDesde18;
 
             if (_ExcesoRC)
-                Resultado += ExcesoRC;
+                CoberturaAdicional += ExcesoRC;
 
-            Iva = (PrimaNeta + GastosPorEmision + Asisto) * CalculoIva;
-            IvaProRata = (PrimaNetaProRata + GastosPorEmisionProRata + Asisto)* CalculoIva;
-            PrimaTotal = PrimaNeta + GastosPorEmision + Asisto + Iva;
-            PrimaTotalProRata = PrimaNetaProRata + GastosPorEmisionProRata + Asisto + IvaProRata;
-
+            Iva = (CoberturaAdicional + PrimaNeta + GastosPorEmision + Asisto) * CalculoIva;
+            IvaProRata = (CoberturaAdicional + PrimaNetaProRata + GastosPorEmisionProRata + Asisto) * CalculoIva;
+            PrimaTotal = CoberturaAdicional + PrimaNeta + GastosPorEmision + Asisto + Iva;
+            PrimaTotalProRata = CoberturaAdicional + PrimaNetaProRata + GastosPorEmisionProRata + Asisto + IvaProRata;
+            
             Iva = decimal.Parse(Iva.ToString("F", CultureInfo.InvariantCulture));
             IvaProRata =  decimal.Parse(IvaProRata.ToString("F", CultureInfo.InvariantCulture));
             PrimaNetaProRata =  decimal.Parse(PrimaNetaProRata.ToString("F", CultureInfo.InvariantCulture));

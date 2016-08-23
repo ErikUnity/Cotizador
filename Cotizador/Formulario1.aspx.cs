@@ -162,7 +162,7 @@ namespace Cotizador
 
              SumaAsegurada = Decimal.Parse(ValorMercado);
              Valores Calculo = new Valores("Roble", SumaAsegurada, this.chkRoboParcial.Checked, this.chkMenores16.Checked, this.chkMenores18.Checked, this.chkExcesoRC.Checked);
-             this.lblMsg.Text = Calculo.Resultado.ToString();
+             this.lblMsg.Text = Calculo.PrimaTotalProRata.ToString();
 
              ClientScript.RegisterStartupScript(this.GetType(), "Alert", "alert('La cotización ha sido enviada a su correo: " + this.txtCorreo.Text + ");", true);
            
