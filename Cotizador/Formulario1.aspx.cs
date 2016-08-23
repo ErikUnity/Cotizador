@@ -79,16 +79,20 @@ namespace Cotizador
             {
                 ClientScript.RegisterStartupScript(this.GetType(), "errTelefono", "document.getElementById('errTelefono').style.visibility = 'hidden';", true);
             }
-            if (this.txtValorMercado.Text.Trim() == "")
-            {
-                ClientScript.RegisterStartupScript(this.GetType(), "errMontoAsegurado", "document.getElementById('errMontoAsegurado').style.visibility = 'visible';", true);
-                Incompleto = true;
-            }
-            else
-            {
-                ClientScript.RegisterStartupScript(this.GetType(), "errMontoAsegurado", "document.getElementById('errMontoAsegurado').style.visibility = 'hidden';", true);
-            }
 
+            if (this.rdSeguroCompleto.Checked == true)
+            {
+            
+                if (this.txtValorMercado.Text.Trim() == "")
+                {
+                    ClientScript.RegisterStartupScript(this.GetType(), "errMontoAsegurado", "document.getElementById('errMontoAsegurado').style.visibility = 'visible';", true);
+                    Incompleto = true;
+                }
+                else
+                {
+                    ClientScript.RegisterStartupScript(this.GetType(), "errMontoAsegurado", "document.getElementById('errMontoAsegurado').style.visibility = 'hidden';", true);
+                }
+            }
             if (this.rdSeguroCompleto.Checked == false && this.rdResponsabilidadCivil.Checked == false)
             {
                 ClientScript.RegisterStartupScript(this.GetType(), "errDañosATerceros", "document.getElementById('errDañosATerceros').style.visibility = 'visible';", true);
