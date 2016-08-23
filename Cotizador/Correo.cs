@@ -12,7 +12,8 @@ namespace Cotizador
 
         public void EnviarCorreo(string _to, StringBuilder mensaje, string subject, int tipo)
         {
-
+            String originalPath = new Uri(HttpContext.Current.Request.Url.AbsoluteUri).OriginalString;
+            String parentDirectory = originalPath.Substring(0, originalPath.LastIndexOf("/"));
 
            string from = "erik.castaneda@unitypromotores.com"; 
             System.Net.Mail.MailMessage mail = new System.Net.Mail.MailMessage();

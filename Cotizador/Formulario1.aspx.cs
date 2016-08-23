@@ -79,6 +79,7 @@ namespace Cotizador
             {
                 ClientScript.RegisterStartupScript(this.GetType(), "errTelefono", "document.getElementById('errTelefono').style.visibility = 'hidden';", true);
             }
+            string ValorMercado = "";
 
             if (this.rdSeguroCompleto.Checked == true)
             {
@@ -90,6 +91,7 @@ namespace Cotizador
                 }
                 else
                 {
+                    ValorMercado = this.txtValorMercado.Text.Trim();
                     ClientScript.RegisterStartupScript(this.GetType(), "errMontoAsegurado", "document.getElementById('errMontoAsegurado').style.visibility = 'hidden';", true);
                 }
             }
@@ -151,11 +153,15 @@ namespace Cotizador
             { _tipo_seguro = "Responsabilidad Civil";
             MensajeTipo = 2;
             }
+
+
+            EnvioDeCorreoRapido.EjecutarProceso(this.txtCorreo.Text.Trim(), this.cmbTipoVehiculo.SelectedItem.Text.Trim(), this.cmbLinea.SelectedItem.Text.Trim(), this.cmbMarca.SelectedItem.Text.Trim(), this.cmbModelo.SelectedItem.Text.Trim(), ValorMercado, MensajeTipo, this.txtNombre.Text.Trim());
+            if (ValorMercado == "")
+                ValorMercado = "0";
+
             
 
-            EnvioDeCorreoRapido.EjecutarProceso(this.txtCorreo.Text.Trim(), this.cmbTipoVehiculo.SelectedItem.Text.Trim(), this.cmbLinea.SelectedItem.Text.Trim(), this.cmbMarca.SelectedItem.Text.Trim(), this.cmbModelo.SelectedItem.Text.Trim(), this.txtValorMercado.Text.Trim(), MensajeTipo, this.txtNombre.Text.Trim());
-
-        //    Cotizar.GuardaCotizacion(this.txtNombre.Text.Trim(), this.txtCorreo.Text.Trim(), this.cmbTipoVehiculo.SelectedItem.Text.Trim(), this.cmbLinea.SelectedItem.Text.Trim(), this.cmbMarca.SelectedItem.Text.Trim(), this.txtTelefono.Text.Trim(), this.cmbModelo.SelectedItem.Text.Trim(), Decimal.Parse(this.txtValorMercado.Text.Trim()), _tipo_seguro);
+            Cotizar.GuardaCotizacion(this.txtNombre.Text.Trim(), this.txtCorreo.Text.Trim(), this.cmbTipoVehiculo.SelectedItem.Text.Trim(), this.cmbLinea.SelectedItem.Text.Trim(), this.cmbMarca.SelectedItem.Text.Trim(), this.txtTelefono.Text.Trim(), this.cmbModelo.SelectedItem.Text.Trim(), Decimal.Parse(this.txtValorMercado.Text.Trim()), _tipo_seguro,this.txtCorreo.Text.ToString());
 
             //if (((SumaAsegurada * 0.025) + 500) < 1000.00)
             //{
