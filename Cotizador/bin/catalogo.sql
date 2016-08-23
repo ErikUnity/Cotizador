@@ -9,7 +9,49 @@
 /*!40101 SET NAMES utf8mb4 */;
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
--- Dumping data for table catalogo.correoautomatico: ~1 rows (approximately)
+
+-- Dumping database structure for catalogo
+CREATE DATABASE IF NOT EXISTS `catalogo` /*!40100 DEFAULT CHARACTER SET utf8 */;
+USE `catalogo`;
+
+
+-- Dumping structure for table catalogo.coberturas_adicionales
+CREATE TABLE IF NOT EXISTS `coberturas_adicionales` (
+  `indice` int(11) NOT NULL AUTO_INCREMENT,
+  `codigo` varchar(50) NOT NULL DEFAULT '0',
+  `base` decimal(10,2) NOT NULL DEFAULT '0.00',
+  `suma_asegurada_limite` decimal(10,2) NOT NULL DEFAULT '0.00',
+  `porcentaje` decimal(10,3) NOT NULL DEFAULT '0.000',
+  `costo` decimal(10,2) NOT NULL DEFAULT '0.00',
+  `robo_parcial` decimal(10,2) DEFAULT '0.00',
+  `Menores_desde_16` decimal(10,2) DEFAULT '0.00',
+  `Menores_desde_18` decimal(10,2) DEFAULT '0.00',
+  `Exceso_RC` decimal(10,2) DEFAULT '0.00',
+  `gastos_emision` decimal(10,2) DEFAULT '0.00',
+  `asisto` decimal(10,2) DEFAULT '0.00',
+  `iva` decimal(10,2) DEFAULT '0.00',
+  PRIMARY KEY (`indice`),
+  UNIQUE KEY `codigo` (`codigo`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+-- Dumping data for table catalogo.coberturas_adicionales: ~1 rows (approximately)
+DELETE FROM `coberturas_adicionales`;
+/*!40000 ALTER TABLE `coberturas_adicionales` DISABLE KEYS */;
+INSERT INTO `coberturas_adicionales` (`indice`, `codigo`, `base`, `suma_asegurada_limite`, `porcentaje`, `costo`, `robo_parcial`, `Menores_desde_16`, `Menores_desde_18`, `Exceso_RC`, `gastos_emision`, `asisto`, `iva`) VALUES
+	(1, 'Roble', 1000.00, 100000.00, 0.025, 500.00, 267.54, 500.00, 1000.00, 1500.00, 0.05, 145.45, 0.12);
+/*!40000 ALTER TABLE `coberturas_adicionales` ENABLE KEYS */;
+
+
+-- Dumping structure for table catalogo.correoautomatico
+CREATE TABLE IF NOT EXISTS `correoautomatico` (
+  `indice` int(11) NOT NULL AUTO_INCREMENT,
+  `codigo` int(11) DEFAULT '0',
+  `mensaje` text,
+  `descripcion_codigo` varchar(800) DEFAULT NULL,
+  PRIMARY KEY (`indice`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+-- Dumping data for table catalogo.correoautomatico: ~2 rows (approximately)
 DELETE FROM `correoautomatico`;
 /*!40000 ALTER TABLE `correoautomatico` DISABLE KEYS */;
 INSERT INTO `correoautomatico` (`indice`, `codigo`, `mensaje`, `descripcion_codigo`) VALUES
@@ -17,14 +59,29 @@ INSERT INTO `correoautomatico` (`indice`, `codigo`, `mensaje`, `descripcion_codi
 	(2, 2, '<span style="text-decoration: underline;"><p>SOLO RC</p></span> \r\n <br />\r\n  <br />\r\n   <br />\r\n<p><span style="font-weight: 400;">De acuerdo a su solicitud, adjunto encontrar&aacute; cotizaci&oacute;n para el seguro de su veh&iacute;culo bajo &nbsp;el plan exclusivo de colaboradores del banco.</span></p>\r\n<p><span style="font-weight: 400;">En caso de ser aceptada la propuesta, &nbsp;favor enviar los siguientes documentos:</span></p>\r\n<br />\r\n<ul>\r\n<li><strong><strong>Tarjeta de circulaci&oacute;n</strong></strong></li>\r\n<li><strong>DPI</strong></li>\r\n<li style="font-weight: 400;"><strong>Recibo reciente de agua, luz o tel&eacute;fono fijo&nbsp;</strong><span style="font-weight: 400;">que refleje su direcci&oacute;n particular.</span></li>\r\n<li style="font-weight: 400;"><span style="font-weight: 400;">Completar campos&nbsp;</span><span style="font-weight: 400;">marcados en color gris</span><span style="font-weight: 400;">&nbsp;del Formulario&nbsp;&nbsp;</span><strong>ASR27</strong><span style="font-weight: 400;">&nbsp;y enviarlo en excel (adjunto)</span><strong> No. GEID</strong></li>\r\n</ul>\r\n<p><span style="font-weight: 400;">Dichos documentos puede enviarlos&nbsp;&nbsp;escaneados, hasta que nosotros tengamos los documentos completos el veh&iacute;culo queda asegurado.</span></p>\r\n<p><span style="font-weight: 400;">Agradecemos su atenci&oacute;n y cualquier consulta adicional quedamos a las &oacute;rdenes.</span></p>\r\n  <br />\r\n   <br />\r\n<p><span style="font-weight: 400;">Cordialmente,</span></p>\r\n<p>&nbsp;</p>\r\n', 'Mensaje 2 del cotizador envio automatico');
 /*!40000 ALTER TABLE `correoautomatico` ENABLE KEYS */;
 
--- Dumping data for table catalogo.iva: ~0 rows (approximately)
+
+-- Dumping structure for table catalogo.iva
+CREATE TABLE IF NOT EXISTS `iva` (
+  `Iva` decimal(8,2) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- Dumping data for table catalogo.iva: ~1 rows (approximately)
 DELETE FROM `iva`;
 /*!40000 ALTER TABLE `iva` DISABLE KEYS */;
 INSERT INTO `iva` (`Iva`) VALUES
 	(12.00);
 /*!40000 ALTER TABLE `iva` ENABLE KEYS */;
 
--- Dumping data for table catalogo.linea: ~11 rows (approximately)
+
+-- Dumping structure for table catalogo.linea
+CREATE TABLE IF NOT EXISTS `linea` (
+  `indice` int(11) NOT NULL AUTO_INCREMENT,
+  `Descripcion` varchar(500) DEFAULT NULL,
+  PRIMARY KEY (`indice`),
+  UNIQUE KEY `Descripcion` (`Descripcion`)
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
+
+-- Dumping data for table catalogo.linea: ~12 rows (approximately)
 DELETE FROM `linea`;
 /*!40000 ALTER TABLE `linea` DISABLE KEYS */;
 INSERT INTO `linea` (`indice`, `Descripcion`) VALUES
@@ -42,7 +99,25 @@ INSERT INTO `linea` (`indice`, `Descripcion`) VALUES
 	(4, 'YARIS');
 /*!40000 ALTER TABLE `linea` ENABLE KEYS */;
 
--- Dumping data for table catalogo.logcorreosenviados: ~18 rows (approximately)
+
+-- Dumping structure for table catalogo.logcorreosenviados
+CREATE TABLE IF NOT EXISTS `logcorreosenviados` (
+  `indice` int(11) NOT NULL AUTO_INCREMENT,
+  `Nombre` varchar(500) DEFAULT '0',
+  `Correo` varchar(500) DEFAULT '0',
+  `TipoDeVehiculo` varchar(200) DEFAULT '0',
+  `Linea` varchar(500) DEFAULT '0',
+  `Marca` varchar(300) DEFAULT '0',
+  `Telefono` varchar(75) DEFAULT '0',
+  `Modelo` varchar(75) DEFAULT '0',
+  `SumaAsegurada` decimal(8,2) DEFAULT '0.00',
+  `Fecha` datetime DEFAULT CURRENT_TIMESTAMP,
+  `TipoSeguro` varchar(500) DEFAULT NULL,
+  `contactar` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`indice`)
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
+
+-- Dumping data for table catalogo.logcorreosenviados: ~19 rows (approximately)
 DELETE FROM `logcorreosenviados`;
 /*!40000 ALTER TABLE `logcorreosenviados` DISABLE KEYS */;
 INSERT INTO `logcorreosenviados` (`indice`, `Nombre`, `Correo`, `TipoDeVehiculo`, `Linea`, `Marca`, `Telefono`, `Modelo`, `SumaAsegurada`, `Fecha`, `TipoSeguro`, `contactar`) VALUES
@@ -63,10 +138,20 @@ INSERT INTO `logcorreosenviados` (`indice`, `Nombre`, `Correo`, `TipoDeVehiculo`
 	(16, 'Monica Arce', 'erik.castaneda@unitypromotores.com', 'Automovil', '3 SEDAN', 'BMW', '65465465', '2000', 5000.00, '2016-08-22 12:14:14', 'Daños a Terceros', NULL),
 	(17, 'Monica Arce', 'erik.castaneda@unitypromotores.com', 'Automovil', '3 SEDAN', 'BMW', '65465465', '2000', 50000.00, '2016-08-22 13:51:41', 'Seguro Completo', NULL),
 	(18, 'Monica Arce', 'erik.castaneda@unitypromotores.com', 'Automovil', '3 SEDAN', 'BMW', '65465465', '2000', 5000.00, '2016-08-22 13:55:30', 'Seguro Completo', NULL),
-	(19, 'Monica Arce', 'erik.castaneda@unitypromotores.com', 'Automovil', '3 SEDAN', 'BMW', '65465465', '2000', 5000.00, '2016-08-22 13:56:03', 'Responsabilidad Civil', NULL);
+	(19, 'Monica Arce', 'erik.castaneda@unitypromotores.com', 'Automovil', '3 SEDAN', 'BMW', '65465465', '2000', 5000.00, '2016-08-22 13:56:03', 'Responsabilidad Civil', NULL),
+	(20, 'Monica Arce', 'erik.castaneda@unitypromotores.com', 'Agrícola 4x2', '3 SEDAN', 'BMW', '65465465', '2000', 5000.00, '2016-08-23 09:47:56', 'Seguro Completo', 'erik.castaneda@unitypromotores.com');
 /*!40000 ALTER TABLE `logcorreosenviados` ENABLE KEYS */;
 
--- Dumping data for table catalogo.marca: ~7 rows (approximately)
+
+-- Dumping structure for table catalogo.marca
+CREATE TABLE IF NOT EXISTS `marca` (
+  `indice` int(11) NOT NULL AUTO_INCREMENT,
+  `Descripcion` varchar(500) DEFAULT NULL,
+  PRIMARY KEY (`indice`),
+  UNIQUE KEY `Descripcion` (`Descripcion`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+
+-- Dumping data for table catalogo.marca: ~8 rows (approximately)
 DELETE FROM `marca`;
 /*!40000 ALTER TABLE `marca` DISABLE KEYS */;
 INSERT INTO `marca` (`indice`, `Descripcion`) VALUES
@@ -79,6 +164,15 @@ INSERT INTO `marca` (`indice`, `Descripcion`) VALUES
 	(1, 'Toyota'),
 	(5, 'Volkswagen');
 /*!40000 ALTER TABLE `marca` ENABLE KEYS */;
+
+
+-- Dumping structure for table catalogo.modelo
+CREATE TABLE IF NOT EXISTS `modelo` (
+  `indice` int(11) NOT NULL AUTO_INCREMENT,
+  `Descripcion` varchar(500) DEFAULT NULL,
+  PRIMARY KEY (`indice`),
+  UNIQUE KEY `Descripcion` (`Descripcion`)
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
 
 -- Dumping data for table catalogo.modelo: ~17 rows (approximately)
 DELETE FROM `modelo`;
@@ -102,6 +196,15 @@ INSERT INTO `modelo` (`indice`, `Descripcion`) VALUES
 	(16, '2015'),
 	(17, '2016');
 /*!40000 ALTER TABLE `modelo` ENABLE KEYS */;
+
+
+-- Dumping structure for table catalogo.tipodevehiculo
+CREATE TABLE IF NOT EXISTS `tipodevehiculo` (
+  `indice` int(11) NOT NULL AUTO_INCREMENT,
+  `Descripcion` varchar(500) DEFAULT NULL,
+  PRIMARY KEY (`indice`),
+  UNIQUE KEY `Descripcion` (`Descripcion`)
+) ENGINE=InnoDB AUTO_INCREMENT=68 DEFAULT CHARSET=utf8;
 
 -- Dumping data for table catalogo.tipodevehiculo: ~36 rows (approximately)
 DELETE FROM `tipodevehiculo`;

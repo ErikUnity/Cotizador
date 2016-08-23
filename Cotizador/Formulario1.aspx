@@ -512,22 +512,22 @@
                                                                         </tr>
                                                                          <tr>
                                                                                     <td class="justified_roboto" style="font-family: Roboto; font-size: 15px; text-align: left; color: rgb(19, 27, 77); text-decoration: none; font-weight: normal; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; text-transform: none;">
-                                                                                        <asp:CheckBox ID="CheckBox1" runat="server" Text="Robo parcial" CssClass="letra" />
+                                                                                        <asp:CheckBox ID="chkRoboParcial" runat="server" Text="Robo parcial" CssClass="letra" />
                                                                              </td>
                                                                         </tr>
          <tr>
                                                                                     <td class="justified_roboto" style="font-family: Roboto; font-size: 15px; text-align: left; color: rgb(19, 27, 77); text-decoration: none; font-weight: normal; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; text-transform: none;">
-                                                                                        <asp:CheckBox ID="CheckBox2" runat="server" Text="Menores. Coberturas desde 16  años" CssClass="letra" />
+                                                                                        <asp:CheckBox ID="chkMenores16" runat="server" Text="Menores. Coberturas desde 16  años" CssClass="letra" />
                                                                              </td>
                                                                         </tr>
          <tr>
                                                                                     <td class="justified_roboto" style="font-family: Roboto; font-size: 15px; text-align: left; color: rgb(19, 27, 77); text-decoration: none; font-weight: normal; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; text-transform: none;">
-                                                                                        <asp:CheckBox ID="CheckBox3" runat="server" Text="Menores. Coberturas desde  18 años" CssClass="letra" />   
+                                                                                        <asp:CheckBox ID="chkMenores18" runat="server" Text="Menores. Coberturas desde  18 años" CssClass="letra" />   
                                                                              </td>
                                                                         </tr>
          <tr>
                                                                                     <td class="justified_roboto" style="font-family: Roboto; font-size: 15px; text-align: left; color: rgb(19, 27, 77); text-decoration: none; font-weight: normal; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; text-transform: none;">
-                                                                                        <asp:CheckBox ID="CheckBox4" runat="server" Text="Exceso de RC.   (ID 5)." CssClass="letra" />
+                                                                                        <asp:CheckBox ID="chkExcesoRC" runat="server" Text="Exceso de RC.   (ID 5)." CssClass="letra" />
                                                                              </td>
                                                                         </tr>
                  <tr>

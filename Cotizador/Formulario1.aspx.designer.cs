@@ -148,40 +148,40 @@ namespace Cotizador {
         protected global::System.Web.UI.WebControls.TextBox txtValorMercado;
         
         /// <summary>
-        /// CheckBox1 control.
+        /// chkRoboParcial control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox CheckBox1;
+        protected global::System.Web.UI.WebControls.CheckBox chkRoboParcial;
         
         /// <summary>
-        /// CheckBox2 control.
+        /// chkMenores16 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox CheckBox2;
+        protected global::System.Web.UI.WebControls.CheckBox chkMenores16;
         
         /// <summary>
-        /// CheckBox3 control.
+        /// chkMenores18 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox CheckBox3;
+        protected global::System.Web.UI.WebControls.CheckBox chkMenores18;
         
         /// <summary>
-        /// CheckBox4 control.
+        /// chkExcesoRC control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox CheckBox4;
+        protected global::System.Web.UI.WebControls.CheckBox chkExcesoRC;
         
         /// <summary>
         /// txtHora control.

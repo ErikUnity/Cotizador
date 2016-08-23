@@ -163,10 +163,37 @@ namespace Cotizador
 
             Cotizar.GuardaCotizacion(this.txtNombre.Text.Trim(), this.txtCorreo.Text.Trim(), this.cmbTipoVehiculo.SelectedItem.Text.Trim(), this.cmbLinea.SelectedItem.Text.Trim(), this.cmbMarca.SelectedItem.Text.Trim(), this.txtTelefono.Text.Trim(), this.cmbModelo.SelectedItem.Text.Trim(), Decimal.Parse(this.txtValorMercado.Text.Trim()), _tipo_seguro,this.txtCorreo.Text.ToString());
 
-            //if (((SumaAsegurada * 0.025) + 500) < 1000.00)
-            //{
-            //    NetaAnual = Decimal.Parse(1000.00);
-            //}
+             SumaAsegurada = Decimal.Parse(ValorMercado);
+             Valores Calculo = new Valores("Roble");
+             Decimal Resultado = 0;
+             Decimal PrimaNeta = SumaAsegurada;
+             Decimal GastosEmision = PrimaNeta * Calculo.GastosPorEmision;
+
+             if (SumaAsegurada <  Calculo.SumaLimiteParaCalculo)
+             {
+                 if (SumaAsegurada < Calculo.MontoBase)
+                 {
+                     Resultado = Calculo.MontoBase;
+                 }
+                 else {
+
+                     Resultado = (SumaAsegurada * Calculo.Porcentaje + Calculo.Costo);
+                     if (this.chkRoboParcial.Checked == true)
+                     { Resultado += Calculo.RoboParcial; }
+
+                     if (this.chkMenores16.Checked == true)
+                     { Resultado += Calculo.MenoresDesde16; }
+
+                     if (this.chkMenores18.Checked == true)
+                     { Resultado += Calculo.MenoresDesde18; }
+
+                     if (this.chkExcesoRC.Checked == true)
+                     { Resultado += Calculo.ExcesoRC; }
+
+                 }
+             }
+             this.lblMsg.Text = Resultado.ToString();
+
             ClientScript.RegisterStartupScript(this.GetType(), "Alert", "alert('La cotización ha sido enviada a su correo: " + this.txtCorreo.Text + ");", true);
            
 
