@@ -546,18 +546,16 @@
                                                                                 <table id="ASPxPageControl1_ASPxPageControl2_BtnSiguiente" cellpadding="0" cellspacing="0" style="height: 35px; width: 103px; border-collapse: separate;">
                                                                                     <tr>
                                                                                        <td style="text-align:center"> 
-                                                                                           <asp:UpdatePanel ID="UpdatePanel5" runat="server" >
-                                                                                               <ContentTemplate>
+ 
                                                                                                     
                                                                                                    <asp:Button ID="Button1" runat="server" BackColor="White" BorderColor="#336699" BorderStyle="Solid" BorderWidth="1px" CssClass="btn" Height="100%" OnClick="Button1_Click" Text="Cotizar" Width="100%"  />
                                                                                              
-                                                                                               </ContentTemplate>
-                                                                                           </asp:UpdatePanel>
+ 
                                                                                         </td>
                                                                                      
                                                                                     </tr>
                                                                                 </table>
-                                                                                                                                                                        </span></td>
+                                                                           </td>
                                                                         </tr>
                                                                         <tr>
                                                                             <td style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; text-align: center;">

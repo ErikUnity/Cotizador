@@ -12,8 +12,8 @@ namespace Cotizador
 
         public void EnviarCorreo(string _to, StringBuilder mensaje, string subject, int tipo)
         {
-            String originalPath = new Uri(HttpContext.Current.Request.Url.AbsoluteUri).OriginalString;
-            String parentDirectory = originalPath.Substring(0, originalPath.LastIndexOf("/"));
+            string AtachmentPath = AppDomain.CurrentDomain.BaseDirectory + @"\SR7.xls";
+            Attachment data = new Attachment(AtachmentPath);
 
            string from = "erik.castaneda@unitypromotores.com"; 
             System.Net.Mail.MailMessage mail = new System.Net.Mail.MailMessage();
@@ -25,7 +25,8 @@ namespace Cotizador
             mail.BodyEncoding = System.Text.Encoding.UTF8;
             mail.IsBodyHtml = true;
             mail.Priority = MailPriority.High;
-            
+            mail.Attachments.Add(data);
+
             SmtpClient client = new SmtpClient();
             //Add the Creddentials- use your own email id and password
 

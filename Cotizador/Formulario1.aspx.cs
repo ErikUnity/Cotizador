@@ -167,7 +167,8 @@ namespace Cotizador
             //{
             //    NetaAnual = Decimal.Parse(1000.00);
             //}
-            this.lblMsg.Text = "Cotización Enviada a su correo :" + this.txtCorreo.Text;
+            ClientScript.RegisterStartupScript(this.GetType(), "Alert", "alert('La cotización ha sido enviada a su correo: " + this.txtCorreo.Text + ");", true);
+           
 
         }
 
