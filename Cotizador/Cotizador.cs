@@ -48,7 +48,50 @@ namespace Cotizador
             return data;
 
         }
+        public static List<Impresion> ReporteCotizacion1(string CodigoEmpresa,decimal SumaAsegurada, bool RoboParcial, bool Menores16, bool Menores18,bool ExcesosRC)
+        {
+            Valores Calculo = new Valores(CodigoEmpresa, SumaAsegurada, RoboParcial, Menores16, Menores18, ExcesosRC);
+            Impresion lista = new Impresion();
+            List<Impresion> data = new List<Impresion>();
+            lista.Asisto = Calculo.Asisto;
+            lista.CadaPago = Calculo.CadaPago;
+            lista.CalculoIva = Calculo.CalculoIva;
+            lista.CoberturaAdicional = Calculo.CoberturaAdicional;
+            lista.Codigo = Calculo.Codigo;
+            lista.Costo = Calculo.Costo;
+            lista.DiasAnuales = Calculo.DiasAnuales;
+            lista.DiasTotales = Calculo.DiasTotales;
+            lista.ExcesoRC = Calculo.ExcesoRC;
+            lista.GastosPorEmision = Calculo.GastosPorEmision;
+            lista.GastosPorEmisionProRata = Calculo.GastosPorEmisionProRata;
+            lista.Iva = Calculo.Iva;
+            lista.IvaProRata = Calculo.IvaProRata;
+            lista.MenoresDesde16 = Calculo.MenoresDesde16;
+            lista.MenoresDesde18 = Calculo.MenoresDesde18;
+            lista.MontoBase = Calculo.MontoBase;
+            lista.Porcentaje_Mayor_100 = Calculo.Porcentaje_Mayor_100;
+            lista.Porcentaje_Menor_100 = Calculo.Porcentaje_Menor_100;
+            lista.PrimaNeta = Calculo.PrimaNeta;
+            lista.PrimaNetaProRata = Calculo.PrimaNetaProRata;
+            lista.PrimaTotal = Calculo.PrimaTotal;
+            lista.PrimaTotalProRata = Calculo.PrimaTotalProRata;
+            lista.RoboParcial = Calculo.RoboParcial;
+            lista.SumaAsegurada = Calculo.SumaAsegurada;
+            lista.SumaLimiteParaCalculo = Calculo.SumaLimiteParaCalculo;
+            data.Add(lista);
 
+            return data;
+
+        }
+        public static List<Impresion> ReporteFormato1()
+        {
+            List<Impresion> data = new List<Impresion>();
+            Impresion lista = new Impresion();
+            data.Add(lista);
+
+            return data;
+
+        }
         public DataView LlenaComboMarca()
         {
 
@@ -92,10 +135,10 @@ namespace Cotizador
 
         }
 
-         public void GuardaCotizacion( string _Nombre, string _Correo, string _TipoDeVehiculo,string  _Linea,string  _Marca, string _Telefono, string _Modelo, decimal _SumaAsegurada, string _TipoSeguro, string Hora) 
+         public void GuardaCotizacion( string _Nombre, string _Correo, string _TipoDeVehiculo,string  _Linea,string  _Marca, string _Telefono, string _Modelo, decimal _SumaAsegurada, string _TipoSeguro, string Hora, string _CodigoEmpresa) 
          { 
          string sql = " insert into LogCorreosEnviados(Nombre, Correo, TipoDeVehiculo, Linea, Marca, Telefono, Modelo, SumaAsegurada, TipoSeguro, contactar)";
-         sql += " values('" + _Nombre + "','" + _Correo + "','" + _TipoDeVehiculo + "','" + _Linea + "','" + _Marca + "','" + _Telefono + "','" + _Modelo + "'," + _SumaAsegurada.ToString() + ",'" + _TipoSeguro + "','" + Hora + "')";
+         sql += " values('" + _Nombre + "','" + _Correo + "','" + _TipoDeVehiculo + "','" + _Linea + "','" + _Marca + "','" + _Telefono + "','" + _Modelo + "'," + _SumaAsegurada.ToString() + ",'" + _TipoSeguro + "','" + Hora + "','" + _CodigoEmpresa + "')";
          AccesoDatos.EjecutaQueryMySql( sql);
         
         }
@@ -173,6 +216,43 @@ namespace Cotizador
 
              DataTable content = new DataTable();
              content = AccesoDatos.RegresaTablaMySql("Select suma_asegurada_limite from coberturas_adicionales where codigo = '" + Codigo + "'");
+             DataView dv = new DataView(content);
+             foreach (DataRow rw in content.Rows)
+             {
+                 if (rw[0].ToString() != null && rw[0].ToString().Trim() != "")
+                 {
+                     resultado = decimal.Parse(rw[0].ToString());
+                 }
+             }
+
+             return resultado;
+         }
+         
+ 
+          public static decimal ObtieneElecacionDeCoberturaRC(string Codigo)
+         {
+             decimal resultado = 0;
+
+             DataTable content = new DataTable();
+             content = AccesoDatos.RegresaTablaMySql("Select Exceso_RC_ElevacionDeCobertura from coberturas_adicionales where codigo = '" + Codigo + "'");
+             DataView dv = new DataView(content);
+             foreach (DataRow rw in content.Rows)
+             {
+                 if (rw[0].ToString() != null && rw[0].ToString().Trim() != "")
+                 {
+                     resultado = decimal.Parse(rw[0].ToString());
+                 }
+             }
+
+             return resultado;
+         }
+       
+        public static decimal ObtieneExcesoRC_Base(string Codigo)
+         {
+             decimal resultado = 0;
+
+             DataTable content = new DataTable();
+             content = AccesoDatos.RegresaTablaMySql("Select Exceso_RC_Base from coberturas_adicionales where codigo = '" + Codigo + "'");
              DataView dv = new DataView(content);
              foreach (DataRow rw in content.Rows)
              {
@@ -332,11 +412,19 @@ namespace Cotizador
       public int DiasAnuales = 0;
       public int DiasTotales = 0;
       public decimal CadaPago = 0;
+      public decimal  Exceso_RC_ElevacionDeCobertura = 0;
+      public decimal Exceso_RC_Base = 0;
 
         public Valores(string _Codigo, decimal _SumaAsegurada, bool _roboParcial, bool _MenoresDesde16, bool _MenoresDesde18, bool _ExcesoRC)
         {
+            decimal equipo_especial = 0;
+            decimal cien = 100;
+            decimal mil = 1000;
+
              Codigo = _Codigo;
              SumaAsegurada = _SumaAsegurada;
+             Exceso_RC_ElevacionDeCobertura = Cotizadores.ObtieneElecacionDeCoberturaRC(_Codigo);
+             Exceso_RC_Base = Cotizadores.ObtieneExcesoRC_Base(_Codigo);
              MontoBase = Cotizadores.ObtieneBase(_Codigo);
              SumaLimiteParaCalculo = Cotizadores.ObtieneLimiteDeSeguros(_Codigo);
              Porcentaje_Menor_100 = Cotizadores.ObtienePorcentajeMenor(_Codigo);
@@ -353,8 +441,7 @@ namespace Cotizador
              System.DateTime nextyear = newDate.AddYears(1);
              DiasAnuales = int.Parse((newDate - nextyear).TotalDays.ToString()) * -1;
              DiasTotales = int.Parse((nextyear - olddate).TotalDays.ToString());
- 
-          
+
 
              if (SumaAsegurada < SumaLimiteParaCalculo)
              {
@@ -367,6 +454,10 @@ namespace Cotizador
                      //=SI((B6*0.02+500)<1000,1000,(B6*0.02+500))+D5
        
              }
+             
+             //L31*100/1000
+             equipo_especial = SumaAsegurada * (cien) / (mil);
+
              GastosPorEmision = PrimaNeta * (Cotizadores.ObtieneValor_GastosEmision(_Codigo));
              PrimaNetaProRata = PrimaNeta * DiasTotales / DiasAnuales;
              GastosPorEmisionProRata = PrimaNetaProRata * (Cotizadores.ObtieneValor_GastosEmision(_Codigo));
@@ -405,5 +496,154 @@ namespace Cotizador
         public string Correo = "";
         public CorreosInternos() { }
     }
+
+    public class Impresion
+    {
+
+      public Impresion()
+        {
+        }
+      public decimal SumaAsegurada
+      {
+          get { return SumaAsegurada; }
+          set { this.SumaAsegurada = value; }
+      }
+      public string Codigo
+      {
+          get { return Codigo; }
+          set { this.Codigo = value; }
+      }
+      public decimal PrimaNeta
+      {
+          get { return PrimaNeta; }
+          set { this.PrimaNeta = value; }
+      }
+      public decimal PrimaNetaProRata
+      {
+          get { return PrimaNetaProRata; }
+          set { this.PrimaNetaProRata = value; }
+      }
+      public decimal MontoBase
+      {
+          get { return MontoBase; }
+          set { this.MontoBase = value; }
+      }
+      public decimal SumaLimiteParaCalculo
+      {
+          get { return SumaLimiteParaCalculo; }
+          set { this.SumaLimiteParaCalculo = value; }
+      }
+      public decimal Porcentaje_Menor_100
+      {
+          get { return Porcentaje_Menor_100; }
+          set { this.Porcentaje_Menor_100 = value; }
+      }
+      public decimal Porcentaje_Mayor_100
+      {
+          get { return Porcentaje_Mayor_100; }
+          set { this.Porcentaje_Mayor_100 = value; }
+      }
+      public decimal Costo
+      {
+          get { return Costo; }
+          set { this.Costo = value; }
+      }
+      public decimal RoboParcial
+      {
+          get { return RoboParcial; }
+          set { this.RoboParcial = value; }
+      }
+      public decimal MenoresDesde16
+      {
+          get { return MenoresDesde16; }
+          set { this.MenoresDesde16 = value; }
+      }
+      public decimal MenoresDesde18
+      {
+          get { return MenoresDesde18; }
+          set { this.MenoresDesde18 = value; }
+      }
+
+      public decimal ExcesoRC
+      {
+          get { return ExcesoRC; }
+          set { this.ExcesoRC = value; }
+      }
+
+      public decimal GastosPorEmision
+      {
+          get { return GastosPorEmision; }
+          set { this.GastosPorEmision = value; }
+      }
+
+      public decimal GastosPorEmisionProRata
+      {
+          get { return GastosPorEmisionProRata; }
+          set { this.GastosPorEmisionProRata = value; }
+      }
+      public decimal Asisto
+      {
+          get { return Asisto; }
+          set { this.Asisto = value; }
+      }
+      public decimal Iva
+      {
+          get { return Iva; }
+          set { this.Iva = value; }
+      }
+      public decimal IvaProRata
+      {
+          get { return IvaProRata; }
+          set { this.IvaProRata = value; }
+      }
+      public decimal CoberturaAdicional
+      {
+          get { return CoberturaAdicional; }
+          set { this.CoberturaAdicional = value; }
+      }
+      public decimal PrimaTotal
+      {
+          get { return PrimaTotal; }
+          set { this.PrimaTotal = value; }
+      }
+      public decimal PrimaTotalProRata
+      {
+          get { return PrimaTotalProRata; }
+          set { this.PrimaTotalProRata = value; }
+      }
+      public decimal CalculoIva
+      {
+          get { return CalculoIva; }
+          set { this.CalculoIva = value; }
+      }
+      public decimal DiasAnuales
+      {
+          get { return DiasAnuales; }
+          set { this.DiasAnuales = value; }
+      }
+      public int DiasTotales
+      {
+          get { return DiasTotales; }
+          set { this.DiasTotales = value; }
+      }
+      public decimal CadaPago
+      {
+          get { return CadaPago; }
+          set { this.CadaPago = value; }
+      }
+
+      public decimal Exceso_RC_ElevacionDeCobertura
+      {
+          get { return Exceso_RC_ElevacionDeCobertura; }
+          set { this.Exceso_RC_ElevacionDeCobertura = value; }
+      }
+      public decimal Exceso_RC_Base
+      {
+          get { return Exceso_RC_Base; }
+          set { this.Exceso_RC_Base = value; }
+      }
+
+    }
+
 }
 

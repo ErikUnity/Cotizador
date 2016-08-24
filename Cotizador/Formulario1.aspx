@@ -14,6 +14,9 @@
         .auto-style8 {
             width: 13px;
         }
+        .auto-style9 {
+            height: 24px;
+        }
     </style>
 
 </head>
@@ -242,28 +245,62 @@
                                                                              </td>
                                                                         </tr>
                                                                          <tr>
+                                                                                    <td class="auto-style9" style="font-family: Roboto; font-size: 15px; text-align: left; color: rgb(19, 27, 77); text-decoration: none; font-weight: normal; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; text-transform: none;">
+                                                                                        <asp:CheckBox ID="chkRoboParcial" runat="server" Text="Robo parcial" CssClass="letra" ToolTip="Ampara el robo del “equipo especial” instalado dentro de la cabina del vehículo; por ejemplo: robo de radio o bocinas, dvd, u otros equipos de audio o video. No ampara piezas mecánicas, externas o equipos portátiles o propiedad personal." OnCheckedChanged="ProcesarRobo()" ClientIDMode="Static" />
+                                                                             </td>
+                                                                        </tr>
+                                                                                 <tr>
+                                                                            <td class="justified_roboto" style="font-family: Roboto; font-size: 15px; text-align: left; color: rgb(19, 27, 77); text-decoration: none; font-weight: normal; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; text-transform: none;">
+                                                                               <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                                                                                    <ContentTemplate>
+                                                                                   <a id="Robo1">Valor Estimado:</a>
+                                                                                  </ContentTemplate>
+                                                                                </asp:UpdatePanel>
+
+                                                                            </td>
+                                                                        </tr>
+       
+                                                                        <tr >
+                                                                            <td style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; text-align: left; float:left;">
+                                                                               <asp:UpdatePanel ID="UpdatePanel2" runat="server">
+                                                                                    <ContentTemplate>
+                                                                                 <div id="Robo2">
+                                                                                  <table id="ASPxPageControl1_ASPxPageControl2_txtcorreo_ET" cellpadding="0" cellspacing="0" errorframe="errorFrame" style="border-collapse: collapse;">
+                                                                                    <tr>
+                                                                                        <td id="ASPxPageControl1_ASPxPageControl2_txtcorreo_CC" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; text-align: center;">
+                                                                                            <table id="ASPxPageControl1_ASPxPageControl2_TxtPrimerApellido" cellpadding="0" cellspacing="0" class="dxeTextBoxSys dxeTextBox just_morado" style="border-collapse: collapse; border: 1px solid rgb(159, 159, 159); cursor: default; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); font-family: Arial, Helvetica, sans-serif; text-align: left; color: rgb(19, 27, 77); font-size: 12px; text-decoration: none; font-weight: normal; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; text-transform: none; margin-bottom: 0px; width: 150px; background-color: white;">
+                                                                                                <tr>
+                                                                                                    <td class="dxic" style="font-family: Arial, Helvetica, sans-serif; font-size: 0px; text-align: center; width: 142px; padding: 3px 3px 2px; overflow: hidden;">
+                                                                                                    <asp:TextBox ID="txtValorEstimadoRoboParcial" runat="server" CssClass="dxeEditArea dxeEditAreaSys" Width="193px" onkeypress="return isNumberKey(event)" AutoCompleteType="Disabled"></asp:TextBox> 
+                                                                                                </td><td>&nbsp;&nbsp;<img alt="" class="auto-style2" src="imagenes/Error.png" id="errMontoAsegurado" style="visibility: hidden" /></td>
+                                                                                                </tr>
+                                                                                            </table>
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                  </table>
+                                                                                </div>
+                                                                                     </ContentTemplate>
+                                                                                </asp:UpdatePanel>
+                                                                            </td>
+                                                                        </tr> 
+         <tr>
                                                                                     <td class="justified_roboto" style="font-family: Roboto; font-size: 15px; text-align: left; color: rgb(19, 27, 77); text-decoration: none; font-weight: normal; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; text-transform: none;">
-                                                                                        <asp:CheckBox ID="chkRoboParcial" runat="server" Text="Robo parcial" CssClass="letra" />
+                                                                                        <asp:CheckBox ID="chkMenores16" runat="server" Text="Menores. Coberturas desde 16  años" CssClass="letra" ToolTip="Brinda cobertura a cualquier persona que conduzca el vehículo desde los 16 años, siempre que tengan su licencia de conducir vigente." />
                                                                              </td>
                                                                         </tr>
          <tr>
                                                                                     <td class="justified_roboto" style="font-family: Roboto; font-size: 15px; text-align: left; color: rgb(19, 27, 77); text-decoration: none; font-weight: normal; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; text-transform: none;">
-                                                                                        <asp:CheckBox ID="chkMenores16" runat="server" Text="Menores. Coberturas desde 16  años" CssClass="letra" />
+                                                                                        <asp:CheckBox ID="chkMenores18" runat="server" Text="Menores. Coberturas desde 18 años" CssClass="letra" ToolTip="(siempre que NO sean colaboradores): Brinda cobertura a cualquier persona que conduzca el vehículo desde los 16 años, siempre que tengan su licencia de conducir vigente." />   
                                                                              </td>
                                                                         </tr>
          <tr>
                                                                                     <td class="justified_roboto" style="font-family: Roboto; font-size: 15px; text-align: left; color: rgb(19, 27, 77); text-decoration: none; font-weight: normal; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; text-transform: none;">
-                                                                                        <asp:CheckBox ID="chkMenores18" runat="server" Text="Menores. Coberturas desde  18 años" CssClass="letra" />   
-                                                                             </td>
-                                                                        </tr>
-         <tr>
-                                                                                    <td class="justified_roboto" style="font-family: Roboto; font-size: 15px; text-align: left; color: rgb(19, 27, 77); text-decoration: none; font-weight: normal; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; text-transform: none;">
-                                                                                        <asp:CheckBox ID="chkExcesoRC" runat="server" Text="Exceso de RC.   (ID 5)." CssClass="letra" />
+                                                                                        <asp:CheckBox ID="chkExcesoRC" runat="server" Text="Exceso de RC.   (ID 5)." CssClass="letra" ToolTip="Ampliación del monto de cobertura de la sección II de la póliza (Seguro de Responsabilidad Civil ante Terceras personas) para tener una mejor protección.  " />
                                                                              </td>
                                                                         </tr>
                  <tr>
                                                                                     <td class="justified_roboto" style="font-family: Roboto; font-size: 15px; text-align: left; color: rgb(19, 27, 77); text-decoration: none; font-weight: normal; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; text-transform: none;">
-                                                                                        <a  class="letraTitulo">En qué horario desea ser contactado?</a>
+                                                                                        <a  class="letraTitulo">En qué horario desea ser contactado?
                                                                                        
                                                                                     </td>
                                                                         </tr>
@@ -354,6 +391,7 @@
                     document.getElementById("Monto1").style.visibility = "hidden";
                 }
   
+                ProcesarRobo();
 
         });
 
@@ -378,6 +416,22 @@
             document.getElementById("rdResponsabilidadCivil").checked = false;
             ApagarFocoRd();;
         
+        }
+
+        function ProcesarRobo() {
+            if (document.getElementById("chkRoboParcial").checked == true)
+            {
+                document.getElementById("Robo1").style.display = "inline";
+                document.getElementById("Robo2").style.display = "inline";
+                document.getElementById("Robo1").style.visibility = "visible";
+                document.getElementById("Robo2").style.visibility = "visible";
+            } else {
+                document.getElementById("Robo1").style.display = "none";
+                document.getElementById("Robo2").style.display = "none";
+                document.getElementById("Robo1").style.visibility = "hidden";
+                document.getElementById("Robo2").style.visibility = "hidden";
+            }
+
         }
         function ApagarFocoRd() {
             document.getElementById("errDañosATerceros").style.visibility = "hidden";
