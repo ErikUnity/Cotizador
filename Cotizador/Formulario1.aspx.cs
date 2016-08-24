@@ -17,6 +17,7 @@ namespace Cotizador
             {
            
                 CargarCombos();
+
             }
 
         }
@@ -138,8 +139,6 @@ namespace Cotizador
                 ClientScript.RegisterStartupScript(this.GetType(), "errHora", "document.getElementById('errHora').style.visibility = 'hidden';", true);
             }
 
-            if (Incompleto)
-                return;
 
             this.lblMsg.Text = "";
 
@@ -147,12 +146,17 @@ namespace Cotizador
             int MensajeTipo = 1;
             if (this.rdSeguroCompleto.Checked == true)
             { _tipo_seguro = "Seguro Completo";
-            MensajeTipo = 1;
+               MensajeTipo = 1;
             }
             else
             { _tipo_seguro = "Responsabilidad Civil";
-            MensajeTipo = 2;
+              MensajeTipo = 2;
             }
+        
+
+            if (Incompleto)
+                return;
+
 
             EnvioDeCorreoRapido.EjecutarProceso(this.txtCorreo.Text.Trim(), this.cmbTipoVehiculo.SelectedItem.Text.Trim(), this.cmbLinea.SelectedItem.Text.Trim(), this.cmbMarca.SelectedItem.Text.Trim(), this.cmbModelo.SelectedItem.Text.Trim(), ValorMercado, MensajeTipo, this.txtNombre.Text.Trim());
             List<CorreosInternos> correo = new List<CorreosInternos>();

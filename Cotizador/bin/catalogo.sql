@@ -70,13 +70,13 @@ CREATE TABLE IF NOT EXISTS `correosinternos` (
   KEY `indice` (`indice`),
   KEY `FK__coberturas_adicionales` (`CodigoEmpresa`),
   CONSTRAINT `FK__coberturas_adicionales` FOREIGN KEY (`CodigoEmpresa`) REFERENCES `coberturas_adicionales` (`codigo`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 -- Dumping data for table catalogo.correosinternos: ~0 rows (approximately)
 DELETE FROM `correosinternos`;
 /*!40000 ALTER TABLE `correosinternos` DISABLE KEYS */;
 INSERT INTO `correosinternos` (`indice`, `Correo`, `CodigoEmpresa`) VALUES
-	(2, 'erik.castaneda@unitypromotores.com', 'Roble');
+	(3, 'erik.castaneda@unitypromotores.com', 'Roble');
 /*!40000 ALTER TABLE `correosinternos` ENABLE KEYS */;
 
 
@@ -135,9 +135,9 @@ CREATE TABLE IF NOT EXISTS `logcorreosenviados` (
   `TipoSeguro` varchar(500) DEFAULT NULL,
   `contactar` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`indice`)
-) ENGINE=InnoDB AUTO_INCREMENT=47 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=49 DEFAULT CHARSET=utf8;
 
--- Dumping data for table catalogo.logcorreosenviados: ~44 rows (approximately)
+-- Dumping data for table catalogo.logcorreosenviados: ~42 rows (approximately)
 DELETE FROM `logcorreosenviados`;
 /*!40000 ALTER TABLE `logcorreosenviados` DISABLE KEYS */;
 INSERT INTO `logcorreosenviados` (`indice`, `Nombre`, `Correo`, `TipoDeVehiculo`, `Linea`, `Marca`, `Telefono`, `Modelo`, `SumaAsegurada`, `Fecha`, `TipoSeguro`, `contactar`) VALUES
@@ -185,7 +185,9 @@ INSERT INTO `logcorreosenviados` (`indice`, `Nombre`, `Correo`, `TipoDeVehiculo`
 	(43, 'Monica Arce', 'erik.castaneda@unitypromotores.com', 'Agrícola 4x2', '3 SEDAN', 'BMW', '65465465', '2000', 135000.00, '2016-08-23 16:34:13', 'Seguro Completo', 'erik.castaneda@unitypromotores.com'),
 	(44, 'Monica Arce', 'erik.castaneda@unitypromotores.com', 'Agrícola 4x2', '3 SEDAN', 'BMW', '65465465', '2000', 135000.00, '2016-08-23 16:36:30', 'Responsabilidad Civil', 'erik.castaneda@unitypromotores.com'),
 	(45, 'Monica Arce', 'erik.castaneda@unitypromotores.com', 'Agrícola 4x2', '3 SEDAN', 'BMW', '65468798', '2000', 135000.00, '2016-08-23 16:53:43', 'Seguro Completo', 'erik.castaneda@unitypromotores.com'),
-	(46, 'Julian Presa', 'julian.presa@unitypromotores.com', 'Agrícola 4x4', 'RAV4', 'Toyota', '23863700', '2014', 200000.00, '2016-08-24 08:21:33', 'Seguro Completo', 'julian.presa@unitypromotores.com');
+	(46, 'Julian Presa', 'julian.presa@unitypromotores.com', 'Agrícola 4x4', 'RAV4', 'Toyota', '23863700', '2014', 200000.00, '2016-08-24 08:21:33', 'Seguro Completo', 'julian.presa@unitypromotores.com'),
+	(47, 'erik castañeda', 'erik.castaneda@hotmail.com', 'Agrícola 4x2', '3 SEDAN', 'BMW', '65465465', '2000', 50000.00, '2016-08-24 09:08:07', 'Seguro Completo', 'erik.castaneda@hotmail.com'),
+	(48, 'Erik Castañeda', 'erik.castaneda@unitypromotores.com', 'Agrícola 4x2', '3 SEDAN', 'BMW', '65465465', '2000', 50000.00, '2016-08-24 09:09:33', 'Seguro Completo', 'erik.castaneda@unitypromotores.com');
 /*!40000 ALTER TABLE `logcorreosenviados` ENABLE KEYS */;
 
 
