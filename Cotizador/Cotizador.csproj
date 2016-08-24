@@ -157,6 +157,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Logs\" />
     <Folder Include="obj\Debug\TempPE\" />
+    <Folder Include="Reportes\" />
     <Folder Include="Service References\" />
   </ItemGroup>
   <PropertyGroup>

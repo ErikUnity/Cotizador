@@ -31,6 +31,24 @@ namespace Cotizador
            return dv;
 
         }
+        public static List<CorreosInternos> EnviarCorreosInternos(string CodigoEmpresa)
+        {
+
+            List<CorreosInternos> data = new List<CorreosInternos>();
+
+            DataTable content = new DataTable();
+            content = AccesoDatos.RegresaTablaMySql("select Correo from correosinternos where CodigoEmpresa ='" + CodigoEmpresa + "'");
+            foreach (DataRow rw in content.Rows)
+            {
+                CorreosInternos address = new CorreosInternos();
+                address.Correo = rw[0].ToString();
+                data.Add(address);
+            }
+            
+            return data;
+
+        }
+
         public DataView LlenaComboMarca()
         {
 
@@ -380,6 +398,12 @@ namespace Cotizador
         
         }
       
+    }
+
+    public class CorreosInternos
+    {
+        public string Correo = "";
+        public CorreosInternos() { }
     }
 }
 
