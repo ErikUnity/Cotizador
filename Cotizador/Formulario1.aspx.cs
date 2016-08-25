@@ -52,6 +52,8 @@ namespace Cotizador
         {
             Decimal SumaAsegurada = 0;
             Decimal NetaAnual = 0;
+            Decimal RoboParcial = 0;
+
             bool Incompleto = false;
             if (this.txtNombre.Text.Trim() == "")
             {
@@ -139,6 +141,39 @@ namespace Cotizador
                 ClientScript.RegisterStartupScript(this.GetType(), "errHora", "document.getElementById('errHora').style.visibility = 'hidden';", true);
             }
 
+            if (ValorMercado == "")
+                ValorMercado = "0";
+
+            if (this.chkRoboParcial.Checked)
+            {
+                if (this.txtValorEstimadoRoboParcial.Text.ToString() == "")
+                {
+                    ClientScript.RegisterStartupScript(this.GetType(), "errRoboParcial", "document.getElementById('errRoboParcial').style.visibility = 'visible';", true);
+                    Incompleto = true;
+                }
+                else
+                {
+                    ClientScript.RegisterStartupScript(this.GetType(), "errRoboParcial", "document.getElementById('errRoboParcial').style.visibility = 'hidden';", true);
+                    RoboParcial = Decimal.Parse(this.txtValorEstimadoRoboParcial.Text.ToString().Trim());
+                }
+                decimal equipo_especial = 0;
+                decimal cien = 100;
+                decimal mil = 1000;
+
+                equipo_especial = decimal.Parse(ValorMercado) * (cien) / (mil);
+                if (RoboParcial > equipo_especial)
+                {
+                    ClientScript.RegisterStartupScript(this.GetType(), "errRoboParcial", "document.getElementById('errRoboParcial').style.visibility = 'visible';", true);
+                    ClientScript.RegisterStartupScript(this.GetType(), "Alert", "alert('El valor del equipo especial nunca podrá ser mayor al 10% del valor del vehículo asegurado, maximo permitido :" + equipo_especial.ToString() + ".');", true);
+                    this.txtValorEstimadoRoboParcial.Text = equipo_especial.ToString();
+                    Incompleto = true;
+                }
+                else
+                {
+                    ClientScript.RegisterStartupScript(this.GetType(), "errRoboParcial", "document.getElementById('errRoboParcial').style.visibility = 'hidden';", true);
+                }
+
+            }
 
             this.lblMsg.Text = "";
 
@@ -168,17 +203,39 @@ namespace Cotizador
                     EnvioDeCorreoRapido.EjecutarProceso(item.Correo, this.cmbTipoVehiculo.SelectedItem.Text.Trim(), this.cmbLinea.SelectedItem.Text.Trim(), this.cmbMarca.SelectedItem.Text.Trim(), this.cmbModelo.SelectedItem.Text.Trim(), ValorMercado, MensajeTipo, this.txtNombre.Text.Trim());
                 }
             }
-            if (ValorMercado == "")
-                ValorMercado = "0";
+
 
              Cotizar.GuardaCotizacion(this.txtNombre.Text.Trim(), this.txtCorreo.Text.Trim(), this.cmbTipoVehiculo.SelectedItem.Text.Trim(), this.cmbLinea.SelectedItem.Text.Trim(), this.cmbMarca.SelectedItem.Text.Trim(), this.txtTelefono.Text.Trim(), this.cmbModelo.SelectedItem.Text.Trim(), Decimal.Parse(this.txtValorMercado.Text.Trim()), _tipo_seguro,this.txtCorreo.Text.ToString(),"Roble");
 
              SumaAsegurada = Decimal.Parse(ValorMercado);
-             Valores Calculo = new Valores("Roble", SumaAsegurada, this.chkRoboParcial.Checked, this.chkMenores16.Checked, this.chkMenores18.Checked, this.chkExcesoRC.Checked);
+             Valores Calculo = new Valores("Roble", SumaAsegurada, this.chkRoboParcial.Checked, this.chkMenores16.Checked, this.chkMenores18.Checked, this.chkExcesoRC.Checked, RoboParcial);
              this.lblMsg.Text = Calculo.PrimaTotalProRata.ToString();
-
+             
              ClientScript.RegisterStartupScript(this.GetType(), "Alert", "alert('La cotización ha sido enviada a su correo: " + this.txtCorreo.Text + ");", true);
+             
+             
+        }
+
+        protected void chkRoboParcial_CheckedChanged(object sender, EventArgs e)
+        {
            
+            if (rdResponsabilidadCivil.Checked)
+            {
+                ClientScript.RegisterStartupScript(this.GetType(), "Alert", "alert('El robo parcial aplica solo para el seguro completo.');", true);
+                this.chkRoboParcial.Checked = false;
+                return;
+            }
+
+            if (this.rdSeguroCompleto.Checked == false && rdResponsabilidadCivil.Checked == false)
+            {
+                ClientScript.RegisterStartupScript(this.GetType(), "Alert", "alert('Esta opcion es aplicable al seleccionar el seguro completo e ingresar el valor de su vehiculo.');", true);
+                this.chkRoboParcial.Checked = false;
+                return;
+            }
+            if (this.rdSeguroCompleto.Checked)
+            {
+                ClientScript.RegisterStartupScript(this.GetType(), "SeguroRobo", "ProcesarRobo()", true);
+            }
 
         }
 

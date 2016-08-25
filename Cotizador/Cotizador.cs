@@ -48,9 +48,9 @@ namespace Cotizador
             return data;
 
         }
-        public static List<Impresion> ReporteCotizacion1(string CodigoEmpresa,decimal SumaAsegurada, bool RoboParcial, bool Menores16, bool Menores18,bool ExcesosRC)
+        public static List<Impresion> ReporteCotizacion1(string CodigoEmpresa,decimal SumaAsegurada, bool RoboParcial, bool Menores16, bool Menores18,bool ExcesosRC, decimal _RoboParcial)
         {
-            Valores Calculo = new Valores(CodigoEmpresa, SumaAsegurada, RoboParcial, Menores16, Menores18, ExcesosRC);
+            Valores Calculo = new Valores(CodigoEmpresa, SumaAsegurada, RoboParcial, Menores16, Menores18, ExcesosRC, _RoboParcial);
             Impresion lista = new Impresion();
             List<Impresion> data = new List<Impresion>();
             lista.Asisto = Calculo.Asisto;
@@ -78,15 +78,7 @@ namespace Cotizador
             lista.RoboParcial = Calculo.RoboParcial;
             lista.SumaAsegurada = Calculo.SumaAsegurada;
             lista.SumaLimiteParaCalculo = Calculo.SumaLimiteParaCalculo;
-            data.Add(lista);
-
-            return data;
-
-        }
-        public static List<Impresion> ReporteFormato1()
-        {
-            List<Impresion> data = new List<Impresion>();
-            Impresion lista = new Impresion();
+            lista.DañosATerceros = Calculo.DañosATerceros;
             data.Add(lista);
 
             return data;
@@ -137,7 +129,7 @@ namespace Cotizador
 
          public void GuardaCotizacion( string _Nombre, string _Correo, string _TipoDeVehiculo,string  _Linea,string  _Marca, string _Telefono, string _Modelo, decimal _SumaAsegurada, string _TipoSeguro, string Hora, string _CodigoEmpresa) 
          { 
-         string sql = " insert into LogCorreosEnviados(Nombre, Correo, TipoDeVehiculo, Linea, Marca, Telefono, Modelo, SumaAsegurada, TipoSeguro, contactar)";
+         string sql = " insert into LogCorreosEnviados(Nombre, Correo, TipoDeVehiculo, Linea, Marca, Telefono, Modelo, SumaAsegurada, TipoSeguro, contactar, CodigoEmpresa)";
          sql += " values('" + _Nombre + "','" + _Correo + "','" + _TipoDeVehiculo + "','" + _Linea + "','" + _Marca + "','" + _Telefono + "','" + _Modelo + "'," + _SumaAsegurada.ToString() + ",'" + _TipoSeguro + "','" + Hora + "','" + _CodigoEmpresa + "')";
          AccesoDatos.EjecutaQueryMySql( sql);
         
@@ -383,6 +375,15 @@ namespace Cotizador
 
              return resultado;
          }
+         public static List<Impresion> ReporteFormato1()
+         {
+             List<Impresion> data = new List<Impresion>();
+             Impresion lista = new Impresion();
+             data.Add(lista);
+
+             return data;
+
+         }
     }
     
     public class Valores 
@@ -414,12 +415,14 @@ namespace Cotizador
       public decimal CadaPago = 0;
       public decimal  Exceso_RC_ElevacionDeCobertura = 0;
       public decimal Exceso_RC_Base = 0;
+      public decimal DañosATerceros = 0;
 
-        public Valores(string _Codigo, decimal _SumaAsegurada, bool _roboParcial, bool _MenoresDesde16, bool _MenoresDesde18, bool _ExcesoRC)
+        public Valores(string _Codigo, decimal _SumaAsegurada, bool _roboParcial, bool _MenoresDesde16, bool _MenoresDesde18, bool _ExcesoRC, decimal _RoboParcial)
         {
             decimal equipo_especial = 0;
             decimal cien = 100;
             decimal mil = 1000;
+            decimal docientoscientuena = 250;
 
              Codigo = _Codigo;
              SumaAsegurada = _SumaAsegurada;
@@ -430,9 +433,9 @@ namespace Cotizador
              Porcentaje_Menor_100 = Cotizadores.ObtienePorcentajeMenor(_Codigo);
              Porcentaje_Mayor_100 = Cotizadores.ObtienePorcentajeMayor(_Codigo);
              Costo = Cotizadores.ObtieneCosto(_Codigo);
-             RoboParcial = Cotizadores.ObtieneValor_RoboParcial(_Codigo);
-             MenoresDesde16 = Cotizadores.ObtieneValor_Menores_desde_16(_Codigo);
-             MenoresDesde18 = Cotizadores.ObtieneValor_Menores_desde_18(_Codigo);
+             RoboParcial = 0;
+             MenoresDesde16 = 0;
+             MenoresDesde18 = 0;
              ExcesoRC = Cotizadores.ObtieneValor_Exceso_RC(_Codigo);
              Asisto = Cotizadores.ObtieneValor_Asisto(_Codigo);
              CalculoIva = Cotizadores.ObtieneIva(_Codigo);
@@ -441,7 +444,7 @@ namespace Cotizador
              System.DateTime nextyear = newDate.AddYears(1);
              DiasAnuales = int.Parse((newDate - nextyear).TotalDays.ToString()) * -1;
              DiasTotales = int.Parse((nextyear - olddate).TotalDays.ToString());
-
+             DañosATerceros = Exceso_RC_Base;
 
              if (SumaAsegurada < SumaLimiteParaCalculo)
              {
@@ -456,23 +459,47 @@ namespace Cotizador
              }
              
              //L31*100/1000
-             equipo_especial = SumaAsegurada * (cien) / (mil);
+             
 
              GastosPorEmision = PrimaNeta * (Cotizadores.ObtieneValor_GastosEmision(_Codigo));
              PrimaNetaProRata = PrimaNeta * DiasTotales / DiasAnuales;
              GastosPorEmisionProRata = PrimaNetaProRata * (Cotizadores.ObtieneValor_GastosEmision(_Codigo));
 
              if (_roboParcial)
+             {
+                 equipo_especial = SumaAsegurada * (cien) / (mil);
+                 if (_RoboParcial > equipo_especial)
+                 {
+                     RoboParcial = equipo_especial * (cien) / (mil);
+                 }
+                 else {
+                     RoboParcial = _RoboParcial * (cien) / (mil);
+                 }
+               
                  CoberturaAdicional += RoboParcial;
 
-            if(_MenoresDesde16)
-                CoberturaAdicional += MenoresDesde16;
+             }
+             if (_MenoresDesde16)
+             {
+                 MenoresDesde16 = PrimaNeta * (docientoscientuena) / (mil);
+                 CoberturaAdicional += MenoresDesde16;
+             }
+             if (_MenoresDesde18)
+             {
+                 MenoresDesde18 = PrimaNeta * (docientoscientuena) / (mil);
+                 CoberturaAdicional += MenoresDesde18;
+             }
+             if (_ExcesoRC)
+             {
+                 if (_MenoresDesde16 == true || _MenoresDesde18 == true)
+                 {
+                     ExcesoRC += PrimaNeta * (docientoscientuena) / (mil);
+                 }
 
-            if (_MenoresDesde18)
-                CoberturaAdicional += MenoresDesde18;
+                 DañosATerceros += Exceso_RC_ElevacionDeCobertura;
+                 CoberturaAdicional += ExcesoRC;
+             }
 
-            if (_ExcesoRC)
-                CoberturaAdicional += ExcesoRC;
 
             Iva = (CoberturaAdicional + PrimaNeta + GastosPorEmision + Asisto) * CalculoIva;
             IvaProRata = (CoberturaAdicional + PrimaNetaProRata + GastosPorEmisionProRata + Asisto) * CalculoIva;
@@ -642,7 +669,11 @@ namespace Cotizador
           get { return Exceso_RC_Base; }
           set { this.Exceso_RC_Base = value; }
       }
-
+      public decimal DañosATerceros
+      {
+          get { return DañosATerceros; }
+          set { this.DañosATerceros = value; }
+      }
     }
 
 }

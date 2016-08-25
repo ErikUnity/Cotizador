@@ -141,11 +141,11 @@
     <Content Include="Rpt1.aspx" />
     <Content Include="Web.config" />
     <Content Include="bin\Cotizadores.dll.config" />
-    <Content Include="Documentos\ASR7.xls" />
     <Content Include="obj\Debug\Cotizadores.csprojResolveAssemblyReference.cache" />
     <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
     <Content Include="packages.config" />
     <Content Include="ASR27.xls" />
+    <Content Include="Documentos\ASR7.xlsx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -185,8 +185,10 @@
     <Folder Include="Logs\" />
     <Folder Include="obj\Debug\TempPE\" />
     <Folder Include="Recursos\" />
-    <Folder Include="Reportes\" />
     <Folder Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Reportes\CotizadorRoble.rdlc" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

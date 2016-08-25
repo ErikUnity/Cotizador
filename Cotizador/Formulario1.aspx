@@ -244,9 +244,9 @@
                                                                                    <a class="letraTitulo">Coberturas Adicionales:</a> 
                                                                              </td>
                                                                         </tr>
-                                                                         <tr>
-                                                                                    <td class="auto-style9" style="font-family: Roboto; font-size: 15px; text-align: left; color: rgb(19, 27, 77); text-decoration: none; font-weight: normal; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; text-transform: none;">
-                                                                                        <asp:CheckBox ID="chkRoboParcial" runat="server" Text="Robo parcial" CssClass="letra" ToolTip="Ampara el robo del “equipo especial” instalado dentro de la cabina del vehículo; por ejemplo: robo de radio o bocinas, dvd, u otros equipos de audio o video. No ampara piezas mecánicas, externas o equipos portátiles o propiedad personal." OnCheckedChanged="ProcesarRobo()" ClientIDMode="Static" />
+                                                                              <tr>
+                                                                               <td class="auto-style9" style="font-family: Roboto; font-size: 15px; text-align: left; color: rgb(19, 27, 77); text-decoration: none; font-weight: normal; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; text-transform: none;">
+                                                                                        <asp:CheckBox ID="chkRoboParcial" runat="server" Text="Robo parcial" CssClass="letra" ToolTip="Ampara el robo del “equipo especial” instalado dentro de la cabina del vehículo; por ejemplo: robo de radio o bocinas, dvd, u otros equipos de audio o video. No ampara piezas mecánicas, externas o equipos portátiles o propiedad personal." AutoPostBack="True" OnCheckedChanged="chkRoboParcial_CheckedChanged"  />
                                                                              </td>
                                                                         </tr>
                                                                                  <tr>
@@ -272,7 +272,7 @@
                                                                                                 <tr>
                                                                                                     <td class="dxic" style="font-family: Arial, Helvetica, sans-serif; font-size: 0px; text-align: center; width: 142px; padding: 3px 3px 2px; overflow: hidden;">
                                                                                                     <asp:TextBox ID="txtValorEstimadoRoboParcial" runat="server" CssClass="dxeEditArea dxeEditAreaSys" Width="193px" onkeypress="return isNumberKey(event)" AutoCompleteType="Disabled"></asp:TextBox> 
-                                                                                                </td><td>&nbsp;&nbsp;<img alt="" class="auto-style2" src="imagenes/Error.png" id="errMontoAsegurado" style="visibility: hidden" /></td>
+                                                                                                </td><td>&nbsp;&nbsp;<img alt="" class="auto-style2" src="imagenes/Error.png" id="errRoboParcial" style="visibility: hidden" /></td>
                                                                                                 </tr>
                                                                                             </table>
                                                                                         </td>
