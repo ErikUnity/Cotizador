@@ -674,6 +674,23 @@ namespace Cotizador
           get { return DañosATerceros; }
           set { this.DañosATerceros = value; }
       }
+
+      public string NombreCliente
+      {
+          get { return NombreCliente; }
+          set { this.NombreCliente = value; }
+      }
+      public string NombreAgente
+      {
+          get { return NombreAgente; }
+          set { this.NombreAgente = value; }
+      }
+      public string DescripcionVehiculo
+      {
+          get { return DescripcionVehiculo; }
+          set { this.DescripcionVehiculo = value; }
+      }
+
     }
 
 }
