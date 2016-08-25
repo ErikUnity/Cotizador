@@ -31,6 +31,8 @@ CREATE TABLE IF NOT EXISTS `coberturas_adicionales` (
   `gastos_emision` decimal(10,2) DEFAULT '0.00',
   `asisto` decimal(10,2) DEFAULT '0.00',
   `iva` decimal(10,2) DEFAULT '0.00',
+  `Exceso_RC_ElevacionDeCobertura` decimal(10,2) DEFAULT NULL,
+  `Exceso_RC_Base` decimal(10,2) DEFAULT NULL,
   PRIMARY KEY (`indice`),
   UNIQUE KEY `codigo` (`codigo`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
@@ -38,8 +40,8 @@ CREATE TABLE IF NOT EXISTS `coberturas_adicionales` (
 -- Dumping data for table catalogo.coberturas_adicionales: ~1 rows (approximately)
 DELETE FROM `coberturas_adicionales`;
 /*!40000 ALTER TABLE `coberturas_adicionales` DISABLE KEYS */;
-INSERT INTO `coberturas_adicionales` (`indice`, `codigo`, `base`, `suma_asegurada_limite`, `porcentaje_menor_100`, `porcentaje_mayor_100`, `costo`, `robo_parcial`, `Menores_desde_16`, `Menores_desde_18`, `Exceso_RC`, `gastos_emision`, `asisto`, `iva`) VALUES
-	(1, 'Roble', 1000.00, 100000.00, 0.025, 0.020, 500.00, 267.54, 500.00, 1000.00, 1500.00, 0.05, 145.45, 0.12);
+INSERT INTO `coberturas_adicionales` (`indice`, `codigo`, `base`, `suma_asegurada_limite`, `porcentaje_menor_100`, `porcentaje_mayor_100`, `costo`, `robo_parcial`, `Menores_desde_16`, `Menores_desde_18`, `Exceso_RC`, `gastos_emision`, `asisto`, `iva`, `Exceso_RC_ElevacionDeCobertura`, `Exceso_RC_Base`) VALUES
+	(1, 'Roble', 1000.00, 100000.00, 0.025, 0.020, 500.00, 267.54, 500.00, 1000.00, 200.00, 0.05, 145.45, 0.12, 250000.00, 800000.00);
 /*!40000 ALTER TABLE `coberturas_adicionales` ENABLE KEYS */;
 
 
@@ -134,60 +136,66 @@ CREATE TABLE IF NOT EXISTS `logcorreosenviados` (
   `Fecha` datetime DEFAULT CURRENT_TIMESTAMP,
   `TipoSeguro` varchar(500) DEFAULT NULL,
   `contactar` varchar(100) DEFAULT NULL,
+  `CodigoEmpresa` varchar(150) DEFAULT NULL,
   PRIMARY KEY (`indice`)
-) ENGINE=InnoDB AUTO_INCREMENT=49 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=54 DEFAULT CHARSET=utf8;
 
--- Dumping data for table catalogo.logcorreosenviados: ~42 rows (approximately)
+-- Dumping data for table catalogo.logcorreosenviados: ~47 rows (approximately)
 DELETE FROM `logcorreosenviados`;
 /*!40000 ALTER TABLE `logcorreosenviados` DISABLE KEYS */;
-INSERT INTO `logcorreosenviados` (`indice`, `Nombre`, `Correo`, `TipoDeVehiculo`, `Linea`, `Marca`, `Telefono`, `Modelo`, `SumaAsegurada`, `Fecha`, `TipoSeguro`, `contactar`) VALUES
-	(2, 'Monica Arce', 'monica.arce@unitypromotores.com', 'Automovil', '3 SEDAN', 'BMW', '654654654', '2000', 350000.00, '2016-08-18 21:36:13', 'Responsabilidad Civil', NULL),
-	(3, 'Monica Arce', 'castaneda.erik@hotmail.com', 'Automovil', '3 SEDAN', 'BMW', '24654974', '2000', 35000.00, '2016-08-18 21:56:10', 'Daños a Terceros', NULL),
-	(4, 'Monica Arce', 'monica.arce@unitypromotores.com', 'Automovil', '3 SEDAN', 'BMW', '654654314', '2000', 7500.00, '2016-08-18 22:33:00', 'Daños a Terceros', NULL),
-	(5, 'Monica Arce', 'monica.arce@unitypromotores.com', 'Automovil', '3 SEDAN', 'BMW', '46198798', '2000', 15400.00, '2016-08-18 22:46:46', 'Daños a Terceros', NULL),
-	(6, 'Monica Arce', 'erik.castaneda@unitypromotores.com', 'Automovil', '3 SEDAN', 'BMW', '46198798', '2000', 15400.00, '2016-08-18 22:47:53', 'Daños a Terceros', NULL),
-	(7, 'Monica Arce', 'erik.castaneda@unitypromotores.com', 'Automovil', '3 SEDAN', 'BMW', '46546879', '2000', 15000.00, '2016-08-18 22:52:14', 'Daños a Terceros', NULL),
-	(8, 'Monica Arce', 'erik.castaneda@unitypromotores.com', 'Automovil', '3 SEDAN', 'BMW', '46546879', '2000', 15000.00, '2016-08-18 22:53:15', 'Daños a Terceros', NULL),
-	(9, 'Monica Arce', 'erik.castaneda@unitypromotores.com', 'Automovil', '3 SEDAN', 'BMW', '46546879', '2000', 15000.00, '2016-08-18 22:54:07', 'Daños a Terceros', NULL),
-	(10, 'monica arce', 'erik.castaneda@unitypromotores.com', 'Automovil', '3 SEDAN', 'BMW', '465465465', '2000', 15000.00, '2016-08-19 15:44:51', 'Responsabilidad Civil', NULL),
-	(11, 'monica arce', 'monica.arce@unitypromotores.com', 'Automovil', '3 SEDAN', 'BMW', '465465465', '2000', 15000.00, '2016-08-19 15:46:43', 'Responsabilidad Civil', NULL),
-	(12, 'Monica Arce', 'erik.castaneda@unitypromotores.com', 'Automovil', '3 SEDAN', 'BMW', '12345647', '2000', 5000.00, '2016-08-22 11:39:09', 'Daños a Terceros', NULL),
-	(13, 'Monica Arce', 'erik.castaneda@unitypromotores.com', 'Automovil', '3 SEDAN', 'BMW', '13265465', '2000', 5000.00, '2016-08-22 11:43:02', 'Daños a Terceros', NULL),
-	(14, 'Monica Arce', 'erik.castaneda@unitypromotores.com', 'Automovil', '3 SEDAN', 'BMW', '65465465', '2000', 5000.00, '2016-08-22 11:44:19', 'Daños a Terceros', NULL),
-	(15, 'Monica Arce', 'erik.castaneda@unitypromotores.com', 'Automovil', '3 SEDAN', 'BMW', '12345665', '2000', 5000.00, '2016-08-22 11:50:47', 'Daños a Terceros', NULL),
-	(16, 'Monica Arce', 'erik.castaneda@unitypromotores.com', 'Automovil', '3 SEDAN', 'BMW', '65465465', '2000', 5000.00, '2016-08-22 12:14:14', 'Daños a Terceros', NULL),
-	(17, 'Monica Arce', 'erik.castaneda@unitypromotores.com', 'Automovil', '3 SEDAN', 'BMW', '65465465', '2000', 50000.00, '2016-08-22 13:51:41', 'Seguro Completo', NULL),
-	(18, 'Monica Arce', 'erik.castaneda@unitypromotores.com', 'Automovil', '3 SEDAN', 'BMW', '65465465', '2000', 5000.00, '2016-08-22 13:55:30', 'Seguro Completo', NULL),
-	(19, 'Monica Arce', 'erik.castaneda@unitypromotores.com', 'Automovil', '3 SEDAN', 'BMW', '65465465', '2000', 5000.00, '2016-08-22 13:56:03', 'Responsabilidad Civil', NULL),
-	(20, 'Monica Arce', 'erik.castaneda@unitypromotores.com', 'Agrícola 4x2', '3 SEDAN', 'BMW', '65465465', '2000', 5000.00, '2016-08-23 09:47:56', 'Seguro Completo', 'erik.castaneda@unitypromotores.com'),
-	(21, 'Monica Arce', 'erik.castaneda@unitypromotores.com', 'Agrícola 4x2', '3 SEDAN', 'BMW', '13246549', '2000', 50000.00, '2016-08-23 13:39:58', 'Seguro Completo', 'erik.castaneda@unitypromotores.com'),
-	(22, 'Monica Arce', 'erik.castaneda@unitypromotores.com', 'Agrícola 4x2', '3 SEDAN', 'BMW', '65465465', '2000', 5050.00, '2016-08-23 13:44:24', 'Seguro Completo', 'erik.castaneda@unitypromotores.com'),
-	(23, 'Monica Arce', 'erik.castaneda@unitypromotores.com', 'Agrícola 4x2', '3 SEDAN', 'BMW', '65465165', '2000', 47000.00, '2016-08-23 14:33:01', 'Seguro Completo', 'erik.castaneda@unitypromotores.com'),
-	(24, 'Monica Arce', 'erik.castaneda@unitypromotores.com', 'Agrícola 4x2', '3 SEDAN', 'BMW', '65465465', '2000', 47000.00, '2016-08-23 14:42:04', 'Seguro Completo', 'erik.castaneda@unitypromotores.com'),
-	(25, 'Monica Arce', 'erik.castaneda@unitypromotores.com', 'Agrícola 4x2', '3 SEDAN', 'BMW', '65465465', '2000', 470000.00, '2016-08-23 14:47:00', 'Seguro Completo', 'erik.castaneda@unitypromotores.com'),
-	(26, 'Monica Arce', 'erik.castaneda@unitypromotores.com', 'Agrícola 4x2', '3 SEDAN', 'BMW', '65465465', '2000', 47000.00, '2016-08-23 14:49:16', 'Seguro Completo', 'erik.castaneda@unitypromotores.com'),
-	(27, 'monica arce', 'erik.castaneda@unitypromotores.com', 'Agrícola 4x2', '3 SEDAN', 'BMW', '65465465', '2000', 47000.00, '2016-08-23 14:56:39', 'Seguro Completo', 'erik.castaneda@unitypromotores.com'),
-	(28, 'monica arce', 'erik.castaneda@unitypromotores.com', 'Agrícola 4x2', '3 SEDAN', 'BMW', '65465465', '2000', 47000.00, '2016-08-23 14:57:56', 'Seguro Completo', 'erik.castaneda@unitypromotores.com'),
-	(29, 'monica arce', 'erik.castaneda@unitypromotores.com', 'Agrícola 4x2', '3 SEDAN', 'BMW', '65465165', '2000', 47000.00, '2016-08-23 15:07:00', 'Seguro Completo', 'erik.castaneda@unitypromotores.com'),
-	(30, 'monica arce', 'erik.castaneda@unitypromotores.com', 'Agrícola 4x2', '3 SEDAN', 'BMW', '65465465', '2000', 47000.00, '2016-08-23 15:09:46', 'Seguro Completo', 'erik.castaneda@unitypromotores.com'),
-	(31, 'monica arce', 'erik.castaneda@unitypromotores.com', 'Agrícola 4x2', '3 SEDAN', 'BMW', '65465465', '2000', 47000.00, '2016-08-23 15:11:32', 'Seguro Completo', 'erik.castaneda@unitypromotores.com'),
-	(32, 'monica arce', 'erik.castaneda@unitypromotores.com', 'Agrícola 4x2', '3 SEDAN', 'BMW', '65465465', '2000', 470000.00, '2016-08-23 15:13:30', 'Seguro Completo', 'erik.castaneda@unitypromotores.com'),
-	(33, 'monica arce', 'erik.castaneda@unitypromotores.com', 'Agrícola 4x2', '3 SEDAN', 'BMW', '65465465', '2000', 47000.00, '2016-08-23 15:14:25', 'Seguro Completo', 'erik.castaneda@unitypromotores.com'),
-	(34, 'monica arce', 'erik.castaneda@unitypromotores.com', 'Agrícola 4x2', '3 SEDAN', 'BMW', '65465465', '2000', 47000.00, '2016-08-23 15:23:46', 'Seguro Completo', 'erik.castaneda@unitypromotores.com'),
-	(35, 'monica arce', 'erik.castaneda@unitypromotores.com', 'Agrícola 4x2', '3 SEDAN', 'BMW', '65465465', '2000', 47000.00, '2016-08-23 15:45:20', 'Seguro Completo', 'erik.castaneda@unitypromotores.com'),
-	(36, 'monica arce', 'erik.castaneda@unitypromotores.com', 'Agrícola 4x2', '3 SEDAN', 'BMW', '65465465', '2000', 47000.00, '2016-08-23 15:51:31', 'Seguro Completo', 'erik.castaneda@unitypromotores.com'),
-	(37, 'monica arce', 'erik.castaneda@unitypromotores.com', 'Agrícola 4x2', '3 SEDAN', 'BMW', '54987987', '2000', 135000.00, '2016-08-23 15:57:00', 'Seguro Completo', 'erik.castaneda@unitypromotores.com'),
-	(38, 'monica arce', 'erik.castaneda@unitypromotores.com', 'Agrícola 4x2', '3 SEDAN', 'BMW', '65465465', '2000', 135000.00, '2016-08-23 15:57:48', 'Seguro Completo', 'erik.castaneda@unitypromotores.com'),
-	(39, 'monica arce', 'erik.castaneda@unitypromotores.com', 'Agrícola 4x2', '3 SEDAN', 'BMW', '65465465', '2000', 135000.00, '2016-08-23 16:10:01', 'Seguro Completo', 'erik.castaneda@unitypromotores.com'),
-	(40, 'monica arce', 'erik.castaneda@unitypromotores.com', 'Agrícola 4x2', '3 SEDAN', 'BMW', '65465465', '2000', 135000.00, '2016-08-23 16:12:47', 'Seguro Completo', 'erik.castaneda@unitypromotores.com'),
-	(41, 'monica arce', 'erik.castaneda@unitypromotores.com', 'Agrícola 4x2', '3 SEDAN', 'BMW', '65798798', '2000', 135000.00, '2016-08-23 16:13:49', 'Seguro Completo', 'erik.castaneda@unitypromotores.com'),
-	(42, 'monica arce', 'erik.castaneda@unitypromotores.com', 'Agrícola 4x2', '3 SEDAN', 'BMW', '65798798', '2005', 180000.00, '2016-08-23 16:24:22', 'Seguro Completo', 'erik.castaneda@unitypromotores.com'),
-	(43, 'Monica Arce', 'erik.castaneda@unitypromotores.com', 'Agrícola 4x2', '3 SEDAN', 'BMW', '65465465', '2000', 135000.00, '2016-08-23 16:34:13', 'Seguro Completo', 'erik.castaneda@unitypromotores.com'),
-	(44, 'Monica Arce', 'erik.castaneda@unitypromotores.com', 'Agrícola 4x2', '3 SEDAN', 'BMW', '65465465', '2000', 135000.00, '2016-08-23 16:36:30', 'Responsabilidad Civil', 'erik.castaneda@unitypromotores.com'),
-	(45, 'Monica Arce', 'erik.castaneda@unitypromotores.com', 'Agrícola 4x2', '3 SEDAN', 'BMW', '65468798', '2000', 135000.00, '2016-08-23 16:53:43', 'Seguro Completo', 'erik.castaneda@unitypromotores.com'),
-	(46, 'Julian Presa', 'julian.presa@unitypromotores.com', 'Agrícola 4x4', 'RAV4', 'Toyota', '23863700', '2014', 200000.00, '2016-08-24 08:21:33', 'Seguro Completo', 'julian.presa@unitypromotores.com'),
-	(47, 'erik castañeda', 'erik.castaneda@hotmail.com', 'Agrícola 4x2', '3 SEDAN', 'BMW', '65465465', '2000', 50000.00, '2016-08-24 09:08:07', 'Seguro Completo', 'erik.castaneda@hotmail.com'),
-	(48, 'Erik Castañeda', 'erik.castaneda@unitypromotores.com', 'Agrícola 4x2', '3 SEDAN', 'BMW', '65465465', '2000', 50000.00, '2016-08-24 09:09:33', 'Seguro Completo', 'erik.castaneda@unitypromotores.com');
+INSERT INTO `logcorreosenviados` (`indice`, `Nombre`, `Correo`, `TipoDeVehiculo`, `Linea`, `Marca`, `Telefono`, `Modelo`, `SumaAsegurada`, `Fecha`, `TipoSeguro`, `contactar`, `CodigoEmpresa`) VALUES
+	(2, 'Monica Arce', 'monica.arce@unitypromotores.com', 'Automovil', '3 SEDAN', 'BMW', '654654654', '2000', 350000.00, '2016-08-18 21:36:13', 'Responsabilidad Civil', NULL, 'Roble'),
+	(3, 'Monica Arce', 'castaneda.erik@hotmail.com', 'Automovil', '3 SEDAN', 'BMW', '24654974', '2000', 35000.00, '2016-08-18 21:56:10', 'Daños a Terceros', NULL, 'Roble'),
+	(4, 'Monica Arce', 'monica.arce@unitypromotores.com', 'Automovil', '3 SEDAN', 'BMW', '654654314', '2000', 7500.00, '2016-08-18 22:33:00', 'Daños a Terceros', NULL, 'Roble'),
+	(5, 'Monica Arce', 'monica.arce@unitypromotores.com', 'Automovil', '3 SEDAN', 'BMW', '46198798', '2000', 15400.00, '2016-08-18 22:46:46', 'Daños a Terceros', NULL, 'Roble'),
+	(6, 'Monica Arce', 'erik.castaneda@unitypromotores.com', 'Automovil', '3 SEDAN', 'BMW', '46198798', '2000', 15400.00, '2016-08-18 22:47:53', 'Daños a Terceros', NULL, 'Roble'),
+	(7, 'Monica Arce', 'erik.castaneda@unitypromotores.com', 'Automovil', '3 SEDAN', 'BMW', '46546879', '2000', 15000.00, '2016-08-18 22:52:14', 'Daños a Terceros', NULL, 'Roble'),
+	(8, 'Monica Arce', 'erik.castaneda@unitypromotores.com', 'Automovil', '3 SEDAN', 'BMW', '46546879', '2000', 15000.00, '2016-08-18 22:53:15', 'Daños a Terceros', NULL, 'Roble'),
+	(9, 'Monica Arce', 'erik.castaneda@unitypromotores.com', 'Automovil', '3 SEDAN', 'BMW', '46546879', '2000', 15000.00, '2016-08-18 22:54:07', 'Daños a Terceros', NULL, 'Roble'),
+	(10, 'monica arce', 'erik.castaneda@unitypromotores.com', 'Automovil', '3 SEDAN', 'BMW', '465465465', '2000', 15000.00, '2016-08-19 15:44:51', 'Responsabilidad Civil', NULL, 'Roble'),
+	(11, 'monica arce', 'monica.arce@unitypromotores.com', 'Automovil', '3 SEDAN', 'BMW', '465465465', '2000', 15000.00, '2016-08-19 15:46:43', 'Responsabilidad Civil', NULL, 'Roble'),
+	(12, 'Monica Arce', 'erik.castaneda@unitypromotores.com', 'Automovil', '3 SEDAN', 'BMW', '12345647', '2000', 5000.00, '2016-08-22 11:39:09', 'Daños a Terceros', NULL, 'Roble'),
+	(13, 'Monica Arce', 'erik.castaneda@unitypromotores.com', 'Automovil', '3 SEDAN', 'BMW', '13265465', '2000', 5000.00, '2016-08-22 11:43:02', 'Daños a Terceros', NULL, 'Roble'),
+	(14, 'Monica Arce', 'erik.castaneda@unitypromotores.com', 'Automovil', '3 SEDAN', 'BMW', '65465465', '2000', 5000.00, '2016-08-22 11:44:19', 'Daños a Terceros', NULL, 'Roble'),
+	(15, 'Monica Arce', 'erik.castaneda@unitypromotores.com', 'Automovil', '3 SEDAN', 'BMW', '12345665', '2000', 5000.00, '2016-08-22 11:50:47', 'Daños a Terceros', NULL, 'Roble'),
+	(16, 'Monica Arce', 'erik.castaneda@unitypromotores.com', 'Automovil', '3 SEDAN', 'BMW', '65465465', '2000', 5000.00, '2016-08-22 12:14:14', 'Daños a Terceros', NULL, 'Roble'),
+	(17, 'Monica Arce', 'erik.castaneda@unitypromotores.com', 'Automovil', '3 SEDAN', 'BMW', '65465465', '2000', 50000.00, '2016-08-22 13:51:41', 'Seguro Completo', NULL, 'Roble'),
+	(18, 'Monica Arce', 'erik.castaneda@unitypromotores.com', 'Automovil', '3 SEDAN', 'BMW', '65465465', '2000', 5000.00, '2016-08-22 13:55:30', 'Seguro Completo', NULL, 'Roble'),
+	(19, 'Monica Arce', 'erik.castaneda@unitypromotores.com', 'Automovil', '3 SEDAN', 'BMW', '65465465', '2000', 5000.00, '2016-08-22 13:56:03', 'Responsabilidad Civil', NULL, 'Roble'),
+	(20, 'Monica Arce', 'erik.castaneda@unitypromotores.com', 'Agrícola 4x2', '3 SEDAN', 'BMW', '65465465', '2000', 5000.00, '2016-08-23 09:47:56', 'Seguro Completo', 'erik.castaneda@unitypromotores.com', 'Roble'),
+	(21, 'Monica Arce', 'erik.castaneda@unitypromotores.com', 'Agrícola 4x2', '3 SEDAN', 'BMW', '13246549', '2000', 50000.00, '2016-08-23 13:39:58', 'Seguro Completo', 'erik.castaneda@unitypromotores.com', 'Roble'),
+	(22, 'Monica Arce', 'erik.castaneda@unitypromotores.com', 'Agrícola 4x2', '3 SEDAN', 'BMW', '65465465', '2000', 5050.00, '2016-08-23 13:44:24', 'Seguro Completo', 'erik.castaneda@unitypromotores.com', 'Roble'),
+	(23, 'Monica Arce', 'erik.castaneda@unitypromotores.com', 'Agrícola 4x2', '3 SEDAN', 'BMW', '65465165', '2000', 47000.00, '2016-08-23 14:33:01', 'Seguro Completo', 'erik.castaneda@unitypromotores.com', 'Roble'),
+	(24, 'Monica Arce', 'erik.castaneda@unitypromotores.com', 'Agrícola 4x2', '3 SEDAN', 'BMW', '65465465', '2000', 47000.00, '2016-08-23 14:42:04', 'Seguro Completo', 'erik.castaneda@unitypromotores.com', 'Roble'),
+	(25, 'Monica Arce', 'erik.castaneda@unitypromotores.com', 'Agrícola 4x2', '3 SEDAN', 'BMW', '65465465', '2000', 470000.00, '2016-08-23 14:47:00', 'Seguro Completo', 'erik.castaneda@unitypromotores.com', 'Roble'),
+	(26, 'Monica Arce', 'erik.castaneda@unitypromotores.com', 'Agrícola 4x2', '3 SEDAN', 'BMW', '65465465', '2000', 47000.00, '2016-08-23 14:49:16', 'Seguro Completo', 'erik.castaneda@unitypromotores.com', 'Roble'),
+	(27, 'monica arce', 'erik.castaneda@unitypromotores.com', 'Agrícola 4x2', '3 SEDAN', 'BMW', '65465465', '2000', 47000.00, '2016-08-23 14:56:39', 'Seguro Completo', 'erik.castaneda@unitypromotores.com', 'Roble'),
+	(28, 'monica arce', 'erik.castaneda@unitypromotores.com', 'Agrícola 4x2', '3 SEDAN', 'BMW', '65465465', '2000', 47000.00, '2016-08-23 14:57:56', 'Seguro Completo', 'erik.castaneda@unitypromotores.com', 'Roble'),
+	(29, 'monica arce', 'erik.castaneda@unitypromotores.com', 'Agrícola 4x2', '3 SEDAN', 'BMW', '65465165', '2000', 47000.00, '2016-08-23 15:07:00', 'Seguro Completo', 'erik.castaneda@unitypromotores.com', 'Roble'),
+	(30, 'monica arce', 'erik.castaneda@unitypromotores.com', 'Agrícola 4x2', '3 SEDAN', 'BMW', '65465465', '2000', 47000.00, '2016-08-23 15:09:46', 'Seguro Completo', 'erik.castaneda@unitypromotores.com', 'Roble'),
+	(31, 'monica arce', 'erik.castaneda@unitypromotores.com', 'Agrícola 4x2', '3 SEDAN', 'BMW', '65465465', '2000', 47000.00, '2016-08-23 15:11:32', 'Seguro Completo', 'erik.castaneda@unitypromotores.com', 'Roble'),
+	(32, 'monica arce', 'erik.castaneda@unitypromotores.com', 'Agrícola 4x2', '3 SEDAN', 'BMW', '65465465', '2000', 470000.00, '2016-08-23 15:13:30', 'Seguro Completo', 'erik.castaneda@unitypromotores.com', 'Roble'),
+	(33, 'monica arce', 'erik.castaneda@unitypromotores.com', 'Agrícola 4x2', '3 SEDAN', 'BMW', '65465465', '2000', 47000.00, '2016-08-23 15:14:25', 'Seguro Completo', 'erik.castaneda@unitypromotores.com', 'Roble'),
+	(34, 'monica arce', 'erik.castaneda@unitypromotores.com', 'Agrícola 4x2', '3 SEDAN', 'BMW', '65465465', '2000', 47000.00, '2016-08-23 15:23:46', 'Seguro Completo', 'erik.castaneda@unitypromotores.com', 'Roble'),
+	(35, 'monica arce', 'erik.castaneda@unitypromotores.com', 'Agrícola 4x2', '3 SEDAN', 'BMW', '65465465', '2000', 47000.00, '2016-08-23 15:45:20', 'Seguro Completo', 'erik.castaneda@unitypromotores.com', 'Roble'),
+	(36, 'monica arce', 'erik.castaneda@unitypromotores.com', 'Agrícola 4x2', '3 SEDAN', 'BMW', '65465465', '2000', 47000.00, '2016-08-23 15:51:31', 'Seguro Completo', 'erik.castaneda@unitypromotores.com', 'Roble'),
+	(37, 'monica arce', 'erik.castaneda@unitypromotores.com', 'Agrícola 4x2', '3 SEDAN', 'BMW', '54987987', '2000', 135000.00, '2016-08-23 15:57:00', 'Seguro Completo', 'erik.castaneda@unitypromotores.com', 'Roble'),
+	(38, 'monica arce', 'erik.castaneda@unitypromotores.com', 'Agrícola 4x2', '3 SEDAN', 'BMW', '65465465', '2000', 135000.00, '2016-08-23 15:57:48', 'Seguro Completo', 'erik.castaneda@unitypromotores.com', 'Roble'),
+	(39, 'monica arce', 'erik.castaneda@unitypromotores.com', 'Agrícola 4x2', '3 SEDAN', 'BMW', '65465465', '2000', 135000.00, '2016-08-23 16:10:01', 'Seguro Completo', 'erik.castaneda@unitypromotores.com', 'Roble'),
+	(40, 'monica arce', 'erik.castaneda@unitypromotores.com', 'Agrícola 4x2', '3 SEDAN', 'BMW', '65465465', '2000', 135000.00, '2016-08-23 16:12:47', 'Seguro Completo', 'erik.castaneda@unitypromotores.com', 'Roble'),
+	(41, 'monica arce', 'erik.castaneda@unitypromotores.com', 'Agrícola 4x2', '3 SEDAN', 'BMW', '65798798', '2000', 135000.00, '2016-08-23 16:13:49', 'Seguro Completo', 'erik.castaneda@unitypromotores.com', 'Roble'),
+	(42, 'monica arce', 'erik.castaneda@unitypromotores.com', 'Agrícola 4x2', '3 SEDAN', 'BMW', '65798798', '2005', 180000.00, '2016-08-23 16:24:22', 'Seguro Completo', 'erik.castaneda@unitypromotores.com', 'Roble'),
+	(43, 'Monica Arce', 'erik.castaneda@unitypromotores.com', 'Agrícola 4x2', '3 SEDAN', 'BMW', '65465465', '2000', 135000.00, '2016-08-23 16:34:13', 'Seguro Completo', 'erik.castaneda@unitypromotores.com', 'Roble'),
+	(44, 'Monica Arce', 'erik.castaneda@unitypromotores.com', 'Agrícola 4x2', '3 SEDAN', 'BMW', '65465465', '2000', 135000.00, '2016-08-23 16:36:30', 'Responsabilidad Civil', 'erik.castaneda@unitypromotores.com', 'Roble'),
+	(45, 'Monica Arce', 'erik.castaneda@unitypromotores.com', 'Agrícola 4x2', '3 SEDAN', 'BMW', '65468798', '2000', 135000.00, '2016-08-23 16:53:43', 'Seguro Completo', 'erik.castaneda@unitypromotores.com', 'Roble'),
+	(46, 'Julian Presa', 'julian.presa@unitypromotores.com', 'Agrícola 4x4', 'RAV4', 'Toyota', '23863700', '2014', 200000.00, '2016-08-24 08:21:33', 'Seguro Completo', 'julian.presa@unitypromotores.com', 'Roble'),
+	(47, 'erik castañeda', 'erik.castaneda@hotmail.com', 'Agrícola 4x2', '3 SEDAN', 'BMW', '65465465', '2000', 50000.00, '2016-08-24 09:08:07', 'Seguro Completo', 'erik.castaneda@hotmail.com', 'Roble'),
+	(48, 'Erik Castañeda', 'erik.castaneda@unitypromotores.com', 'Agrícola 4x2', '3 SEDAN', 'BMW', '65465465', '2000', 50000.00, '2016-08-24 09:09:33', 'Seguro Completo', 'erik.castaneda@unitypromotores.com', 'Roble'),
+	(49, 'monica arce', 'erik.castaneda@unitypromotores.com', 'Agrícola 4x2', '3 SEDAN', 'BMW', '65465465', '2000', 154000.00, '2016-08-25 08:56:21', 'Seguro Completo', 'erik.castaneda@unitypromotores.com', 'Roble'),
+	(50, 'monica arce', 'erik.castaneda@unitypromotores.com', 'Agrícola 4x2', '3 SEDAN', 'BMW', '65465465', '2000', 500000.00, '2016-08-25 09:45:04', 'Seguro Completo', 'erik.castaneda@unitypromotores.com', 'Roble'),
+	(51, 'monica arce', 'erik.castaneda@unitypromotores.com', 'Agrícola 4x2', '3 SEDAN', 'BMW', '65465465', '2000', 45000.00, '2016-08-25 09:51:28', 'Seguro Completo', 'erik.castaneda@unitypromotores.com', 'Roble'),
+	(52, 'monica arce', 'erik.castaneda@unitypromotores.com', 'Agrícola 4x2', '3 SEDAN', 'BMW', '65465465', '2000', 45000.00, '2016-08-25 09:58:46', 'Seguro Completo', 'erik.castaneda@unitypromotores.com', 'Roble'),
+	(53, 'monica arce', 'erik.castaneda@unitypromotores.com', 'Agrícola 4x2', '3 SEDAN', 'BMW', '65465465', '2000', 45000.00, '2016-08-25 10:20:21', 'Seguro Completo', 'erik.castaneda@unitypromotores.com', 'Roble');
 /*!40000 ALTER TABLE `logcorreosenviados` ENABLE KEYS */;
 
 
