@@ -211,8 +211,17 @@ namespace Cotizador
              Valores Calculo = new Valores("Roble", SumaAsegurada, this.chkRoboParcial.Checked, this.chkMenores16.Checked, this.chkMenores18.Checked, this.chkExcesoRC.Checked, RoboParcial);
              this.lblMsg.Text = Calculo.PrimaTotalProRata.ToString();
              
-             ClientScript.RegisterStartupScript(this.GetType(), "Alert", "alert('La cotización ha sido enviada a su correo: " + this.txtCorreo.Text + ");", true);
-             
+             // ClientScript.RegisterStartupScript(this.GetType(), "Alert", "alert('La cotización ha sido enviada a su correo: " + this.txtCorreo.Text + ");", true);
+
+             Session["Nombre"] = this.txtNombre.Text.Trim();
+             Session["SumaAsegurada"] = SumaAsegurada.ToString();
+             Session["RoboParcial"] = this.chkRoboParcial.Checked.ToString();
+             Session["Menores16"] = SumaAsegurada.ToString();
+             Session["Menores18"] = this.chkMenores18.Checked.ToString();
+             Session["SumaAsegurada"] = SumaAsegurada.ToString();
+             Session[""] = SumaAsegurada.ToString();
+
+
              
         }
 

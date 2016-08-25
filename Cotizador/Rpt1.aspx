@@ -12,10 +12,7 @@
     <div>
     
         <rsweb:ReportViewer ID="ReportViewer1" runat="server" Font-Names="Verdana" Font-Size="8pt" Height="744px" WaitMessageFont-Names="Verdana" WaitMessageFont-Size="14pt" Width="883px">
-            <LocalReport ReportPath="Reportes\Cotizacion1.rdlc">
-                <DataSources>
-                    <rsweb:ReportDataSource DataSourceId="SiteMapDataSource1" Name="Cotizador1" />
-                </DataSources>
+            <LocalReport ReportPath="Reportes\CotizadorRoble.rdlc">
             </LocalReport>
         </rsweb:ReportViewer>
     

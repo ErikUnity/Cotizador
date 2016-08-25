@@ -221,7 +221,7 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.25in</Height>
+              <Height>0.21875in</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -233,7 +233,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!DescripcionVehiculo.Value</Value>
-                              <Style />
+                              <Style>
+                                <FontFamily>Candara</FontFamily>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style>
@@ -265,7 +267,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Sum(Fields!SumaAsegurada.Value)</Value>
-                              <Style />
+                              <Style>
+                                <FontFamily>Candara</FontFamily>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style>
@@ -313,7 +317,7 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.25in</Height>
+              <Height>0.21875in</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -324,8 +328,10 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value />
-                              <Style />
+                              <Value>Daños al vehículo Asegurado incluyendo Robo Total</Value>
+                              <Style>
+                                <FontFamily>Candara</FontFamily>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -347,26 +353,31 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox62">
+                    <Textbox Name="SumaAsegurada2">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value />
-                              <Style />
+                              <Value>=Sum(Fields!SumaAsegurada.Value)</Value>
+                              <Style>
+                                <FontFamily>Candara</FontFamily>
+                              </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox62</rd:DefaultName>
+                      <rd:DefaultName>SumaAsegurada</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
                           <Style>Solid</Style>
                         </Border>
+                        <VerticalAlign>Middle</VerticalAlign>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -378,7 +389,7 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.25in</Height>
+              <Height>0.21875in</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -389,8 +400,10 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value />
-                              <Style />
+                              <Value>Responsabilidad Civil (Daños a Terceros)</Value>
+                              <Style>
+                                <FontFamily>Candara</FontFamily>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -412,26 +425,31 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox60">
+                    <Textbox Name="DañosATerceros">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value />
-                              <Style />
+                              <Value>=Sum(Fields!DañosATerceros.Value)</Value>
+                              <Style>
+                                <FontFamily>Candara</FontFamily>
+                              </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox60</rd:DefaultName>
+                      <rd:DefaultName>DañosATerceros</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
                           <Style>Solid</Style>
                         </Border>
+                        <VerticalAlign>Middle</VerticalAlign>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -443,7 +461,7 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.25in</Height>
+              <Height>0.35417in</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -454,8 +472,10 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value />
-                              <Style />
+                              <Value>Lesiones a Ocupantes del vehículo asegurado</Value>
+                              <Style>
+                                <FontFamily>Candara</FontFamily>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -484,8 +504,10 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value />
-                              <Style />
+                              <Value>Q.30,000.00 por persona hasta el límite de ocupantes que lea la tarjeta de circulación</Value>
+                              <Style>
+                                <FontFamily>Candara</FontFamily>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -508,7 +530,7 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.25in</Height>
+              <Height>0.21875in</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -519,8 +541,10 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value />
-                              <Style />
+                              <Value>Robo parcial Equipo de Sonido</Value>
+                              <Style>
+                                <FontFamily>Candara</FontFamily>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -549,11 +573,15 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value />
-                              <Style />
+                              <Value>No incluido.  Aplica con pago de prima adicional</Value>
+                              <Style>
+                                <FontFamily>Candara</FontFamily>
+                              </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox56</rd:DefaultName>
@@ -573,7 +601,7 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.25in</Height>
+              <Height>0.20833in</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -584,8 +612,10 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value />
-                              <Style />
+                              <Value>Valor Pactado</Value>
+                              <Style>
+                                <FontFamily>Candara</FontFamily>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -614,11 +644,15 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value />
-                              <Style />
+                              <Value>Aplica</Value>
+                              <Style>
+                                <FontFamily>Candara</FontFamily>
+                              </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox54</rd:DefaultName>
@@ -627,6 +661,7 @@
                           <Color>LightGrey</Color>
                           <Style>Solid</Style>
                         </Border>
+                        <VerticalAlign>Middle</VerticalAlign>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -638,7 +673,7 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.25in</Height>
+              <Height>0.21875in</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -649,8 +684,10 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value />
-                              <Style />
+                              <Value>Grúa (Incluyendo maniobras)</Value>
+                              <Style>
+                                <FontFamily>Candara</FontFamily>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -679,11 +716,15 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value />
-                              <Style />
+                              <Value>Q10,000.00</Value>
+                              <Style>
+                                <FontFamily>Candara</FontFamily>
+                              </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox52</rd:DefaultName>
@@ -692,6 +733,7 @@
                           <Color>LightGrey</Color>
                           <Style>Solid</Style>
                         </Border>
+                        <VerticalAlign>Middle</VerticalAlign>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -703,7 +745,7 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.25in</Height>
+              <Height>0.38542in</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -714,11 +756,15 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value />
-                              <Style />
+                              <Value>Asesoría Legal</Value>
+                              <Style>
+                                <FontFamily>Candara</FontFamily>
+                              </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox49</rd:DefaultName>
@@ -727,6 +773,7 @@
                           <Color>LightGrey</Color>
                           <Style>Solid</Style>
                         </Border>
+                        <VerticalAlign>Middle</VerticalAlign>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -744,11 +791,15 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value />
-                              <Style />
+                              <Value>Sin límite con abogados de la Compañía.  Con abogado particular reembolso hasta Q.5,000.00</Value>
+                              <Style>
+                                <FontFamily>Candara</FontFamily>
+                              </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox50</rd:DefaultName>
@@ -757,6 +808,7 @@
                           <Color>LightGrey</Color>
                           <Style>Solid</Style>
                         </Border>
+                        <VerticalAlign>Middle</VerticalAlign>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -768,7 +820,7 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.25in</Height>
+              <Height>0.20833in</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -779,8 +831,10 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value />
-                              <Style />
+                              <Value>Muerte Accidental del piloto hasta</Value>
+                              <Style>
+                                <FontFamily>Candara</FontFamily>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -809,11 +863,15 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value />
-                              <Style />
+                              <Value>Q. 200,000.00</Value>
+                              <Style>
+                                <FontFamily>Candara</FontFamily>
+                              </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox48</rd:DefaultName>
@@ -822,6 +880,7 @@
                           <Color>LightGrey</Color>
                           <Style>Solid</Style>
                         </Border>
+                        <VerticalAlign>Middle</VerticalAlign>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -833,7 +892,7 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.25in</Height>
+              <Height>0.375in</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -844,8 +903,10 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value />
-                              <Style />
+                              <Value>Gastos Funerarios (como anticipo de la cobertura de muerte accidental) </Value>
+                              <Style>
+                                <FontFamily>Candara</FontFamily>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -874,11 +935,15 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value />
-                              <Style />
+                              <Value>Q. 30,000.00</Value>
+                              <Style>
+                                <FontFamily>Candara</FontFamily>
+                              </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox46</rd:DefaultName>
@@ -887,6 +952,7 @@
                           <Color>LightGrey</Color>
                           <Style>Solid</Style>
                         </Border>
+                        <VerticalAlign>Middle</VerticalAlign>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -898,7 +964,7 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.25in</Height>
+              <Height>0.20833in</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -909,8 +975,10 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value />
-                              <Style />
+                              <Value>Rehabilitación Automática sin límite</Value>
+                              <Style>
+                                <FontFamily>Candara</FontFamily>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -939,11 +1007,15 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value />
-                              <Style />
+                              <Value>Incluido</Value>
+                              <Style>
+                                <FontFamily>Candara</FontFamily>
+                              </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox44</rd:DefaultName>
@@ -952,6 +1024,7 @@
                           <Color>LightGrey</Color>
                           <Style>Solid</Style>
                         </Border>
+                        <VerticalAlign>Middle</VerticalAlign>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -963,7 +1036,7 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.25in</Height>
+              <Height>0.39583in</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -974,8 +1047,10 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value />
-                              <Style />
+                              <Value>Asistencia en el Camino (paso de corriente, cambio de llanta, cerrajero)</Value>
+                              <Style>
+                                <FontFamily>Candara</FontFamily>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -1004,11 +1079,15 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value />
-                              <Style />
+                              <Value>Incluido</Value>
+                              <Style>
+                                <FontFamily>Candara</FontFamily>
+                              </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox42</rd:DefaultName>
@@ -1017,6 +1096,7 @@
                           <Color>LightGrey</Color>
                           <Style>Solid</Style>
                         </Border>
+                        <VerticalAlign>Middle</VerticalAlign>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -1028,7 +1108,7 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.25in</Height>
+              <Height>0.20833in</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -1039,8 +1119,10 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value />
-                              <Style />
+                              <Value>Rotura de Cristales (no incluye costos de polarizado)</Value>
+                              <Style>
+                                <FontFamily>Candara</FontFamily>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -1069,11 +1151,15 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value />
-                              <Style />
+                              <Value>Sin límite -  deducible de Q.150</Value>
+                              <Style>
+                                <FontFamily>Candara</FontFamily>
+                              </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox32</rd:DefaultName>
@@ -1093,7 +1179,7 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.25in</Height>
+              <Height>0.20833in</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -1104,8 +1190,10 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value />
-                              <Style />
+                              <Value>Fianza de Excarcelación, hasta</Value>
+                              <Style>
+                                <FontFamily>Candara</FontFamily>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -1134,11 +1222,15 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value />
-                              <Style />
+                              <Value>Q. 25,000</Value>
+                              <Style>
+                                <FontFamily>Candara</FontFamily>
+                              </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox30</rd:DefaultName>
@@ -1158,7 +1250,7 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.25in</Height>
+              <Height>0.35417in</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -1169,11 +1261,15 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value />
-                              <Style />
+                              <Value>Deducible Cero</Value>
+                              <Style>
+                                <FontFamily>Candara</FontFamily>
+                              </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox27</rd:DefaultName>
@@ -1199,8 +1295,10 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value />
-                              <Style />
+                              <Value>Aplica  (Debe de haber compromiso de pago firmado por el tercero culpable)</Value>
+                              <Style>
+                                <FontFamily>Candara</FontFamily>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -1220,6 +1318,1811 @@
                     </Textbox>
                   </CellContents>
                 </TablixCell>
+              </TablixCells>
+            </TablixRow>
+            <TablixRow>
+              <Height>0.20833in</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox124">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Conductores menores de 25, mayores 21 años (sin costo)</Value>
+                              <Style>
+                                <FontFamily>Candara</FontFamily>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox124</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox125">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Aplica</Value>
+                              <Style>
+                                <FontFamily>Candara</FontFamily>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox125</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+            <TablixRow>
+              <Height>0.36458in</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox122">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Conductores menores de 21, mayores 18 años</Value>
+                              <Style>
+                                <FontFamily>Candara</FontFamily>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox122</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox123">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>SOLO APLICA si es colaborador de CITI y debe ser nombrado en la póliza</Value>
+                              <Style>
+                                <FontFamily>Candara</FontFamily>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox123</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+            <TablixRow>
+              <Height>0.375in</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox120">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Arrendamiento de vehículo en caso de Robo, colisión ó pérdidas parciales, máximo 30 días. </Value>
+                              <Style>
+                                <FontFamily>Candara</FontFamily>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox120</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox121">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>hasta Q. 7,500.00 con un límite diario de Q.250 - No aplica deducible</Value>
+                              <Style>
+                                <FontFamily>Candara</FontFamily>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox121</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+            <TablixRow>
+              <Height>0.20833in</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox118">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Extensión de licencia vencida hasta 6 meses</Value>
+                              <Style>
+                                <FontFamily>Candara</FontFamily>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox118</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox119">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Aplica</Value>
+                              <Style>
+                                <FontFamily>Candara</FontFamily>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox119</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+            <TablixRow>
+              <Height>0.21875in</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox116">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Gastos de tramitador sólo en caso de Robo o Pérdida Total</Value>
+                              <Style>
+                                <FontFamily>Candara</FontFamily>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox116</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox117">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Q.500.00</Value>
+                              <Style>
+                                <FontFamily>Candara</FontFamily>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox117</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+            <TablixRow>
+              <Height>0.38542in</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox114">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Ausencia de Control (cubre embriaguez, carencia de licencia y fuga del conductor)</Value>
+                              <Style>
+                                <FontFamily>Candara</FontFamily>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox114</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox115">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Incluido</Value>
+                              <Style>
+                                <FontFamily>Candara</FontFamily>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox115</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+            <TablixRow>
+              <Height>0.21875in</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox112">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Exoneración de Timbres Fiscales (3%) en la Red de Talleres</Value>
+                              <Style>
+                                <FontFamily>Candara</FontFamily>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox112</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox113">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Incluido</Value>
+                              <Style>
+                                <FontFamily>Candara</FontFamily>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox113</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+            <TablixRow>
+              <Height>0.20833in</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox126">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Responsabilidad Civil Cruzada (choque entre colaboradores)</Value>
+                              <Style>
+                                <FontFamily>Candara</FontFamily>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox126</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox127">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Hasta Q.200,000.   Aplica sólo en los Predios del Patrono</Value>
+                              <Style>
+                                <FontFamily>Candara</FontFamily>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox127</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+            <TablixRow>
+              <Height>0.36458in</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox130">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Ampliación de Responsabilidad Civil a Ocupantes del vehículo asegurado</Value>
+                              <Style>
+                                <FontFamily>Candara</FontFamily>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox130</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox131">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Siempre y cuando no tengan relación familiar ni laboral con el asegurado.</Value>
+                              <Style>
+                                <FontFamily>Candara</FontFamily>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox131</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+            <TablixRow>
+              <Height>0.20833in</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox128">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Daños en predios judiciales, hasta:</Value>
+                              <Style>
+                                <FontFamily>Candara</FontFamily>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox128</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox129">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Q.10,000 con deducible de Q.1,000 por evento</Value>
+                              <Style>
+                                <FontFamily>Candara</FontFamily>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox129</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+            <TablixRow>
+              <Height>0.36458in</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox110">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Daños propios al vehículo cuando es remolcado por desperfecto mecánico o accidente</Value>
+                              <Style>
+                                <FontFamily>Candara</FontFamily>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox110</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox111">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Incluido</Value>
+                              <Style>
+                                <FontFamily>Candara</FontFamily>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox111</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+            <TablixRow>
+              <Height>0.35417in</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox132">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Daños propios al vehículo por conducción fuera de Carreteras o Caminos</Value>
+                              <Style>
+                                <FontFamily>Candara</FontFamily>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox132</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox133">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Aplica</Value>
+                              <Style>
+                                <FontFamily>Candara</FontFamily>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox133</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+            <TablixRow>
+              <Height>0.20833in</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox142">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Repuestos originales sujeto a récord de agencia</Value>
+                              <Style>
+                                <FontFamily>Candara</FontFamily>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox142</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox143">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Hasta 3 años de antigüedad</Value>
+                              <Style>
+                                <FontFamily>Candara</FontFamily>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox143</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+            <TablixRow>
+              <Height>0.36458in</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox140">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Si existe doble colisión en un mismo evento, se aplicará un solo deducible </Value>
+                              <Style>
+                                <FontFamily>Candara</FontFamily>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox140</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox144">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Incluido</Value>
+                              <Style>
+                                <FontFamily>Candara</FontFamily>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox111</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+            <TablixRow>
+              <Height>0.35417in</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox138">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Si el vehículo es robado y aparece, se aplicará deducible de otros daños </Value>
+                              <Style>
+                                <FontFamily>Candara</FontFamily>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox138</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox155">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Incluido</Value>
+                              <Style>
+                                <FontFamily>Candara</FontFamily>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox111</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+            <TablixRow>
+              <Height>0.86458in</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox136">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>RC de transportistas sublimitado hasta Q.25,000 dentro de la sección II, sujeto a que las merancías cumplan con las regulaciones de la ley de tránsito y con las medidas de seguridad adecuadas para los bienes transportados, bivcicletas en sus racks</Value>
+                              <Style>
+                                <FontFamily>Candara</FontFamily>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox136</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox156">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Incluido</Value>
+                              <Style>
+                                <FontFamily>Candara</FontFamily>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox111</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+            <TablixRow>
+              <Height>0.51042in</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox147">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Reparación de vehículos con record de Agencia hasta 5 años de antigüedad (se toma los 5 años tomando en cuenta el año en curso para ser reparados en la agencia)</Value>
+                              <Style>
+                                <FontFamily>Candara</FontFamily>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox147</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox157">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Incluido</Value>
+                              <Style>
+                                <FontFamily>Candara</FontFamily>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox111</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+            <TablixRow>
+              <Height>0.35417in</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox149">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Deducible máximo por perdidas parciales Q3,000 para vehículos con suma asegurada igual o mayor a Q100,000</Value>
+                              <Style>
+                                <FontFamily>Candara</FontFamily>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox149</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox158">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Incluido</Value>
+                              <Style>
+                                <FontFamily>Candara</FontFamily>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox111</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+            <TablixRow>
+              <Height>0.36458in</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox153">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Vehículos nuevos de Agencia, pago valor factura (inclusive incluyendo IVA) el primer año</Value>
+                              <Style>
+                                <FontFamily>Candara</FontFamily>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox153</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox159">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Incluido</Value>
+                              <Style>
+                                <FontFamily>Candara</FontFamily>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox111</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+            <TablixRow>
+              <Height>0.25in</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox151">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Prima Anual fraccionada en 12 pagos descontado de planilla</Value>
+                              <Style>
+                                <FontFamily>Candara</FontFamily>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Right</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox151</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <BackgroundColor>#ffffcc</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="PrimaTotalProRata">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Sum(Fields!PrimaTotalProRata.Value)</Value>
+                              <Style>
+                                <FontFamily>Candara</FontFamily>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>PrimaTotalProRata</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <BackgroundColor>#ffffcc</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+            <TablixRow>
+              <Height>0.25in</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox145">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>12 Pagos mensuales por:</Value>
+                              <Style>
+                                <FontFamily>Candara</FontFamily>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Right</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox145</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <BackgroundColor>#ffffcc</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="CadaPago">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Sum(Fields!CadaPago.Value)</Value>
+                              <Style>
+                                <FontFamily>Candara</FontFamily>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>CadaPago</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <BackgroundColor>#ffffcc</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+            <TablixRow>
+              <Height>0.1875in</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox134">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Deducibles para pérdidas parciales **</Value>
+                              <Style>
+                                <FontFamily>Candara</FontFamily>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox134</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox135">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style />
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox135</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+            <TablixRow>
+              <Height>0.21875in</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox244">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Deducibles para Robo Total</Value>
+                              <Style>
+                                <FontFamily>Candara</FontFamily>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox244</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox245">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style />
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox245</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+            <TablixRow>
+              <Height>1.27083in</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Image Name="Image4">
+                      <Source>Embedded</Source>
+                      <Value>FirmaEjecutivaAdministrativa</Value>
+                      <Sizing>FitProportional</Sizing>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                        </Border>
+                      </Style>
+                    </Image>
+                    <ColSpan>2</ColSpan>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell />
+              </TablixCells>
+            </TablixRow>
+            <TablixRow>
+              <Height>0.5in</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox248">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Nota:</Value>
+                              <Style>
+                                <FontFamily>Candara</FontFamily>
+                                <Color>CornflowerBlue</Color>
+                              </Style>
+                            </TextRun>
+                            <TextRun>
+                              <Value xml:space="preserve"> </Value>
+                              <Style>
+                                <FontFamily>Candara</FontFamily>
+                              </Style>
+                            </TextRun>
+                            <TextRun>
+                              <Value>Los presentes costos y beneficios son exclusivos del plan de colaboradores CITI, si se retira de la institución, deberá dar aviso inmediatamente a Unity Promotores para poder ofrecerle un plan de seguro individual ya que la cobertura en la presente póliza queda nula el último día del mes en que finalizó  su relación laboral con CITI.</Value>
+                              <Style>
+                                <FontFamily>Candara</FontFamily>
+                                <Color>Red</Color>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox248</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                    <ColSpan>2</ColSpan>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell />
+              </TablixCells>
+            </TablixRow>
+            <TablixRow>
+              <Height>0.39583in</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox250">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>La póliza  de este programa tiene vigencia del 01/08/2016 al 01/08/2017,  por lo cual la prima y el número de pagos variará dependiendo de la fecha de inclusión de su vehículo.</Value>
+                              <Style>
+                                <FontFamily>Candara</FontFamily>
+                                <Color>DarkBlue</Color>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox250</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                    <ColSpan>2</ColSpan>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell />
+              </TablixCells>
+            </TablixRow>
+            <TablixRow>
+              <Height>0.25in</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox254">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style />
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox254</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                    <ColSpan>2</ColSpan>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell />
+              </TablixCells>
+            </TablixRow>
+            <TablixRow>
+              <Height>0.35417in</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox252">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Beneficios NO aplican para fuerza de ventas, visitadores médicos y todo aquella actividad que requiera que el vehículo se  mantenga en constante movimiento durante varias horas al día.</Value>
+                              <Style>
+                                <FontFamily>Candara</FontFamily>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox252</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                    <ColSpan>2</ColSpan>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell />
               </TablixCells>
             </TablixRow>
           </TablixRows>
@@ -1252,12 +3155,40 @@
             <TablixMember />
             <TablixMember />
             <TablixMember />
+            <TablixMember />
+            <TablixMember />
+            <TablixMember />
+            <TablixMember />
+            <TablixMember />
+            <TablixMember />
+            <TablixMember />
+            <TablixMember />
+            <TablixMember />
+            <TablixMember />
+            <TablixMember />
+            <TablixMember />
+            <TablixMember />
+            <TablixMember />
+            <TablixMember />
+            <TablixMember />
+            <TablixMember />
+            <TablixMember />
+            <TablixMember />
+            <TablixMember />
+            <TablixMember />
+            <TablixMember />
+            <TablixMember />
+            <TablixMember />
+            <TablixMember />
+            <TablixMember />
+            <TablixMember />
+            <TablixMember />
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>CotizadorRoble</DataSetName>
         <Top>1.12375in</Top>
         <Left>0.28in</Left>
-        <Height>5.33333in</Height>
+        <Height>15.76042in</Height>
         <Width>7.34375in</Width>
         <Style>
           <Border>
@@ -1281,10 +3212,10 @@
         </Style>
       </Image>
     </ReportItems>
-    <Height>13.125in</Height>
+    <Height>16.88417in</Height>
     <Style />
   </Body>
-  <Width>8.08333in</Width>
+  <Width>7.92583in</Width>
   <Page>
     <LeftMargin>1in</LeftMargin>
     <RightMargin>1in</RightMargin>
@@ -1575,6 +3506,38 @@ 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</ImageData>
+    </EmbeddedImage>
+    <EmbeddedImage Name="FirmaEjecutivaAdministrativa">
+      <MIMEType>image/png</MIMEType>
+      <ImageData>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</ImageData>
     </EmbeddedImage>
   </EmbeddedImages>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>
