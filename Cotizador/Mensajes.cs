@@ -162,8 +162,13 @@ namespace Cotizador
             {
 
                 fs.Write(info, 0, info.Length);
-
+                if (fs != null)
+                {
+                    ((IDisposable)fs).Dispose();
+                }
             }
+
+            viewer.Dispose();
             return archivo;
 
         }
