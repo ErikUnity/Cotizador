@@ -3245,10 +3245,8 @@
   </Body>
   <Width>7.92583in</Width>
   <Page>
-    <LeftMargin>1in</LeftMargin>
-    <RightMargin>1in</RightMargin>
-    <TopMargin>1in</TopMargin>
-    <BottomMargin>1in</BottomMargin>
+    <PageHeight>18in</PageHeight>
+    <PageWidth>9in</PageWidth>
     <Style />
   </Page>
   <AutoRefresh>0</AutoRefresh>

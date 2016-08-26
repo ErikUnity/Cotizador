@@ -517,7 +517,7 @@ namespace Cotizador
             PrimaTotal =  decimal.Parse(PrimaTotal.ToString("F", CultureInfo.InvariantCulture));
             PrimaTotalProRata =  decimal.Parse(PrimaTotalProRata.ToString("F", CultureInfo.InvariantCulture));
             GastosPorEmisionProRata = decimal.Parse(GastosPorEmisionProRata.ToString("F", CultureInfo.InvariantCulture));
-            CadaPago = decimal.Parse((PrimaTotalProRata / 11).ToString("F", CultureInfo.InvariantCulture));
+            CadaPago = decimal.Parse((PrimaTotalProRata / 12).ToString("F", CultureInfo.InvariantCulture));
         
         }
       

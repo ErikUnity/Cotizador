@@ -122,7 +122,7 @@ namespace Cotizador
             {
                 ClientScript.RegisterStartupScript(this.GetType(), "errCorreo", "document.getElementById('errCorreo').style.visibility = 'hidden';", true);
             }
-            if (this.HiddenField1.Value.ToString() == "")
+            if (this.HiddenField1.Value.ToString() == "" || this.HiddenField1.Value.ToString() == "dd/mm/aaaa")
             {
                 ClientScript.RegisterStartupScript(this.GetType(), "errFecha", "document.getElementById('errFecha').style.visibility = 'visible';", true);
                 Incompleto = true;

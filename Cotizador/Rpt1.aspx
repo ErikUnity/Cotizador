@@ -5,14 +5,20 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
-    <title></title>
+    <title>Cotización El Roble</title>
+    <style type="text/css">
+        .centro {
+            display: inline-block; 
+        }
+
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">
-    <div style="text-align:center; width:100%; height:100%">
-    
-        <rsweb:ReportViewer ID="ReportViewer1" runat="server" Font-Names="Verdana" Font-Size="8pt" Height="2190px" WaitMessageFont-Names="Verdana" WaitMessageFont-Size="14pt" Width="100%" >
-            <LocalReport ReportPath="Reportes\CotizadorRoble.rdlc">
+    <div style="text-align:center; width:100%; height:100%" >
+  
+        <rsweb:ReportViewer ID="ReportViewer1" runat="server" Font-Names="Verdana" Font-Size="8pt" Height="2190px" WaitMessageFont-Names="Verdana" WaitMessageFont-Size="14pt" Width="8in" CssClass="centro" >
+               <LocalReport ReportPath="Reportes\CotizadorRoble.rdlc">
                 <DataSources>
                     <rsweb:ReportDataSource DataSourceId="ObjectDataSource1" Name="CotizadorRoble" />
                 </DataSources>
@@ -38,4 +44,13 @@
     </asp:ScriptManager>
         </form>
     </body>
+    <script type="text/javascript">
+
+        window.onload = function () {
+
+            $('td#oReportCell', window.parent.frames[0].frames[1].document).next().remove();
+            $('div#oReportDiv table', window.parent.frames[0].frames[1].document).attr("align", "center");
+        };
+
+</script>
 </html>
