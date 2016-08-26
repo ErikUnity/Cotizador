@@ -1,4 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Formulario1.aspx.cs" Inherits="Cotizador.Formulario1" %>
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
 
  
 <!DOCTYPE html>
@@ -17,13 +18,16 @@
         .auto-style9 {
             height: 24px;
         }
+        .auto-style10 {
+            width: 200px;
+        }
     </style>
 
 </head>
 <body>
     <form id="form1" runat="server" class="outer-container" >
     <div class="inner-container">
-    <table  class="centered-content"><tr><td> 
+    <table  class="centered-content"><tr><td class="auto-style10"> 
                                   <table aria-multiline="True"  >
                                     <tr>
                                         <td class="auto-style5" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; text-align: center; "><span id="TxtTitulo" class="dxeBase Titulo_morado" style="font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 21px; line-height: normal; font-family: Arial, Helvetica, sans-serif; text-align: left; color: rgb(19, 27, 77); letter-spacing: 3px; text-decoration: none; text-transform: none;">DATOS A COTIZAR</span></td>
@@ -246,7 +250,15 @@
                                                                         </tr>
                                                                               <tr>
                                                                                <td class="auto-style9" style="font-family: Roboto; font-size: 15px; text-align: left; color: rgb(19, 27, 77); text-decoration: none; font-weight: normal; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; text-transform: none;">
-                                                                                        <asp:CheckBox ID="chkRoboParcial" runat="server" Text="Robo parcial" CssClass="letra" ToolTip="Ampara el robo del “equipo especial” instalado dentro de la cabina del vehículo; por ejemplo: robo de radio o bocinas, dvd, u otros equipos de audio o video. No ampara piezas mecánicas, externas o equipos portátiles o propiedad personal." AutoPostBack="True" OnCheckedChanged="chkRoboParcial_CheckedChanged"  />
+                                                                                        <asp:CheckBox ID="chkRoboParcial" runat="server" Text="Robo parcial" CssClass="letra" AutoPostBack="True" OnCheckedChanged="chkRoboParcial_CheckedChanged"  />
+                                                                                  &nbsp; <asp:ImageButton ID="ImageButton3" runat="server" 
+                                                                             ImageUrl="~/imagenes/SignoInterrogacion1.png" ToolTip="Mas informacion" 
+                                                                             OnClientClick="javascript:return false;" Height="15px" Width="15px" />
+                                                                                        <asp:BalloonPopupExtender ID="ImageButton3_BalloonPopupExtender" runat="server" BalloonPopupControlID="Panel4" BalloonSize="Medium" CustomCssUrl="" DisplayOnClick="False" DisplayOnMouseOver="True" DynamicServicePath="" Enabled="True" ExtenderControlID="" TargetControlID="ImageButton3">
+                                                                                        </asp:BalloonPopupExtender>
+                                                                             <asp:BalloonPopupExtender ID="BalloonPopupExtender1" runat="server" BalloonPopupControlID="Panel3" CustomCssUrl="" DynamicServicePath="" Enabled="True" ExtenderControlID="" TargetControlID="ImageButton2" BalloonSize="Medium" DisplayOnClick="False" DisplayOnMouseOver="True">
+                                                                             </asp:BalloonPopupExtender>
+
                                                                              </td>
                                                                         </tr>
                                                                                  <tr>
@@ -285,17 +297,38 @@
                                                                         </tr> 
          <tr>
                                                                                     <td class="justified_roboto" style="font-family: Roboto; font-size: 15px; text-align: left; color: rgb(19, 27, 77); text-decoration: none; font-weight: normal; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; text-transform: none;">
-                                                                                        <asp:CheckBox ID="chkMenores16" runat="server" Text="Menores. Coberturas desde 16  años" CssClass="letra" ToolTip="Brinda cobertura a cualquier persona que conduzca el vehículo desde los 16 años, siempre que tengan su licencia de conducir vigente." />
-                                                                             </td>
+                                                                                        <asp:CheckBox ID="chkMenores16" runat="server" Text="Menores. Coberturas desde 16  años" CssClass="letra" />
+                                                                            &nbsp; <asp:ImageButton ID="btnAyudaTipoServicio" runat="server" 
+                                                                             ImageUrl="~/imagenes/SignoInterrogacion1.png" ToolTip="Mas informacion" 
+                                                                             OnClientClick="javascript:return false;" Height="15px" Width="15px" />
+                                                                             <asp:BalloonPopupExtender ID="btnAyudaTipoServicio_BalloonPopupExtender" 
+                                                                              runat="server" BalloonPopupControlID="Panel1" 
+                                                                              BalloonSize="Medium"
+                                                                              DisplayOnClick="False" DisplayOnMouseOver="True" DynamicServicePath="" 
+                                                                              Enabled="True" ExtenderControlID="" ScrollBars="None"
+                                                                              TargetControlID="btnAyudaTipoServicio" >
+                                                                             </asp:BalloonPopupExtender>
+                                                                                    </td>
                                                                         </tr>
          <tr>
                                                                                     <td class="justified_roboto" style="font-family: Roboto; font-size: 15px; text-align: left; color: rgb(19, 27, 77); text-decoration: none; font-weight: normal; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; text-transform: none;">
-                                                                                        <asp:CheckBox ID="chkMenores18" runat="server" Text="Menores. Coberturas desde 18 años" CssClass="letra" ToolTip="(siempre que NO sean colaboradores): Brinda cobertura a cualquier persona que conduzca el vehículo desde los 16 años, siempre que tengan su licencia de conducir vigente." />   
+                                                                                        <asp:CheckBox ID="chkMenores18" runat="server" Text="Menores. Coberturas desde 18 años" CssClass="letra" />
+                                                                            &nbsp; <asp:ImageButton ID="ImageButton1" runat="server" 
+                                                                             ImageUrl="~/imagenes/SignoInterrogacion1.png" ToolTip="Mas informacion" 
+                                                                             OnClientClick="javascript:return false;" Height="15px" Width="15px" />
+                                                                                        <asp:BalloonPopupExtender ID="ImageButton1_BalloonPopupExtender" runat="server" CustomCssUrl="" DynamicServicePath="" Enabled="True" ExtenderControlID="" TargetControlID="ImageButton1" BalloonPopupControlID="Panel2" DisplayOnClick="False" DisplayOnMouseOver="True" BalloonSize="Medium">
+                                                                                        </asp:BalloonPopupExtender>
+ 
                                                                              </td>
                                                                         </tr>
          <tr>
-                                                                                    <td class="justified_roboto" style="font-family: Roboto; font-size: 15px; text-align: left; color: rgb(19, 27, 77); text-decoration: none; font-weight: normal; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; text-transform: none;">
-                                                                                        <asp:CheckBox ID="chkExcesoRC" runat="server" Text="Exceso de RC.   (ID 5)." CssClass="letra" ToolTip="Ampliación del monto de cobertura de la sección II de la póliza (Seguro de Responsabilidad Civil ante Terceras personas) para tener una mejor protección.  " />
+                                                                                    <td class="auto-style9" style="font-family: Roboto; font-size: 15px; text-align: left; color: rgb(19, 27, 77); text-decoration: none; font-weight: normal; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; text-transform: none;">
+                                                                                        <asp:CheckBox ID="chkExcesoRC" runat="server" Text="Exceso de RC.   (ID 5)." CssClass="letra" />
+                                                                                        &nbsp;<asp:ImageButton ID="ImageButton2" runat="server" 
+                                                                             ImageUrl="~/imagenes/SignoInterrogacion1.png" ToolTip="Mas informacion" 
+                                                                             OnClientClick="javascript:return false;" Height="15px" Width="15px" />
+                                                                                        <asp:BalloonPopupExtender ID="ImageButton2_BalloonPopupExtender" runat="server" BalloonPopupControlID="Panel3" CustomCssUrl="" DynamicServicePath="" Enabled="True" ExtenderControlID="" TargetControlID="ImageButton2">
+                                                                                        </asp:BalloonPopupExtender>
                                                                              </td>
                                                                         </tr>
                  <tr>
@@ -339,6 +372,15 @@
                                                             
                                                         </div>
                                                         <b class="dx-clear" style="display: block; clear: both; height: 0px; width: 0px; font-size: 0px; line-height: 0; overflow: hidden; visibility: hidden;"></b>
+                                  <asp:Panel ID="Panel1" runat="server" Width="263px">
+                                      Brinda cobertura a cualquier persona que conduzca el vehículo desde los 16 años, siempre que tengan su licencia de conducir vigente.<asp:Panel ID="Panel2" runat="server">
+                                          (siempre que NO sean colaboradores): Brinda cobertura a cualquier persona que conduzca el vehículo desde los 16 años, siempre que tengan su licencia de conducir vigente.<asp:Panel ID="Panel3" runat="server">
+                                              Ampliación del monto de cobertura de la sección II de la póliza (Seguro de Responsabilidad Civil ante Terceras personas) para tener una mejor protección.
+                                              <asp:Panel ID="Panel4" runat="server">
+                                                  Ampara el robo del “equipo especial” instalado dentro de la cabina del vehículo; por ejemplo: robo de radio o bocinas, dvd, u otros equipos de audio o video. No ampara piezas mecánicas, externas o equipos portátiles o propiedad personal.</asp:Panel>
+                                          </asp:Panel>
+                                      </asp:Panel>
+                                  </asp:Panel>
         </td></tr></table>
 
                                    
