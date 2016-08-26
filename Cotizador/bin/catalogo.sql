@@ -42,8 +42,8 @@ CREATE TABLE IF NOT EXISTS `coberturas_adicionales` (
 -- Dumping data for table catalogo.coberturas_adicionales: ~1 rows (approximately)
 DELETE FROM `coberturas_adicionales`;
 /*!40000 ALTER TABLE `coberturas_adicionales` DISABLE KEYS */;
-INSERT INTO `coberturas_adicionales` (`indice`, `codigo`, `base`, `suma_asegurada_limite`, `porcentaje_menor_100`, `porcentaje_mayor_100`, `costo`, `robo_parcial`, `Menores_desde_16`, `Menores_desde_18`, `Exceso_RC`, `gastos_emision`, `asisto`, `iva`, `Exceso_RC_ElevacionDeCobertura`, `Exceso_RC_Base`, `PrimaNetaRC`, `MenorNombradoRC`) VALUES
-	(1, 'Roble', 1000.00, 100000.00, 0.025, 0.020, 500.00, 267.54, 500.00, 1000.00, 200.00, 0.05, 145.45, 0.12, 250000.00, 800000.00, 900.00, NULL);
+INSERT INTO `coberturas_adicionales` (`indice`, `codigo`, `base`, `suma_asegurada_limite`, `porcentaje_menor_100`, `porcentaje_mayor_100`, `costo`, `robo_parcial`, `Menores_desde_16`, `Menores_desde_18`, `Exceso_RC`, `gastos_emision`, `asisto`, `iva`, `Exceso_RC_ElevacionDeCobertura`, `Exceso_RC_Base`, `PrimaNetaRC`, `MenorNombradoRC`, `PorcentajeResponsabilidadCivil`) VALUES
+	(1, 'Roble', 1000.00, 100000.00, 0.025, 0.020, 500.00, 267.54, 500.00, 1000.00, 200.00, 0.05, 145.45, 0.12, 250000.00, 800000.00, 900.00, NULL, 1.05);
 /*!40000 ALTER TABLE `coberturas_adicionales` ENABLE KEYS */;
 
 
@@ -56,7 +56,7 @@ CREATE TABLE IF NOT EXISTS `correoautomatico` (
   PRIMARY KEY (`indice`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
--- Dumping data for table catalogo.correoautomatico: ~0 rows (approximately)
+-- Dumping data for table catalogo.correoautomatico: ~2 rows (approximately)
 DELETE FROM `correoautomatico`;
 /*!40000 ALTER TABLE `correoautomatico` DISABLE KEYS */;
 INSERT INTO `correoautomatico` (`indice`, `codigo`, `mensaje`, `descripcion_codigo`) VALUES
@@ -76,7 +76,7 @@ CREATE TABLE IF NOT EXISTS `correosinternos` (
   CONSTRAINT `FK__coberturas_adicionales` FOREIGN KEY (`CodigoEmpresa`) REFERENCES `coberturas_adicionales` (`codigo`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
--- Dumping data for table catalogo.correosinternos: ~0 rows (approximately)
+-- Dumping data for table catalogo.correosinternos: ~1 rows (approximately)
 DELETE FROM `correosinternos`;
 /*!40000 ALTER TABLE `correosinternos` DISABLE KEYS */;
 INSERT INTO `correosinternos` (`indice`, `Correo`, `CodigoEmpresa`) VALUES
@@ -89,7 +89,7 @@ CREATE TABLE IF NOT EXISTS `iva` (
   `Iva` decimal(8,2) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table catalogo.iva: ~0 rows (approximately)
+-- Dumping data for table catalogo.iva: ~1 rows (approximately)
 DELETE FROM `iva`;
 /*!40000 ALTER TABLE `iva` DISABLE KEYS */;
 INSERT INTO `iva` (`Iva`) VALUES
@@ -105,7 +105,7 @@ CREATE TABLE IF NOT EXISTS `linea` (
   UNIQUE KEY `Descripcion` (`Descripcion`)
 ) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
 
--- Dumping data for table catalogo.linea: ~11 rows (approximately)
+-- Dumping data for table catalogo.linea: ~12 rows (approximately)
 DELETE FROM `linea`;
 /*!40000 ALTER TABLE `linea` DISABLE KEYS */;
 INSERT INTO `linea` (`indice`, `Descripcion`) VALUES
@@ -236,7 +236,7 @@ CREATE TABLE IF NOT EXISTS `marca` (
   UNIQUE KEY `Descripcion` (`Descripcion`)
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
--- Dumping data for table catalogo.marca: ~7 rows (approximately)
+-- Dumping data for table catalogo.marca: ~8 rows (approximately)
 DELETE FROM `marca`;
 /*!40000 ALTER TABLE `marca` DISABLE KEYS */;
 INSERT INTO `marca` (`indice`, `Descripcion`) VALUES
