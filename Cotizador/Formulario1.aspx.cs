@@ -205,7 +205,7 @@ namespace Cotizador
             }
 
 
-             Cotizar.GuardaCotizacion(this.txtNombre.Text.Trim(), this.txtCorreo.Text.Trim(), this.cmbTipoVehiculo.SelectedItem.Text.Trim(), this.cmbLinea.SelectedItem.Text.Trim(), this.cmbMarca.SelectedItem.Text.Trim(), this.txtTelefono.Text.Trim(), this.cmbModelo.SelectedItem.Text.Trim(), Decimal.Parse(this.txtValorMercado.Text.Trim()), _tipo_seguro,this.txtCorreo.Text.ToString(),"Roble");
+            Cotizar.GuardaCotizacion(this.txtNombre.Text.Trim(), this.txtCorreo.Text.Trim(), this.cmbTipoVehiculo.SelectedItem.Text.Trim(), this.cmbLinea.SelectedItem.Text.Trim(), this.cmbMarca.SelectedItem.Text.Trim(), this.txtTelefono.Text.Trim(), this.cmbModelo.SelectedItem.Text.Trim(), Decimal.Parse(ValorMercado), _tipo_seguro, this.txtCorreo.Text.ToString(), "Roble");
 
              SumaAsegurada = Decimal.Parse(ValorMercado);
              Valores Calculo = new Valores("Roble", SumaAsegurada, this.chkRoboParcial.Checked, this.chkMenores16.Checked, this.chkMenores18.Checked, this.chkExcesoRC.Checked, RoboParcial);
@@ -223,8 +223,13 @@ namespace Cotizador
              string DescripcionVehiculo = this.cmbTipoVehiculo.SelectedItem.Text + " - " + this.cmbMarca.SelectedItem.Text + " - " + this.cmbModelo.SelectedItem.Text + " - " + this.cmbLinea.SelectedItem.Text;
              Session["DescripcionVehiculo"] = DescripcionVehiculo;
 
-             Response.Redirect("Rpt1.aspx");
-            
+            if (MensajeTipo == 1)
+             {
+                 Response.Redirect("Rpt1.aspx");
+             }
+             else {
+                 Response.Redirect("Rpt2.aspx");
+             }
 
         }
 

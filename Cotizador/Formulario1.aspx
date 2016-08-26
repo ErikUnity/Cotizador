@@ -377,7 +377,7 @@
                                           (siempre que NO sean colaboradores): Brinda cobertura a cualquier persona que conduzca el vehículo desde los 16 años, siempre que tengan su licencia de conducir vigente.<asp:Panel ID="Panel3" runat="server">
                                               Ampliación del monto de cobertura de la sección II de la póliza (Seguro de Responsabilidad Civil ante Terceras personas) para tener una mejor protección.
                                               <asp:Panel ID="Panel4" runat="server">
-                                                  Ampara el robo del “equipo especial” instalado dentro de la cabina del vehículo; por ejemplo: robo de radio o bocinas, dvd, u otros equipos de audio o video. No ampara piezas mecánicas, externas o equipos portátiles o propiedad personal.</asp:Panel>
+                                                  Ampara el robo del “equipo especial” instalado dentro de la cabina del vehículo; robo de radio o bocinas, dvd, u otros equipos de audio o video. No ampara piezas mecánicas, externas o equipos portátiles o propiedad personal.</asp:Panel>
                                           </asp:Panel>
                                       </asp:Panel>
                                   </asp:Panel>
