@@ -244,6 +244,44 @@ namespace Cotizador
 
              return resultado;
          }
+          public static decimal ObtienePorcentajeResponsabilidadCivil(string Codigo)
+         {
+             decimal resultado = 0;
+
+             DataTable content = new DataTable();
+             content = AccesoDatos.RegresaTablaMySql("Select PorcentajeResponsabilidadCivil from coberturas_adicionales where codigo = '" + Codigo + "'");
+             DataView dv = new DataView(content);
+             foreach (DataRow rw in content.Rows)
+             {
+                 if (rw[0].ToString() != null && rw[0].ToString().Trim() != "")
+                 {
+                     resultado = decimal.Parse(rw[0].ToString());
+                 }
+             }
+
+             return resultado;
+         }
+
+        
+          public static decimal ObtienePrimaNetaRC(string Codigo)
+         {
+             decimal resultado = 0;
+
+             DataTable content = new DataTable();
+             content = AccesoDatos.RegresaTablaMySql("Select PrimaNetaRC from coberturas_adicionales where codigo = '" + Codigo + "'");
+             DataView dv = new DataView(content);
+             foreach (DataRow rw in content.Rows)
+             {
+                 if (rw[0].ToString() != null && rw[0].ToString().Trim() != "")
+                 {
+                     resultado = decimal.Parse(rw[0].ToString());
+                 }
+             }
+
+             return resultado;
+         }
+
+        
        
         public static decimal ObtieneExcesoRC_Base(string Codigo)
          {
@@ -422,13 +460,15 @@ namespace Cotizador
       public decimal  Exceso_RC_ElevacionDeCobertura = 0;
       public decimal Exceso_RC_Base = 0;
       public decimal DañosATerceros = 0;
+      public decimal PorcentajeResponsabilidadCivil = 0;
 
-        public Valores(string _Codigo, decimal _SumaAsegurada, bool _roboParcial, bool _MenoresDesde16, bool _MenoresDesde18, bool _ExcesoRC, decimal _RoboParcial)
+      public Valores(string _Codigo, decimal _SumaAsegurada, bool _roboParcial, bool _MenoresDesde16, bool _MenoresDesde18, bool _ExcesoRC, decimal _RoboParcial, int MensajeTipo)
         {
             decimal equipo_especial = 0;
             decimal cien = 100;
             decimal mil = 1000;
             decimal docientoscientuena = 250;
+            decimal PrimaNetaRC = Cotizadores.ObtienePrimaNetaRC(_Codigo);
 
              Codigo = _Codigo;
              SumaAsegurada = _SumaAsegurada;
@@ -451,16 +491,27 @@ namespace Cotizador
              DiasAnuales = int.Parse((newDate - nextyear).TotalDays.ToString()) * -1;
              DiasTotales = int.Parse((nextyear - olddate).TotalDays.ToString());
              DañosATerceros = Exceso_RC_Base;
+             PorcentajeResponsabilidadCivil = Cotizadores.ObtienePorcentajeResponsabilidadCivil(_Codigo);
 
-             if (SumaAsegurada < SumaLimiteParaCalculo)
+
+             if (MensajeTipo == 1)
              {
-                 PrimaNeta = (SumaAsegurada * Porcentaje_Menor_100 + Costo);
-                 //=SI((B6*0.025+500)<1000,1000,(B6*0.025+500))+D5
-           
+                 if (SumaAsegurada < SumaLimiteParaCalculo)
+                 {
+                     PrimaNeta = (SumaAsegurada * Porcentaje_Menor_100 + Costo);
+                     //=SI((B6*0.025+500)<1000,1000,(B6*0.025+500))+D5
+
+                 }
+                 else
+                 {
+                     PrimaNeta = (SumaAsegurada * Porcentaje_Mayor_100 + Costo);
+                     //=SI((B6*0.02+500)<1000,1000,(B6*0.02+500))+D5
+                 }
              }
              else {
-                 PrimaNeta = (SumaAsegurada * Porcentaje_Mayor_100 + Costo);
-                     //=SI((B6*0.02+500)<1000,1000,(B6*0.02+500))+D5
+
+                 PrimaNeta = (PrimaNetaRC * PorcentajeResponsabilidadCivil);
+                 //=(D6*1.05)+145.45+((D6*1.05+145.45)*0.12)
              }
              
              //L31*100/1000

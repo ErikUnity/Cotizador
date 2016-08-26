@@ -193,22 +193,10 @@ namespace Cotizador
                 return;
 
 
-            EnvioDeCorreoRapido.EjecutarProceso(this.txtCorreo.Text.Trim(), this.cmbTipoVehiculo.SelectedItem.Text.Trim(), this.cmbLinea.SelectedItem.Text.Trim(), this.cmbMarca.SelectedItem.Text.Trim(), this.cmbModelo.SelectedItem.Text.Trim(), ValorMercado, MensajeTipo, this.txtNombre.Text.Trim());
-            List<CorreosInternos> correo = new List<CorreosInternos>();
-            correo = Cotizadores.EnviarCorreosInternos("Roble");
-            if (correo.Count != 0)
-            {
-                foreach (var item in correo)
-                {
-                    EnvioDeCorreoRapido.EjecutarProceso(item.Correo, this.cmbTipoVehiculo.SelectedItem.Text.Trim(), this.cmbLinea.SelectedItem.Text.Trim(), this.cmbMarca.SelectedItem.Text.Trim(), this.cmbModelo.SelectedItem.Text.Trim(), ValorMercado, MensajeTipo, this.txtNombre.Text.Trim());
-                }
-            }
-
-
             Cotizar.GuardaCotizacion(this.txtNombre.Text.Trim(), this.txtCorreo.Text.Trim(), this.cmbTipoVehiculo.SelectedItem.Text.Trim(), this.cmbLinea.SelectedItem.Text.Trim(), this.cmbMarca.SelectedItem.Text.Trim(), this.txtTelefono.Text.Trim(), this.cmbModelo.SelectedItem.Text.Trim(), Decimal.Parse(ValorMercado), _tipo_seguro, this.txtCorreo.Text.ToString(), "Roble");
 
              SumaAsegurada = Decimal.Parse(ValorMercado);
-             Valores Calculo = new Valores("Roble", SumaAsegurada, this.chkRoboParcial.Checked, this.chkMenores16.Checked, this.chkMenores18.Checked, this.chkExcesoRC.Checked, RoboParcial);
+             Valores Calculo = new Valores("Roble", SumaAsegurada, this.chkRoboParcial.Checked, this.chkMenores16.Checked, this.chkMenores18.Checked, this.chkExcesoRC.Checked, RoboParcial, MensajeTipo);
              this.lblMsg.Text = Calculo.PrimaTotalProRata.ToString();
              
              // ClientScript.RegisterStartupScript(this.GetType(), "Alert", "alert('La cotización ha sido enviada a su correo: " + this.txtCorreo.Text + ");", true);
@@ -222,6 +210,17 @@ namespace Cotizador
              Session["NombreCliente"] = this.txtNombre.Text.Trim();
              string DescripcionVehiculo = this.cmbTipoVehiculo.SelectedItem.Text + " - " + this.cmbMarca.SelectedItem.Text + " - " + this.cmbModelo.SelectedItem.Text + " - " + this.cmbLinea.SelectedItem.Text;
              Session["DescripcionVehiculo"] = DescripcionVehiculo;
+
+             EnvioDeCorreoRapido.EjecutarProceso(this.txtCorreo.Text.Trim(), this.cmbTipoVehiculo.SelectedItem.Text.Trim(), this.cmbLinea.SelectedItem.Text.Trim(), this.cmbMarca.SelectedItem.Text.Trim(), this.cmbModelo.SelectedItem.Text.Trim(), ValorMercado, MensajeTipo, this.txtNombre.Text.Trim());
+             List<CorreosInternos> correo = new List<CorreosInternos>();
+             correo = Cotizadores.EnviarCorreosInternos("Roble");
+             if (correo.Count != 0)
+             {
+                 foreach (var item in correo)
+                 {
+                     EnvioDeCorreoRapido.EjecutarProceso(item.Correo, this.cmbTipoVehiculo.SelectedItem.Text.Trim(), this.cmbLinea.SelectedItem.Text.Trim(), this.cmbMarca.SelectedItem.Text.Trim(), this.cmbModelo.SelectedItem.Text.Trim(), ValorMercado, MensajeTipo, this.txtNombre.Text.Trim());
+                 }
+             }
 
             if (MensajeTipo == 1)
              {

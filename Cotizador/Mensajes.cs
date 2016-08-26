@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Text;
+using Microsoft.Reporting.WebForms;
+using System.Web;
+using System.IO;
+
 
 namespace Cotizador
 {
@@ -20,6 +24,7 @@ namespace Cotizador
         // This method will be called when the thread is started.
         public void DoWork()
         {
+
             Cotizadores Cotizar = new Cotizadores();
             Correo enviando = new Correo();
             StringBuilder msg = Cotizar.ObtieneMensaje(MensajeTipo);
@@ -74,6 +79,48 @@ namespace Cotizador
             workerThread.Join();
 
         }
+
+        public static void AlmacenarPdf1()
+        {
+            // Setup DataSet
+        
+
+            //// Create Report DataSource
+            //ReportDataSource rds = new ReportDataSource("CotizadorRoble", Cotizadores.ReporteCotizacion1("",0,true,true,true,true,0,"","") );
+            //string path = HttpContext.Current.Request.PhysicalApplicationPath;
+
+            //// Variables
+            //Warning[] warnings;
+            //string[] streamIds;
+            //string mimeType = string.Empty;
+            //string encoding = string.Empty;
+            //string extension = string.Empty;
+
+            //// Setup the report viewer object and get the array of bytes
+            //ReportViewer viewer = new ReportViewer();
+            //viewer.ProcessingMode = ProcessingMode.Local;
+            //viewer.LocalReport.ReportPath = path +  @"\Reportes\CotizadorRoble.rdlc";
+            //viewer.LocalReport.DataSources.Add(rds); // Add datasource here
+
+            //byte[] bytes = viewer.LocalReport.Render("PDF", null, out mimeType, out encoding, out extension, out streamIds, out warnings);
+
+    
+            //FileStream targetStream = File.OpenWrite(filename, FileMode.Create());
+            //int bytesRead = 0;
+
+            //while (true)
+            //{
+            //    bytesRead = sourceStream.Read(buffer, 0, buffer.length);
+            //    if (bytesRead == 0)
+            //        break;
+            //    targetStream.Write(buffer, 0, bytesRead);
+            //}
+            //sourceStream.Close();
+            //targetStream.Close();
+ 
+        
+        }
+
     }
 
 

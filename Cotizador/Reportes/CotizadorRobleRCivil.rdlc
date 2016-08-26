@@ -290,7 +290,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Sum(Fields!SumaAsegurada.Value)</Value>
+                              <Value>EXCLUIDO</Value>
                               <Style>
                                 <FontFamily>Candara</FontFamily>
                               </Style>
