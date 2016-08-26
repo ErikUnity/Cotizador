@@ -8,7 +8,7 @@ using System.Text.RegularExpressions;
 
 namespace Cotizador
 {
-    public partial class Forumlario1 : System.Web.UI.Page
+    public partial class Formulario1 : System.Web.UI.Page
     {
         Cotizadores  Cotizar = new Cotizadores();
         protected void Page_Load(object sender, EventArgs e)
@@ -212,17 +212,20 @@ namespace Cotizador
              this.lblMsg.Text = Calculo.PrimaTotalProRata.ToString();
              
              // ClientScript.RegisterStartupScript(this.GetType(), "Alert", "alert('La cotización ha sido enviada a su correo: " + this.txtCorreo.Text + ");", true);
-
-             Session["Nombre"] = this.txtNombre.Text.Trim();
+             Session["CodigoEmpresa"] = "Roble";
              Session["SumaAsegurada"] = SumaAsegurada.ToString();
              Session["RoboParcial"] = this.chkRoboParcial.Checked.ToString();
-             Session["Menores16"] = SumaAsegurada.ToString();
+             Session["Menores16"] = this.chkMenores16.Checked.ToString();
              Session["Menores18"] = this.chkMenores18.Checked.ToString();
-             Session["SumaAsegurada"] = SumaAsegurada.ToString();
-             Session[""] = SumaAsegurada.ToString();
+             Session["ExcesosRC"] = this.chkExcesoRC.Checked.ToString();
+             Session["_RoboParcial"] = RoboParcial.ToString();
+             Session["NombreCliente"] = this.txtNombre.Text.Trim();
+             string DescripcionVehiculo = this.cmbTipoVehiculo.SelectedItem.Text + " - " + this.cmbMarca.SelectedItem.Text + " - " + this.cmbModelo.SelectedItem.Text + " - " + this.cmbLinea.SelectedItem.Text;
+             Session["DescripcionVehiculo"] = DescripcionVehiculo;
 
+             Response.Redirect("Rpt1.aspx");
+            
 
-             
         }
 
         protected void chkRoboParcial_CheckedChanged(object sender, EventArgs e)

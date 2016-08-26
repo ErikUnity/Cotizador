@@ -25,7 +25,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!NombreCliente.Value</Value>
+                              <Value>=UCase(Fields!NombreCliente.Value)</Value>
                               <Style>
                                 <FontSize>14pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
@@ -295,7 +295,7 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.58333in</Height>
+              <Height>0.78129in</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -3188,12 +3188,24 @@
         <DataSetName>CotizadorRoble</DataSetName>
         <Top>1.12375in</Top>
         <Left>0.28in</Left>
-        <Height>15.76042in</Height>
-        <Width>7.34375in</Width>
+        <Height>15.95834in</Height>
+        <Width>7.34376in</Width>
         <Style>
           <Border>
-            <Style>None</Style>
+            <Style>Solid</Style>
           </Border>
+          <TopBorder>
+            <Style>Solid</Style>
+          </TopBorder>
+          <BottomBorder>
+            <Style>Solid</Style>
+          </BottomBorder>
+          <LeftBorder>
+            <Style>Solid</Style>
+          </LeftBorder>
+          <RightBorder>
+            <Style>Solid</Style>
+          </RightBorder>
         </Style>
       </Tablix>
       <Image Name="Image3">
@@ -3212,8 +3224,24 @@
         </Style>
       </Image>
     </ReportItems>
-    <Height>16.88417in</Height>
-    <Style />
+    <Height>17.5in</Height>
+    <Style>
+      <Border>
+        <Style>Solid</Style>
+      </Border>
+      <TopBorder>
+        <Style>Solid</Style>
+      </TopBorder>
+      <BottomBorder>
+        <Style>Solid</Style>
+      </BottomBorder>
+      <LeftBorder>
+        <Style>Solid</Style>
+      </LeftBorder>
+      <RightBorder>
+        <Style>Solid</Style>
+      </RightBorder>
+    </Style>
   </Body>
   <Width>7.92583in</Width>
   <Page>

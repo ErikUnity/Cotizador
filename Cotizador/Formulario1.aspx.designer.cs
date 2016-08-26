@@ -8,9 +8,10 @@
 //------------------------------------------------------------------------------
 
 namespace Cotizador {
-    
-    
-    public partial class Forumlario1 {
+
+
+    public partial class Formulario1
+    {
         
         /// <summary>
         /// form1 control.

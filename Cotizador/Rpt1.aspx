@@ -9,15 +9,33 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <div>
+    <div style="text-align:center; width:100%; height:100%">
     
-        <rsweb:ReportViewer ID="ReportViewer1" runat="server" Font-Names="Verdana" Font-Size="8pt" Height="744px" WaitMessageFont-Names="Verdana" WaitMessageFont-Size="14pt" Width="883px">
+        <rsweb:ReportViewer ID="ReportViewer1" runat="server" Font-Names="Verdana" Font-Size="8pt" Height="2190px" WaitMessageFont-Names="Verdana" WaitMessageFont-Size="14pt" Width="100%" >
             <LocalReport ReportPath="Reportes\CotizadorRoble.rdlc">
+                <DataSources>
+                    <rsweb:ReportDataSource DataSourceId="ObjectDataSource1" Name="CotizadorRoble" />
+                </DataSources>
             </LocalReport>
         </rsweb:ReportViewer>
+    
+        <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" SelectMethod="ReporteCotizacion1" TypeName="Cotizador.Cotizadores">
+            <SelectParameters>
+                <asp:SessionParameter DefaultValue="&quot;&quot;" Name="CodigoEmpresa" SessionField="CodigoEmpresa" Type="String" />
+                <asp:SessionParameter DefaultValue="0" Name="SumaAsegurada" SessionField="SumaAsegurada" Type="Decimal" />
+                <asp:SessionParameter DefaultValue="false" Name="RoboParcial" SessionField="RoboParcial" Type="Boolean" />
+                <asp:SessionParameter DefaultValue="false" Name="Menores16" SessionField="Menores16" Type="Boolean" />
+                <asp:SessionParameter DefaultValue="false" Name="Menores18" SessionField="Menores18" Type="Boolean" />
+                <asp:SessionParameter DefaultValue="false" Name="ExcesosRC" SessionField="ExcesosRC" Type="Boolean" />
+                <asp:SessionParameter DefaultValue="0" Name="_RoboParcial" SessionField="_RoboParcial" Type="Decimal" />
+                <asp:SessionParameter DefaultValue="&quot;&quot;" Name="NombreCliente" SessionField="NombreCliente" Type="String" />
+                <asp:SessionParameter DefaultValue="&quot;&quot;" Name="DescripcionVehiculo" SessionField="DescripcionVehiculo" Type="String" />
+            </SelectParameters>
+        </asp:ObjectDataSource>
     
     </div>
     <asp:ScriptManager ID="ScriptManager1" runat="server">
     </asp:ScriptManager>
+        </form>
     </body>
 </html>

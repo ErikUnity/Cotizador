@@ -48,38 +48,44 @@ namespace Cotizador
             return data;
 
         }
-        public static List<Impresion> ReporteCotizacion1(string CodigoEmpresa,decimal SumaAsegurada, bool RoboParcial, bool Menores16, bool Menores18,bool ExcesosRC, decimal _RoboParcial)
+
+        public static List<Impresion> ReporteCotizacion1(string CodigoEmpresa,decimal SumaAsegurada, bool RoboParcial, bool Menores16, bool Menores18,bool ExcesosRC, decimal _RoboParcial,string NombreCliente, string DescripcionVehiculo)
         {
             Valores Calculo = new Valores(CodigoEmpresa, SumaAsegurada, RoboParcial, Menores16, Menores18, ExcesosRC, _RoboParcial);
             Impresion lista = new Impresion();
             List<Impresion> data = new List<Impresion>();
-            lista.Asisto = Calculo.Asisto;
-            lista.CadaPago = Calculo.CadaPago;
-            lista.CalculoIva = Calculo.CalculoIva;
-            lista.CoberturaAdicional = Calculo.CoberturaAdicional;
-            lista.Codigo = Calculo.Codigo;
-            lista.Costo = Calculo.Costo;
-            lista.DiasAnuales = Calculo.DiasAnuales;
-            lista.DiasTotales = Calculo.DiasTotales;
-            lista.ExcesoRC = Calculo.ExcesoRC;
-            lista.GastosPorEmision = Calculo.GastosPorEmision;
-            lista.GastosPorEmisionProRata = Calculo.GastosPorEmisionProRata;
-            lista.Iva = Calculo.Iva;
-            lista.IvaProRata = Calculo.IvaProRata;
-            lista.MenoresDesde16 = Calculo.MenoresDesde16;
-            lista.MenoresDesde18 = Calculo.MenoresDesde18;
-            lista.MontoBase = Calculo.MontoBase;
-            lista.Porcentaje_Mayor_100 = Calculo.Porcentaje_Mayor_100;
-            lista.Porcentaje_Menor_100 = Calculo.Porcentaje_Menor_100;
-            lista.PrimaNeta = Calculo.PrimaNeta;
-            lista.PrimaNetaProRata = Calculo.PrimaNetaProRata;
-            lista.PrimaTotal = Calculo.PrimaTotal;
-            lista.PrimaTotalProRata = Calculo.PrimaTotalProRata;
-            lista.RoboParcial = Calculo.RoboParcial;
-            lista.SumaAsegurada = Calculo.SumaAsegurada;
-            lista.SumaLimiteParaCalculo = Calculo.SumaLimiteParaCalculo;
-            lista.DañosATerceros = Calculo.DañosATerceros;
-            data.Add(lista);
+       lista.SumaAsegurada = Calculo.SumaAsegurada;
+       lista.Codigo= Calculo.Codigo;
+       lista.PrimaNeta= Calculo.PrimaNeta;
+       lista.PrimaNetaProRata= Calculo.PrimaNetaProRata;
+       lista.MontoBase = Calculo.MontoBase;
+       lista.SumaLimiteParaCalculo = Calculo.SumaLimiteParaCalculo;
+       lista.Porcentaje_Menor_100 = Calculo.Porcentaje_Menor_100;
+       lista.Porcentaje_Mayor_100 = Calculo.Porcentaje_Mayor_100;
+       lista.Costo = Calculo.Costo;
+       lista.RoboParcial = Calculo.RoboParcial;
+       lista.MenoresDesde16 = Calculo.MenoresDesde16;
+       lista.MenoresDesde18 = Calculo.MenoresDesde18;
+       lista.ExcesoRC = Calculo.ExcesoRC;
+       lista.GastosPorEmision = Calculo.GastosPorEmision;
+       lista.GastosPorEmisionProRata = Calculo.GastosPorEmisionProRata;
+       lista.Asisto = Calculo.Asisto;
+       lista.Iva = Calculo.Iva;
+       lista.IvaProRata = Calculo.IvaProRata;
+       lista.CoberturaAdicional = Calculo.CoberturaAdicional;
+       lista.PrimaTotal = Calculo.PrimaTotal;
+       lista.PrimaTotalProRata = Calculo.PrimaTotalProRata;
+       lista.CalculoIva = Calculo.CalculoIva;
+       lista.DiasAnuales = Calculo.DiasAnuales;
+       lista.DiasTotales = Calculo.DiasTotales;
+       lista.CadaPago = Calculo.CadaPago;
+       lista.Exceso_RC_ElevacionDeCobertura = Calculo.Exceso_RC_ElevacionDeCobertura;
+       lista.Exceso_RC_Base = Calculo.Exceso_RC_Base;
+       lista.DañosATerceros = Calculo.DañosATerceros;
+       lista.NombreCliente = NombreCliente;
+       lista.NombreAgente = "";
+       lista.DescripcionVehiculo = DescripcionVehiculo;
+       data.Add(lista);
 
             return data;
 
@@ -455,7 +461,6 @@ namespace Cotizador
              else {
                  PrimaNeta = (SumaAsegurada * Porcentaje_Mayor_100 + Costo);
                      //=SI((B6*0.02+500)<1000,1000,(B6*0.02+500))+D5
-       
              }
              
              //L31*100/1000
@@ -530,165 +535,191 @@ namespace Cotizador
       public Impresion()
         {
         }
+      private decimal _SumaAsegruada = 0;
       public decimal SumaAsegurada
       {
-          get { return SumaAsegurada; }
-          set { this.SumaAsegurada = value; }
+          get { return _SumaAsegruada; }
+          set { this._SumaAsegruada = value; }
       }
+      private string _Codigo = "";
       public string Codigo
       {
-          get { return Codigo; }
-          set { this.Codigo = value; }
+          get { return _Codigo; }
+          set { this._Codigo = value; }
       }
+      private decimal _PrimaNeta = 0;
       public decimal PrimaNeta
       {
-          get { return PrimaNeta; }
-          set { this.PrimaNeta = value; }
+          get { return _PrimaNeta; }
+          set { this._PrimaNeta = value; }
       }
+      private decimal _PrimaNetaProRata = 0;
       public decimal PrimaNetaProRata
       {
-          get { return PrimaNetaProRata; }
-          set { this.PrimaNetaProRata = value; }
+          get { return _PrimaNetaProRata; }
+          set { this._PrimaNetaProRata = value; }
       }
+      private decimal _MontoBase = 0;
       public decimal MontoBase
       {
-          get { return MontoBase; }
-          set { this.MontoBase = value; }
+          get { return _MontoBase; }
+          set { this._MontoBase = value; }
       }
+      private decimal _SumaLimitieParaCalculo = 0;
       public decimal SumaLimiteParaCalculo
       {
-          get { return SumaLimiteParaCalculo; }
-          set { this.SumaLimiteParaCalculo = value; }
+          get { return _SumaLimitieParaCalculo; }
+          set { this._SumaLimitieParaCalculo = value; }
       }
+      private decimal _Porcentaje_Menor_100 = 0;
       public decimal Porcentaje_Menor_100
       {
-          get { return Porcentaje_Menor_100; }
-          set { this.Porcentaje_Menor_100 = value; }
+          get { return _Porcentaje_Menor_100; }
+          set { this._Porcentaje_Menor_100 = value; }
       }
+      private decimal _Porcentaje_Mayor_100 = 0;
       public decimal Porcentaje_Mayor_100
       {
-          get { return Porcentaje_Mayor_100; }
-          set { this.Porcentaje_Mayor_100 = value; }
+          get { return _Porcentaje_Mayor_100; }
+          set { this._Porcentaje_Mayor_100 = value; }
       }
+      private decimal _Costo = 0;
       public decimal Costo
       {
-          get { return Costo; }
-          set { this.Costo = value; }
+          get { return _Costo; }
+          set { this._Costo = value; }
       }
+      private decimal _RoboParcial = 0;
       public decimal RoboParcial
       {
-          get { return RoboParcial; }
-          set { this.RoboParcial = value; }
+          get { return _RoboParcial; }
+          set { this._RoboParcial = value; }
       }
+        private decimal _MenoresDeEdad16 = 0;
       public decimal MenoresDesde16
       {
-          get { return MenoresDesde16; }
-          set { this.MenoresDesde16 = value; }
+          get { return _MenoresDeEdad16; }
+          set { this._MenoresDeEdad16 = value; }
       }
+      private decimal _MenoresDesde18 = 0;
       public decimal MenoresDesde18
       {
-          get { return MenoresDesde18; }
-          set { this.MenoresDesde18 = value; }
+          get { return _MenoresDesde18; }
+          set { this._MenoresDesde18 = value; }
       }
-
+      private decimal _ExcesoRC = 0;
       public decimal ExcesoRC
       {
-          get { return ExcesoRC; }
-          set { this.ExcesoRC = value; }
+          get { return _ExcesoRC; }
+          set { this._ExcesoRC = value; }
       }
-
+      private decimal _GastosPorEmision = 0;
       public decimal GastosPorEmision
       {
-          get { return GastosPorEmision; }
-          set { this.GastosPorEmision = value; }
+          get { return _GastosPorEmision; }
+          set { this._GastosPorEmision = value; }
       }
-
+      private decimal _GastosPorEmisionProRata = 0;
       public decimal GastosPorEmisionProRata
       {
-          get { return GastosPorEmisionProRata; }
-          set { this.GastosPorEmisionProRata = value; }
+          get { return _GastosPorEmisionProRata; }
+          set { this._GastosPorEmisionProRata = value; }
       }
+      private decimal _Asisto = 0;
       public decimal Asisto
       {
-          get { return Asisto; }
-          set { this.Asisto = value; }
+          get { return _Asisto; }
+          set { this._Asisto = value; }
       }
+      private decimal _Iva = 0;
       public decimal Iva
       {
-          get { return Iva; }
-          set { this.Iva = value; }
+          get { return _Iva; }
+          set { this._Iva = value; }
       }
+      private decimal _IvaProRata = 0;
       public decimal IvaProRata
       {
-          get { return IvaProRata; }
-          set { this.IvaProRata = value; }
+          get { return _IvaProRata; }
+          set { this._IvaProRata = value; }
       }
+      private decimal _CoberturaAdicional = 0;
       public decimal CoberturaAdicional
       {
-          get { return CoberturaAdicional; }
-          set { this.CoberturaAdicional = value; }
+          get { return _CoberturaAdicional; }
+          set { this._CoberturaAdicional = value; }
       }
+        private decimal _Primatotal = 0;
       public decimal PrimaTotal
       {
-          get { return PrimaTotal; }
-          set { this.PrimaTotal = value; }
+          get { return _Primatotal; }
+          set { this._Primatotal = value; }
       }
+      private decimal _PrimaTotalProRata = 0;
       public decimal PrimaTotalProRata
       {
-          get { return PrimaTotalProRata; }
-          set { this.PrimaTotalProRata = value; }
+          get { return _PrimaTotalProRata; }
+          set { this._PrimaTotalProRata = value; }
       }
+      private decimal _CalculoIva = 0;
       public decimal CalculoIva
       {
-          get { return CalculoIva; }
-          set { this.CalculoIva = value; }
+          get { return _CalculoIva; }
+          set { this._CalculoIva = value; }
       }
+      private decimal _DiasAnuales = 0;
       public decimal DiasAnuales
       {
-          get { return DiasAnuales; }
-          set { this.DiasAnuales = value; }
+          get { return _DiasAnuales; }
+          set { this._DiasAnuales = value; }
       }
+      private int _DiasTotales = 0;
       public int DiasTotales
       {
-          get { return DiasTotales; }
-          set { this.DiasTotales = value; }
+          get { return _DiasTotales; }
+          set { this._DiasTotales = value; }
       }
+      private decimal _CadaPago = 0;
       public decimal CadaPago
       {
-          get { return CadaPago; }
-          set { this.CadaPago = value; }
+          get { return _CadaPago; }
+          set { this._CadaPago = value; }
       }
-
+      private decimal _Exceso_RC_ElevacionDeCobertura = 0;
       public decimal Exceso_RC_ElevacionDeCobertura
       {
-          get { return Exceso_RC_ElevacionDeCobertura; }
-          set { this.Exceso_RC_ElevacionDeCobertura = value; }
+          get { return _Exceso_RC_ElevacionDeCobertura; }
+          set { this._Exceso_RC_ElevacionDeCobertura = value; }
       }
+      private decimal _Exceso_RC_Base = 0;
       public decimal Exceso_RC_Base
       {
-          get { return Exceso_RC_Base; }
-          set { this.Exceso_RC_Base = value; }
+          get { return _Exceso_RC_Base; }
+          set { this._Exceso_RC_Base = value; }
       }
+        private decimal _DañosATerceros = 0;
       public decimal DañosATerceros
       {
-          get { return DañosATerceros; }
-          set { this.DañosATerceros = value; }
+          get { return _DañosATerceros; }
+          set { this._DañosATerceros = value; }
       }
-
+      private string _NombreCliente = "";
       public string NombreCliente
       {
-          get { return NombreCliente; }
-          set { this.NombreCliente = value; }
+          get { return _NombreCliente; }
+          set { this._NombreCliente = value; }
       }
+      private string _NombreAgente = "";
       public string NombreAgente
       {
-          get { return NombreAgente; }
-          set { this.NombreAgente = value; }
+          get { return _NombreAgente; }
+          set { this._NombreAgente = value; }
       }
+      private string _DescripcionVehiculo = "";
       public string DescripcionVehiculo
       {
-          get { return DescripcionVehiculo; }
-          set { this.DescripcionVehiculo = value; }
+          get { return _DescripcionVehiculo; }
+          set { this._DescripcionVehiculo = value; }
       }
 
     }

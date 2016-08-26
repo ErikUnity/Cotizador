@@ -12,7 +12,7 @@ namespace Cotizador
 
         public void EnviarCorreo(string _to, StringBuilder mensaje, string subject, int tipo)
         {
-            string AtachmentPath = AppDomain.CurrentDomain.BaseDirectory + @"\ASR27.xls";
+            string AtachmentPath = AppDomain.CurrentDomain.BaseDirectory + @"ASR27.xlsx";
             Attachment data = new Attachment(AtachmentPath);
 
            string from = "erik.castaneda@unitypromotores.com"; 
