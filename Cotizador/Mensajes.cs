@@ -148,7 +148,7 @@ namespace Cotizador
             string mimeType = string.Empty;
             string encoding = string.Empty;
             string extension = string.Empty;
-
+            LimpiarArchivo(archivo);
             // Setup the report viewer object and get the array of bytes
             ReportViewer viewer = new ReportViewer();
             viewer.ProcessingMode = ProcessingMode.Local;
