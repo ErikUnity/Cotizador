@@ -20,7 +20,7 @@ namespace Cotizador
         public string Modelo = "";
         public string ValorMercado = "";
         public int MensajeTipo = 1;
-
+        public string archivo = "";
         // This method will be called when the thread is started.
         public void DoWork()
         {
@@ -28,9 +28,8 @@ namespace Cotizador
             Cotizadores Cotizar = new Cotizadores();
             Correo enviando = new Correo();
             StringBuilder msg = Cotizar.ObtieneMensaje(MensajeTipo);
-
-            enviando.EnviarCorreo(Correo, msg, Nombre, MensajeTipo); 
-
+            enviando.EnviarCorreo(Correo, msg, Nombre, MensajeTipo, archivo);
+            EnvioDeCorreoRapido.LimpiarArchivo(archivo);
 
         }
         public void RequestStop()
@@ -45,7 +44,7 @@ namespace Cotizador
     public class EnvioDeCorreoRapido
     {
 
-        public static void EjecutarProceso(string Correo, string TipoDeVehiculo, string Linea, string Marca, string Modelo, string ValorMercado, int MensajeTipo, string Nombre)
+        public static void EjecutarProceso(string Correo, string TipoDeVehiculo, string Linea, string Marca, string Modelo, string ValorMercado, int MensajeTipo, string Nombre, string CodigoEmpresa,bool RoboParcial,bool Menores16,bool Menores18,bool ExcesosRC,decimal _RoboParcial,string NombreCliente,string DescripcionVehiculo)
         {
 
             // Create the thread object. This does not start the thread.
@@ -58,6 +57,11 @@ namespace Cotizador
             mensaje.ValorMercado = ValorMercado;
             mensaje.MensajeTipo = MensajeTipo;
             mensaje.Nombre = Nombre;
+            string archivo = "";
+            if (MensajeTipo == 1)
+            { archivo = EnvioDeCorreoRapido.AlmacenarPdf1(Nombre, CodigoEmpresa, Decimal.Parse(ValorMercado), RoboParcial, Menores16, Menores18, ExcesosRC, _RoboParcial, NombreCliente, DescripcionVehiculo);}
+             
+            mensaje.archivo = archivo;
 
             Thread workerThread = new Thread(mensaje.DoWork);
 
@@ -80,47 +84,108 @@ namespace Cotizador
 
         }
 
-        public static void AlmacenarPdf1()
+        public static string AlmacenarPdf1(string nombre, string CodigoEmpresa, decimal SumaAsegurada, bool RoboParcial, bool Menores16, bool Menores18, bool ExcesosRC, decimal _RoboParcial, string NombreCliente, string DescripcionVehiculo)
         {
             // Setup DataSet
-        
 
-            //// Create Report DataSource
-            //ReportDataSource rds = new ReportDataSource("CotizadorRoble", Cotizadores.ReporteCotizacion1("",0,true,true,true,true,0,"","") );
-            //string path = HttpContext.Current.Request.PhysicalApplicationPath;
 
-            //// Variables
-            //Warning[] warnings;
-            //string[] streamIds;
-            //string mimeType = string.Empty;
-            //string encoding = string.Empty;
-            //string extension = string.Empty;
+            // Create Report DataSource
+            ReportDataSource rds = new ReportDataSource("CotizadorRoble", Cotizadores.ReporteCotizacion1( CodigoEmpresa, SumaAsegurada, RoboParcial,  Menores16,  Menores18, ExcesosRC,  _RoboParcial, NombreCliente,  DescripcionVehiculo));
+            string path = HttpContext.Current.Request.PhysicalApplicationPath;
+            string archivo = path + @"Documentos\" + nombre.Replace(" ", "_").Replace(".", "") + ".pdf";
+            // Variables
+            Warning[] warnings;
+            string[] streamIds;
+            string mimeType = string.Empty;
+            string encoding = string.Empty;
+            string extension = string.Empty;
+            LimpiarArchivo(archivo);
+            // Setup the report viewer object and get the array of bytes
+            ReportViewer viewer = new ReportViewer();
+            viewer.ProcessingMode = ProcessingMode.Local;
+            viewer.LocalReport.ReportPath = path + @"Reportes\CotizadorRoble.rdlc";
+            viewer.LocalReport.DataSources.Add(rds); // Add datasource here
 
-            //// Setup the report viewer object and get the array of bytes
-            //ReportViewer viewer = new ReportViewer();
-            //viewer.ProcessingMode = ProcessingMode.Local;
-            //viewer.LocalReport.ReportPath = path +  @"\Reportes\CotizadorRoble.rdlc";
-            //viewer.LocalReport.DataSources.Add(rds); // Add datasource here
+            byte[] info = viewer.LocalReport.Render("PDF", null, out mimeType, out encoding, out extension, out streamIds, out warnings);
+            try
+            {
+                using (FileStream fs = new FileStream(path + @"Documentos\" + nombre.Replace(" ", "_").Replace(".", "") + ".pdf",
+                    FileMode.Create, FileAccess.Write, FileShare.None))
+                {
 
-            //byte[] bytes = viewer.LocalReport.Render("PDF", null, out mimeType, out encoding, out extension, out streamIds, out warnings);
+                    fs.Write(info, 0, info.Length);
+                    if (fs != null)
+                    {
+                        ((IDisposable)fs).Dispose();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
 
-    
-            //FileStream targetStream = File.OpenWrite(filename, FileMode.Create());
-            //int bytesRead = 0;
+                Helper.RegistrarEvento("Error al escribir el archivo pdf " + ex.Message);
+            }
+  
 
-            //while (true)
-            //{
-            //    bytesRead = sourceStream.Read(buffer, 0, buffer.length);
-            //    if (bytesRead == 0)
-            //        break;
-            //    targetStream.Write(buffer, 0, bytesRead);
-            //}
-            //sourceStream.Close();
-            //targetStream.Close();
- 
+
+             viewer.Dispose();
+           
+             return archivo; 
         
         }
+        public static string AlmacenarPdf2(string nombre, string CodigoEmpresa, decimal SumaAsegurada, bool RoboParcial, bool Menores16, bool Menores18, bool ExcesosRC, decimal _RoboParcial, string NombreCliente, string DescripcionVehiculo)
+        {
+            // Setup DataSet
 
+
+            // Create Report DataSource
+            ReportDataSource rds = new ReportDataSource("CotizadorRoble", Cotizadores.ReporteCotizacion1(CodigoEmpresa, SumaAsegurada, RoboParcial, Menores16, Menores18, ExcesosRC, _RoboParcial, NombreCliente, DescripcionVehiculo));
+            string path = HttpContext.Current.Request.PhysicalApplicationPath;
+            string archivo = path + @"Documentos\" + nombre.Replace(" ", "_").Replace(".", "") + ".pdf";
+            // Variables
+            Warning[] warnings;
+            string[] streamIds;
+            string mimeType = string.Empty;
+            string encoding = string.Empty;
+            string extension = string.Empty;
+
+            // Setup the report viewer object and get the array of bytes
+            ReportViewer viewer = new ReportViewer();
+            viewer.ProcessingMode = ProcessingMode.Local;
+            viewer.LocalReport.ReportPath = path + @"Reportes\CotizadorRobleRCivil.rdlc";
+            viewer.LocalReport.DataSources.Add(rds); // Add datasource here
+
+            byte[] info = viewer.LocalReport.Render("PDF", null, out mimeType, out encoding, out extension, out streamIds, out warnings);
+
+            using (FileStream fs = new FileStream(path + @"Documentos\" + nombre.Replace(" ", "_").Replace(".", "") + ".pdf",
+                                FileMode.Create, FileAccess.Write, FileShare.None))
+            {
+
+                fs.Write(info, 0, info.Length);
+
+            }
+            return archivo;
+
+        }
+        public static void LimpiarArchivo(string archivo)
+        {
+
+            if (System.IO.File.Exists(archivo))
+            {
+                // Use a try block to catch IOExceptions, to 
+                // handle the case of the file already being 
+                // opened by another process. 
+                try
+                {
+                    System.IO.File.Delete(archivo);
+                }
+                catch (System.IO.IOException e)
+                {
+                    Console.WriteLine(e.Message);
+                    return;
+                }
+            }
+        }
     }
 
 

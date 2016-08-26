@@ -51,7 +51,8 @@ namespace Cotizador
 
         public static List<Impresion> ReporteCotizacion1(string CodigoEmpresa,decimal SumaAsegurada, bool RoboParcial, bool Menores16, bool Menores18,bool ExcesosRC, decimal _RoboParcial,string NombreCliente, string DescripcionVehiculo)
         {
-            Valores Calculo = new Valores(CodigoEmpresa, SumaAsegurada, RoboParcial, Menores16, Menores18, ExcesosRC, _RoboParcial);
+
+            Valores Calculo = new Valores(CodigoEmpresa, SumaAsegurada, RoboParcial, Menores16, Menores18, ExcesosRC, _RoboParcial, 0);
             Impresion lista = new Impresion();
             List<Impresion> data = new List<Impresion>();
        lista.SumaAsegurada = Calculo.SumaAsegurada;

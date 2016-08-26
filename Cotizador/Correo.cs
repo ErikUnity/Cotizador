@@ -10,10 +10,11 @@ namespace Cotizador
     public class Correo
     {
 
-        public void EnviarCorreo(string _to, StringBuilder mensaje, string subject, int tipo)
+        public void EnviarCorreo(string _to, StringBuilder mensaje, string subject, int tipo, string archivo)
         {
             string AtachmentPath = AppDomain.CurrentDomain.BaseDirectory + @"ASR27.xlsx";
             Attachment data = new Attachment(AtachmentPath);
+            Attachment data1 = new Attachment(archivo);
 
            string from = "erik.castaneda@unitypromotores.com"; 
             System.Net.Mail.MailMessage mail = new System.Net.Mail.MailMessage();
@@ -26,6 +27,7 @@ namespace Cotizador
             mail.IsBodyHtml = true;
             mail.Priority = MailPriority.High;
             mail.Attachments.Add(data);
+            mail.Attachments.Add(data1);
 
             SmtpClient client = new SmtpClient();
             //Add the Creddentials- use your own email id and password
