@@ -3081,7 +3081,9 @@
                                         <TextRuns>
                                           <TextRun>
                                             <Value>="Q. " &amp; Trim(Sum(Fields!RoboParcial.Value))</Value>
-                                            <Style />
+                                            <Style>
+                                              <FontFamily>Candara</FontFamily>
+                                            </Style>
                                           </TextRun>
                                         </TextRuns>
                                         <Style />
@@ -3148,7 +3150,9 @@
                                         <TextRuns>
                                           <TextRun>
                                             <Value>="Q. " &amp; Trim(Sum(Fields!MenoresDesde16.Value))</Value>
-                                            <Style />
+                                            <Style>
+                                              <FontFamily>Candara</FontFamily>
+                                            </Style>
                                           </TextRun>
                                         </TextRuns>
                                         <Style />
@@ -3215,7 +3219,9 @@
                                         <TextRuns>
                                           <TextRun>
                                             <Value>="Q. " &amp; Trim(Sum(Fields!MenoresDesde18.Value))</Value>
-                                            <Style />
+                                            <Style>
+                                              <FontFamily>Candara</FontFamily>
+                                            </Style>
                                           </TextRun>
                                         </TextRuns>
                                         <Style />
@@ -3282,7 +3288,9 @@
                                         <TextRuns>
                                           <TextRun>
                                             <Value>="Q. " &amp; Trim(Sum(Fields!ExcesoRC.Value))</Value>
-                                            <Style />
+                                            <Style>
+                                              <FontFamily>Candara</FontFamily>
+                                            </Style>
                                           </TextRun>
                                         </TextRuns>
                                         <Style />
@@ -3300,6 +3308,7 @@
                                       <PaddingBottom>2pt</PaddingBottom>
                                     </Style>
                                   </Textbox>
+                                  <rd:Selected>true</rd:Selected>
                                 </CellContents>
                               </TablixCell>
                             </TablixCells>

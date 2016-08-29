@@ -81,7 +81,7 @@ namespace Cotizador
                  bodi.AppendLine("border-bottom: 1px solid #fff; color:#039; }");
                  bodi.AppendLine("td { padding: 8px; background: #e8edff; border-bottom: 1px solid #fff; color: #669; border-top: 1px solid transparent; }");
                  bodi.AppendLine("tr:hover td { background: #d0dafd;color: #339; }");
-                 bodi.AppendLine(".editar {color: blue; cursor:pointer;}");
+                 bodi.AppendLine(".editar {color: black; cursor:pointer;}");
                  bodi.AppendLine("#contenedorForm {margin-left: 45px; font-size:12px;}");
                  bodi.AppendLine(".boton {   color: black; padding: 5px; margin: 10px;");
                  bodi.AppendLine("background-color: #b9c9fe;");
@@ -91,7 +91,7 @@ namespace Cotizador
                  bodi.AppendLine("<body>");
                  bodi.AppendLine(@"<img src = '#' /><br /><br />");
                  bodi.AppendLine("<div style = 'border-top:3px solid #22BCE5'> </div>");
-                 bodi.AppendLine("<span style ='font-family:Arial;font-size:10pt; color:Blue;'>");
+                 bodi.AppendLine("<span style ='font-family:Arial;font-size:10pt; color:Black;'>");
                  bodi.AppendLine("Estimado Sr/Sra  <b>{UserName}</b> ,<br /><br />");
                  bodi.AppendLine("<br />");
                  bodi.AppendLine("<br />");

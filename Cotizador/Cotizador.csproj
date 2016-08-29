@@ -138,12 +138,16 @@
     <Content Include="imagenes\LogoCity.png" />
     <Content Include="imagenes\LogoElRoble.png" />
     <Content Include="imagenes\LogoUnity.png" />
+    <Content Include="imagenes\Paso1.bmp" />
+    <Content Include="imagenes\Paso2.bmp" />
+    <Content Include="imagenes\Paso3.bmp" />
     <Content Include="imagenes\SignoInterrogacion1.png" />
     <Content Include="js\jquery.js" />
     <Content Include="js\jquery.min.js" />
     <Content Include="obj\Debug\Cotizadores.csproj.FileListAbsolute.txt" />
     <Content Include="obj\Debug\Cotizadores.dll" />
     <Content Include="obj\Debug\Cotizadores.pdb" />
+    <Content Include="Recursos\Script1.html" />
     <Content Include="Rpt2.aspx" />
     <Content Include="Rpt1.aspx" />
     <Content Include="Web.config" />
@@ -198,7 +202,6 @@
     <Folder Include="Documentos\" />
     <Folder Include="Logs\" />
     <Folder Include="obj\Debug\TempPE\" />
-    <Folder Include="Recursos\" />
     <Folder Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
