@@ -57,12 +57,13 @@ CREATE TABLE IF NOT EXISTS `correoautomatico` (
   PRIMARY KEY (`indice`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
--- Dumping data for table catalogo.correoautomatico: ~0 rows (approximately)
+-- Dumping data for table catalogo.correoautomatico: ~2 rows (approximately)
 DELETE FROM `correoautomatico`;
 /*!40000 ALTER TABLE `correoautomatico` DISABLE KEYS */;
 INSERT INTO `correoautomatico` (`indice`, `codigo`, `mensaje`, `descripcion_codigo`) VALUES
-	(1, 1, '\r\n<span style="text-decoration: underline;"><p>SEGURO COMPLETO</p></span> \r\n <br />\r\n  <br />\r\n   <br />\r\n<p>De acuerdo a su solicitud, adjunto encontrar&aacute; cotizaci&oacute;n para el seguro de su veh&iacute;culo bajo el plan exclusivo de colaboradores del banco.</p>\r\n<p>En caso de ser aceptada la propuesta, necesitamos nos pueda enviar por esta v&iacute;a copia de los siguientes documentos:</p>\r\n<p>Tarjeta de circulaci&oacute;n (legible)<br />DPI<br />Recibo reciente de agua, luz o tel&eacute;fono fijo que refleje su direcci&oacute;n particular.<br />Completar campos marcados en color gris del Formulario ASR27 y enviarlo en excel (adjunto archivo) <br />Indicar su No. GEID</p>\r\n<p>Se deber&aacute; realizar una inspecci&oacute;n al veh&iacute;culo y las opciones para realizar dicha inspecci&oacute;n son las siguientes:</p>\r\n<p>Promotores Unity Avenida de las Am&eacute;ricas 22-23, Zona 14 (Frente al Monumento al Papa en horario de 8 a 16 hrs)<br />Parqueo Piedr&iacute;n/C&eacute;ntrica Plaza (fecha a convenir)<br />Campus zona 12 (fecha a convenir) <br />Cualquiera de los centros de atenci&oacute;n de Seguros El Roble, si lo realiza en estos centros, deber&aacute; hacer CITA e indicar a la persona que le realice la inspecci&oacute;n que es para incluir el veh&iacute;culo en la flotilla de CITI y que va de parte de Promotores Unity. Esta persona le entregar&aacute; una copia de la hoja que &eacute;l llena, misma que deber&aacute; de enviarnos por esta v&iacute;a a nosotros.</p>\r\n<p>Los centros autorizados por Seguros El Roble para realizar las inspecciones son:</p>\r\n\r\n<table><tr><th>TALLER</th><th>DIRECCI&Oacute;N</th><th>TEL&Eacute;FONO</th> </tr>\r\n\r\n <tr><td>QUANTUM</td><td>20 calle 18-01,zona 10</td><td>2384-1412</td></tr>\r\n <tr><td>TALLER DE LA CIUDAD ZONA 9</td><td>6a. Calle 6-17, zona 9</td><td>2504-3939</td></tr>\r\n <tr><td>TALLER DE LA CIUDAD CARRETERA</td><td>Km 16.5 Carr. A El Salvador</td><td>2504-3939</td></tr>\r\n <tr><td>BODY FIX</td><td>Av. Petapa 43-15 Z12</td><td>2388-5500</td></tr>\r\n <tr><td>AUTOCOLOR</td><td>10a. Avenida A 0-38 Z.7</td><td>2419-3800</td></tr>\r\n <tr><td>TALLER SPECTRA</td><td>25 Av. 4-34 Zona 11</td><td>2474-2033</td></tr>\r\n <tr><td>UNIAUTO</td><td>Avenida Petapa 36-19 zona 12</td><td>2328 8879</td></tr>\r\n <tr><td>TALLER RODAS ZONA 5</td><td>11 Avenida B 31-15 zona 5</td><td>2331-9106</td></tr>\r\n <tr><td>COJULUN ROOSEVELT</td><td>7 avenida 0-07, zona 2 de Mixco</td><td>2250-4602</td></tr>\r\n </table>\r\n <br />Su veh&iacute;culo queda asegurado inmediatamente despu&eacute;s de haber realizado la inspecci&oacute;n y completado los documentos ac&aacute; detallados.<br />Agradecemos su atenci&oacute;n y cualquier consulta adicional quedamos a las &oacute;rdenes.<br /> <br /> <br />Atentamente,</p> <br /> <br /> <br />\r\n', 'Mensaje del cotizador envio automatico'),
-	(2, 2, '<span style="text-decoration: underline;"><p>SOLO RC</p></span> \r\n <br />\r\n  <br />\r\n   <br />\r\n<p><span style="font-weight: 400;">De acuerdo a su solicitud, adjunto encontrar&aacute; cotizaci&oacute;n para el seguro de su veh&iacute;culo bajo &nbsp;el plan exclusivo de colaboradores del banco.</span></p>\r\n<p><span style="font-weight: 400;">En caso de ser aceptada la propuesta, &nbsp;favor enviar los siguientes documentos:</span></p>\r\n<br />\r\n<ul>\r\n<li><strong><strong>Tarjeta de circulaci&oacute;n</strong></strong></li>\r\n<li><strong>DPI</strong></li>\r\n<li style="font-weight: 400;"><strong>Recibo reciente de agua, luz o tel&eacute;fono fijo&nbsp;</strong><span style="font-weight: 400;">que refleje su direcci&oacute;n particular.</span></li>\r\n<li style="font-weight: 400;"><span style="font-weight: 400;">Completar campos&nbsp;</span><span style="font-weight: 400;">marcados en color gris</span><span style="font-weight: 400;">&nbsp;del Formulario&nbsp;&nbsp;</span><strong>ASR27</strong><span style="font-weight: 400;">&nbsp;y enviarlo en excel (adjunto)</span><strong> No. GEID</strong></li>\r\n</ul>\r\n<p><span style="font-weight: 400;">Dichos documentos puede enviarlos&nbsp;&nbsp;escaneados, hasta que nosotros tengamos los documentos completos el veh&iacute;culo queda asegurado.</span></p>\r\n<p><span style="font-weight: 400;">Agradecemos su atenci&oacute;n y cualquier consulta adicional quedamos a las &oacute;rdenes.</span></p>\r\n  <br />\r\n   <br />\r\n<p><span style="font-weight: 400;">Cordialmente,</span></p>\r\n<p>&nbsp;</p>\r\n', 'Mensaje 2 del cotizador envio automatico');
+	(1, 3, '\r\n<span style="text-decoration: underline;"><p>SEGURO COMPLETO</p></span> \r\n <br />\r\n  <br />\r\n   <br />\r\n<p>De acuerdo a su solicitud, adjunto encontrar&aacute; cotizaci&oacute;n para el seguro de su veh&iacute;culo bajo el plan exclusivo de colaboradores del banco.</p>\r\n<p>En caso de ser aceptada la propuesta, necesitamos nos pueda enviar por esta v&iacute;a copia de los siguientes documentos:</p>\r\n<p>Tarjeta de circulaci&oacute;n (legible)<br />DPI<br />Recibo reciente de agua, luz o tel&eacute;fono fijo que refleje su direcci&oacute;n particular.<br />Completar campos marcados en color gris del Formulario ASR27 y enviarlo en excel (adjunto archivo) <br />Indicar su No. GEID</p>\r\n<p>Se deber&aacute; realizar una inspecci&oacute;n al veh&iacute;culo y las opciones para realizar dicha inspecci&oacute;n son las siguientes:</p>\r\n<p>Promotores Unity Avenida de las Am&eacute;ricas 22-23, Zona 14 (Frente al Monumento al Papa en horario de 8 a 16 hrs)<br />Parqueo Piedr&iacute;n/C&eacute;ntrica Plaza (fecha a convenir)<br />Campus zona 12 (fecha a convenir) <br />Cualquiera de los centros de atenci&oacute;n de Seguros El Roble, si lo realiza en estos centros, deber&aacute; hacer CITA e indicar a la persona que le realice la inspecci&oacute;n que es para incluir el veh&iacute;culo en la flotilla de CITI y que va de parte de Promotores Unity. Esta persona le entregar&aacute; una copia de la hoja que &eacute;l llena, misma que deber&aacute; de enviarnos por esta v&iacute;a a nosotros.</p>\r\n<p>Los centros autorizados por Seguros El Roble para realizar las inspecciones son:</p>\r\n\r\n<table><tr><th>TALLER</th><th>DIRECCI&Oacute;N</th><th>TEL&Eacute;FONO</th> </tr>\r\n\r\n <tr><td>QUANTUM</td><td>20 calle 18-01,zona 10</td><td>2384-1412</td></tr>\r\n <tr><td>TALLER DE LA CIUDAD ZONA 9</td><td>6a. Calle 6-17, zona 9</td><td>2504-3939</td></tr>\r\n <tr><td>TALLER DE LA CIUDAD CARRETERA</td><td>Km 16.5 Carr. A El Salvador</td><td>2504-3939</td></tr>\r\n <tr><td>BODY FIX</td><td>Av. Petapa 43-15 Z12</td><td>2388-5500</td></tr>\r\n <tr><td>AUTOCOLOR</td><td>10a. Avenida A 0-38 Z.7</td><td>2419-3800</td></tr>\r\n <tr><td>TALLER SPECTRA</td><td>25 Av. 4-34 Zona 11</td><td>2474-2033</td></tr>\r\n <tr><td>UNIAUTO</td><td>Avenida Petapa 36-19 zona 12</td><td>2328 8879</td></tr>\r\n <tr><td>TALLER RODAS ZONA 5</td><td>11 Avenida B 31-15 zona 5</td><td>2331-9106</td></tr>\r\n <tr><td>COJULUN ROOSEVELT</td><td>7 avenida 0-07, zona 2 de Mixco</td><td>2250-4602</td></tr>\r\n </table>\r\n <br />Su veh&iacute;culo queda asegurado inmediatamente despu&eacute;s de haber realizado la inspecci&oacute;n y completado los documentos ac&aacute; detallados.<br />Agradecemos su atenci&oacute;n y cualquier consulta adicional quedamos a las &oacute;rdenes.<br /> <br /> <br />Atentamente,</p> <br /> <br /> <br />\r\n', 'Mensaje del cotizador envio automatico'),
+	(2, 2, '<span style="text-decoration: underline;"><p>SOLO RC</p></span> \r\n <br />\r\n  <br />\r\n   <br />\r\n<p><span style="font-weight: 400;">De acuerdo a su solicitud, adjunto encontrar&aacute; cotizaci&oacute;n para el seguro de su veh&iacute;culo bajo &nbsp;el plan exclusivo de colaboradores del banco.</span></p>\r\n<p><span style="font-weight: 400;">En caso de ser aceptada la propuesta, &nbsp;favor enviar los siguientes documentos:</span></p>\r\n<br />\r\n<ul>\r\n<li><strong><strong>Tarjeta de circulaci&oacute;n</strong></strong></li>\r\n<li><strong>DPI</strong></li>\r\n<li style="font-weight: 400;"><strong>Recibo reciente de agua, luz o tel&eacute;fono fijo&nbsp;</strong><span style="font-weight: 400;">que refleje su direcci&oacute;n particular.</span></li>\r\n<li style="font-weight: 400;"><span style="font-weight: 400;">Completar campos&nbsp;</span><span style="font-weight: 400;">marcados en color gris</span><span style="font-weight: 400;">&nbsp;del Formulario&nbsp;&nbsp;</span><strong>ASR27</strong><span style="font-weight: 400;">&nbsp;y enviarlo en excel (adjunto)</span><strong> No. GEID</strong></li>\r\n</ul>\r\n<p><span style="font-weight: 400;">Dichos documentos puede enviarlos&nbsp;&nbsp;escaneados, hasta que nosotros tengamos los documentos completos el veh&iacute;culo queda asegurado.</span></p>\r\n<p><span style="font-weight: 400;">Agradecemos su atenci&oacute;n y cualquier consulta adicional quedamos a las &oacute;rdenes.</span></p>\r\n  <br />\r\n   <br />\r\n<p><span style="font-weight: 400;">Cordialmente,</span></p>\r\n<p>&nbsp;</p>\r\n', 'Mensaje 2 del cotizador envio automatico'),
+	(3, 1, '    <div style="width:750px;">\r\n        <p><font style="font-family:Calibri; font-size:medium;">Gracias por tomarnos en cuenta para la asesor&iacute;a en el seguro de su veh&iacute;culo. Unity Promotores es una empresa con m&aacute;s de 35 a&ntilde;os de estar en el mercado Guatemalteco. Nos especializamos en seguros de todo tipo, siendo nuestra filosof&iacute;a de trabajo recomendar a nuestros clientes productos de seguros conforme a sus necesidades, comprometidos con la mejora continua de nuestros servicios y las normas legales que rigen nuestro negocio.&nbsp; &nbsp;</font></p>\r\n        <p><font style="font-family:Calibri; font-size:medium;">A continuaci&oacute;n le presentamos 3 sencillos pasos que Ud. debe seguir para poder contratar el seguro de su veh&iacute;culo.</font></p>\r\n        <p>&nbsp;</p>\r\n         <table>\r\n             <tr><td class="tat">\r\n                     <img src="http://www.unitypromotores.com/images/Paso1.bmp" /></td><td></td><td class="tat"></td>\r\n             <td>\r\n                 <img src="http://www.unitypromotores.com/images/Paso2.bmp" /></td><td class="tat"></td>\r\n             <td>\r\n                 <img src="http://www.unitypromotores.com/images/Paso3.bmp" /></td></tr></table>\r\n        <p>&nbsp;</p>\r\n        <p><font style="font-family:Calibri; font-size:medium;">En breve uno de nuestros asesores especializados se estar&aacute; comunicando con usted para resolver dudas y guiarlo/a en el proceso de contrataci&oacute;n del seguro para su veh&iacute;culo.</font></p>\r\n    </div>', 'Correo Automatico Cotizador Formato Gerencial');
 /*!40000 ALTER TABLE `correoautomatico` ENABLE KEYS */;
 
 
@@ -77,7 +78,7 @@ CREATE TABLE IF NOT EXISTS `correosinternos` (
   CONSTRAINT `FK__coberturas_adicionales` FOREIGN KEY (`CodigoEmpresa`) REFERENCES `coberturas_adicionales` (`codigo`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
--- Dumping data for table catalogo.correosinternos: ~0 rows (approximately)
+-- Dumping data for table catalogo.correosinternos: ~1 rows (approximately)
 DELETE FROM `correosinternos`;
 /*!40000 ALTER TABLE `correosinternos` DISABLE KEYS */;
 INSERT INTO `correosinternos` (`indice`, `Correo`, `CodigoEmpresa`) VALUES
@@ -90,7 +91,7 @@ CREATE TABLE IF NOT EXISTS `iva` (
   `Iva` decimal(8,2) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table catalogo.iva: ~0 rows (approximately)
+-- Dumping data for table catalogo.iva: ~1 rows (approximately)
 DELETE FROM `iva`;
 /*!40000 ALTER TABLE `iva` DISABLE KEYS */;
 INSERT INTO `iva` (`Iva`) VALUES
@@ -106,7 +107,7 @@ CREATE TABLE IF NOT EXISTS `linea` (
   UNIQUE KEY `Descripcion` (`Descripcion`)
 ) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
 
--- Dumping data for table catalogo.linea: ~11 rows (approximately)
+-- Dumping data for table catalogo.linea: ~12 rows (approximately)
 DELETE FROM `linea`;
 /*!40000 ALTER TABLE `linea` DISABLE KEYS */;
 INSERT INTO `linea` (`indice`, `Descripcion`) VALUES
@@ -144,7 +145,7 @@ CREATE TABLE IF NOT EXISTS `logcorreosenviados` (
   PRIMARY KEY (`indice`)
 ) ENGINE=InnoDB AUTO_INCREMENT=106 DEFAULT CHARSET=utf8;
 
--- Dumping data for table catalogo.logcorreosenviados: ~91 rows (approximately)
+-- Dumping data for table catalogo.logcorreosenviados: ~104 rows (approximately)
 DELETE FROM `logcorreosenviados`;
 /*!40000 ALTER TABLE `logcorreosenviados` DISABLE KEYS */;
 INSERT INTO `logcorreosenviados` (`indice`, `Nombre`, `Correo`, `TipoDeVehiculo`, `Linea`, `Marca`, `Telefono`, `Modelo`, `SumaAsegurada`, `Fecha`, `TipoSeguro`, `contactar`, `CodigoEmpresa`, `ComoContactar`) VALUES
@@ -251,7 +252,33 @@ INSERT INTO `logcorreosenviados` (`indice`, `Nombre`, `Correo`, `TipoDeVehiculo`
 	(102, 'Monica Arce', 'erik.castaneda@unitypromotores.com', 'Agrícola 4x2', '323 I', 'BMW', '65465465', '2000', 45000.00, '2016-08-29 12:07:22', 'Seguro Completo', 'erik.castaneda@unitypromotores.com', 'Roble', 'Por Chat - Inmediatamente'),
 	(103, 'Julian Presa', 'erik.castaneda@unitypromotores.com', 'Agrícola 4x2', '323 I', 'BMW', '65465465', '2000', 35000.00, '2016-08-29 12:12:19', 'Seguro Completo', 'erik.castaneda@unitypromotores.com', 'Roble', 'Por Telefono - 4 PM'),
 	(104, 'Monica Arce', 'erik.castaneda@unitypromotores.com', 'Agrícola 4x2', '323 I', 'BMW', '65465465', '2000', 25750.00, '2016-08-29 12:21:53', 'Seguro Completo', 'erik.castaneda@unitypromotores.com', 'Roble', 'Por Chat - Inmediatamente'),
-	(105, 'Monica Arce', 'erik.castaneda@unitypromotores.com', 'Agrícola 4x2', '323 I', 'BMW', '65465465', '2000', 25500.00, '2016-08-29 12:29:58', 'Seguro Completo', 'erik.castaneda@unitypromotores.com', 'Roble', 'Por Telefono - Inmediatamente');
+	(105, 'Monica Arce', 'erik.castaneda@unitypromotores.com', 'Agrícola 4x2', '323 I', 'BMW', '65465465', '2000', 25500.00, '2016-08-29 12:29:58', 'Seguro Completo', 'erik.castaneda@unitypromotores.com', 'Roble', 'Por Telefono - Inmediatamente'),
+	(106, 'Monica Arce', 'erik.castaneda@unitypromotores.com', 'Agrícola 4x2', '323 I', 'BMW', '65465465', '2000', 35700.00, '2016-08-29 13:29:56', 'Seguro Completo', 'erik.castaneda@unitypromotores.com', 'Roble', 'Por Chat - Inmediatamente'),
+	(107, 'Monica Arce', 'erik.castaneda@unitypromotores.com', 'Agrícola 4x2', '323 I', 'BMW', '65465465', '2000', 45000.00, '2016-08-29 13:42:01', 'Seguro Completo', 'erik.castaneda@unitypromotores.com', 'Roble', 'Por Chat - Inmediatamente'),
+	(108, 'Monica Arce', 'erik.castaneda@unitypromotores.com', 'Agrícola 4x2', '323 I', 'BMW', '65465465', '2000', 27500.00, '2016-08-29 14:32:50', 'Seguro Completo', 'erik.castaneda@unitypromotores.com', 'Roble', 'Por Telefono - Inmediatamente'),
+	(109, 'Manolo Mendizabal', 'erik.castaneda@unitypromotores.com', 'Agrícola 4x2', '323 I', 'BMW', '65465465', '2000', 14500.00, '2016-08-29 14:40:50', 'Seguro Completo', 'erik.castaneda@unitypromotores.com', 'Roble', 'Por Telefono - Inmediatamente'),
+	(110, 'Monica Arce', 'erik.castaneda@unitypromotores.com', 'Agrícola 4x2', '323 I', 'BMW', '65465465', '2000', 45600.00, '2016-08-29 14:44:28', 'Seguro Completo', 'erik.castaneda@unitypromotores.com', 'Roble', 'Por Chat - Inmediatamente'),
+	(111, 'Mario Donado', 'erik.castaneda@unitypromotores.com', 'Agrícola 4x2', '323 I', 'BMW', '65465465', '2000', 45000.00, '2016-08-29 14:50:15', 'Seguro Completo', 'erik.castaneda@unitypromotores.com', 'Roble', 'Por Telefono - Inmediatamente'),
+	(112, 'Manuel de la Garza', 'erik.castaneda@unitypromotores.com', 'Agrícola 4x2', '323 I', 'BMW', '65465465', '2000', 34450.00, '2016-08-29 14:55:07', 'Seguro Completo', 'erik.castaneda@unitypromotores.com', 'Roble', 'Por Chat - Inmediatamente'),
+	(113, 'Magally Tolledo', 'erik.castaneda@unitypromotores.com', 'Agrícola 4x2', '323 I', 'BMW', '65465465', '2000', 25400.00, '2016-08-29 15:01:35', 'Seguro Completo', 'erik.castaneda@unitypromotores.com', 'Roble', 'Por Chat - Inmediatamente'),
+	(114, 'Marielos Dulce', 'erik.castaneda@unitypromotores.com', 'Agrícola 4x2', '323 I', 'BMW', '65465465', '2000', 125000.00, '2016-08-29 15:04:30', 'Seguro Completo', 'erik.castaneda@unitypromotores.com', 'Roble', 'Por Chat - Inmediatamente'),
+	(115, 'Marielos Dulce', 'erik.castaneda@unitypromotores.com', 'Agrícola 4x2', '323 I', 'BMW', '65465465', '2000', 125000.00, '2016-08-29 15:04:40', 'Seguro Completo', 'erik.castaneda@unitypromotores.com', 'Roble', 'Por Chat - Inmediatamente'),
+	(116, 'Maluma Cantante', 'erik.castaneda@unitypromotores.com', 'Agrícola 4x2', '323 I', 'BMW', '65465465', '2000', 45000.00, '2016-08-29 15:05:36', 'Seguro Completo', 'erik.castaneda@unitypromotores.com', 'Roble', 'Por Chat - Inmediatamente'),
+	(117, 'Monica Arce', 'erik.castaneda@unitypromotores.com', 'Agrícola 4x2', '323 I', 'BMW', '65465465', '2000', 145000.00, '2016-08-29 15:21:30', 'Seguro Completo', 'erik.castaneda@unitypromotores.com', 'Roble', 'Por Chat - Inmediatamente'),
+	(118, 'Monica Arce', 'erik.castaneda@unitypromotores.com', 'Automóvil', '323 I', 'BMW', '65465465', '2000', 25450.00, '2016-08-29 15:32:29', 'Seguro Completo', 'erik.castaneda@unitypromotores.com', 'Roble', 'Por Chat - Inmediatamente'),
+	(119, 'Monica Arce', 'erik.castaneda@unitypromotores.com', 'Automóvil', '323 I', 'BMW', '65465465', '2000', 15000.00, '2016-08-29 15:39:54', 'Seguro Completo', 'erik.castaneda@unitypromotores.com', 'Roble', 'Por Chat - Inmediatamente'),
+	(120, 'Monica Arce', 'erik.castaneda@unitypromotores.com', 'Automóvil', '323 I', 'BMW', '65465465', '2000', 45500.00, '2016-08-29 15:41:27', 'Seguro Completo', 'erik.castaneda@unitypromotores.com', 'Roble', 'Por Chat - Inmediatamente'),
+	(121, 'Monica Arce', 'erik.castaneda@unitypromotores.com', 'Automóvil', '323 I', 'BMW', '65465465', '2000', 45800.00, '2016-08-29 15:42:31', 'Seguro Completo', 'erik.castaneda@unitypromotores.com', 'Roble', 'Por Chat - Inmediatamente'),
+	(122, 'Monica Arce', 'erik.castaneda@unitypromotores.com', 'Automóvil', '323 I', 'BMW', '65465465', '2000', 12500.00, '2016-08-29 15:44:54', 'Seguro Completo', 'erik.castaneda@unitypromotores.com', 'Roble', 'Por Chat - Inmediatamente'),
+	(123, 'Monica Arce', 'erik.castaneda@unitypromotores.com', 'Automóvil', '323 I', 'BMW', '65465465', '2000', 125800.00, '2016-08-29 15:47:35', 'Seguro Completo', 'erik.castaneda@unitypromotores.com', 'Roble', 'Por Chat - Inmediatamente'),
+	(124, 'Monica Arce', 'erik.castaneda@unitypromotores.com', 'Automóvil', '323 I', 'BMW', '65465465', '2000', 14500.00, '2016-08-29 16:03:41', 'Seguro Completo', 'erik.castaneda@unitypromotores.com', 'Roble', 'Por Chat - Inmediatamente'),
+	(125, 'Monica Arce', 'erik.castaneda@unitypromotores.com', 'Automóvil', '323 I', 'BMW', '65465465', '2000', 14500.00, '2016-08-29 16:07:12', 'Seguro Completo', 'erik.castaneda@unitypromotores.com', 'Roble', 'Por Chat - Inmediatamente'),
+	(126, 'Monica Arce', 'erik.castaneda@unitypromotores.com', 'Automóvil', '323I', 'BMW', '98798798', '2000', 215400.00, '2016-08-29 16:08:50', 'Seguro Completo', 'erik.castaneda@unitypromotores.com', 'Roble', 'Por Chat - Inmediatamente'),
+	(127, 'Monica Arce', 'erik.castaneda@unitypromotores.com', 'Automóvil', '323I', 'BMW', '98798798', '2000', 215400.00, '2016-08-29 16:09:24', 'Seguro Completo', 'erik.castaneda@unitypromotores.com', 'Roble', 'Por Chat - Inmediatamente'),
+	(128, 'Monica Airas', 'erik.castaneda@unitypromotores.com', 'Automóvil', '323 I', 'BMW', '68798798', '2000', 14500.00, '2016-08-29 16:10:58', 'Seguro Completo', 'erik.castaneda@unitypromotores.com', 'Roble', 'Por Chat - Inmediatamente'),
+	(129, 'Monica Arce', 'erik.castaneda@unitypromotores.com', 'Automóvil', '323 I', 'BMW', '65465465', '2000', 14500.00, '2016-08-29 16:17:41', 'Seguro Completo', 'erik.castaneda@unitypromotores.com', 'Roble', 'Por Telefono - Inmediatamente'),
+	(130, 'Monica Arce', 'erik.castaneda@unitypromotores.com', 'Automóvil', '323 I', 'BMW', '65465465', '2000', 14500.00, '2016-08-29 16:27:30', 'Seguro Completo', 'erik.castaneda@unitypromotores.com', 'Roble', 'Por Chat - Inmediatamente'),
+	(131, 'Monica Arce', 'erik.castaneda@unitypromotores.com', 'Automóvil', '323 I', 'BMW', '65465465', '2000', 24500.00, '2016-08-29 16:45:51', 'Seguro Completo', 'erik.castaneda@unitypromotores.com', 'Roble', 'Por Chat - Inmediatamente');
 /*!40000 ALTER TABLE `logcorreosenviados` ENABLE KEYS */;
 
 
@@ -263,7 +290,7 @@ CREATE TABLE IF NOT EXISTS `marca` (
   UNIQUE KEY `Descripcion` (`Descripcion`)
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
--- Dumping data for table catalogo.marca: ~7 rows (approximately)
+-- Dumping data for table catalogo.marca: ~8 rows (approximately)
 DELETE FROM `marca`;
 /*!40000 ALTER TABLE `marca` DISABLE KEYS */;
 INSERT INTO `marca` (`indice`, `Descripcion`) VALUES
@@ -322,42 +349,10 @@ CREATE TABLE IF NOT EXISTS `tipodevehiculo` (
 DELETE FROM `tipodevehiculo`;
 /*!40000 ALTER TABLE `tipodevehiculo` DISABLE KEYS */;
 INSERT INTO `tipodevehiculo` (`indice`, `Descripcion`) VALUES
-	(22, 'Agrícola 4x2'),
-	(8, 'Agrícola 4x4'),
-	(25, 'Autobús'),
 	(5, 'Automóvil'),
-	(36, 'Bus'),
-	(38, 'Cabezal'),
-	(37, 'Camión'),
 	(26, 'Camioneta'),
-	(27, 'Camioneta 4x2'),
-	(9, 'Camioneta 4x4'),
-	(29, 'Camioneta Sport'),
-	(21, 'Camionetilla'),
-	(18, 'Carro Funerario'),
-	(32, 'Cisterna'),
-	(15, 'Furgon'),
-	(24, 'Jeep'),
-	(11, 'Jeep 4x2'),
-	(20, 'Jeep 4x4'),
-	(6, 'Maquinaria'),
-	(23, 'Microbús'),
-	(35, 'Microbús hasta 12 p.'),
-	(19, 'Microbús más 12 p.'),
-	(10, 'Mini Van'),
-	(33, 'Montacargas'),
 	(7, 'Motocicleta'),
-	(34, 'Panel'),
-	(28, 'Pick Up'),
-	(30, 'Pick Up 4x2'),
-	(31, 'Pick Up 4x4'),
-	(16, 'Pick-Up hasta 1 ton.'),
-	(17, 'Pick-Up más 1 ton.'),
-	(13, 'Pipa'),
-	(14, 'Plataforma'),
-	(39, 'Remolque'),
-	(40, 'Temporal'),
-	(12, 'Tractor');
+	(41, 'Pickup');
 /*!40000 ALTER TABLE `tipodevehiculo` ENABLE KEYS */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;

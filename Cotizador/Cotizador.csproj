@@ -147,6 +147,7 @@
     <Content Include="obj\Debug\Cotizadores.csproj.FileListAbsolute.txt" />
     <Content Include="obj\Debug\Cotizadores.dll" />
     <Content Include="obj\Debug\Cotizadores.pdb" />
+    <Content Include="Recursos\Script2.html" />
     <Content Include="Recursos\Script1.html" />
     <Content Include="Rpt2.aspx" />
     <Content Include="Rpt1.aspx" />

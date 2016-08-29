@@ -55,7 +55,7 @@ namespace Cotizador
                  body = GetBodyPedidos();
                  body = body.Replace("{UserName}", userName);
                  body = body.Replace("{Descripcion}", description);
-                     return body.ToString();
+                 return body.Replace(@"\r\n", System.Environment.NewLine).ToString();
 
              }
              catch (Exception es)
@@ -74,22 +74,28 @@ namespace Cotizador
                  bodi.AppendLine(@"<html xmlns='http://www.w3.org/1999/xhtml'> ");
                  bodi.AppendLine("<head><title>Cotizador</title> ");
                  bodi.AppendLine("<style type=text/css>");
-                 bodi.AppendLine("body {font-family: Arial, Helvetica,sans-serif; background-color: #63D13E;}");
-                 bodi.AppendLine("table { font-family: 'Lucida Sans Unicode', 'Lucida Grande', Sans-Serif; font-size: 12px; margin: 45px;width: 550px; ");
-                 bodi.AppendLine("text-align: left; border-collapse: collapse; } ");
-                 bodi.AppendLine("th { font-size: 13px; font-weight: normal; padding: 8px; background: #b9c9fe; border-top: 4px solid #aabcfe;");
-                 bodi.AppendLine("border-bottom: 1px solid #fff; color:#039; }");
-                 bodi.AppendLine("td { padding: 8px; background: #e8edff; border-bottom: 1px solid #fff; color: #669; border-top: 1px solid transparent; }");
-                 bodi.AppendLine("tr:hover td { background: #d0dafd;color: #339; }");
-                 bodi.AppendLine(".editar {color: black; cursor:pointer;}");
-                 bodi.AppendLine("#contenedorForm {margin-left: 45px; font-size:12px;}");
-                 bodi.AppendLine(".boton {   color: black; padding: 5px; margin: 10px;");
-                 bodi.AppendLine("background-color: #b9c9fe;");
-                 bodi.AppendLine("font-weight: bold; }");
+                 //bodi.AppendLine("body {font-family: Arial, Helvetica,sans-serif; background-color: #63D13E;}");
+                 //bodi.AppendLine("table { font-family: 'Lucida Sans Unicode', 'Lucida Grande', Sans-Serif; font-size: 12px; margin: 45px;width: 550px; ");
+                 //bodi.AppendLine("text-align: left; border-collapse: collapse; } ");
+                 //bodi.AppendLine("th { font-size: 13px; font-weight: normal; padding: 8px; background: #b9c9fe; border-top: 4px solid #aabcfe;");
+                 //bodi.AppendLine("border-bottom: 1px solid #fff; color:#039; }");
+                 //bodi.AppendLine("td { padding: 8px; background: #e8edff; border-bottom: 1px solid #fff; color: #669; border-top: 1px solid transparent; }");
+                 //bodi.AppendLine("tr:hover td { background: #d0dafd;color: #339; }");
+                 //bodi.AppendLine(".editar {color: black; cursor:pointer;}");
+                 //bodi.AppendLine("#contenedorForm {margin-left: 45px; font-size:12px;}");
+                 //bodi.AppendLine(".boton {   color: black; padding: 5px; margin: 10px;");
+                 //bodi.AppendLine("background-color: #b9c9fe;");
+                 //bodi.AppendLine("font-weight: bold; }");
+                 bodi.AppendLine(".tut {");
+                 bodi.AppendLine("text-align:center;");
+                 bodi.AppendLine("}");
+                 bodi.AppendLine(".tat {");
+                 bodi.AppendLine("width:35px;");
+                 bodi.AppendLine("}");
                  bodi.AppendLine("</style>");
                  bodi.AppendLine("</head>");
                  bodi.AppendLine("<body>");
-                 bodi.AppendLine(@"<img src = '#' /><br /><br />");
+                 //bodi.AppendLine(@"<img src = '#' /><br /><br />");
                  bodi.AppendLine("<div style = 'border-top:3px solid #22BCE5'> </div>");
                  bodi.AppendLine("<span style ='font-family:Arial;font-size:10pt; color:Black;'>");
                  bodi.AppendLine("Estimado Sr/Sra  <b>{UserName}</b> ,<br /><br />");
