@@ -129,6 +129,7 @@
   <ItemGroup>
     <Content Include="imagenes\Error.png" />
     <Content Include="imagenes\FirmaEjecutivaAdministrativa.png" />
+    <Content Include="imagenes\FirmaJulianPresa.bmp" />
     <Content Include="imagenes\FondoCarro.jpg" />
     <Content Include="imagenes\FondoCotizador.jpg" />
     <Content Include="imagenes\LogoBlancoTransparenteCapgemini.png" />

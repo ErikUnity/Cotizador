@@ -30,10 +30,10 @@ namespace Cotizador
             this.cmbTipoVehiculo.DataSource = Cotizar.LlenaComboTipoVehiculo();
             this.cmbTipoVehiculo.DataBind();
 
-            this.cmbLinea.DataValueField = "indice";
-            this.cmbLinea.DataTextField = "Descripcion";
-            this.cmbLinea.DataSource = Cotizar.LlenaComboLinea();
-            this.cmbLinea.DataBind();
+            //this.cmbLinea.DataValueField = "indice";
+            //this.cmbLinea.DataTextField = "Descripcion";
+            //this.cmbLinea.DataSource = Cotizar.LlenaComboLinea();
+            //this.cmbLinea.DataBind();
 
             this.cmbMarca.DataValueField = "indice";
             this.cmbMarca.DataTextField = "Descripcion";
@@ -131,7 +131,7 @@ namespace Cotizador
             {
                 ClientScript.RegisterStartupScript(this.GetType(), "errFecha", "document.getElementById('errFecha').style.visibility = 'hidden';", true);
             }
-            if (this.txtHora.Text.ToString() == "")
+            if (this.cmbHora.SelectedItem.Text.ToString() == "")
             {
                 ClientScript.RegisterStartupScript(this.GetType(), "errHora", "document.getElementById('errHora').style.visibility = 'visible';", true);
                 Incompleto = true;
@@ -140,40 +140,64 @@ namespace Cotizador
             {
                 ClientScript.RegisterStartupScript(this.GetType(), "errHora", "document.getElementById('errHora').style.visibility = 'hidden';", true);
             }
+            
+            if (this.txtLinea.Text.ToString() == "")
+            {
+                ClientScript.RegisterStartupScript(this.GetType(), "errLinea", "document.getElementById('errLinea').style.visibility = 'visible';", true);
+                Incompleto = true;
+            }
+            else
+            {
+                ClientScript.RegisterStartupScript(this.GetType(), "errLinea", "document.getElementById('errLinea').style.visibility = 'hidden';", true);
+            }
+
+            if (this.chkChat.Checked == false && this.chkTelefono.Checked == false)
+            {
+                ClientScript.RegisterStartupScript(this.GetType(), "errChk1", "document.getElementById('errChk1').style.visibility = 'visible';", true);
+                ClientScript.RegisterStartupScript(this.GetType(), "errChk2", "document.getElementById('errChk2').style.visibility = 'visible';", true);
+                Incompleto = true;
+            }
+            else
+            {
+                ClientScript.RegisterStartupScript(this.GetType(), "errChk1", "document.getElementById('errChk1').style.visibility = 'hidden';", true);
+                ClientScript.RegisterStartupScript(this.GetType(), "errChk2", "document.getElementById('errChk2').style.visibility = 'hidden';", true);
+
+            }
+
 
             if (ValorMercado == "")
                 ValorMercado = "0";
 
-            if (this.chkRoboParcial.Checked)
-            {
-                if (this.txtValorEstimadoRoboParcial.Text.ToString() == "")
-                {
-                    ClientScript.RegisterStartupScript(this.GetType(), "errRoboParcial", "document.getElementById('errRoboParcial').style.visibility = 'visible';", true);
-                    Incompleto = true;
-                }
-                else
-                {
-                    ClientScript.RegisterStartupScript(this.GetType(), "errRoboParcial", "document.getElementById('errRoboParcial').style.visibility = 'hidden';", true);
-                    RoboParcial = Decimal.Parse(this.txtValorEstimadoRoboParcial.Text.ToString().Trim());
-                }
-                decimal equipo_especial = 0;
-                decimal cien = 100;
-                decimal mil = 1000;
+            //if (this.chkRoboParcial.Checked)
+            //{
+            //    if (this.txtValorEstimadoRoboParcial.Text.ToString() == "")
+            //    {
+            //        ClientScript.RegisterStartupScript(this.GetType(), "errRoboParcial", "document.getElementById('errRoboParcial').style.visibility = 'visible';", true);
+            //        Incompleto = true;
+            //    }
+            //    else
+            //    {
+            //        ClientScript.RegisterStartupScript(this.GetType(), "errRoboParcial", "document.getElementById('errRoboParcial').style.visibility = 'hidden';", true);
+            //        RoboParcial = Decimal.Parse(this.txtValorEstimadoRoboParcial.Text.ToString().Trim());
+            //    }
+            //    decimal equipo_especial = 0;
+            //    decimal cien = 100;
+            //    decimal mil = 1000;
 
-                equipo_especial = decimal.Parse(ValorMercado) * (cien) / (mil);
-                if (RoboParcial > equipo_especial)
-                {
-                    ClientScript.RegisterStartupScript(this.GetType(), "errRoboParcial", "document.getElementById('errRoboParcial').style.visibility = 'visible';", true);
-                    ClientScript.RegisterStartupScript(this.GetType(), "Alert", "alert('El valor del equipo especial nunca podrá ser mayor al 10% del valor del vehículo asegurado, maximo permitido :" + equipo_especial.ToString() + ".');", true);
-                    this.txtValorEstimadoRoboParcial.Text = equipo_especial.ToString();
-                    Incompleto = true;
-                }
-                else
-                {
-                    ClientScript.RegisterStartupScript(this.GetType(), "errRoboParcial", "document.getElementById('errRoboParcial').style.visibility = 'hidden';", true);
-                }
+            //    equipo_especial = decimal.Parse(ValorMercado) * (cien) / (mil);
+            //    if (RoboParcial > equipo_especial)
+            //    {
+            //        ClientScript.RegisterStartupScript(this.GetType(), "errRoboParcial", "document.getElementById('errRoboParcial').style.visibility = 'visible';", true);
+            //        ClientScript.RegisterStartupScript(this.GetType(), "Alert", "alert('El valor del equipo especial nunca podrá ser mayor al 10% del valor del vehículo asegurado, maximo permitido :" + equipo_especial.ToString() + ".');", true);
+            //        this.txtValorEstimadoRoboParcial.Text = equipo_especial.ToString();
+            //        Incompleto = true;
+            //    }
+            //    else
+            //    {
+            //        ClientScript.RegisterStartupScript(this.GetType(), "errRoboParcial", "document.getElementById('errRoboParcial').style.visibility = 'hidden';", true);
+            //    }
 
-            }
+            //}
 
             this.lblMsg.Text = "";
 
@@ -192,33 +216,48 @@ namespace Cotizador
             if (Incompleto)
                 return;
 
+            string contactar = "";
+            if (this.chkChat.Checked)
+                contactar = "Por Chat";
 
-            Cotizar.GuardaCotizacion(this.txtNombre.Text.Trim(), this.txtCorreo.Text.Trim(), this.cmbTipoVehiculo.SelectedItem.Text.Trim(), this.cmbLinea.SelectedItem.Text.Trim(), this.cmbMarca.SelectedItem.Text.Trim(), this.txtTelefono.Text.Trim(), this.cmbModelo.SelectedItem.Text.Trim(), Decimal.Parse(ValorMercado), _tipo_seguro, this.txtCorreo.Text.ToString(), "Roble");
+            if (this.chkTelefono.Checked)
+                contactar = "Por Telefono";
+            contactar += " - " + this.cmbHora.SelectedItem.Text;
+
+            Cotizar.GuardaCotizacion(this.txtNombre.Text.Trim(), this.txtCorreo.Text.Trim(), this.cmbTipoVehiculo.SelectedItem.Text.Trim(), this.txtLinea.Text.Trim(), this.cmbMarca.SelectedItem.Text.Trim(), this.txtTelefono.Text.Trim(), this.cmbModelo.SelectedItem.Text.Trim(), Decimal.Parse(ValorMercado), _tipo_seguro, this.txtCorreo.Text.ToString(), "Roble", contactar);
 
              SumaAsegurada = Decimal.Parse(ValorMercado);
-             Valores Calculo = new Valores("Roble", SumaAsegurada, this.chkRoboParcial.Checked, this.chkMenores16.Checked, this.chkMenores18.Checked, this.chkExcesoRC.Checked, RoboParcial, MensajeTipo);
+          //   Valores Calculo = new Valores("Roble", SumaAsegurada, this.chkRoboParcial.Checked, this.chkMenores16.Checked, this.chkMenores18.Checked, this.chkExcesoRC.Checked, RoboParcial, MensajeTipo);
+             Valores Calculo = new Valores("Roble", SumaAsegurada, false, false, false, false, RoboParcial, MensajeTipo);
              this.lblMsg.Text = Calculo.PrimaTotalProRata.ToString();
              
              // ClientScript.RegisterStartupScript(this.GetType(), "Alert", "alert('La cotización ha sido enviada a su correo: " + this.txtCorreo.Text + ");", true);
              Session["CodigoEmpresa"] = "Roble";
              Session["SumaAsegurada"] = SumaAsegurada.ToString();
-             Session["RoboParcial"] = this.chkRoboParcial.Checked.ToString();
-             Session["Menores16"] = this.chkMenores16.Checked.ToString();
-             Session["Menores18"] = this.chkMenores18.Checked.ToString();
-             Session["ExcesosRC"] = this.chkExcesoRC.Checked.ToString();
+             //Session["RoboParcial"] = this.chkRoboParcial.Checked.ToString();
+             //Session["Menores16"] = this.chkMenores16.Checked.ToString();
+             //Session["Menores18"] = this.chkMenores18.Checked.ToString();
+             //Session["ExcesosRC"] = this.chkExcesoRC.Checked.ToString();
+             Session["RoboParcial"] = "false";
+             Session["Menores16"] = "false";
+             Session["Menores18"] = "false";
+             Session["ExcesosRC"] = "false";
              Session["_RoboParcial"] = RoboParcial.ToString();
              Session["NombreCliente"] = this.txtNombre.Text.Trim();
-             string DescripcionVehiculo = this.cmbTipoVehiculo.SelectedItem.Text + " - " + this.cmbMarca.SelectedItem.Text + " - " + this.cmbModelo.SelectedItem.Text + " - " + this.cmbLinea.SelectedItem.Text;
+             string DescripcionVehiculo = this.cmbTipoVehiculo.SelectedItem.Text + " - " + this.cmbMarca.SelectedItem.Text + " - " + this.cmbModelo.SelectedItem.Text + " - " + this.txtLinea.Text;
              Session["DescripcionVehiculo"] = DescripcionVehiculo;
 
-             EnvioDeCorreoRapido.EjecutarProceso(this.txtCorreo.Text.Trim(), this.cmbTipoVehiculo.SelectedItem.Text.Trim(), this.cmbLinea.SelectedItem.Text.Trim(), this.cmbMarca.SelectedItem.Text.Trim(), this.cmbModelo.SelectedItem.Text.Trim(), ValorMercado, MensajeTipo, this.txtNombre.Text.Trim(), "Roble", this.chkRoboParcial.Checked, this.chkMenores16.Checked, this.chkMenores18.Checked, this.chkExcesoRC.Checked, RoboParcial, this.txtNombre.Text.Trim(), DescripcionVehiculo);
-             List<CorreosInternos> correo = new List<CorreosInternos>();
+           //  EnvioDeCorreoRapido.EjecutarProceso(this.txtCorreo.Text.Trim(), this.cmbTipoVehiculo.SelectedItem.Text.Trim(), this.txtLinea.Text.Trim(), this.cmbMarca.SelectedItem.Text.Trim(), this.cmbModelo.SelectedItem.Text.Trim(), ValorMercado, MensajeTipo, this.txtNombre.Text.Trim(), "Roble", this.chkRoboParcial.Checked, this.chkMenores16.Checked, this.chkMenores18.Checked, this.chkExcesoRC.Checked, RoboParcial, this.txtNombre.Text.Trim(), DescripcionVehiculo);
+             EnvioDeCorreoRapido.EjecutarProceso(this.txtCorreo.Text.Trim(), this.cmbTipoVehiculo.SelectedItem.Text.Trim(), this.txtLinea.Text.Trim(), this.cmbMarca.SelectedItem.Text.Trim(), this.cmbModelo.SelectedItem.Text.Trim(), ValorMercado, MensajeTipo, this.txtNombre.Text.Trim(), "Roble", false , false , false , false, RoboParcial, this.txtNombre.Text.Trim(), DescripcionVehiculo);
+            List<CorreosInternos> correo = new List<CorreosInternos>();
              correo = Cotizadores.EnviarCorreosInternos("Roble");
+
              if (correo.Count != 0)
              {
                  foreach (var item in correo)
                  {
-                     EnvioDeCorreoRapido.EjecutarProceso(item.Correo, this.cmbTipoVehiculo.SelectedItem.Text.Trim(), this.cmbLinea.SelectedItem.Text.Trim(), this.cmbMarca.SelectedItem.Text.Trim(), this.cmbModelo.SelectedItem.Text.Trim(), ValorMercado, MensajeTipo, this.txtNombre.Text.Trim(), "Roble", this.chkRoboParcial.Checked, this.chkMenores16.Checked, this.chkMenores18.Checked, this.chkExcesoRC.Checked, RoboParcial, this.txtNombre.Text.Trim(), DescripcionVehiculo);
+                    // EnvioDeCorreoRapido.EjecutarProceso(item.Correo, this.cmbTipoVehiculo.SelectedItem.Text.Trim(), this.txtLinea.Text.Trim(), this.cmbMarca.SelectedItem.Text.Trim(), this.cmbModelo.SelectedItem.Text.Trim(), ValorMercado, MensajeTipo, this.txtNombre.Text.Trim(), "Roble", this.chkRoboParcial.Checked, this.chkMenores16.Checked, this.chkMenores18.Checked, this.chkExcesoRC.Checked, RoboParcial, this.txtNombre.Text.Trim(), DescripcionVehiculo);
+                     EnvioDeCorreoRapido.EjecutarProceso(item.Correo, this.cmbTipoVehiculo.SelectedItem.Text.Trim(), this.txtLinea.Text.Trim(), this.cmbMarca.SelectedItem.Text.Trim(), this.cmbModelo.SelectedItem.Text.Trim(), ValorMercado, MensajeTipo, this.txtNombre.Text.Trim(), "Roble", false, false ,false, false, RoboParcial, this.txtNombre.Text.Trim(), DescripcionVehiculo);
                  }
              }
 
@@ -232,28 +271,28 @@ namespace Cotizador
 
         }
 
-        protected void chkRoboParcial_CheckedChanged(object sender, EventArgs e)
-        {
+        //protected void chkRoboParcial_CheckedChanged(object sender, EventArgs e)
+        //{
            
-            if (rdResponsabilidadCivil.Checked)
-            {
-                ClientScript.RegisterStartupScript(this.GetType(), "Alert", "alert('El robo parcial aplica solo para el seguro completo.');", true);
-                this.chkRoboParcial.Checked = false;
-                return;
-            }
+        //    if (rdResponsabilidadCivil.Checked)
+        //    {
+        //        ClientScript.RegisterStartupScript(this.GetType(), "Alert", "alert('El robo parcial aplica solo para el seguro completo.');", true);
+        //        this.chkRoboParcial.Checked = false;
+        //        return;
+        //    }
 
-            if (this.rdSeguroCompleto.Checked == false && rdResponsabilidadCivil.Checked == false)
-            {
-                ClientScript.RegisterStartupScript(this.GetType(), "Alert", "alert('Esta opcion es aplicable al seleccionar el seguro completo e ingresar el valor de su vehiculo.');", true);
-                this.chkRoboParcial.Checked = false;
-                return;
-            }
-            if (this.rdSeguroCompleto.Checked)
-            {
-                ClientScript.RegisterStartupScript(this.GetType(), "SeguroRobo", "ProcesarRobo()", true);
-            }
+        //    if (this.rdSeguroCompleto.Checked == false && rdResponsabilidadCivil.Checked == false)
+        //    {
+        //        ClientScript.RegisterStartupScript(this.GetType(), "Alert", "alert('Esta opcion es aplicable al seleccionar el seguro completo e ingresar el valor de su vehiculo.');", true);
+        //        this.chkRoboParcial.Checked = false;
+        //        return;
+        //    }
+        //    if (this.rdSeguroCompleto.Checked)
+        //    {
+        //        ClientScript.RegisterStartupScript(this.GetType(), "SeguroRobo", "ProcesarRobo()", true);
+        //    }
 
-        }
+        //}
 
  
 

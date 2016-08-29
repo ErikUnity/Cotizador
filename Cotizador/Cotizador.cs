@@ -134,10 +134,10 @@ namespace Cotizador
 
         }
 
-         public void GuardaCotizacion( string _Nombre, string _Correo, string _TipoDeVehiculo,string  _Linea,string  _Marca, string _Telefono, string _Modelo, decimal _SumaAsegurada, string _TipoSeguro, string Hora, string _CodigoEmpresa) 
-         { 
-         string sql = " insert into LogCorreosEnviados(Nombre, Correo, TipoDeVehiculo, Linea, Marca, Telefono, Modelo, SumaAsegurada, TipoSeguro, contactar, CodigoEmpresa)";
-         sql += " values('" + _Nombre + "','" + _Correo + "','" + _TipoDeVehiculo + "','" + _Linea + "','" + _Marca + "','" + _Telefono + "','" + _Modelo + "'," + _SumaAsegurada.ToString() + ",'" + _TipoSeguro + "','" + Hora + "','" + _CodigoEmpresa + "')";
+        public void GuardaCotizacion(string _Nombre, string _Correo, string _TipoDeVehiculo, string _Linea, string _Marca, string _Telefono, string _Modelo, decimal _SumaAsegurada, string _TipoSeguro, string Hora, string _CodigoEmpresa, string _ComoContactar) 
+         {
+             string sql = " insert into LogCorreosEnviados(Nombre, Correo, TipoDeVehiculo, Linea, Marca, Telefono, Modelo, SumaAsegurada, TipoSeguro, contactar, CodigoEmpresa,ComoContactar)";
+         sql += " values('" + _Nombre + "','" + _Correo + "','" + _TipoDeVehiculo + "','" + _Linea + "','" + _Marca + "','" + _Telefono + "','" + _Modelo + "'," + _SumaAsegurada.ToString() + ",'" + _TipoSeguro + "','" + Hora + "','" + _CodigoEmpresa + "','"+ _ComoContactar +"')";
          AccesoDatos.EjecutaQueryMySql( sql);
         
         }
@@ -529,23 +529,36 @@ namespace Cotizador
                  {
                      RoboParcial = equipo_especial * (cien) / (mil);
                  }
-                 else {
+                 else
+                 {
                      RoboParcial = _RoboParcial * (cien) / (mil);
                  }
-               
+
                  CoberturaAdicional += RoboParcial;
 
              }
+             else {
+                 RoboParcial = SumaAsegurada * (cien) / (mil);
+             }
+
              if (_MenoresDesde16)
              {
                  MenoresDesde16 = PrimaNeta * (docientoscientuena) / (mil);
                  CoberturaAdicional += MenoresDesde16;
              }
+             else {
+                 MenoresDesde16 = PrimaNeta * (docientoscientuena) / (mil);
+             }
+
              if (_MenoresDesde18)
              {
                  MenoresDesde18 = PrimaNeta * (docientoscientuena) / (mil);
                  CoberturaAdicional += MenoresDesde18;
              }
+             else {
+                 MenoresDesde18 = PrimaNeta * (docientoscientuena) / (mil);
+             }
+
              if (_ExcesoRC)
              {
                  if (_MenoresDesde16 == true || _MenoresDesde18 == true)
@@ -556,6 +569,7 @@ namespace Cotizador
                  DañosATerceros += Exceso_RC_ElevacionDeCobertura;
                  CoberturaAdicional += ExcesoRC;
              }
+
 
 
             Iva = (CoberturaAdicional + PrimaNeta + GastosPorEmision + Asisto) * CalculoIva;
@@ -570,7 +584,11 @@ namespace Cotizador
             PrimaTotalProRata =  decimal.Parse(PrimaTotalProRata.ToString("F", CultureInfo.InvariantCulture));
             GastosPorEmisionProRata = decimal.Parse(GastosPorEmisionProRata.ToString("F", CultureInfo.InvariantCulture));
             CadaPago = decimal.Parse((PrimaTotalProRata / 12).ToString("F", CultureInfo.InvariantCulture));
-        
+            RoboParcial = decimal.Parse(RoboParcial.ToString("F", CultureInfo.InvariantCulture));
+            MenoresDesde16 = decimal.Parse(MenoresDesde16.ToString("F", CultureInfo.InvariantCulture));
+            MenoresDesde18 = decimal.Parse(MenoresDesde18.ToString("F", CultureInfo.InvariantCulture));
+            ExcesoRC = decimal.Parse(ExcesoRC.ToString("F", CultureInfo.InvariantCulture));
+
         }
       
     }

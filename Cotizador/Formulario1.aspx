@@ -15,9 +15,6 @@
         .auto-style8 {
             width: 13px;
         }
-        .auto-style9 {
-            height: 24px;
-        }
         .auto-style10 {
             width: 200px;
         }
@@ -169,9 +166,9 @@
                                                                             <td style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; text-align: left; float:left;">
                                                                                 <table id="ASPxPageControl1_ASPxPageControl2_sexo" cellpadding="0" cellspacing="0" class="dxeRadioButtonList auto-style18" style="border: 1px solid rgb(159, 159, 159); font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 12px; line-height: normal; font-family: Tahoma, Geneva, sans-serif; cursor: default; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); width: auto; height: 15px; border-collapse: separate;">
                                                                                     <tr>
-                                                                                        <td class="dxe" style="font-family: Arial, text-align:"left" Helvetica, sans-serif; font-size: 12px; text-align: center; padding: 0px;">
-                                                                                            <asp:DropDownList ID="cmbLinea" runat="server" Width="215px"></asp:DropDownList>
-                                                                                        </td>
+                                                                                       <td class="dxic" style="font-family: Arial, Helvetica, sans-serif; font-size: 0px; text-align: center; width: 142px; padding: 3px 3px 2px; overflow: hidden;">
+                                                                                         <table><tr><td><asp:TextBox ID="txtLinea" runat="server" CssClass="dxeEditArea dxeEditAreaSys"   Width="193px" MaxLength="8" AutoCompleteType="Disabled"></asp:TextBox> </td><td><img alt="" class="auto-style2" src="imagenes/Error.png" id="errLinea" style="visibility: hidden" /></td></tr></table> 
+                                                                                          </td>
                                                                                     </tr>
                                                                                 </table>
                                                                             </td>
@@ -243,7 +240,7 @@
                                                                                 </asp:UpdatePanel>
                                                                             </td>
                                                                         </tr> 
-                                                                         <tr>
+                                                                        <%--   <tr>
                                                                             <td class="auto-style6" style="font-family: Roboto; font-size: 12px; text-align: left; color: rgb(19, 27, 77); text-decoration: none; font-weight: normal; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; text-transform: none;">
                                                                                    <a class="letraTitulo">Coberturas Adicionales:</a> 
                                                                              </td>
@@ -330,18 +327,43 @@
                                                                                         <asp:BalloonPopupExtender ID="ImageButton2_BalloonPopupExtender" runat="server" BalloonPopupControlID="Panel3" CustomCssUrl="" DynamicServicePath="" Enabled="True" ExtenderControlID="" TargetControlID="ImageButton2">
                                                                                         </asp:BalloonPopupExtender>
                                                                              </td>
-                                                                        </tr>
+                                                                        </tr>--%>
                  <tr>
                                                                                     <td class="justified_roboto" style="font-family: Roboto; font-size: 15px; text-align: left; color: rgb(19, 27, 77); text-decoration: none; font-weight: normal; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; text-transform: none;">
-                                                                                        <a  class="letraTitulo">En qué horario desea ser contactado?
+                                                                                        <a  class="letraTitulo">Como desea ser contactado?
                                                                                        
                                                                                     </td>
                                                                         </tr>
                          <tr>
                                                                                     <td class="justified_roboto" style="font-family: Roboto; font-size: 15px; text-align: left; color: rgb(19, 27, 77); text-decoration: none; font-weight: normal; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; text-transform: none;">
-                                                                                        <asp:TextBox ID="txtHora" runat="server" AutoCompleteType="Disabled"></asp:TextBox>
-                                                                                    &nbsp;&nbsp;<img alt="" class="auto-style2" src="imagenes/Error.png" id="errHora" style="visibility: hidden" /></td>
+                                                                                        <asp:CheckBox ID="chkChat" runat="server" Text="Chat" /> 
+                                                                                        &nbsp;&nbsp; <img alt="" class="auto-style2" src="imagenes/Error.png" id="errChk1" style="visibility: hidden" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:CheckBox ID="chkTelefono" runat="server" Text="Telefono" />
+                                                                                        <img alt="" class="auto-style2" src="imagenes/Error.png" id="errChk2" style="visibility: hidden" /></td>
                                                                         </tr>
+                         <tr>
+                                                                                    <td class="justified_roboto" style="font-family: Roboto; font-size: 15px; text-align: left; color: rgb(19, 27, 77); text-decoration: none; font-weight: normal; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; text-transform: none;">
+                                                                                        <a  class="letraTitulo">En qué horario desea ser contactado?
+                                                                                       
+                                                                                    </td>
+                                                                        </tr>
+                                 <tr>
+                                                                                    <td class="justified_roboto" style="font-family: Roboto; font-size: 15px; text-align: left; color: rgb(19, 27, 77); text-decoration: none; font-weight: normal; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; text-transform: none;">
+                                                               <asp:DropDownList ID="cmbHora" runat="server" Width="215px">
+                                                                   <asp:ListItem>Inmediatamente</asp:ListItem>
+                                                                   <asp:ListItem>8 AM</asp:ListItem>
+                                                                   <asp:ListItem>9 AM</asp:ListItem>
+                                                                   <asp:ListItem>10 AM</asp:ListItem>
+                                                                   <asp:ListItem>11 AM</asp:ListItem>
+                                                                   <asp:ListItem>12 AM</asp:ListItem>
+                                                                   <asp:ListItem>1 PM</asp:ListItem>
+                                                                   <asp:ListItem>2 PM</asp:ListItem>
+                                                                   <asp:ListItem>3 PM</asp:ListItem>
+                                                                   <asp:ListItem>4 PM</asp:ListItem>
+                                                                   <asp:ListItem>5 PM</asp:ListItem>
+                                                                                        </asp:DropDownList>
+                                                                                      &nbsp;&nbsp;<img alt="" class="auto-style2" src="imagenes/Error.png" id="errHora" style="visibility: hidden" /></td>
+                                                                        </tr>
+         
                                                                         <tr>
                                                                             <td style="font-family: Arial, Helvetica, sans-serif; font-size: 16px; text-align: center;" class="auto-style7"><span id="ASPxPageControl1_ASPxPageControl2_ASPxLabel2" class="dxeBase" style="font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 12px; line-height: normal; font-family: Tahoma, Geneva, sans-serif;">
                                                                                 <table id="ASPxPageControl1_ASPxPageControl2_BtnSiguiente" cellpadding="0" cellspacing="0" style="height: 35px; width: 103px; border-collapse: separate;">
@@ -372,7 +394,7 @@
                                                             
                                                         </div>
                                                         <b class="dx-clear" style="display: block; clear: both; height: 0px; width: 0px; font-size: 0px; line-height: 0; overflow: hidden; visibility: hidden;"></b>
-                                  <asp:Panel ID="Panel1" runat="server" Width="263px">
+<%--                                  <asp:Panel ID="Panel1" runat="server" Width="263px">
                                       Brinda cobertura a cualquier persona que conduzca el vehículo desde los 16 años, siempre que tengan su licencia de conducir vigente.<asp:Panel ID="Panel2" runat="server">
                                           (siempre que NO sean colaboradores): Brinda cobertura a cualquier persona que conduzca el vehículo desde los 16 años, siempre que tengan su licencia de conducir vigente.<asp:Panel ID="Panel3" runat="server">
                                               Ampliación del monto de cobertura de la sección II de la póliza (Seguro de Responsabilidad Civil ante Terceras personas) para tener una mejor protección.
@@ -380,7 +402,7 @@
                                                   Ampara el robo del “equipo especial” instalado dentro de la cabina del vehículo; robo de radio o bocinas, dvd, u otros equipos de audio o video. No ampara piezas mecánicas, externas o equipos portátiles o propiedad personal.</asp:Panel>
                                           </asp:Panel>
                                       </asp:Panel>
-                                  </asp:Panel>
+                                  </asp:Panel>--%>
         </td></tr></table>
 
                                    
