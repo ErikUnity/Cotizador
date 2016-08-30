@@ -34,12 +34,34 @@
             display: table-cell;
             vertical-align: middle;
             text-align: center;
-            background-image: url("http://192.168.81.30/Cotizador/imagenes/FondoCotizador.jpg")  ; 
+            background-image: url("http://192.168.81.30/Cotizador/imagenes/FondoCarro.jpg")  ; 
         -webkit-background-size: cover;
         -moz-background-size: cover;
         -o-background-size: cover;
         background-size: cover;
+       
 
+        }
+                ul {
+  text-align: left;
+      list-style:none;
+    background-image:none;
+    background-repeat:none;
+    background-position:0
+}
+                    ul li {
+                    
+     list-style:none;
+    background-image:none;
+    background-repeat:none;
+    background-position:0
+                    }
+
+  
+
+ .cuadro {
+            width:200px;
+            height:200px;
         }
 
         .centered-content {
@@ -48,6 +70,14 @@
             padding: 20px;
             border: 1px solid #000;
         }
+        .centered-content tr{
+             width:100%;
+        }
+
+        .centered-content td{
+             width:100%;
+        }
+
 
         .btn {
             background: #3498db;
@@ -279,3 +309,4 @@
         .auto-style7 {
             height: 39px;
         }
+
