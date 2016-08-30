@@ -9,6 +9,7 @@
     <script src="js/jquery.min.js"></script>
     <script src="js/jquery.js"></script>
     <link rel="stylesheet" type="text/css" href="css/Formulario1.css"/>
+    <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0"/>
     <title>Cotizador Unity Promotores</title>
 
     <style type="text/css">
@@ -39,6 +40,125 @@ font-size: 16px;
 .divX {
      float:left; text-align:right; overflow-x:auto;
         }
+
+@media screen and (max-device-height: 150px){
+ .f1{font-size:96px;}
+ .f2{font-size:168px;}
+ .f3{font-size:168px;}
+ .f4{font-size:120px;}
+ .f5{font-size:128px;}
+
+        #Principal {
+                  height:100%;
+                  width:100%;   
+                  left:0;        
+        }
+
+        #Relleno {
+          display:none;
+         }
+         #Asoc {
+          display:none;
+         }
+
+        .centered-content table tr td{
+            text-align:center;
+             width:100%;
+             height:100%;
+        }
+        .cuadro {
+            width:100%;
+            height:100%;
+        }
+        .cuadro Image {
+            width:100%;
+            height:100%;
+        }
+        body {
+           zoom:150%;
+        }
+ }
+
+@media screen and (max-width: 400px){
+ .f1{font-size:96px;}
+ .f2{font-size:168px;}
+ .f3{font-size:168px;}
+ .f4{font-size:120px;}
+ .f5{font-size:128px;}
+
+        #Principal {
+                  height:100%;
+                  width:100%;   
+                  left:0;        
+        }
+
+        #Relleno {
+          display:none;
+         }
+         #Asoc {
+          display:none;
+         }
+
+         .centered-content table {
+         left:250px;
+        }
+
+        .centered-content table tr td{
+            text-align:center;
+             width:100%;
+             height:100%;
+        }
+        .cuadro {
+            width:100%;
+            height:100%;
+        }
+        .cuadro Image {
+            width:100%;
+            height:100%;
+        }
+        body {
+           zoom:100%;
+        }
+ }
+
+
+@media screen and (max-width: 500px){
+ .f1{font-size:96px;}
+ .f2{font-size:168px;}
+ .f3{font-size:168px;}
+ .f4{font-size:120px;}
+ .f5{font-size:128px;}
+
+        #Principal {
+                  height:100%;
+                  width:100%;   
+                  left:20%;        
+        }
+
+        #Relleno {
+          display:inline-block;
+         }
+         .centered-content table {
+         left:250px;
+        }
+
+        .centered-content table tr td{
+            text-align:center;
+             width:100%;
+             height:100%;
+        }
+        .cuadro {
+            width:100%;
+            height:100%;
+        }
+        .cuadro Image {
+            width:100%;
+            height:100%;
+        }
+       
+
+ }
+
 @media screen and (max-width: 700px){
  .f1{font-size:96px;}
  .f2{font-size:168px;}
@@ -134,6 +254,7 @@ font-size: 16px;
          #Relleno {
           display:inline-block;
         }
+       
 }
 
 
