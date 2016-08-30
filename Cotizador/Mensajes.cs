@@ -59,8 +59,10 @@ namespace Cotizador
             mensaje.Nombre = Nombre;
             string archivo = "";
             if (MensajeTipo == 1)
-            { archivo = EnvioDeCorreoRapido.AlmacenarPdf1(Nombre, CodigoEmpresa, Decimal.Parse(ValorMercado), RoboParcial, Menores16, Menores18, ExcesosRC, _RoboParcial, NombreCliente, DescripcionVehiculo);}
-             
+            { archivo = EnvioDeCorreoRapido.AlmacenarPdf1(Nombre, CodigoEmpresa, Decimal.Parse(ValorMercado), RoboParcial, Menores16, Menores18, ExcesosRC, _RoboParcial, NombreCliente, DescripcionVehiculo); }
+            else {
+                archivo = EnvioDeCorreoRapido.AlmacenarPdf2(Nombre, CodigoEmpresa, Decimal.Parse(ValorMercado), RoboParcial, Menores16, Menores18, ExcesosRC, _RoboParcial, NombreCliente, DescripcionVehiculo); 
+            }
             mensaje.archivo = archivo;
 
             Thread workerThread = new Thread(mensaje.DoWork);
@@ -141,7 +143,7 @@ namespace Cotizador
             // Create Report DataSource
             ReportDataSource rds = new ReportDataSource("CotizadorRoble", Cotizadores.ReporteCotizacion1(CodigoEmpresa, SumaAsegurada, RoboParcial, Menores16, Menores18, ExcesosRC, _RoboParcial, NombreCliente, DescripcionVehiculo));
             string path = HttpContext.Current.Request.PhysicalApplicationPath;
-            string archivo = path + @"Documentos\" + nombre.Replace(" ", "_").Replace(".", "") + ".pdf";
+            string archivo = path + @"Documentos\" + nombre.Replace(" ", "_").Replace(".", "") + "2.pdf";
             // Variables
             Warning[] warnings;
             string[] streamIds;
@@ -156,20 +158,30 @@ namespace Cotizador
             viewer.LocalReport.DataSources.Add(rds); // Add datasource here
 
             byte[] info = viewer.LocalReport.Render("PDF", null, out mimeType, out encoding, out extension, out streamIds, out warnings);
-
-            using (FileStream fs = new FileStream(path + @"Documentos\" + nombre.Replace(" ", "_").Replace(".", "") + ".pdf",
-                                FileMode.Create, FileAccess.Write, FileShare.None))
+            try
             {
-
-                fs.Write(info, 0, info.Length);
-                if (fs != null)
+                using (FileStream fs = new FileStream(path + @"Documentos\" + nombre.Replace(" ", "_").Replace(".", "") + "2.pdf",
+                    FileMode.Create, FileAccess.Write, FileShare.None))
                 {
-                    ((IDisposable)fs).Dispose();
+
+                    fs.Write(info, 0, info.Length);
+                    if (fs != null)
+                    {
+                        ((IDisposable)fs).Dispose();
+                    }
                 }
             }
+            catch (Exception ex)
+            {
+
+                Helper.RegistrarEvento("Error al escribir el archivo pdf " + ex.Message);
+            }
+
+
 
             viewer.Dispose();
-            return archivo;
+
+            return archivo; 
 
         }
         public static void LimpiarArchivo(string archivo)
