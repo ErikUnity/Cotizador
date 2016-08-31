@@ -115,6 +115,23 @@ INSERT INTO `maestro_ejecutivos` (`indice`, `Nombre`, `Correo`, `CodigoEmpresa`)
 /*!40000 ALTER TABLE `maestro_ejecutivos` ENABLE KEYS */;
 
 
+-- Dumping structure for table catalogo.maestro_link_externo
+CREATE TABLE IF NOT EXISTS `maestro_link_externo` (
+  `indice` int(11) NOT NULL AUTO_INCREMENT,
+  `Link` varchar(800) DEFAULT '0',
+  `CodigoEmpresa` varchar(300) DEFAULT '0',
+  `descripcion` varchar(800) DEFAULT '0',
+  KEY `indice` (`indice`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+-- Dumping data for table catalogo.maestro_link_externo: ~1 rows (approximately)
+DELETE FROM `maestro_link_externo`;
+/*!40000 ALTER TABLE `maestro_link_externo` DISABLE KEYS */;
+INSERT INTO `maestro_link_externo` (`indice`, `Link`, `CodigoEmpresa`, `descripcion`) VALUES
+	(1, 'http://192.168.81.30/PeticionesExternas.aspx', 'Roble', 'Se usa para que los correos puedan mostrar la cotización de los clientes');
+/*!40000 ALTER TABLE `maestro_link_externo` ENABLE KEYS */;
+
+
 -- Dumping structure for table catalogo.maestro_reglasnegocio
 CREATE TABLE IF NOT EXISTS `maestro_reglasnegocio` (
   `indice` int(11) NOT NULL AUTO_INCREMENT,
@@ -424,9 +441,9 @@ CREATE TABLE IF NOT EXISTS `trans_correosenviados` (
   `Paso2` bit(1) DEFAULT NULL,
   `Paso3` bit(1) DEFAULT NULL,
   PRIMARY KEY (`indice`)
-) ENGINE=InnoDB AUTO_INCREMENT=153 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=154 DEFAULT CHARSET=utf8;
 
--- Dumping data for table catalogo.trans_correosenviados: ~151 rows (approximately)
+-- Dumping data for table catalogo.trans_correosenviados: ~152 rows (approximately)
 DELETE FROM `trans_correosenviados`;
 /*!40000 ALTER TABLE `trans_correosenviados` DISABLE KEYS */;
 INSERT INTO `trans_correosenviados` (`indice`, `Nombre`, `Apellidos`, `Correo`, `TipoDeVehiculo`, `Linea`, `Marca`, `Telefono`, `Modelo`, `SumaAsegurada`, `Fecha`, `TipoSeguro`, `contactar`, `CodigoEmpresa`, `ComoContactar`, `Paso1`, `Paso2`, `Paso3`) VALUES
@@ -580,8 +597,48 @@ INSERT INTO `trans_correosenviados` (`indice`, `Nombre`, `Apellidos`, `Correo`, 
 	(149, 'Monica Arce', '0', 'erik.castaneda@unitypromotores.com', 'Automóvil', 'Filia', 'Patatata', '45678876', '2001', 46000.00, '2016-08-31 10:11:26', 'Seguro Completo', 'erik.castaneda@unitypromotores.com', 'Roble', 'Por Telefono - 9 AM', NULL, NULL, NULL),
 	(150, 'Monica Arce', '0', 'erik.castaneda@unitypromotores.com', 'Automóvil', '323 i', '', '65465465', '2001', 45000.00, '2016-08-31 10:26:05', 'Seguro Completo', 'erik.castaneda@unitypromotores.com', 'Roble', 'Por Telefono - Inmediatamente', NULL, NULL, NULL),
 	(151, 'Monica Arce', '0', 'erik.castaneda@unitypromotores.com', 'Automóvil', '323 I', '', '65465465', '2001', 50000.00, '2016-08-31 11:07:57', 'Seguro Completo', 'erik.castaneda@unitypromotores.com', 'Roble', 'Por Telefono - Inmediatamente', NULL, NULL, NULL),
-	(152, 'Jennifer', '0', 'jennifer.wiesner@unitypromotores.com', 'Automóvil', 'saber', '', '12345678', '2005', 100000.00, '2016-08-31 11:18:34', 'Seguro Completo', 'jennifer.wiesner@unitypromotores.com', 'Roble', 'Por Telefono - Inmediatamente', NULL, NULL, NULL);
+	(152, 'Jennifer', '0', 'jennifer.wiesner@unitypromotores.com', 'Automóvil', 'saber', '', '12345678', '2005', 100000.00, '2016-08-31 11:18:34', 'Seguro Completo', 'jennifer.wiesner@unitypromotores.com', 'Roble', 'Por Telefono - Inmediatamente', NULL, NULL, NULL),
+	(153, 'Monica Veronica', 'Arce Contreras', 'erik.castaneda@unitypromotores.com', 'Automóvil', 'Blanca', '', '65465465', '2001', 22500.00, '2016-08-31 11:47:03', 'Seguro Completo', 'erik.castaneda@unitypromotores.com', 'Roble', 'Por Telefono - Inmediatamente', NULL, NULL, NULL);
 /*!40000 ALTER TABLE `trans_correosenviados` ENABLE KEYS */;
+
+
+-- Dumping structure for table catalogo.trans_detallecotizaciones
+CREATE TABLE IF NOT EXISTS `trans_detallecotizaciones` (
+  `indice` int(11) NOT NULL AUTO_INCREMENT,
+  `Agente` varchar(300) DEFAULT '0',
+  `idCotizacionSistema` int(11) DEFAULT '0',
+  `FechaRecibido` datetime DEFAULT NULL,
+  `FechaAtentido` datetime DEFAULT NULL,
+  `FechaCerrado` datetime DEFAULT NULL,
+  `HoraPactada` varchar(150) DEFAULT '0',
+  `CumplimientoDeContacto` varchar(150) DEFAULT '0',
+  `Fecha` datetime DEFAULT NULL,
+  KEY `indice` (`indice`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- Dumping data for table catalogo.trans_detallecotizaciones: ~0 rows (approximately)
+DELETE FROM `trans_detallecotizaciones`;
+/*!40000 ALTER TABLE `trans_detallecotizaciones` DISABLE KEYS */;
+/*!40000 ALTER TABLE `trans_detallecotizaciones` ENABLE KEYS */;
+
+
+-- Dumping structure for table catalogo.trans_resumencotizaciones
+CREATE TABLE IF NOT EXISTS `trans_resumencotizaciones` (
+  `indice` int(11) NOT NULL AUTO_INCREMENT,
+  `agente` varchar(500) DEFAULT '0',
+  `asignados` int(11) DEFAULT '0',
+  `atentidos` int(11) DEFAULT '0',
+  `pendientes` int(11) DEFAULT '0',
+  `cerrados` int(11) DEFAULT '0',
+  `perdidos` int(11) DEFAULT '0',
+  `fueradefecha` int(11) DEFAULT '0',
+  KEY `indice` (`indice`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- Dumping data for table catalogo.trans_resumencotizaciones: ~0 rows (approximately)
+DELETE FROM `trans_resumencotizaciones`;
+/*!40000 ALTER TABLE `trans_resumencotizaciones` DISABLE KEYS */;
+/*!40000 ALTER TABLE `trans_resumencotizaciones` ENABLE KEYS */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

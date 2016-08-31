@@ -254,8 +254,8 @@ namespace Cotizador
             if (this.chkTelefono.Checked)
                 contactar = "Por Telefono";
             contactar += " - " + this.cmbHora.SelectedItem.Text;
-
-            Cotizar.GuardaCotizacion(this.txtNombre.Text.Trim(), this.txtApellido.Text.Trim(), this.txtCorreo.Text.Trim(), this.cmbTipoVehiculo.SelectedItem.Text.Trim(), this.txtLinea.Text.Trim(), Marca, this.txtTelefono.Text.Trim(), this.cmbModelo.SelectedItem.Text.Trim(), Decimal.Parse(ValorMercado), _tipo_seguro, this.txtCorreo.Text.ToString(), "Roble", contactar);
+            string DescripcionVehiculo = this.cmbTipoVehiculo.SelectedItem.Text + " - " + this.cmbMarca.SelectedItem.Text + " - " + this.cmbModelo.SelectedItem.Text + " - " + this.txtLinea.Text;
+            string id = Cotizar.GuardaCotizacion(this.txtNombre.Text.Trim(), this.txtApellido.Text.Trim(), this.txtCorreo.Text.Trim(), this.cmbTipoVehiculo.SelectedItem.Text.Trim(), this.txtLinea.Text.Trim(), Marca, this.txtTelefono.Text.Trim(), this.cmbModelo.SelectedItem.Text.Trim(), Decimal.Parse(ValorMercado), _tipo_seguro, this.txtCorreo.Text.ToString(), "Roble", contactar);
 
              SumaAsegurada = Decimal.Parse(ValorMercado);
           //   Valores Calculo = new Valores("Roble", SumaAsegurada, this.chkRoboParcial.Checked, this.chkMenores16.Checked, this.chkMenores18.Checked, this.chkExcesoRC.Checked, RoboParcial, MensajeTipo);
@@ -263,24 +263,9 @@ namespace Cotizador
              this.lblMsg.Text = Calculo.PrimaTotalProRata.ToString();
              
              // ClientScript.RegisterStartupScript(this.GetType(), "Alert", "alert('La cotización ha sido enviada a su correo: " + this.txtCorreo.Text + ");", true);
-             Session["CodigoEmpresa"] = "Roble";
-             Session["SumaAsegurada"] = SumaAsegurada.ToString();
-             //Session["RoboParcial"] = this.chkRoboParcial.Checked.ToString();
-             //Session["Menores16"] = this.chkMenores16.Checked.ToString();
-             //Session["Menores18"] = this.chkMenores18.Checked.ToString();
-             //Session["ExcesosRC"] = this.chkExcesoRC.Checked.ToString();
-             Session["RoboParcial"] = "false";
-             Session["Menores16"] = "false";
-             Session["Menores18"] = "false";
-             Session["ExcesosRC"] = "false";
-             Session["_RoboParcial"] = RoboParcial.ToString();
-             Session["NombreCliente"] = this.txtNombre.Text.Trim();
-             string DescripcionVehiculo = this.cmbTipoVehiculo.SelectedItem.Text + " - " + this.cmbMarca.SelectedItem.Text + " - " + this.cmbModelo.SelectedItem.Text + " - " + this.txtLinea.Text;
-             Session["DescripcionVehiculo"] = DescripcionVehiculo;
-
              //  EnvioDeCorreoRapido.EjecutarProceso(this.txtCorreo.Text.Trim(), this.cmbTipoVehiculo.SelectedItem.Text.Trim(), this.txtLinea.Text.Trim(), Marca, this.cmbModelo.SelectedItem.Text.Trim(), ValorMercado, MensajeTipo, this.txtNombre.Text.Trim(), "Roble", this.chkRoboParcial.Checked, this.chkMenores16.Checked, this.chkMenores18.Checked, this.chkExcesoRC.Checked, RoboParcial, this.txtNombre.Text.Trim(), DescripcionVehiculo);
-             EnvioDeCorreoRapido.EjecutarProceso(this.txtCorreo.Text.Trim(), this.cmbTipoVehiculo.SelectedItem.Text.Trim(), this.txtLinea.Text.Trim(), Marca, this.cmbModelo.SelectedItem.Text.Trim(), ValorMercado, MensajeTipo, this.txtNombre.Text.Trim(), "Roble", false, false, false, false, RoboParcial, this.txtNombre.Text.Trim(), DescripcionVehiculo);
-            List<CorreosInternos> correo = new List<CorreosInternos>();
+             EnvioDeCorreoRapido.EjecutarProceso(this.txtCorreo.Text.Trim(), this.cmbTipoVehiculo.SelectedItem.Text.Trim(), this.txtLinea.Text.Trim(), Marca, this.cmbModelo.SelectedItem.Text.Trim(), ValorMercado, MensajeTipo, this.txtNombre.Text.Trim(), "Roble", false, false, false, false, RoboParcial, this.txtNombre.Text.Trim(), DescripcionVehiculo, id);
+             List<CorreosInternos> correo = new List<CorreosInternos>();
              correo = Cotizadores.EnviarCorreosInternos("Roble");
 
              if (correo.Count != 0)
@@ -288,17 +273,19 @@ namespace Cotizador
                  foreach (var item in correo)
                  {
                      // EnvioDeCorreoRapido.EjecutarProceso(item.Correo, this.cmbTipoVehiculo.SelectedItem.Text.Trim(), this.txtLinea.Text.Trim(), Marca, this.cmbModelo.SelectedItem.Text.Trim(), ValorMercado, MensajeTipo, this.txtNombre.Text.Trim(), "Roble", this.chkRoboParcial.Checked, this.chkMenores16.Checked, this.chkMenores18.Checked, this.chkExcesoRC.Checked, RoboParcial, this.txtNombre.Text.Trim(), DescripcionVehiculo);
-                     EnvioDeCorreoRapido.EjecutarProceso(item.Correo, this.cmbTipoVehiculo.SelectedItem.Text.Trim(), this.txtLinea.Text.Trim(), Marca, this.cmbModelo.SelectedItem.Text.Trim(), ValorMercado, MensajeTipo, this.txtNombre.Text.Trim(), "Roble", false, false, false, false, RoboParcial, this.txtNombre.Text.Trim(), DescripcionVehiculo);
+                     EnvioDeCorreoRapido.EjecutarProceso(item.Correo, this.cmbTipoVehiculo.SelectedItem.Text.Trim(), this.txtLinea.Text.Trim(), Marca, this.cmbModelo.SelectedItem.Text.Trim(), ValorMercado, MensajeTipo, this.txtNombre.Text.Trim(), "Roble", false, false, false, false, RoboParcial, this.txtNombre.Text.Trim(), DescripcionVehiculo, id);
                  }
              }
 
-            if (MensajeTipo == 1)
-             {
-                 Response.Redirect("Rpt1.aspx");
-             }
-             else {
-                 Response.Redirect("Rpt2.aspx");
-             }
+             Response.Redirect("Agradecimiento.aspx");
+
+            //if (MensajeTipo == 1)
+            // {
+            //     Response.Redirect("Rpt1.aspx");
+            // }
+            // else {
+            //     Response.Redirect("Rpt2.aspx");
+            // }
 
         }
 

@@ -111,6 +111,7 @@
     <Reference Include="DevExpress.Web.ASPxRichEdit.v15.2, Version=15.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Agradecimiento.aspx" />
     <Content Include="bin\catalogo.sql" />
     <Content Include="bin\Cotizadores.dll" />
     <Content Include="bin\Cotizadores.pdb" />
@@ -127,6 +128,8 @@
     <Content Include="Global.asax" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="imagenes\Agradecimiento.jpg" />
+    <Content Include="imagenes\Contacto.jpg" />
     <Content Include="imagenes\Error.png" />
     <Content Include="imagenes\FirmaEjecutivaAdministrativa.png" />
     <Content Include="imagenes\FirmaJulianPresa.bmp" />
@@ -138,15 +141,19 @@
     <Content Include="imagenes\LogoCity.png" />
     <Content Include="imagenes\LogoElRoble.png" />
     <Content Include="imagenes\LogoUnity.png" />
-    <Content Include="imagenes\Paso1.bmp" />
-    <Content Include="imagenes\Paso2.bmp" />
-    <Content Include="imagenes\Paso3.bmp" />
+    <Content Include="imagenes\Paso1.png" />
+    <Content Include="imagenes\Paso11.png" />
+    <Content Include="imagenes\Paso2.png" />
+    <Content Include="imagenes\Paso22.png" />
+    <Content Include="imagenes\Paso3.png" />
+    <Content Include="imagenes\Paso33.png" />
     <Content Include="imagenes\SignoInterrogacion1.png" />
     <Content Include="js\jquery.js" />
     <Content Include="js\jquery.min.js" />
     <Content Include="obj\Debug\Cotizadores.csproj.FileListAbsolute.txt" />
     <Content Include="obj\Debug\Cotizadores.dll" />
     <Content Include="obj\Debug\Cotizadores.pdb" />
+    <Content Include="PeticionesExternas.aspx" />
     <Content Include="Recursos\Script2.html" />
     <Content Include="Recursos\Script1.html" />
     <Content Include="Rpt2.aspx" />
@@ -166,6 +173,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AccesoDatos.cs" />
+    <Compile Include="Agradecimiento.aspx.cs">
+      <DependentUpon>Agradecimiento.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Agradecimiento.aspx.designer.cs">
+      <DependentUpon>Agradecimiento.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Correo.cs" />
     <Compile Include="Cotizador.cs" />
     <Compile Include="Formulario1.aspx.cs">
@@ -182,6 +196,13 @@
     <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
+    <Compile Include="PeticionesExternas.aspx.cs">
+      <DependentUpon>PeticionesExternas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PeticionesExternas.aspx.designer.cs">
+      <DependentUpon>PeticionesExternas.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Rpt2.aspx.cs">
       <DependentUpon>Rpt2.aspx</DependentUpon>

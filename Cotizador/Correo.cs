@@ -10,7 +10,7 @@ namespace Cotizador
     public class Correo
     {
 
-        public void EnviarCorreo(string _to, StringBuilder mensaje, string subject, int tipo, string archivo)
+        public void EnviarCorreo(string _to, StringBuilder mensaje, string subject, int tipo, string archivo, string titulo,string Paso1,string Paso2,string Paso3, string Link1,string Link2,string Link3)
         {
             string AtachmentPath = AppDomain.CurrentDomain.BaseDirectory + @"ASR27.xlsx";
             Attachment data = new Attachment(AtachmentPath);
@@ -19,15 +19,15 @@ namespace Cotizador
            string from = "erik.castaneda@unitypromotores.com"; 
             System.Net.Mail.MailMessage mail = new System.Net.Mail.MailMessage();
             mail.To.Add(_to);
-            mail.From = new MailAddress(from, "Cotizador de Seguros", System.Text.Encoding.UTF8);
-            mail.Subject = "Cotizador de Seguros";
+            mail.From = new MailAddress(from, titulo, System.Text.Encoding.UTF8);
+            mail.Subject = titulo;
             mail.SubjectEncoding = System.Text.Encoding.UTF8;
-            mail.Body = LlenarMensaje(subject, mensaje.ToString());
+            mail.Body = LlenarMensaje(subject, mensaje.ToString(),  Paso1, Paso2, Paso3,  Link1, Link2, Link3);
             mail.BodyEncoding = System.Text.Encoding.UTF8;
             mail.IsBodyHtml = true;
             mail.Priority = MailPriority.High;
-            mail.Attachments.Add(data);
-            mail.Attachments.Add(data1);
+            //mail.Attachments.Add(data);
+            //mail.Attachments.Add(data1);
 
             SmtpClient client = new SmtpClient();
             //Add the Creddentials- use your own email id and password
@@ -37,6 +37,7 @@ namespace Cotizador
             client.Port = 587; // Gmail works on this port
             client.Host = "smtp.gmail.com";
             client.EnableSsl = true; //Gmail works on Server Secured Layer
+
             try
             {
                 client.Send(mail);
@@ -47,11 +48,12 @@ namespace Cotizador
                 
             } // end try 
         }
-         public static string LlenarMensaje( string userName,  string description)
+        public static string LlenarMensaje(string userName, string description, string Paso1, string Paso2, string Paso3, string Link1, string Link2, string Link3)
          {
              StringBuilder body;
              try
              {
+                // description = description.Replace("{Link1}", _link);
                  body = GetBodyPedidos();
                  body = body.Replace("{UserName}", userName);
                  body = body.Replace("{Descripcion}", description);

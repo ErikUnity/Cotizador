@@ -21,6 +21,13 @@ namespace Cotizador
         public string ValorMercado = "";
         public int MensajeTipo = 1;
         public string archivo = "";
+        public string Paso1 = "";
+        public string Paso2 = "";
+        public string Paso3 = "";
+        public string Link1 = "";
+        public string Link2 = "";
+        public string Link3 = "";
+
         // This method will be called when the thread is started.
         public void DoWork()
         {
@@ -28,7 +35,8 @@ namespace Cotizador
             Cotizadores Cotizar = new Cotizadores();
             Correo enviando = new Correo();
             StringBuilder msg = Cotizar.ObtieneMensaje(MensajeTipo);
-            enviando.EnviarCorreo(Correo, msg, Nombre, MensajeTipo, archivo);
+            string titulo = "Cotización de Seguro para " + TipoDeVehiculo + " " + Marca + " " + Modelo + " " + Linea;
+            enviando.EnviarCorreo(Correo, msg, Nombre, MensajeTipo, archivo, titulo, Paso1, Paso2,Paso3, Link1, Link2, Link3);
             EnvioDeCorreoRapido.LimpiarArchivo(archivo);
 
         }
@@ -44,7 +52,7 @@ namespace Cotizador
     public class EnvioDeCorreoRapido
     {
 
-        public static void EjecutarProceso(string Correo, string TipoDeVehiculo, string Linea, string Marca, string Modelo, string ValorMercado, int MensajeTipo, string Nombre, string CodigoEmpresa,bool RoboParcial,bool Menores16,bool Menores18,bool ExcesosRC,decimal _RoboParcial,string NombreCliente,string DescripcionVehiculo)
+        public static void EjecutarProceso(string Correo, string TipoDeVehiculo, string Linea, string Marca, string Modelo, string ValorMercado, int MensajeTipo, string Nombre, string CodigoEmpresa,bool RoboParcial,bool Menores16,bool Menores18,bool ExcesosRC,decimal _RoboParcial,string NombreCliente,string DescripcionVehiculo, string _id)
         {
 
             // Create the thread object. This does not start the thread.
@@ -57,6 +65,11 @@ namespace Cotizador
             mensaje.ValorMercado = ValorMercado;
             mensaje.MensajeTipo = MensajeTipo;
             mensaje.Nombre = Nombre;
+            mensaje.Paso1 = Cotizadores.LinkPaso1(CodigoEmpresa, _id);
+            mensaje.Paso2 = Cotizadores.LinkPaso2(CodigoEmpresa, _id);
+            mensaje.Paso3 = Cotizadores.LinkPaso3(CodigoEmpresa, _id);
+            mensaje.Link1 = Cotizadores.LinkUbicaciones(CodigoEmpresa, "Peticiones Externas");
+
             string archivo = "";
             if (MensajeTipo == 1)
             { archivo = EnvioDeCorreoRapido.AlmacenarPdf1(Nombre, CodigoEmpresa, Decimal.Parse(ValorMercado), RoboParcial, Menores16, Menores18, ExcesosRC, _RoboParcial, NombreCliente, DescripcionVehiculo); }

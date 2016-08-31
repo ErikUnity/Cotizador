@@ -135,12 +135,14 @@ namespace Cotizador
 
         }
 
-        public void GuardaCotizacion(string _Nombre,string Apellidos, string _Correo, string _TipoDeVehiculo, string _Linea, string _Marca, string _Telefono, string _Modelo, decimal _SumaAsegurada, string _TipoSeguro, string Hora, string _CodigoEmpresa, string _ComoContactar) 
+        public string GuardaCotizacion(string _Nombre,string Apellidos, string _Correo, string _TipoDeVehiculo, string _Linea, string _Marca, string _Telefono, string _Modelo, decimal _SumaAsegurada, string _TipoSeguro, string Hora, string _CodigoEmpresa, string _ComoContactar) 
          {
+             string id = "";
              string sql = " insert into trans_correosenviados(Nombre, Apellidos, Correo, TipoDeVehiculo, Linea, Marca, Telefono, Modelo, SumaAsegurada, TipoSeguro, contactar, CodigoEmpresa,ComoContactar)";
-             sql += " values('" + _Nombre + "','" + Apellidos + "','" + _Correo + "','" + _TipoDeVehiculo + "','" + _Linea + "','" + _Marca + "','" + _Telefono + "','" + _Modelo + "'," + _SumaAsegurada.ToString() + ",'" + _TipoSeguro + "','" + Hora + "','" + _CodigoEmpresa + "','" + _ComoContactar + "')";
-         AccesoDatos.EjecutaQueryMySql( sql);
-        
+             sql += " values('" + _Nombre.Trim() + "','" + Apellidos.Trim() + "','" + _Correo + "','" + _TipoDeVehiculo + "','" + _Linea + "','" + _Marca + "','" + _Telefono + "','" + _Modelo + "'," + _SumaAsegurada.ToString() + ",'" + _TipoSeguro + "','" + Hora + "','" + _CodigoEmpresa + "','" + _ComoContactar + "')";
+             AccesoDatos.EjecutaQueryMySql( sql);
+             id = AccesoDatos.RegresaCadena_1_ResultadoMysql("select max(indice) from trans_correosenviados where Nombre = '"+ _Nombre.Trim() + "' and Apellidos = '"+ Apellidos.Trim() + "'");
+             return id;
         }
          public static  decimal ObtienePorcentajeMenor(string Codigo)
          {
@@ -430,6 +432,136 @@ namespace Cotizador
              return data;
 
          }
+
+         public static string StatusDescripcionPaso1(string _id)
+         {
+             string resultado = "";
+
+             DataTable content = new DataTable();
+             content = AccesoDatos.RegresaTablaMySql("select case when isnull(Paso1,'') = '' then 'Paso1' else   'Paso11'   end from trans_correosenviados where indice = " + _id  );
+             DataView dv = new DataView(content);
+             foreach (DataRow rw in content.Rows)
+             {
+                 if (rw[0].ToString() != null && rw[0].ToString().Trim() != "")
+                 {
+                     resultado = rw[0].ToString();
+                 }
+             }
+
+             return resultado;
+         }
+
+         public static string StatusDescripcionPaso2(string _id)
+         {
+             string resultado = "";
+
+             DataTable content = new DataTable();
+             content = AccesoDatos.RegresaTablaMySql("select case when isnull(Paso2,'') = '' then 'Paso2' else   'Paso22'   end from trans_correosenviados where indice = " + _id);
+             DataView dv = new DataView(content);
+             foreach (DataRow rw in content.Rows)
+             {
+                 if (rw[0].ToString() != null && rw[0].ToString().Trim() != "")
+                 {
+                     resultado = rw[0].ToString();
+                 }
+             }
+
+             return resultado;
+         }
+         public static string StatusDescripcionPaso3(string _id)
+         {
+             string resultado = "";
+
+             DataTable content = new DataTable();
+             content = AccesoDatos.RegresaTablaMySql("select case when isnull(Paso3,'') = '' then 'Paso3' else   'Paso33'   end from trans_correosenviados where indice = " + _id);
+             DataView dv = new DataView(content);
+             foreach (DataRow rw in content.Rows)
+             {
+                 if (rw[0].ToString() != null && rw[0].ToString().Trim() != "")
+                 {
+                     resultado = rw[0].ToString();
+                 }
+             }
+
+             return resultado;
+         }
+
+         public static string LinkPaso1(string _CodigoEmpresa, string _id)
+         {
+             string resultado = "";
+             string descripcion = StatusDescripcionPaso1(_id);
+
+             DataTable content = new DataTable();
+             content = AccesoDatos.RegresaTablaMySql("Select Link from maestro_link_externo where CodigoEmpresa = '" + _CodigoEmpresa + "' and Descripcion = '" + descripcion  + "'");
+             DataView dv = new DataView(content);
+             foreach (DataRow rw in content.Rows)
+             {
+                 if (rw[0].ToString() != null && rw[0].ToString().Trim() != "")
+                 {
+                     resultado = rw[0].ToString();
+                 }
+             }
+
+             return resultado;
+         }
+
+         public static string LinkPaso2(string _CodigoEmpresa, string _id)
+         {
+             string resultado = "";
+             string descripcion = StatusDescripcionPaso2(_id);
+
+             DataTable content = new DataTable();
+             content = AccesoDatos.RegresaTablaMySql("Select Link from maestro_link_externo where CodigoEmpresa = '" + _CodigoEmpresa + "' and Descripcion = '" + descripcion + "'");
+             DataView dv = new DataView(content);
+             foreach (DataRow rw in content.Rows)
+             {
+                 if (rw[0].ToString() != null && rw[0].ToString().Trim() != "")
+                 {
+                     resultado = rw[0].ToString();
+                 }
+             }
+
+             return resultado;
+         }
+         public static string LinkPaso3(string _CodigoEmpresa, string _id)
+         {
+             string resultado = "";
+             string descripcion = StatusDescripcionPaso3(_id);
+
+             DataTable content = new DataTable();
+             content = AccesoDatos.RegresaTablaMySql("Select Link from maestro_link_externo where CodigoEmpresa = '" + _CodigoEmpresa + "' and Descripcion = '" + descripcion + "'");
+             DataView dv = new DataView(content);
+             foreach (DataRow rw in content.Rows)
+             {
+                 if (rw[0].ToString() != null && rw[0].ToString().Trim() != "")
+                 {
+                     resultado = rw[0].ToString();
+                 }
+             }
+
+             return resultado;
+         }
+        
+          
+          public static string LinkUbicaciones(string _CodigoEmpresa, string _Descripcion)
+         {
+             string resultado = "";
+
+             DataTable content = new DataTable();
+             content = AccesoDatos.RegresaTablaMySql("Select Link from maestro_link_externo where CodigoEmpresa = '" + _CodigoEmpresa + "' and Descripcion = '" + _Descripcion + "'");
+             DataView dv = new DataView(content);
+             foreach (DataRow rw in content.Rows)
+             {
+                 if (rw[0].ToString() != null && rw[0].ToString().Trim() != "")
+                 {
+                     resultado = rw[0].ToString();
+                 }
+             }
+
+             return resultado;
+         }
+        
+
     }
     
     public class Valores 
