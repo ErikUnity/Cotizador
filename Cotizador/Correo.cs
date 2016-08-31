@@ -97,13 +97,11 @@ namespace Cotizador
                  bodi.AppendLine("<body>");
                  //bodi.AppendLine(@"<img src = '#' /><br /><br />");
                  bodi.AppendLine("<div style = 'border-top:3px solid #22BCE5'> </div>");
-                 bodi.AppendLine("<span style ='font-family:Arial;font-size:10pt; color:Black;'>");
-                 bodi.AppendLine("Estimado Sr/Sra  <b>{UserName}</b> ,<br /><br />");
                  bodi.AppendLine("<br />");
+                 bodi.AppendLine("<span style ='font-family:Arial;font-size:10pt; color:Black;'>");
+                 bodi.AppendLine("Estimado/a <b>{UserName}</b>");
                  bodi.AppendLine("<br />");
                  bodi.AppendLine("{Descripcion}");
-                 bodi.AppendLine("<br />");
-                 bodi.AppendLine("<br />");
                  bodi.AppendLine("<br />");
                  bodi.AppendLine("<br />");
                  bodi.AppendLine(" </span>");

@@ -37,7 +37,7 @@ namespace Cotizador
             List<CorreosInternos> data = new List<CorreosInternos>();
 
             DataTable content = new DataTable();
-            content = AccesoDatos.RegresaTablaMySql("select Correo from correosinternos where CodigoEmpresa ='" + CodigoEmpresa + "'");
+            content = AccesoDatos.RegresaTablaMySql("select Correo from maestro_correosinternos where CodigoEmpresa ='" + CodigoEmpresa + "'");
             foreach (DataRow rw in content.Rows)
             {
                 CorreosInternos address = new CorreosInternos();
@@ -95,7 +95,8 @@ namespace Cotizador
         {
 
             DataTable content = new DataTable();
-            content = AccesoDatos.RegresaTablaMySql("Select indice, Descripcion from marca order by  Descripcion");
+            content = AccesoDatos.RegresaTablaMySql(" SELECT A.* FROM(select * from marca ORDER BY DESCRIPCION) A union all " +
+ "Select 0000, '...OTRAS MARCAS'");
             DataView dv = new DataView(content);
             return dv;
 
@@ -124,7 +125,7 @@ namespace Cotizador
             StringBuilder mensaje = new StringBuilder();
 
             DataTable content = new DataTable();
-            content = AccesoDatos.RegresaTablaMySql("Select mensaje from  correoautomatico where codigo = " + MensajeTipo.ToString());
+            content = AccesoDatos.RegresaTablaMySql("Select mensaje from  maestro_correoautomatico where codigo = " + MensajeTipo.ToString());
             foreach (DataRow rw in content.Rows)
             {
                 mensaje.Append(rw[0].ToString());
@@ -134,10 +135,10 @@ namespace Cotizador
 
         }
 
-        public void GuardaCotizacion(string _Nombre, string _Correo, string _TipoDeVehiculo, string _Linea, string _Marca, string _Telefono, string _Modelo, decimal _SumaAsegurada, string _TipoSeguro, string Hora, string _CodigoEmpresa, string _ComoContactar) 
+        public void GuardaCotizacion(string _Nombre,string Apellidos, string _Correo, string _TipoDeVehiculo, string _Linea, string _Marca, string _Telefono, string _Modelo, decimal _SumaAsegurada, string _TipoSeguro, string Hora, string _CodigoEmpresa, string _ComoContactar) 
          {
-             string sql = " insert into LogCorreosEnviados(Nombre, Correo, TipoDeVehiculo, Linea, Marca, Telefono, Modelo, SumaAsegurada, TipoSeguro, contactar, CodigoEmpresa,ComoContactar)";
-         sql += " values('" + _Nombre + "','" + _Correo + "','" + _TipoDeVehiculo + "','" + _Linea + "','" + _Marca + "','" + _Telefono + "','" + _Modelo + "'," + _SumaAsegurada.ToString() + ",'" + _TipoSeguro + "','" + Hora + "','" + _CodigoEmpresa + "','"+ _ComoContactar +"')";
+             string sql = " insert into trans_correosenviados(Nombre, Apellidos, Correo, TipoDeVehiculo, Linea, Marca, Telefono, Modelo, SumaAsegurada, TipoSeguro, contactar, CodigoEmpresa,ComoContactar)";
+             sql += " values('" + _Nombre + "','" + Apellidos + "','" + _Correo + "','" + _TipoDeVehiculo + "','" + _Linea + "','" + _Marca + "','" + _Telefono + "','" + _Modelo + "'," + _SumaAsegurada.ToString() + ",'" + _TipoSeguro + "','" + Hora + "','" + _CodigoEmpresa + "','" + _ComoContactar + "')";
          AccesoDatos.EjecutaQueryMySql( sql);
         
         }
@@ -146,7 +147,7 @@ namespace Cotizador
              decimal resultado = 0;
 
              DataTable content = new DataTable();
-             content = AccesoDatos.RegresaTablaMySql("Select porcentaje_menor_100 from coberturas_adicionales where codigo = '" + Codigo + "'");
+             content = AccesoDatos.RegresaTablaMySql("Select porcentaje_menor_100 from maestro_reglasnegocio where CodigoEmpresa = '" + Codigo + "'");
              DataView dv = new DataView(content);
              foreach (DataRow rw in content.Rows)
              {
@@ -163,7 +164,7 @@ namespace Cotizador
              decimal resultado = 0;
 
              DataTable content = new DataTable();
-             content = AccesoDatos.RegresaTablaMySql("Select porcentaje_mayor_100 from coberturas_adicionales where codigo = '" + Codigo + "'");
+             content = AccesoDatos.RegresaTablaMySql("Select porcentaje_mayor_100 from maestro_reglasnegocio where CodigoEmpresa = '" + Codigo + "'");
              DataView dv = new DataView(content);
              foreach (DataRow rw in content.Rows)
              {
@@ -180,7 +181,7 @@ namespace Cotizador
              decimal resultado = 0;
 
              DataTable content = new DataTable();
-             content = AccesoDatos.RegresaTablaMySql("Select costo from coberturas_adicionales where codigo = '" + Codigo + "'");
+             content = AccesoDatos.RegresaTablaMySql("Select costo from maestro_reglasnegocio where CodigoEmpresa = '" + Codigo + "'");
              DataView dv = new DataView(content);
              foreach (DataRow rw in content.Rows)
              {
@@ -197,7 +198,7 @@ namespace Cotizador
              decimal resultado = 0;
 
              DataTable content = new DataTable();
-             content = AccesoDatos.RegresaTablaMySql("Select base from coberturas_adicionales where codigo = '" + Codigo + "'");
+             content = AccesoDatos.RegresaTablaMySql("Select base from maestro_reglasnegocio where CodigoEmpresa = '" + Codigo + "'");
              DataView dv = new DataView(content);
              foreach (DataRow rw in content.Rows)
              {
@@ -214,7 +215,7 @@ namespace Cotizador
              decimal resultado = 0;
 
              DataTable content = new DataTable();
-             content = AccesoDatos.RegresaTablaMySql("Select suma_asegurada_limite from coberturas_adicionales where codigo = '" + Codigo + "'");
+             content = AccesoDatos.RegresaTablaMySql("Select suma_asegurada_limite from maestro_reglasnegocio where CodigoEmpresa = '" + Codigo + "'");
              DataView dv = new DataView(content);
              foreach (DataRow rw in content.Rows)
              {
@@ -233,7 +234,7 @@ namespace Cotizador
              decimal resultado = 0;
 
              DataTable content = new DataTable();
-             content = AccesoDatos.RegresaTablaMySql("Select Exceso_RC_ElevacionDeCobertura from coberturas_adicionales where codigo = '" + Codigo + "'");
+             content = AccesoDatos.RegresaTablaMySql("Select Exceso_RC_ElevacionDeCobertura from maestro_reglasnegocio where CodigoEmpresa = '" + Codigo + "'");
              DataView dv = new DataView(content);
              foreach (DataRow rw in content.Rows)
              {
@@ -250,7 +251,7 @@ namespace Cotizador
              decimal resultado = 0;
 
              DataTable content = new DataTable();
-             content = AccesoDatos.RegresaTablaMySql("Select PorcentajeResponsabilidadCivil from coberturas_adicionales where codigo = '" + Codigo + "'");
+             content = AccesoDatos.RegresaTablaMySql("Select PorcentajeResponsabilidadCivil from maestro_reglasnegocio where CodigoEmpresa = '" + Codigo + "'");
              DataView dv = new DataView(content);
              foreach (DataRow rw in content.Rows)
              {
@@ -269,7 +270,7 @@ namespace Cotizador
              decimal resultado = 0;
 
              DataTable content = new DataTable();
-             content = AccesoDatos.RegresaTablaMySql("Select PrimaNetaRC from coberturas_adicionales where codigo = '" + Codigo + "'");
+             content = AccesoDatos.RegresaTablaMySql("Select PrimaNetaRC from maestro_reglasnegocio where CodigoEmpresa = '" + Codigo + "'");
              DataView dv = new DataView(content);
              foreach (DataRow rw in content.Rows)
              {
@@ -289,7 +290,7 @@ namespace Cotizador
              decimal resultado = 0;
 
              DataTable content = new DataTable();
-             content = AccesoDatos.RegresaTablaMySql("Select Exceso_RC_Base from coberturas_adicionales where codigo = '" + Codigo + "'");
+             content = AccesoDatos.RegresaTablaMySql("Select Exceso_RC_Base from maestro_reglasnegocio where CodigoEmpresa = '" + Codigo + "'");
              DataView dv = new DataView(content);
              foreach (DataRow rw in content.Rows)
              {
@@ -306,7 +307,7 @@ namespace Cotizador
              decimal resultado = 0;
 
              DataTable content = new DataTable();
-             content = AccesoDatos.RegresaTablaMySql("Select robo_parcial from coberturas_adicionales where codigo = '" + Codigo + "'");
+             content = AccesoDatos.RegresaTablaMySql("Select robo_parcial from maestro_reglasnegocio where CodigoEmpresa = '" + Codigo + "'");
              DataView dv = new DataView(content);
              foreach (DataRow rw in content.Rows)
              {
@@ -323,7 +324,7 @@ namespace Cotizador
              decimal resultado = 0;
 
              DataTable content = new DataTable();
-             content = AccesoDatos.RegresaTablaMySql("Select Menores_desde_16 from coberturas_adicionales where codigo = '" + Codigo + "'");
+             content = AccesoDatos.RegresaTablaMySql("Select Menores_desde_16 from maestro_reglasnegocio where CodigoEmpresa = '" + Codigo + "'");
              DataView dv = new DataView(content);
              foreach (DataRow rw in content.Rows)
              {
@@ -340,7 +341,7 @@ namespace Cotizador
              decimal resultado = 0;
 
              DataTable content = new DataTable();
-             content = AccesoDatos.RegresaTablaMySql("Select Menores_desde_18 from coberturas_adicionales where codigo = '" + Codigo + "'");
+             content = AccesoDatos.RegresaTablaMySql("Select Menores_desde_18 from maestro_reglasnegocio where CodigoEmpresa = '" + Codigo + "'");
              DataView dv = new DataView(content);
              foreach (DataRow rw in content.Rows)
              {
@@ -357,7 +358,7 @@ namespace Cotizador
              decimal resultado = 0;
 
              DataTable content = new DataTable();
-             content = AccesoDatos.RegresaTablaMySql("Select Exceso_RC from coberturas_adicionales where codigo = '" + Codigo + "'");
+             content = AccesoDatos.RegresaTablaMySql("Select Exceso_RC from maestro_reglasnegocio where CodigoEmpresa = '" + Codigo + "'");
              DataView dv = new DataView(content);
              foreach (DataRow rw in content.Rows)
              {
@@ -374,7 +375,7 @@ namespace Cotizador
              decimal resultado = 0;
 
              DataTable content = new DataTable();
-             content = AccesoDatos.RegresaTablaMySql("Select gastos_emision from coberturas_adicionales where codigo = '" + Codigo + "'");
+             content = AccesoDatos.RegresaTablaMySql("Select gastos_emision from maestro_reglasnegocio where CodigoEmpresa = '" + Codigo + "'");
              DataView dv = new DataView(content);
              foreach (DataRow rw in content.Rows)
              {
@@ -391,7 +392,7 @@ namespace Cotizador
              decimal resultado = 0;
 
              DataTable content = new DataTable();
-             content = AccesoDatos.RegresaTablaMySql("Select asisto from coberturas_adicionales where codigo = '" + Codigo + "'");
+             content = AccesoDatos.RegresaTablaMySql("Select asisto from maestro_reglasnegocio where CodigoEmpresa = '" + Codigo + "'");
              DataView dv = new DataView(content);
              foreach (DataRow rw in content.Rows)
              {
@@ -408,7 +409,7 @@ namespace Cotizador
              decimal resultado = 0;
 
              DataTable content = new DataTable();
-             content = AccesoDatos.RegresaTablaMySql("Select iva from coberturas_adicionales where codigo = '" + Codigo + "'");
+             content = AccesoDatos.RegresaTablaMySql("Select iva from maestro_reglasnegocio where CodigoEmpresa = '" + Codigo + "'");
              DataView dv = new DataView(content);
              foreach (DataRow rw in content.Rows)
              {

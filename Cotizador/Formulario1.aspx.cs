@@ -64,6 +64,16 @@ namespace Cotizador
             {
                 ClientScript.RegisterStartupScript(this.GetType(), "errNombre", "document.getElementById('errNombre').style.visibility = 'hidden';", true);
             }
+            if (this.txtApellido.Text.Trim() == "")
+            {
+                ClientScript.RegisterStartupScript(this.GetType(), "errApellido", "document.getElementById('errApellido').style.visibility = 'visible';", true);
+                Incompleto = true;
+            }
+            else
+            {
+                ClientScript.RegisterStartupScript(this.GetType(), "errApellido", "document.getElementById('errApellido').style.visibility = 'hidden';", true);
+            }
+
             if (this.txtCorreo.Text.Trim() == "")
             {
                 ClientScript.RegisterStartupScript(this.GetType(), "errCorreo", "document.getElementById('errCorreo').style.visibility = 'visible';", true);
@@ -164,6 +174,27 @@ namespace Cotizador
 
             }
 
+            string Marca = "";
+            if (this.cmbMarca.SelectedItem.Text.Trim() == "")
+            {
+                Marca = this.cmbMarca.SelectedItem.Text.Trim();
+            }
+            if (cmbMarca.SelectedItem.Text == "...OTRAS MARCAS")
+            {
+                if (this.txtMarca.Text == "")
+                {
+                    ClientScript.RegisterStartupScript(this.GetType(), "errMarca", "document.getElementById('errMarca').style.visibility = 'visible';", true);
+                    ClientScript.RegisterStartupScript(this.GetType(), "errMarca", "document.getElementById('errMarca').style.display = 'inline-block';", true);
+                    Incompleto = true;
+                }
+                else
+                {
+                    Marca = this.txtMarca.Text;
+                    ClientScript.RegisterStartupScript(this.GetType(), "errMarca", "document.getElementById('errMarca').style.visibility = 'hidden';", true);
+                    ClientScript.RegisterStartupScript(this.GetType(), "errMarca", "document.getElementById('errMarca').style.display = 'none';", true);
+
+                }
+            }
 
             if (ValorMercado == "")
                 ValorMercado = "0";
@@ -224,7 +255,7 @@ namespace Cotizador
                 contactar = "Por Telefono";
             contactar += " - " + this.cmbHora.SelectedItem.Text;
 
-            Cotizar.GuardaCotizacion(this.txtNombre.Text.Trim(), this.txtCorreo.Text.Trim(), this.cmbTipoVehiculo.SelectedItem.Text.Trim(), this.txtLinea.Text.Trim(), this.cmbMarca.SelectedItem.Text.Trim(), this.txtTelefono.Text.Trim(), this.cmbModelo.SelectedItem.Text.Trim(), Decimal.Parse(ValorMercado), _tipo_seguro, this.txtCorreo.Text.ToString(), "Roble", contactar);
+            Cotizar.GuardaCotizacion(this.txtNombre.Text.Trim(), this.txtApellido.Text.Trim(), this.txtCorreo.Text.Trim(), this.cmbTipoVehiculo.SelectedItem.Text.Trim(), this.txtLinea.Text.Trim(), Marca, this.txtTelefono.Text.Trim(), this.cmbModelo.SelectedItem.Text.Trim(), Decimal.Parse(ValorMercado), _tipo_seguro, this.txtCorreo.Text.ToString(), "Roble", contactar);
 
              SumaAsegurada = Decimal.Parse(ValorMercado);
           //   Valores Calculo = new Valores("Roble", SumaAsegurada, this.chkRoboParcial.Checked, this.chkMenores16.Checked, this.chkMenores18.Checked, this.chkExcesoRC.Checked, RoboParcial, MensajeTipo);
@@ -247,8 +278,8 @@ namespace Cotizador
              string DescripcionVehiculo = this.cmbTipoVehiculo.SelectedItem.Text + " - " + this.cmbMarca.SelectedItem.Text + " - " + this.cmbModelo.SelectedItem.Text + " - " + this.txtLinea.Text;
              Session["DescripcionVehiculo"] = DescripcionVehiculo;
 
-           //  EnvioDeCorreoRapido.EjecutarProceso(this.txtCorreo.Text.Trim(), this.cmbTipoVehiculo.SelectedItem.Text.Trim(), this.txtLinea.Text.Trim(), this.cmbMarca.SelectedItem.Text.Trim(), this.cmbModelo.SelectedItem.Text.Trim(), ValorMercado, MensajeTipo, this.txtNombre.Text.Trim(), "Roble", this.chkRoboParcial.Checked, this.chkMenores16.Checked, this.chkMenores18.Checked, this.chkExcesoRC.Checked, RoboParcial, this.txtNombre.Text.Trim(), DescripcionVehiculo);
-             EnvioDeCorreoRapido.EjecutarProceso(this.txtCorreo.Text.Trim(), this.cmbTipoVehiculo.SelectedItem.Text.Trim(), this.txtLinea.Text.Trim(), this.cmbMarca.SelectedItem.Text.Trim(), this.cmbModelo.SelectedItem.Text.Trim(), ValorMercado, MensajeTipo, this.txtNombre.Text.Trim(), "Roble", false , false , false , false, RoboParcial, this.txtNombre.Text.Trim(), DescripcionVehiculo);
+             //  EnvioDeCorreoRapido.EjecutarProceso(this.txtCorreo.Text.Trim(), this.cmbTipoVehiculo.SelectedItem.Text.Trim(), this.txtLinea.Text.Trim(), Marca, this.cmbModelo.SelectedItem.Text.Trim(), ValorMercado, MensajeTipo, this.txtNombre.Text.Trim(), "Roble", this.chkRoboParcial.Checked, this.chkMenores16.Checked, this.chkMenores18.Checked, this.chkExcesoRC.Checked, RoboParcial, this.txtNombre.Text.Trim(), DescripcionVehiculo);
+             EnvioDeCorreoRapido.EjecutarProceso(this.txtCorreo.Text.Trim(), this.cmbTipoVehiculo.SelectedItem.Text.Trim(), this.txtLinea.Text.Trim(), Marca, this.cmbModelo.SelectedItem.Text.Trim(), ValorMercado, MensajeTipo, this.txtNombre.Text.Trim(), "Roble", false, false, false, false, RoboParcial, this.txtNombre.Text.Trim(), DescripcionVehiculo);
             List<CorreosInternos> correo = new List<CorreosInternos>();
              correo = Cotizadores.EnviarCorreosInternos("Roble");
 
@@ -256,8 +287,8 @@ namespace Cotizador
              {
                  foreach (var item in correo)
                  {
-                    // EnvioDeCorreoRapido.EjecutarProceso(item.Correo, this.cmbTipoVehiculo.SelectedItem.Text.Trim(), this.txtLinea.Text.Trim(), this.cmbMarca.SelectedItem.Text.Trim(), this.cmbModelo.SelectedItem.Text.Trim(), ValorMercado, MensajeTipo, this.txtNombre.Text.Trim(), "Roble", this.chkRoboParcial.Checked, this.chkMenores16.Checked, this.chkMenores18.Checked, this.chkExcesoRC.Checked, RoboParcial, this.txtNombre.Text.Trim(), DescripcionVehiculo);
-                     EnvioDeCorreoRapido.EjecutarProceso(item.Correo, this.cmbTipoVehiculo.SelectedItem.Text.Trim(), this.txtLinea.Text.Trim(), this.cmbMarca.SelectedItem.Text.Trim(), this.cmbModelo.SelectedItem.Text.Trim(), ValorMercado, MensajeTipo, this.txtNombre.Text.Trim(), "Roble", false, false ,false, false, RoboParcial, this.txtNombre.Text.Trim(), DescripcionVehiculo);
+                     // EnvioDeCorreoRapido.EjecutarProceso(item.Correo, this.cmbTipoVehiculo.SelectedItem.Text.Trim(), this.txtLinea.Text.Trim(), Marca, this.cmbModelo.SelectedItem.Text.Trim(), ValorMercado, MensajeTipo, this.txtNombre.Text.Trim(), "Roble", this.chkRoboParcial.Checked, this.chkMenores16.Checked, this.chkMenores18.Checked, this.chkExcesoRC.Checked, RoboParcial, this.txtNombre.Text.Trim(), DescripcionVehiculo);
+                     EnvioDeCorreoRapido.EjecutarProceso(item.Correo, this.cmbTipoVehiculo.SelectedItem.Text.Trim(), this.txtLinea.Text.Trim(), Marca, this.cmbModelo.SelectedItem.Text.Trim(), ValorMercado, MensajeTipo, this.txtNombre.Text.Trim(), "Roble", false, false, false, false, RoboParcial, this.txtNombre.Text.Trim(), DescripcionVehiculo);
                  }
              }
 
@@ -270,6 +301,24 @@ namespace Cotizador
              }
 
         }
+
+        //protected void cmbMarca_TextChanged(object sender, EventArgs e)
+        //{
+        //    if (cmbMarca.SelectedItem.Text == "...OTRAS MARCAS")
+        //    {
+        //        ClientScript.RegisterStartupScript(this.GetType(), "Marca_1", "document.getElementById('Marca1').style.visibility = 'visible';", true);
+        //        ClientScript.RegisterStartupScript(this.GetType(), "Marca_2", "document.getElementById('Marca1').style.display = 'inline-block';", true);
+        //        ClientScript.RegisterStartupScript(this.GetType(), "Marca_3", "document.getElementById('Marca2').style.visibility = 'visible';", true);
+        //        ClientScript.RegisterStartupScript(this.GetType(), "Marca_4", "document.getElementById('Marca2').style.display = 'inline-block';", true);
+        //    }
+        //    else {
+        //        ClientScript.RegisterStartupScript(this.GetType(), "Marca_1", "document.getElementById('Marca1').style.visibility = 'hidden';", true);
+        //        ClientScript.RegisterStartupScript(this.GetType(), "Marca_2", "document.getElementById('Marca1').style.display = 'none';", true);
+        //        ClientScript.RegisterStartupScript(this.GetType(), "Marca_3", "document.getElementById('Marca2').style.visibility = 'hidden';", true);
+        //        ClientScript.RegisterStartupScript(this.GetType(), "Marca_4", "document.getElementById('Marca2').style.display = 'none';", true);
+        //    }
+
+        //}
 
         //protected void chkRoboParcial_CheckedChanged(object sender, EventArgs e)
         //{

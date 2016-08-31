@@ -47,7 +47,7 @@
                                                                 <div id="Page_Control2"   >
                                                                     <table class="auto-style18" style="width: auto; height:100%;">
                                                                         <tr>
-                                                                            <td class="f4" style="font-family: Roboto; text-align: left; color: rgb(19, 27, 77); text-decoration: none; font-weight: normal; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; text-transform: none;">Nombre:</td>
+                                                                            <td class="f4" style="font-family: Roboto; text-align: left; color: rgb(19, 27, 77); text-decoration: none; font-weight: normal; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; text-transform: none;">Nombres:</td>
                                                                         </tr>
                                                                         <tr>
                                                                             <td class="f1" style="font-family: Arial, Helvetica, sans-serif;  text-align: center;">
@@ -75,7 +75,35 @@
                                                                                 </table>
                                                                             </td>
                                                                         </tr>
-                                                                                                                                                   <tr>
+                                                                                                                                                     <tr>
+                                                                            <td class="f4" style="font-family: Roboto; text-align: left; color: rgb(19, 27, 77); text-decoration: none; font-weight: normal; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; text-transform: none;">Apellidos:</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td class="f1" style="font-family: Arial, Helvetica, sans-serif;  text-align: center;">
+                                                                                <table id="ASPxPageControl1_ASPxPageControl2_TxtPrimerNombre_ET" cellpadding="0" cellspacing="0" class="dxeErrorFrame" errorframe="errorFrame" style="border-collapse: collapse; visibility: hidden;">
+                                                                                    <tr>
+                                                                                        <td class="f1" style="font-family: Arial, Helvetica, sans-serif;  text-align: center; visibility: visible; vertical-align: middle;">
+                                                                                            <table id="ASPxPageControl1_ASPxPageControl2_TxtPrimerNombre" cellpadding="0" cellspacing="0" class="f1" style="border-collapse: collapse; border: 1px solid rgb(159, 159, 159); cursor: default; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); font-family: Arial, Helvetica, sans-serif; text-align: left; color: rgb(19, 27, 77);  text-decoration: none; font-weight: normal; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; text-transform: none; margin-bottom: 0px; width: 150px; background-color: white;">
+                                                                                                <tr>
+                                                                                                    <td class="f0" style="font-family: Arial, Helvetica, sans-serif;  text-align: center; width: 142px; padding: 3px 3px 2px; overflow: hidden; ">
+                                                                                                        <asp:TextBox ID="txtApellido" runat="server" CssClass="dxeEditArea dxeEditAreaSys" Width="193px"   AutoCompleteType="Disabled"></asp:TextBox>  
+                                                                                                       </td><td>&nbsp;&nbsp;<img alt="" class="auto-style2" src="imagenes/Error.png" id="errApellido" style="visibility: hidden" /></td>
+                                                                                                </tr>
+                                                                                            </table>
+                                                                                        </td>
+                                                                                        <td id="ASPxPageControl1_ASPxPageControl2_TxtPrimerNombre_EC" class="f1" style="font-family: Tahoma, Geneva, sans-serif;  text-align: center; font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; line-height: normal; color: red; padding-left: 4px; padding-right: 5px; vertical-align: middle;">
+                                                                                            <table cellpadding="0" cellspacing="0" style="width: 33px; border-collapse: collapse;">
+                                                                                                <tr>
+                                                                                                    <td class="f1" style="font-family: Tahoma, Geneva, sans-serif;  text-align: center; font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; line-height: normal; color: red; padding-right: 5px;">
+                                                                                                        <img id="ASPxPageControl1_ASPxPageControl2_TxtPrimerNombre_EI" alt="" class="dxEditors_edtError" src="https://www.ducruet.com/appnewcot/DXR.axd?r=1_10-Sf1P9" style="border-width: 0px; display: block; margin: auto; width: 14px; height: 14px; background-image: url(''); background-color: transparent; background-position: -170px 0px; background-repeat: no-repeat;" /></td>
+                                                                                                    <td id="ASPxPageControl1_ASPxPageControl2_TxtPrimerNombre_ETC" class="f1" style="font-family: Tahoma, Geneva, sans-serif;  text-align: center; font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; line-height: normal; color: red; width: 14px; white-space: nowrap;"></td>
+                                                                                                </tr>
+                                                                                            </table>
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                </table>
+                                                                            </td>
+                                                                        </tr>                                                                      <tr>
                                                                             <td class="f4" style="font-family: Roboto;  text-align: left; color: rgb(19, 27, 77); text-decoration: none; font-weight: normal; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; text-transform: none;">Fecha de Nacimiento:</td>
                                                                         </tr>
                                                                         <tr>
@@ -161,13 +189,49 @@
                                                                                 <table id="ASPxPageControl1_ASPxPageControl2_sexo" cellpadding="0" cellspacing="0" class="f1" style="border: 1px solid rgb(159, 159, 159); font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal;   line-height: normal; font-family: Tahoma, Geneva, sans-serif; cursor: default; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); width: auto; height: 15px; border-collapse: separate;">
                                                                                     <tr>
                                                                                         <td class="f1" style="font-family: Arial, text-align:"left" Helvetica, sans-serif;  text-align: center; padding: 0px;">
-                                                                                            <asp:DropDownList ID="cmbMarca" runat="server" Width="215px"></asp:DropDownList>
+                                                                                            <asp:DropDownList ID="cmbMarca" runat="server" Width="215px"  ClientIDMode="Static"  onchange="Marca()" ></asp:DropDownList>
                                                                                         </td>
                                                                                     </tr>
                                                                                 </table>
                                                                             </td>
                                                                         </tr>
-                                                                                                                                                <tr>
+                                                                       <div id="Marca" style="display:none;">  
+                                                                        <tr>
+                                                                            <td class="f4" style="font-family: Roboto;  text-align: left; color: rgb(19, 27, 77); text-decoration: none; font-weight: normal; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; text-transform: none;">
+                                                                               <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                                                                                    <ContentTemplate>
+                                                                                   <a id="Marca1">Marca de su Vehiculo:</a>
+                                                                                  </ContentTemplate>
+                                                                                </asp:UpdatePanel>
+
+                                                                            </td>
+                                                                        </tr>
+       
+                                                                        <tr >
+                                                                            <td class="f1" style="font-family: Arial, Helvetica, sans-serif;  text-align: left; float:left;">
+                                                                               <asp:UpdatePanel ID="UpdatePanel2" runat="server">
+                                                                                    <ContentTemplate>
+                                                                                 <div id="Marca2">
+                                                                                  <table id="ASPxPageControl1_ASPxPageControl2_txtcorreo_ET" cellpadding="0" cellspacing="0" errorframe="errorFrame" style="border-collapse: collapse;">
+                                                                                    <tr>
+                                                                                        <td class="f1" id="ASPxPageControl1_ASPxPageControl2_txtcorreo_CC" style="font-family: Arial, Helvetica, sans-serif;   text-align: center;">
+                                                                                            <table id="ASPxPageControl1_ASPxPageControl2_TxtPrimerApellido" cellpadding="0" cellspacing="0" class="f1" style="border-collapse: collapse; border: 1px solid rgb(159, 159, 159); cursor: default; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); font-family: Arial, Helvetica, sans-serif; text-align: left; color: rgb(19, 27, 77);  text-decoration: none; font-weight: normal; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; text-transform: none; margin-bottom: 0px; width: 150px; background-color: white;">
+                                                                                                <tr>
+                                                                                                    <td class="f0" style="font-family: Arial, Helvetica, sans-serif; text-align: center; width: 142px; padding: 3px 3px 2px; overflow: hidden;">
+                                                                                                    <asp:TextBox ID="txtMarca" runat="server" CssClass="dxeEditArea dxeEditAreaSys" Width="193px"  AutoCompleteType="Disabled"></asp:TextBox> 
+                                                                                                </td><td>&nbsp;&nbsp;<img alt="" class="auto-style2" src="imagenes/Error.png" id="errMarca" style="visibility: hidden" /></td>
+                                                                                                </tr>
+                                                                                            </table>
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                  </table>
+                                                                                </div>
+                                                                                     </ContentTemplate>
+                                                                                </asp:UpdatePanel>
+                                                                            </td>
+                                                                        </tr>  
+                                                                           </div>      
+                                                                     <tr>
                                                                             <td class="f4" style="font-family: Roboto;  text-align: left; color: rgb(19, 27, 77); text-decoration: none; font-weight: normal; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; text-transform: none;">Linea:</td>
                                                                         </tr>
                                                                         <tr>
@@ -402,7 +466,7 @@
                                                             
                                                    
                                                         <b class="f0" style="display: block; clear: both; height: 0px; width: 0px;  line-height: 0; overflow: hidden; visibility: hidden;"></b>
-<%--                                  <asp:Panel ID="Panel1" runat="server" Width="263px">
+                                  <%--                                  <asp:Panel ID="Panel1" runat="server" Width="263px">
                                       Brinda cobertura a cualquier persona que conduzca el vehículo desde los 16 años, siempre que tengan su licencia de conducir vigente.<asp:Panel ID="Panel2" runat="server">
                                           (siempre que NO sean colaboradores): Brinda cobertura a cualquier persona que conduzca el vehículo desde los 16 años, siempre que tengan su licencia de conducir vigente.<asp:Panel ID="Panel3" runat="server">
                                               Ampliación del monto de cobertura de la sección II de la póliza (Seguro de Responsabilidad Civil ante Terceras personas) para tener una mejor protección.
@@ -438,7 +502,7 @@
 
             var Completo = document.getElementById("rdSeguroCompleto").checked;
             var Civil = document.getElementById("rdResponsabilidadCivil").checked;
-
+         
            
                 if (Completo == true && Civil == false) {
                   
@@ -464,7 +528,18 @@
                     document.getElementById("Monto1").style.visibility = "hidden";
                 }
   
-                ProcesarRobo();
+               // ProcesarRobo();
+
+         
+                var _Marca = document.getElementById("cmbMarca").options[document.getElementById("cmbMarca").selectedIndex].text;
+            
+                if (_Marca != "...OTRAS MARCAS") {
+
+                    document.getElementById("Marca1").style.visibility = "hidden";
+                    document.getElementById("Marca1").style.display = "none";
+                    document.getElementById("Marca2").style.visibility = "hidden";
+                    document.getElementById("Marca2").style.display = "none";
+                }
 
         });
 
@@ -514,7 +589,23 @@
             var ver = document.getElementById("nacimiento").value;
             $("#HiddenField1").val(ver);
         }
- 
+        function Marca() {
+            var _Marca = document.getElementById("cmbMarca").options[document.getElementById("cmbMarca").selectedIndex].text;
+
+            if (_Marca != "...OTRAS MARCAS") {
+
+                document.getElementById("Marca1").style.visibility = "hidden";
+                document.getElementById("Marca1").style.display = "none";
+                document.getElementById("Marca2").style.visibility = "hidden";
+                document.getElementById("Marca2").style.display = "none";
+            } else {
+                document.getElementById("Marca1").style.visibility = "visible";
+                document.getElementById("Marca1").style.display = "inline-block";
+                document.getElementById("Marca2").style.visibility = "visible";
+                document.getElementById("Marca2").style.display = "inline-block";
+
+            }
+        }
     </script>
 </body>
 </html>
