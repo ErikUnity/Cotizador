@@ -6,17 +6,42 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
     <title>Cotización El Roble</title>
+      <link rel="stylesheet" type="text/css" href="css/Formulario1.css"/>
     <style type="text/css">
         .centro {
             display: inline-block; 
         }
-
+        .pageCenter {
+	margin-left: 20%;
+	margin-right: auto;
+	max-width: 1000px;
+	float: none;
+}
     </style>
 </head>
 <body>
     <form id="form1" runat="server">
+   <div class="pageCenter" >
+   <table style="left:auto; right:auto;"><tr><td>
+       <asp:HyperLink ID="HyperLink1" runat="server">
+       <asp:Image ID="Image1" runat="server" />
+       </asp:HyperLink>
+       </td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+       <td>
+           <asp:HyperLink ID="HyperLink2" runat="server">
+           <asp:Image ID="Image2" runat="server" /></asp:HyperLink>
+         </td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+       <td>
+               <asp:HyperLink ID="HyperLink3" runat="server">
+               <asp:Image ID="Image3" runat="server" />
+               </asp:HyperLink></td></tr></table>
+   </div>
+        <br /><br /><br />
+        <div style="text-align:center; width:100%; height:100%"><span id="TxtTitulo" class="f2" style="font-style: normal; font-variant: normal; font-weight: bold; font-stretch: normal;  line-height: normal; 
+font-family: Arial, Helvetica, sans-serif; text-align: left; color: rgb(19, 27, 77); letter-spacing: 3px; text-decoration: none; 
+text-transform: none;">Paso 1</span> </div>
     <div style="text-align:center; width:100%; height:100%" >
-  
+
         <rsweb:ReportViewer ID="ReportViewer1" runat="server" Font-Names="Verdana" Font-Size="8pt" Height="2190px" WaitMessageFont-Names="Verdana" WaitMessageFont-Size="14pt" Width="8in" CssClass="centro" >
                <LocalReport ReportPath="Reportes\CotizadorRoble.rdlc">
                 <DataSources>

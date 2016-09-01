@@ -68,7 +68,10 @@ namespace Cotizador
             mensaje.Paso1 = Cotizadores.LinkPaso1(CodigoEmpresa, _id);
             mensaje.Paso2 = Cotizadores.LinkPaso2(CodigoEmpresa, _id);
             mensaje.Paso3 = Cotizadores.LinkPaso3(CodigoEmpresa, _id);
-            mensaje.Link1 = Cotizadores.LinkUbicaciones(CodigoEmpresa, "Peticiones Externas");
+            mensaje.Link1 = Cotizadores.LinkUbicaciones(CodigoEmpresa, "Link1") + "?asdf=" + _id;
+            mensaje.Link2 = Cotizadores.LinkUbicaciones(CodigoEmpresa, "Link1") + "?asdf=" + _id;
+            mensaje.Link3 = Cotizadores.LinkUbicaciones(CodigoEmpresa, "Link1") + "?asdf=" + _id;
+
 
             string archivo = "";
             if (MensajeTipo == 1)

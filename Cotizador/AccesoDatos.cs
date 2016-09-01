@@ -136,7 +136,6 @@ namespace Cotizador
             adpt.Fill(content);
             cnn.Close();
 
-
             return content;
         }
 

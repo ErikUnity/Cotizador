@@ -285,7 +285,29 @@ namespace Cotizador
              return resultado;
          }
 
-        
+          public static void ActualizaPaso1(string _id)
+          {
+              string sql = "update trans_correosenviados  set Paso1 = 1 where indice = " + _id; 
+              AccesoDatos.EjecutaQueryMySql(sql);
+          }
+          public static void ActualizaPaso2(string _id)
+          {
+              string sql = "update trans_correosenviados  set Paso2 = 1 where indice = " + _id;
+              AccesoDatos.EjecutaQueryMySql(sql);
+          }
+          public static void ActualizaPaso3(string _id)
+          {
+              string sql = "update trans_correosenviados  set Paso3 = 1 where indice = " + _id;
+              AccesoDatos.EjecutaQueryMySql(sql);
+          }
+
+          public static DataTable Cotizacion(string _id)
+          {
+              DataTable content = new DataTable();
+              content = AccesoDatos.RegresaTablaMySql("Select CodigoEmpresa, SumaAsegurada, Concat( Nombre , ' ' , Apellidos) as NombreCliente , Concat(TipoDeVehiculo , ' ' , Marca , ' ' , Modelo , ' ' ,  Linea) as DescripcionVehiculo, TipoSeguro from  trans_correosenviados where indice = " + _id);
+              DataView dv = new DataView(content);
+              return content;
+          }
        
         public static decimal ObtieneExcesoRC_Base(string Codigo)
          {
@@ -438,7 +460,7 @@ namespace Cotizador
              string resultado = "";
 
              DataTable content = new DataTable();
-             content = AccesoDatos.RegresaTablaMySql("select case when isnull(Paso1,'') = '' then 'Paso1' else   'Paso11'   end from trans_correosenviados where indice = " + _id  );
+             content = AccesoDatos.RegresaTablaMySql("select case when ifnull(Paso1,0) = 0 then 'Paso1' else   'Paso11'   end from trans_correosenviados where indice = " + _id  );
              DataView dv = new DataView(content);
              foreach (DataRow rw in content.Rows)
              {
@@ -456,7 +478,7 @@ namespace Cotizador
              string resultado = "";
 
              DataTable content = new DataTable();
-             content = AccesoDatos.RegresaTablaMySql("select case when isnull(Paso2,'') = '' then 'Paso2' else   'Paso22'   end from trans_correosenviados where indice = " + _id);
+             content = AccesoDatos.RegresaTablaMySql("select case when ifnull(Paso2,0) = 0 then 'Paso2' else   'Paso22'   end from trans_correosenviados where indice = " + _id);
              DataView dv = new DataView(content);
              foreach (DataRow rw in content.Rows)
              {
@@ -473,7 +495,7 @@ namespace Cotizador
              string resultado = "";
 
              DataTable content = new DataTable();
-             content = AccesoDatos.RegresaTablaMySql("select case when isnull(Paso3,'') = '' then 'Paso3' else   'Paso33'   end from trans_correosenviados where indice = " + _id);
+             content = AccesoDatos.RegresaTablaMySql("select case when ifnull(Paso3,0) = 0 then 'Paso3' else   'Paso33'   end from trans_correosenviados where indice = " + _id);
              DataView dv = new DataView(content);
              foreach (DataRow rw in content.Rows)
              {

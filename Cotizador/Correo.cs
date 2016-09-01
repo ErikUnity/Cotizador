@@ -53,7 +53,14 @@ namespace Cotizador
              StringBuilder body;
              try
              {
-                // description = description.Replace("{Link1}", _link);
+           
+                 description = description.Replace("{Paso1}", Paso1);
+                 description = description.Replace("{Paso2}", Paso2);
+                 description = description.Replace("{Paso3}", Paso3);
+                 description = description.Replace("{Link1}", Link1);
+                 description = description.Replace("{Link2}", Link2);
+                 description = description.Replace("{Link3}", Link3);
+
                  body = GetBodyPedidos();
                  body = body.Replace("{UserName}", userName);
                  body = body.Replace("{Descripcion}", description);

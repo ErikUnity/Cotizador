@@ -175,7 +175,7 @@ namespace Cotizador
             }
 
             string Marca = "";
-            if (this.cmbMarca.SelectedItem.Text.Trim() == "")
+            if (this.cmbMarca.SelectedItem.Text.Trim() != "")
             {
                 Marca = this.cmbMarca.SelectedItem.Text.Trim();
             }

@@ -153,6 +153,8 @@
     <Content Include="obj\Debug\Cotizadores.csproj.FileListAbsolute.txt" />
     <Content Include="obj\Debug\Cotizadores.dll" />
     <Content Include="obj\Debug\Cotizadores.pdb" />
+    <Content Include="Paso3.aspx" />
+    <Content Include="Paso2.aspx" />
     <Content Include="PeticionesExternas.aspx" />
     <Content Include="Recursos\Script2.html" />
     <Content Include="Recursos\Script1.html" />
@@ -196,6 +198,20 @@
     <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
+    <Compile Include="Paso3.aspx.cs">
+      <DependentUpon>Paso3.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Paso3.aspx.designer.cs">
+      <DependentUpon>Paso3.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Paso2.aspx.cs">
+      <DependentUpon>Paso2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Paso2.aspx.designer.cs">
+      <DependentUpon>Paso2.aspx</DependentUpon>
+    </Compile>
     <Compile Include="PeticionesExternas.aspx.cs">
       <DependentUpon>PeticionesExternas.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

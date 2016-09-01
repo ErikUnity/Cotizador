@@ -62,7 +62,7 @@ CREATE TABLE IF NOT EXISTS `maestro_correoautomatico` (
   `mensaje` text,
   `descripcion_codigo` varchar(800) DEFAULT NULL,
   PRIMARY KEY (`indice`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 -- Dumping data for table catalogo.maestro_correoautomatico: ~0 rows (approximately)
 DELETE FROM `maestro_correoautomatico`;
@@ -70,7 +70,8 @@ DELETE FROM `maestro_correoautomatico`;
 INSERT INTO `maestro_correoautomatico` (`indice`, `codigo`, `mensaje`, `descripcion_codigo`) VALUES
 	(1, 3, '\r\n<span style="text-decoration: underline;"><p>SEGURO COMPLETO</p></span> \r\n <br />\r\n  <br />\r\n   <br />\r\n<p>De acuerdo a su solicitud, adjunto encontrar&aacute; cotizaci&oacute;n para el seguro de su veh&iacute;culo bajo el plan exclusivo de colaboradores del banco.</p>\r\n<p>En caso de ser aceptada la propuesta, necesitamos nos pueda enviar por esta v&iacute;a copia de los siguientes documentos:</p>\r\n<p>Tarjeta de circulaci&oacute;n (legible)<br />DPI<br />Recibo reciente de agua, luz o tel&eacute;fono fijo que refleje su direcci&oacute;n particular.<br />Completar campos marcados en color gris del Formulario ASR27 y enviarlo en excel (adjunto archivo) <br />Indicar su No. GEID</p>\r\n<p>Se deber&aacute; realizar una inspecci&oacute;n al veh&iacute;culo y las opciones para realizar dicha inspecci&oacute;n son las siguientes:</p>\r\n<p>Promotores Unity Avenida de las Am&eacute;ricas 22-23, Zona 14 (Frente al Monumento al Papa en horario de 8 a 16 hrs)<br />Parqueo Piedr&iacute;n/C&eacute;ntrica Plaza (fecha a convenir)<br />Campus zona 12 (fecha a convenir) <br />Cualquiera de los centros de atenci&oacute;n de Seguros El Roble, si lo realiza en estos centros, deber&aacute; hacer CITA e indicar a la persona que le realice la inspecci&oacute;n que es para incluir el veh&iacute;culo en la flotilla de CITI y que va de parte de Promotores Unity. Esta persona le entregar&aacute; una copia de la hoja que &eacute;l llena, misma que deber&aacute; de enviarnos por esta v&iacute;a a nosotros.</p>\r\n<p>Los centros autorizados por Seguros El Roble para realizar las inspecciones son:</p>\r\n\r\n<table><tr><th>TALLER</th><th>DIRECCI&Oacute;N</th><th>TEL&Eacute;FONO</th> </tr>\r\n\r\n <tr><td>QUANTUM</td><td>20 calle 18-01,zona 10</td><td>2384-1412</td></tr>\r\n <tr><td>TALLER DE LA CIUDAD ZONA 9</td><td>6a. Calle 6-17, zona 9</td><td>2504-3939</td></tr>\r\n <tr><td>TALLER DE LA CIUDAD CARRETERA</td><td>Km 16.5 Carr. A El Salvador</td><td>2504-3939</td></tr>\r\n <tr><td>BODY FIX</td><td>Av. Petapa 43-15 Z12</td><td>2388-5500</td></tr>\r\n <tr><td>AUTOCOLOR</td><td>10a. Avenida A 0-38 Z.7</td><td>2419-3800</td></tr>\r\n <tr><td>TALLER SPECTRA</td><td>25 Av. 4-34 Zona 11</td><td>2474-2033</td></tr>\r\n <tr><td>UNIAUTO</td><td>Avenida Petapa 36-19 zona 12</td><td>2328 8879</td></tr>\r\n <tr><td>TALLER RODAS ZONA 5</td><td>11 Avenida B 31-15 zona 5</td><td>2331-9106</td></tr>\r\n <tr><td>COJULUN ROOSEVELT</td><td>7 avenida 0-07, zona 2 de Mixco</td><td>2250-4602</td></tr>\r\n </table>\r\n <br />Su veh&iacute;culo queda asegurado inmediatamente despu&eacute;s de haber realizado la inspecci&oacute;n y completado los documentos ac&aacute; detallados.<br />Agradecemos su atenci&oacute;n y cualquier consulta adicional quedamos a las &oacute;rdenes.<br /> <br /> <br />Atentamente,</p> <br /> <br /> <br />\r\n', 'Mensaje del cotizador envio automatico'),
 	(2, 2, '<div style="width:650px;>"  <span style="text-decoration: underline;"><p>SOLO RC</p></span> \r\n <br />\r\n  <br />\r\n<p><span style="font-weight: 400;">De acuerdo a su solicitud, adjunto encontrar&aacute; cotizaci&oacute;n para el seguro de su veh&iacute;culo bajo &nbsp;el plan exclusivo de colaboradores del banco.</span></p>\r\n<p><span style="font-weight: 400;">En caso de ser aceptada la propuesta, &nbsp;favor enviar los siguientes documentos:</span></p>\r\n<br />\r\n<ul>\r\n<li><strong><strong>Tarjeta de circulaci&oacute;n</strong></strong></li>\r\n<li><strong>DPI</strong></li>\r\n<li style="font-weight: 400;"><strong>Recibo reciente de agua, luz o tel&eacute;fono fijo&nbsp;</strong><span style="font-weight: 400;">que refleje su direcci&oacute;n particular.</span></li>\r\n<li style="font-weight: 400;"><span style="font-weight: 400;">Completar campos&nbsp;</span><span style="font-weight: 400;">marcados en color gris</span><span style="font-weight: 400;">&nbsp;del Formulario&nbsp;&nbsp;</span><strong>ASR27</strong><span style="font-weight: 400;">&nbsp;y enviarlo en excel (adjunto)</span><strong> No. GEID</strong></li>\r\n</ul>\r\n<p><span style="font-weight: 400;">Dichos documentos puede enviarlos&nbsp;&nbsp;escaneados, hasta que nosotros tengamos los documentos completos el veh&iacute;culo queda asegurado.</span></p>\r\n<p><span style="font-weight: 400;">Agradecemos su atenci&oacute;n y cualquier consulta adicional quedamos a las &oacute;rdenes.</span></p>\r\n  <br />\r\n   <br />\r\n<p><span style="font-weight: 400;">Cordialmente,</span></p>\r\n<p>&nbsp;</p></div>\r\n', 'Mensaje 2 del cotizador envio automatico'),
-	(3, 1, '<div style="width:650px;">\r\n        <p><font style="font-family:Calibri; font-size:medium;">Gracias por tomarnos en cuenta para la asesor&iacute;a en el seguro de su veh&iacute;culo. Unity Promotores es una empresa con m&aacute;s de 35 a&ntilde;os de estar en el mercado Guatemalteco. Nos especializamos en seguros de todo tipo, siendo nuestra filosof&iacute;a de trabajo recomendar a nuestros clientes productos de seguros conforme a sus necesidades, comprometidos con la mejora continua de nuestros servicios y las normas legales que rigen nuestro negocio.&nbsp; &nbsp;</font></p>\r\n        <p><font style="font-family:Calibri; font-size:medium;">A continuaci&oacute;n le presentamos 3 sencillos pasos que Ud. debe seguir para poder contratar el seguro de su veh&iacute;culo.</font></p>\r\n         <table>\r\n             <tr><td class="tat">\r\n                     <img src="http://www.unitypromotores.com/images/Paso1.bmp" /></td><td></td><td class="tat"></td>\r\n             <td>\r\n                 <img src="http://www.unitypromotores.com/images/Paso2.bmp" /></td><td class="tat"></td>\r\n             <td>\r\n                 <img src="http://www.unitypromotores.com/images/Paso3.bmp" /></td></tr></table>\r\n        <p>&nbsp;</p>\r\n        <p><font style="font-family:Calibri; font-size:medium;">En breve uno de nuestros asesores especializados se estar&aacute; comunicando con usted para resolver dudas y guiarlo/a en el proceso de contrataci&oacute;n del seguro para su veh&iacute;culo.</font></p>\r\n    </div>', 'Correo Automatico Cotizador Formato Gerencial');
+	(3, 1, '<div style="width:650px;">\r\n        <p><font style="font-family:Calibri; font-size:medium;">Gracias por tomarnos en cuenta para la asesor&iacute;a en el seguro de su veh&iacute;culo. Unity Promotores es una empresa  con  m&aacute;s  de  35  a&ntilde;os de  estar en el mercado Guatemalteco. Nos  especializamos  en seguros de todo tipo, siendo nuestra filosof&iacute;a de trabajo recomendar a  nuestros  clientes productos de seguros conforme a sus necesidades, comprometidos con la mejora continua de nuestros servicios y las normas legales que rigen nuestro negocio.&nbsp; &nbsp;</font></p>\r\n        <p><font style="font-family:Calibri; font-size:medium;">A continuaci&oacute;n le presentamos 3 sencillos pasos que Ud. debe seguir para poder contratar el seguro de su veh&iacute;culo.</font></p>\r\n         <table>\r\n             <tr style="width:100%;"><td class="tat">\r\n                     <a href="{Link1}"><img src="{Paso1}" style="width:150px; height:150px;" /></a></td><td></td><td class="tat"></td>\r\n            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>\r\n				 <td>\r\n                 <a href="{Link2}"><img src="{Paso2}" style="width:150px; height:150px;" /></a></td><td class="tat"></td>\r\n             <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>\r\n				 <td>\r\n                 <a href="{Link3}"><img src="{Paso3}" style="width:150px; height:150px;" /></a></td></tr></table>\r\n        <p>&nbsp;</p>\r\n        <p><font style="font-family:Calibri; font-size:medium;">En breve uno de nuestros asesores especializados se estar&aacute; comunicando con usted para resolver dudas y guiarlo/a en el proceso de contrataci&oacute;n del seguro para su veh&iacute;culo.</font></p>\r\n    </div>', 'Correo Automatico Cotizador Formato Gerencial'),
+	(4, 4, '</br>\r\n<p>Deber&aacute; realizar una inspecci&oacute;n al veh&iacute;culo y las opciones para realizar dicha inspecci&oacute;n son las siguientes: </p>\r\nPromotores Unity Avenida de las Am&eacute;ricas 22-23, Zona 14 (Frente al Monumento al Papa en horario de 8 a 16 hrs) Parqueo Piedr&iacute;n/C&eacute;ntrica Plaza (fecha a convenir) Campus zona 12 (fecha a convenir). Cualquiera de los centros de atenci&oacute;n de Seguros El Roble, si lo realiza en estos centros, deber&aacute; hacer CITA e indicar a la persona que le realice la inspecci&oacute;n que es para incluir el veh&iacute;culo en la flotilla de CITI y que va de parte de Promotores Unity. Esta persona le entregar&aacute; una copia de la hoja que &eacute;l llena, misma que deber&aacute; de enviarnos por esta v&iacute;a a nosotros.\r\nLos centros autorizados por Seguros El Roble para realizar las inspecciones son:\r\n\r\n <table id="Talleres"><tr><th>TALLER</th><th>DIRECCI&Oacute;N</th><th>TEL&Eacute;FONO &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th> </tr>\r\n <tr><td>QUANTUM</td><td>20 calle 18-01,zona 10</td><td>2384-1412</td></tr>\r\n <tr><td>TALLER DE LA CIUDAD ZONA 9</td><td>6a. Calle 6-17, zona 9</td><td>2504-3939</td></tr>\r\n <tr><td>TALLER DE LA CIUDAD CARRETERA</td><td>Km 16.5 Carr. A El Salvador</td><td>2504-3939</td></tr>\r\n <tr><td>BODY FIX</td><td>Av. Petapa 43-15 Z12</td><td>2388-5500</td></tr>\r\n <tr><td>AUTOCOLOR</td><td>10a. Avenida A 0-38 Z.7</td><td>2419-3800</td></tr>\r\n <tr><td>TALLER SPECTRA</td><td>25 Av. 4-34 Zona 11</td><td>2474-2033</td></tr>\r\n <tr><td>UNIAUTO</td><td>Avenida Petapa 36-19 zona 12</td><td>2328 8879</td></tr>\r\n <tr><td>TALLER RODAS ZONA 5</td><td>11 Avenida B 31-15 zona 5</td><td>2331-9106</td></tr>\r\n <tr><td>COJULUN ROOSEVELT</td><td>7 avenida 0-07, zona 2 de Mixco</td><td>2250-4602</td></tr>\r\n </table>\r\n \r\n <br />\r\n Su veh&iacute;culo queda asegurado inmediatamente despu&eacute;s de haber realizado la inspecci&oacute;n y completado los documentos ac&aacute; detallados. Agradecemos su atenci&oacute;n y cualquier consulta adicional quedamos a las &oacute;rdenes.<br /> <br /> <br />Atentamente,</p> <br /> <br /> <br />', 'Se utilizapara el paso 2 informativo.');
 /*!40000 ALTER TABLE `maestro_correoautomatico` ENABLE KEYS */;
 
 
@@ -99,6 +100,7 @@ CREATE TABLE IF NOT EXISTS `maestro_ejecutivos` (
   `Nombre` varchar(350) NOT NULL DEFAULT '0',
   `Correo` varchar(150) NOT NULL DEFAULT '0',
   `CodigoEmpresa` varchar(350) NOT NULL DEFAULT '0',
+  `Estado` bit(1) DEFAULT NULL,
   PRIMARY KEY (`Nombre`,`Correo`,`CodigoEmpresa`),
   KEY `indice` (`indice`)
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
@@ -106,12 +108,12 @@ CREATE TABLE IF NOT EXISTS `maestro_ejecutivos` (
 -- Dumping data for table catalogo.maestro_ejecutivos: ~5 rows (approximately)
 DELETE FROM `maestro_ejecutivos`;
 /*!40000 ALTER TABLE `maestro_ejecutivos` DISABLE KEYS */;
-INSERT INTO `maestro_ejecutivos` (`indice`, `Nombre`, `Correo`, `CodigoEmpresa`) VALUES
-	(1, 'Silvia de González', 'silvia.gonzalez@unitypromotores.com', '0'),
-	(2, 'Josué Hernández', 'josue.hernandez@unitypromotores.com', '0'),
-	(3, 'Luis Lugo', 'luis.lugo@unitypromotores.com', '0'),
-	(4, 'Oscar Bethancourt', 'oscar.bethancourt@unitypromotores.com', '0'),
-	(5, 'Paola Alvarado', 'paola.alvarado@unitypromotores.com', '0');
+INSERT INTO `maestro_ejecutivos` (`indice`, `Nombre`, `Correo`, `CodigoEmpresa`, `Estado`) VALUES
+	(2, 'Josué Hernández', 'josue.hernandez@unitypromotores.com', '0', b'1'),
+	(3, 'Luis Lugo', 'luis.lugo@unitypromotores.com', '0', b'1'),
+	(4, 'Oscar Bethancourt', 'oscar.bethancourt@unitypromotores.com', '0', b'1'),
+	(5, 'Paola Alvarado', 'paola.alvarado@unitypromotores.com', '0', b'1'),
+	(1, 'Silvia de González', 'silvia.gonzalez@unitypromotores.com', '0', b'1');
 /*!40000 ALTER TABLE `maestro_ejecutivos` ENABLE KEYS */;
 
 
@@ -122,13 +124,21 @@ CREATE TABLE IF NOT EXISTS `maestro_link_externo` (
   `CodigoEmpresa` varchar(300) DEFAULT '0',
   `descripcion` varchar(800) DEFAULT '0',
   KEY `indice` (`indice`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
--- Dumping data for table catalogo.maestro_link_externo: ~1 rows (approximately)
+-- Dumping data for table catalogo.maestro_link_externo: ~7 rows (approximately)
 DELETE FROM `maestro_link_externo`;
 /*!40000 ALTER TABLE `maestro_link_externo` DISABLE KEYS */;
 INSERT INTO `maestro_link_externo` (`indice`, `Link`, `CodigoEmpresa`, `descripcion`) VALUES
-	(1, 'http://192.168.81.30/PeticionesExternas.aspx', 'Roble', 'Se usa para que los correos puedan mostrar la cotización de los clientes');
+	(1, 'http://testcotizador.unitypromotores.com/Cotizador/PeticionesExternas.aspx', 'Roble', 'Link1'),
+	(2, 'http://testcotizador.unitypromotores.com/Cotizador/imagenes/Paso1.png', 'Roble', 'Paso1'),
+	(3, 'http://testcotizador.unitypromotores.com/Cotizador/imagenes/Paso2.png', 'Roble', 'Paso2'),
+	(4, 'http://testcotizador.unitypromotores.com/Cotizador/imagenes/Paso3.png', 'Roble', 'Paso3'),
+	(5, 'http://testcotizador.unitypromotores.com/Cotizador/imagenes/Paso11.png', 'Roble', 'Paso11'),
+	(6, 'http://testcotizador.unitypromotores.com/Cotizador/imagenes/Paso22.png', 'Roble', 'Paso22'),
+	(7, 'http://testcotizador.unitypromotores.com/Cotizador/imagenes/Paso33.png', 'Roble', 'Paso33'),
+	(8, 'http://testcotizador.unitypromotores.com/Cotizador/Paso2.aspx', 'Roble', 'Link2'),
+	(9, 'http://testcotizador.unitypromotores.com/Cotizador/Paso3.aspx', 'Roble', 'Link3');
 /*!40000 ALTER TABLE `maestro_link_externo` ENABLE KEYS */;
 
 
@@ -441,9 +451,9 @@ CREATE TABLE IF NOT EXISTS `trans_correosenviados` (
   `Paso2` bit(1) DEFAULT NULL,
   `Paso3` bit(1) DEFAULT NULL,
   PRIMARY KEY (`indice`)
-) ENGINE=InnoDB AUTO_INCREMENT=154 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=171 DEFAULT CHARSET=utf8;
 
--- Dumping data for table catalogo.trans_correosenviados: ~152 rows (approximately)
+-- Dumping data for table catalogo.trans_correosenviados: ~153 rows (approximately)
 DELETE FROM `trans_correosenviados`;
 /*!40000 ALTER TABLE `trans_correosenviados` DISABLE KEYS */;
 INSERT INTO `trans_correosenviados` (`indice`, `Nombre`, `Apellidos`, `Correo`, `TipoDeVehiculo`, `Linea`, `Marca`, `Telefono`, `Modelo`, `SumaAsegurada`, `Fecha`, `TipoSeguro`, `contactar`, `CodigoEmpresa`, `ComoContactar`, `Paso1`, `Paso2`, `Paso3`) VALUES
@@ -598,7 +608,24 @@ INSERT INTO `trans_correosenviados` (`indice`, `Nombre`, `Apellidos`, `Correo`, 
 	(150, 'Monica Arce', '0', 'erik.castaneda@unitypromotores.com', 'Automóvil', '323 i', '', '65465465', '2001', 45000.00, '2016-08-31 10:26:05', 'Seguro Completo', 'erik.castaneda@unitypromotores.com', 'Roble', 'Por Telefono - Inmediatamente', NULL, NULL, NULL),
 	(151, 'Monica Arce', '0', 'erik.castaneda@unitypromotores.com', 'Automóvil', '323 I', '', '65465465', '2001', 50000.00, '2016-08-31 11:07:57', 'Seguro Completo', 'erik.castaneda@unitypromotores.com', 'Roble', 'Por Telefono - Inmediatamente', NULL, NULL, NULL),
 	(152, 'Jennifer', '0', 'jennifer.wiesner@unitypromotores.com', 'Automóvil', 'saber', '', '12345678', '2005', 100000.00, '2016-08-31 11:18:34', 'Seguro Completo', 'jennifer.wiesner@unitypromotores.com', 'Roble', 'Por Telefono - Inmediatamente', NULL, NULL, NULL),
-	(153, 'Monica Veronica', 'Arce Contreras', 'erik.castaneda@unitypromotores.com', 'Automóvil', 'Blanca', '', '65465465', '2001', 22500.00, '2016-08-31 11:47:03', 'Seguro Completo', 'erik.castaneda@unitypromotores.com', 'Roble', 'Por Telefono - Inmediatamente', NULL, NULL, NULL);
+	(153, 'Monica Veronica', 'Arce Contreras', 'erik.castaneda@unitypromotores.com', 'Automóvil', 'Blanca', '', '65465465', '2001', 22500.00, '2016-08-31 11:47:03', 'Seguro Completo', 'erik.castaneda@unitypromotores.com', 'Roble', 'Por Telefono - Inmediatamente', NULL, NULL, NULL),
+	(154, 'Monica Veronica', 'Garcia Chavez', 'erik.castaneda@unitypromotores.com', 'Automóvil', '323 I', '', '65465465', '2001', 45500.00, '2016-08-31 15:04:19', 'Seguro Completo', 'erik.castaneda@unitypromotores.com', 'Roble', 'Por Telefono - Inmediatamente', NULL, NULL, NULL),
+	(155, 'Monica Veronica', 'Arce Gutierrez', 'erik.castaneda@unitypromotores.com', 'Automóvil', 'Accord', '', '65465465', '2001', 35000.00, '2016-09-01 08:38:41', 'Seguro Completo', 'erik.castaneda@unitypromotores.com', 'Roble', 'Por Telefono - Inmediatamente', b'1', b'1', NULL),
+	(156, 'Carlos Manolo', 'Contreras Lara', 'erik.castaneda@unitypromotores.com', 'Automóvil', 'Accord', '', '65465465', '2001', 25500.00, '2016-09-01 08:46:43', 'Seguro Completo', 'erik.castaneda@unitypromotores.com', 'Roble', 'Por Telefono - Inmediatamente', NULL, NULL, NULL),
+	(157, 'Manolo', 'Mendizabal Gomez', 'erik.castaneda@unitypromotores.com', 'Automóvil', 'Accord', '', '65465465', '2001', 15700.00, '2016-09-01 08:51:06', 'Seguro Completo', 'erik.castaneda@unitypromotores.com', 'Roble', 'Por Telefono - Inmediatamente', NULL, NULL, NULL),
+	(158, 'Jose', 'Canseco', 'erik.castaneda@unitypromotores.com', 'Automóvil', 'Accord', '', '65465465', '2001', 23400.00, '2016-09-01 08:55:18', 'Seguro Completo', 'erik.castaneda@unitypromotores.com', 'Roble', 'Por Telefono - Inmediatamente', NULL, NULL, NULL),
+	(159, 'Mario', 'Gandara', 'erik.castaneda@unitypromotores.com', 'Automóvil', 'Accord', '', '65465465', '2001', 1250.00, '2016-09-01 08:58:54', 'Seguro Completo', 'erik.castaneda@unitypromotores.com', 'Roble', 'Por Telefono - Inmediatamente', NULL, NULL, NULL),
+	(160, 'Maria Cristina', 'Gomes Polanco', 'erik.castaneda@unitypromotores.com', 'Automóvil', 'Accord', '', '65465465', '2001', 25000.00, '2016-09-01 09:00:27', 'Seguro Completo', 'erik.castaneda@unitypromotores.com', 'Roble', 'Por Telefono - Inmediatamente', NULL, NULL, NULL),
+	(161, 'Boris', 'Yelskin', 'erik.castaneda@unitypromotores.com', 'Automóvil', 'Accord', '', '65465465', '2001', 14500.00, '2016-09-01 09:05:54', 'Seguro Completo', 'erik.castaneda@unitypromotores.com', 'Roble', 'Por Telefono - Inmediatamente', NULL, NULL, NULL),
+	(162, 'Maria Dolores', 'Callejas Fuentes', 'erik.castaneda@unitypromotores.com', 'Automóvil', 'Accord', '', '65465465', '2001', 14500.00, '2016-09-01 09:12:07', 'Seguro Completo', 'erik.castaneda@unitypromotores.com', 'Roble', 'Por Telefono - Inmediatamente', NULL, NULL, NULL),
+	(163, 'Luis Adolfo', 'Zuñiga Cambara', 'erik.castaneda@unitypromotores.com', 'Automóvil', 'Accord', 'ACCU', '65465465', '2001', 22500.00, '2016-09-01 09:13:18', 'Seguro Completo', 'erik.castaneda@unitypromotores.com', 'Roble', 'Por Telefono - Inmediatamente', NULL, NULL, NULL),
+	(164, 'Eva', 'DeAdan Mendez', 'erik.castaneda@unitypromotores.com', 'Automóvil', 'Golden', 'ALFA ROMEO', '65465465', '2001', 150000.00, '2016-09-01 10:05:03', 'Seguro Completo', 'erik.castaneda@unitypromotores.com', 'Roble', 'Por Telefono - Inmediatamente', b'1', b'1', b'1'),
+	(165, 'Arnoldo', 'Alonso', 'arnoldo.alonso@unityducruet.com', 'Automóvil', 'NX5', 'ACURA', '12345678', '2010', 100000.00, '2016-09-01 10:36:14', 'Seguro Completo', 'arnoldo.alonso@unityducruet.com', 'Roble', 'Por Telefono - 1 PM', b'1', NULL, NULL),
+	(166, 'Ruben', 'Mijangos', 'erik.castaneda@unitypromotores.com', 'Automóvil', 'Goldie', 'AUDI', '65465465', '2001', 25000.00, '2016-09-01 11:15:20', 'Seguro Completo', 'erik.castaneda@unitypromotores.com', 'Roble', 'Por Telefono - Inmediatamente', NULL, NULL, NULL),
+	(167, 'Ana Regina', 'Quiñonez', 'erik.castaneda@unitypromotores.com', 'Automóvil', 'Familiar', 'ALFA ROMEO', '68798798', '2001', 35000.00, '2016-09-01 11:19:49', 'Seguro Completo', 'erik.castaneda@unitypromotores.com', 'Roble', 'Por Telefono - Inmediatamente', b'1', b'1', NULL),
+	(168, 'Romelia', 'Casasola España', 'erik.castaneda@unitypromotores.com', 'Automóvil', 'Clasica', 'AUDI', '65465465', '2001', 54000.00, '2016-09-01 15:01:44', 'Seguro Completo', 'erik.castaneda@unitypromotores.com', 'Roble', 'Por Telefono - Inmediatamente', b'1', b'1', NULL),
+	(169, 'Lucrecia Maria', 'Gomez Candara', 'erik.castaneda@unitypromotores.com', 'Automóvil', 'Clasica', 'ACURA', '65465465', '2001', 25000.00, '2016-09-01 15:08:48', 'Seguro Completo', 'erik.castaneda@unitypromotores.com', 'Roble', 'Por Telefono - Inmediatamente', b'1', b'1', b'1'),
+	(170, 'Jackie', 'Chan Lopez', 'erik.castaneda@unitypromotores.com', 'Automóvil', 'Clasica', 'ALFA', '65465465', '2009', 0.00, '2016-09-01 16:01:08', 'Responsabilidad Civil', 'erik.castaneda@unitypromotores.com', 'Roble', 'Por Telefono - Inmediatamente', NULL, NULL, NULL);
 /*!40000 ALTER TABLE `trans_correosenviados` ENABLE KEYS */;
 
 
@@ -614,17 +641,171 @@ CREATE TABLE IF NOT EXISTS `trans_detallecotizaciones` (
   `CumplimientoDeContacto` varchar(150) DEFAULT '0',
   `Fecha` datetime DEFAULT NULL,
   KEY `indice` (`indice`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=407 DEFAULT CHARSET=utf8;
 
--- Dumping data for table catalogo.trans_detallecotizaciones: ~0 rows (approximately)
+-- Dumping data for table catalogo.trans_detallecotizaciones: ~152 rows (approximately)
 DELETE FROM `trans_detallecotizaciones`;
 /*!40000 ALTER TABLE `trans_detallecotizaciones` DISABLE KEYS */;
+INSERT INTO `trans_detallecotizaciones` (`indice`, `Agente`, `idCotizacionSistema`, `FechaRecibido`, `FechaAtentido`, `FechaCerrado`, `HoraPactada`, `CumplimientoDeContacto`, `Fecha`) VALUES
+	(204, 'Silvia de González', 2, '2016-08-18 21:36:13', NULL, NULL, 'Por Telefono - 3 PM', '0', '2016-08-31 00:00:00'),
+	(205, 'Silvia de González', 3, '2016-08-18 21:56:10', NULL, NULL, 'Por Telefono - 3 PM', '0', '2016-08-31 00:00:00'),
+	(206, 'Silvia de González', 4, '2016-08-18 22:33:00', NULL, NULL, 'Por Telefono - 3 PM', '0', '2016-08-31 00:00:00'),
+	(207, 'Silvia de González', 5, '2016-08-18 22:46:46', NULL, NULL, 'Por Telefono - 3 PM', '0', '2016-08-31 00:00:00'),
+	(208, 'Silvia de González', 6, '2016-08-18 22:47:53', NULL, NULL, 'Por Telefono - 3 PM', '0', '2016-08-31 00:00:00'),
+	(209, 'Silvia de González', 7, '2016-08-18 22:52:14', NULL, NULL, 'Por Telefono - 3 PM', '0', '2016-08-31 00:00:00'),
+	(210, 'Silvia de González', 8, '2016-08-18 22:53:15', NULL, NULL, 'Por Telefono - 3 PM', '0', '2016-08-31 00:00:00'),
+	(211, 'Silvia de González', 9, '2016-08-18 22:54:07', NULL, NULL, 'Por Telefono - 3 PM', '0', '2016-08-31 00:00:00'),
+	(212, 'Silvia de González', 10, '2016-08-19 15:44:51', NULL, NULL, 'Por Telefono - 3 PM', '0', '2016-08-31 00:00:00'),
+	(213, 'Silvia de González', 11, '2016-08-19 15:46:43', NULL, NULL, 'Por Telefono - 3 PM', '0', '2016-08-31 00:00:00'),
+	(214, 'Silvia de González', 12, '2016-08-22 11:39:09', NULL, NULL, 'Por Telefono - 3 PM', '0', '2016-08-31 00:00:00'),
+	(215, 'Silvia de González', 13, '2016-08-22 11:43:02', NULL, NULL, 'Por Telefono - 3 PM', '0', '2016-08-31 00:00:00'),
+	(216, 'Silvia de González', 14, '2016-08-22 11:44:19', NULL, NULL, 'Por Telefono - 3 PM', '0', '2016-08-31 00:00:00'),
+	(217, 'Silvia de González', 15, '2016-08-22 11:50:47', NULL, NULL, 'Por Telefono - 3 PM', '0', '2016-08-31 00:00:00'),
+	(218, 'Silvia de González', 16, '2016-08-22 12:14:14', NULL, NULL, 'Por Telefono - 3 PM', '0', '2016-08-31 00:00:00'),
+	(219, 'Silvia de González', 17, '2016-08-22 13:51:41', NULL, NULL, 'Por Telefono - 3 PM', '0', '2016-08-31 00:00:00'),
+	(220, 'Silvia de González', 18, '2016-08-22 13:55:30', NULL, NULL, 'Por Telefono - 3 PM', '0', '2016-08-31 00:00:00'),
+	(221, 'Silvia de González', 19, '2016-08-22 13:56:03', NULL, NULL, 'Por Telefono - 3 PM', '0', '2016-08-31 00:00:00'),
+	(222, 'Silvia de González', 20, '2016-08-23 09:47:56', NULL, NULL, 'Por Telefono - 3 PM', '0', '2016-08-31 00:00:00'),
+	(223, 'Silvia de González', 21, '2016-08-23 13:39:58', NULL, NULL, 'Por Telefono - 3 PM', '0', '2016-08-31 00:00:00'),
+	(224, 'Silvia de González', 22, '2016-08-23 13:44:24', NULL, NULL, 'Por Telefono - 3 PM', '0', '2016-08-31 00:00:00'),
+	(225, 'Silvia de González', 23, '2016-08-23 14:33:01', NULL, NULL, 'Por Telefono - 3 PM', '0', '2016-08-31 00:00:00'),
+	(226, 'Silvia de González', 24, '2016-08-23 14:42:04', NULL, NULL, 'Por Telefono - 3 PM', '0', '2016-08-31 00:00:00'),
+	(227, 'Silvia de González', 25, '2016-08-23 14:47:00', NULL, NULL, 'Por Telefono - 3 PM', '0', '2016-08-31 00:00:00'),
+	(235, 'Josué Hernández', 26, '2016-08-23 14:49:16', NULL, NULL, 'Por Telefono - 3 PM', '0', '2016-08-31 00:00:00'),
+	(236, 'Josué Hernández', 27, '2016-08-23 14:56:39', NULL, NULL, 'Por Telefono - 3 PM', '0', '2016-08-31 00:00:00'),
+	(237, 'Josué Hernández', 28, '2016-08-23 14:57:56', NULL, NULL, 'Por Telefono - 3 PM', '0', '2016-08-31 00:00:00'),
+	(238, 'Josué Hernández', 29, '2016-08-23 15:07:00', NULL, NULL, 'Por Telefono - 3 PM', '0', '2016-08-31 00:00:00'),
+	(239, 'Josué Hernández', 30, '2016-08-23 15:09:46', NULL, NULL, 'Por Telefono - 3 PM', '0', '2016-08-31 00:00:00'),
+	(240, 'Josué Hernández', 31, '2016-08-23 15:11:32', NULL, NULL, 'Por Telefono - 3 PM', '0', '2016-08-31 00:00:00'),
+	(241, 'Josué Hernández', 32, '2016-08-23 15:13:30', NULL, NULL, 'Por Telefono - 3 PM', '0', '2016-08-31 00:00:00'),
+	(242, 'Josué Hernández', 33, '2016-08-23 15:14:25', NULL, NULL, 'Por Telefono - 3 PM', '0', '2016-08-31 00:00:00'),
+	(243, 'Josué Hernández', 34, '2016-08-23 15:23:46', NULL, NULL, 'Por Telefono - 3 PM', '0', '2016-08-31 00:00:00'),
+	(250, 'Luis Lugo', 35, '2016-08-23 15:45:20', NULL, NULL, 'Por Telefono - 3 PM', '0', '2016-08-31 00:00:00'),
+	(251, 'Luis Lugo', 36, '2016-08-23 15:51:31', NULL, NULL, 'Por Telefono - 3 PM', '0', '2016-08-31 00:00:00'),
+	(252, 'Luis Lugo', 37, '2016-08-23 15:57:00', NULL, NULL, 'Por Telefono - 3 PM', '0', '2016-08-31 00:00:00'),
+	(253, 'Luis Lugo', 38, '2016-08-23 15:57:48', NULL, NULL, 'Por Telefono - 3 PM', '0', '2016-08-31 00:00:00'),
+	(254, 'Luis Lugo', 39, '2016-08-23 16:10:01', NULL, NULL, 'Por Telefono - 3 PM', '0', '2016-08-31 00:00:00'),
+	(255, 'Luis Lugo', 40, '2016-08-23 16:12:47', NULL, NULL, 'Por Telefono - 3 PM', '0', '2016-08-31 00:00:00'),
+	(256, 'Luis Lugo', 41, '2016-08-23 16:13:49', NULL, NULL, 'Por Telefono - 3 PM', '0', '2016-08-31 00:00:00'),
+	(257, 'Luis Lugo', 42, '2016-08-23 16:24:22', NULL, NULL, 'Por Telefono - 3 PM', '0', '2016-08-31 00:00:00'),
+	(258, 'Luis Lugo', 43, '2016-08-23 16:34:13', NULL, NULL, 'Por Telefono - 3 PM', '0', '2016-08-31 00:00:00'),
+	(259, 'Luis Lugo', 44, '2016-08-23 16:36:30', NULL, NULL, 'Por Telefono - 3 PM', '0', '2016-08-31 00:00:00'),
+	(260, 'Luis Lugo', 45, '2016-08-23 16:53:43', NULL, NULL, 'Por Telefono - 3 PM', '0', '2016-08-31 00:00:00'),
+	(261, 'Luis Lugo', 46, '2016-08-24 08:21:33', NULL, NULL, 'Por Telefono - 3 PM', '0', '2016-08-31 00:00:00'),
+	(262, 'Luis Lugo', 47, '2016-08-24 09:08:07', NULL, NULL, 'Por Telefono - 3 PM', '0', '2016-08-31 00:00:00'),
+	(263, 'Luis Lugo', 48, '2016-08-24 09:09:33', NULL, NULL, 'Por Telefono - 3 PM', '0', '2016-08-31 00:00:00'),
+	(264, 'Luis Lugo', 49, '2016-08-25 08:56:21', NULL, NULL, 'Por Telefono - 3 PM', '0', '2016-08-31 00:00:00'),
+	(265, 'Luis Lugo', 50, '2016-08-25 09:45:04', NULL, NULL, 'Por Telefono - 3 PM', '0', '2016-08-31 00:00:00'),
+	(266, 'Luis Lugo', 51, '2016-08-25 09:51:28', NULL, NULL, 'Por Telefono - 3 PM', '0', '2016-08-31 00:00:00'),
+	(267, 'Luis Lugo', 52, '2016-08-25 09:58:46', NULL, NULL, 'Por Telefono - 3 PM', '0', '2016-08-31 00:00:00'),
+	(268, 'Luis Lugo', 53, '2016-08-25 10:20:21', NULL, NULL, 'Por Telefono - 3 PM', '0', '2016-08-31 00:00:00'),
+	(269, 'Luis Lugo', 54, '2016-08-26 09:02:56', NULL, NULL, 'Por Telefono - 3 PM', '0', '2016-08-31 00:00:00'),
+	(270, 'Luis Lugo', 55, '2016-08-26 09:05:32', NULL, NULL, 'Por Telefono - 3 PM', '0', '2016-08-31 00:00:00'),
+	(271, 'Luis Lugo', 56, '2016-08-26 09:07:13', NULL, NULL, 'Por Telefono - 3 PM', '0', '2016-08-31 00:00:00'),
+	(272, 'Luis Lugo', 57, '2016-08-26 09:09:06', NULL, NULL, 'Por Telefono - 3 PM', '0', '2016-08-31 00:00:00'),
+	(273, 'Luis Lugo', 58, '2016-08-26 09:11:50', NULL, NULL, 'Por Telefono - 3 PM', '0', '2016-08-31 00:00:00'),
+	(274, 'Luis Lugo', 59, '2016-08-26 09:13:50', NULL, NULL, 'Por Telefono - 3 PM', '0', '2016-08-31 00:00:00'),
+	(275, 'Luis Lugo', 60, '2016-08-26 09:15:49', NULL, NULL, 'Por Telefono - 3 PM', '0', '2016-08-31 00:00:00'),
+	(281, 'Oscar Bethancourt', 61, '2016-08-26 09:22:55', NULL, NULL, 'Por Telefono - 3 PM', '0', '2016-08-31 00:00:00'),
+	(282, 'Oscar Bethancourt', 62, '2016-08-26 09:28:01', NULL, NULL, 'Por Telefono - 3 PM', '0', '2016-08-31 00:00:00'),
+	(283, 'Oscar Bethancourt', 63, '2016-08-26 09:40:26', NULL, NULL, 'Por Telefono - 3 PM', '0', '2016-08-31 00:00:00'),
+	(284, 'Oscar Bethancourt', 64, '2016-08-26 09:56:36', NULL, NULL, 'Por Telefono - 3 PM', '0', '2016-08-31 00:00:00'),
+	(285, 'Oscar Bethancourt', 65, '2016-08-26 10:10:33', NULL, NULL, 'Por Telefono - 3 PM', '0', '2016-08-31 00:00:00'),
+	(286, 'Oscar Bethancourt', 66, '2016-08-26 10:12:26', NULL, NULL, 'Por Telefono - 3 PM', '0', '2016-08-31 00:00:00'),
+	(287, 'Oscar Bethancourt', 67, '2016-08-26 10:19:02', NULL, NULL, 'Por Telefono - 3 PM', '0', '2016-08-31 00:00:00'),
+	(288, 'Oscar Bethancourt', 68, '2016-08-26 10:23:06', NULL, NULL, 'Por Telefono - 3 PM', '0', '2016-08-31 00:00:00'),
+	(289, 'Oscar Bethancourt', 69, '2016-08-26 10:32:12', NULL, NULL, 'Por Telefono - 3 PM', '0', '2016-08-31 00:00:00'),
+	(290, 'Oscar Bethancourt', 70, '2016-08-26 10:34:03', NULL, NULL, 'Por Telefono - 3 PM', '0', '2016-08-31 00:00:00'),
+	(291, 'Oscar Bethancourt', 71, '2016-08-26 10:43:28', NULL, NULL, 'Por Telefono - 3 PM', '0', '2016-08-31 00:00:00'),
+	(292, 'Oscar Bethancourt', 72, '2016-08-26 10:49:56', NULL, NULL, 'Por Telefono - 3 PM', '0', '2016-08-31 00:00:00'),
+	(293, 'Oscar Bethancourt', 73, '2016-08-26 10:55:43', NULL, NULL, 'Por Telefono - 3 PM', '0', '2016-08-31 00:00:00'),
+	(294, 'Oscar Bethancourt', 74, '2016-08-26 11:00:49', NULL, NULL, 'Por Telefono - 3 PM', '0', '2016-08-31 00:00:00'),
+	(295, 'Oscar Bethancourt', 75, '2016-08-26 11:03:02', NULL, NULL, 'Por Telefono - 3 PM', '0', '2016-08-31 00:00:00'),
+	(296, 'Oscar Bethancourt', 76, '2016-08-26 11:06:52', NULL, NULL, 'Por Telefono - 3 PM', '0', '2016-08-31 00:00:00'),
+	(297, 'Oscar Bethancourt', 77, '2016-08-26 11:12:38', NULL, NULL, 'Por Telefono - 3 PM', '0', '2016-08-31 00:00:00'),
+	(298, 'Oscar Bethancourt', 78, '2016-08-26 11:21:43', NULL, NULL, 'Por Telefono - 3 PM', '0', '2016-08-31 00:00:00'),
+	(299, 'Oscar Bethancourt', 79, '2016-08-26 11:28:08', NULL, NULL, 'Por Telefono - 3 PM', '0', '2016-08-31 00:00:00'),
+	(300, 'Oscar Bethancourt', 80, '2016-08-26 13:58:01', NULL, NULL, 'Por Telefono - 3 PM', '0', '2016-08-31 00:00:00'),
+	(301, 'Oscar Bethancourt', 81, '2016-08-26 15:10:35', NULL, NULL, 'Por Telefono - 3 PM', '0', '2016-08-31 00:00:00'),
+	(302, 'Oscar Bethancourt', 82, '2016-08-26 15:11:52', NULL, NULL, 'Por Telefono - 3 PM', '0', '2016-08-31 00:00:00'),
+	(303, 'Oscar Bethancourt', 83, '2016-08-26 15:32:06', NULL, NULL, 'Por Telefono - 3 PM', '0', '2016-08-31 00:00:00'),
+	(304, 'Oscar Bethancourt', 84, '2016-08-26 15:36:26', NULL, NULL, 'Por Telefono - 3 PM', '0', '2016-08-31 00:00:00'),
+	(305, 'Oscar Bethancourt', 85, '2016-08-26 15:44:14', NULL, NULL, 'Por Telefono - 3 PM', '0', '2016-08-31 00:00:00'),
+	(306, 'Oscar Bethancourt', 86, '2016-08-26 15:51:37', NULL, NULL, 'Por Telefono - 3 PM', '0', '2016-08-31 00:00:00'),
+	(307, 'Oscar Bethancourt', 87, '2016-08-26 15:54:37', NULL, NULL, 'Por Telefono - 3 PM', '0', '2016-08-31 00:00:00'),
+	(308, 'Oscar Bethancourt', 88, '2016-08-26 16:00:42', NULL, NULL, 'Por Telefono - 3 PM', '0', '2016-08-31 00:00:00'),
+	(309, 'Oscar Bethancourt', 89, '2016-08-26 16:06:03', NULL, NULL, 'Por Telefono - 3 PM', '0', '2016-08-31 00:00:00'),
+	(310, 'Oscar Bethancourt', 90, '2016-08-26 16:32:15', NULL, NULL, 'Por Telefono - 3 PM', '0', '2016-08-31 00:00:00'),
+	(311, 'Oscar Bethancourt', 91, '2016-08-26 17:14:26', NULL, NULL, 'Por Telefono - 3 PM', '0', '2016-08-31 00:00:00'),
+	(312, 'Oscar Bethancourt', 92, '2016-08-29 08:19:34', NULL, NULL, 'Por Telefono - 3 PM', '0', '2016-08-31 00:00:00'),
+	(313, 'Oscar Bethancourt', 93, '2016-08-29 09:28:02', NULL, NULL, 'Por Chat', '0', '2016-08-31 00:00:00'),
+	(314, 'Oscar Bethancourt', 94, '2016-08-29 09:48:32', NULL, NULL, 'Por Chat - Inmediatamente', '0', '2016-08-31 00:00:00'),
+	(315, 'Oscar Bethancourt', 95, '2016-08-29 09:57:47', NULL, NULL, 'Por Chat - Inmediatamente', '0', '2016-08-31 00:00:00'),
+	(316, 'Oscar Bethancourt', 96, '2016-08-29 10:05:24', NULL, NULL, 'Por Telefono - 3 PM', '0', '2016-08-31 00:00:00'),
+	(317, 'Oscar Bethancourt', 97, '2016-08-29 10:13:43', NULL, NULL, 'Por Chat - 4 PM', '0', '2016-08-31 00:00:00'),
+	(318, 'Oscar Bethancourt', 98, '2016-08-29 10:18:40', NULL, NULL, 'Por Telefono - Inmediatamente', '0', '2016-08-31 00:00:00'),
+	(319, 'Oscar Bethancourt', 99, '2016-08-29 11:02:20', NULL, NULL, 'Por Chat - Inmediatamente', '0', '2016-08-31 00:00:00'),
+	(320, 'Oscar Bethancourt', 100, '2016-08-29 11:34:20', NULL, NULL, 'Por Chat - Inmediatamente', '0', '2016-08-31 00:00:00'),
+	(344, 'Oscar Bethancourt', 101, '2016-08-29 11:38:04', NULL, NULL, 'Por Telefono - Inmediatamente', '0', '2016-08-31 00:00:00'),
+	(345, 'Oscar Bethancourt', 102, '2016-08-29 12:07:22', NULL, NULL, 'Por Chat - Inmediatamente', '0', '2016-08-31 00:00:00'),
+	(346, 'Oscar Bethancourt', 103, '2016-08-29 12:12:19', NULL, NULL, 'Por Telefono - 4 PM', '0', '2016-08-31 00:00:00'),
+	(347, 'Oscar Bethancourt', 104, '2016-08-29 12:21:53', NULL, NULL, 'Por Chat - Inmediatamente', '0', '2016-08-31 00:00:00'),
+	(348, 'Oscar Bethancourt', 105, '2016-08-29 12:29:58', NULL, NULL, 'Por Telefono - Inmediatamente', '0', '2016-08-31 00:00:00'),
+	(349, 'Oscar Bethancourt', 106, '2016-08-29 13:29:56', NULL, NULL, 'Por Chat - Inmediatamente', '0', '2016-08-31 00:00:00'),
+	(350, 'Oscar Bethancourt', 107, '2016-08-29 13:42:01', NULL, NULL, 'Por Chat - Inmediatamente', '0', '2016-08-31 00:00:00'),
+	(351, 'Oscar Bethancourt', 108, '2016-08-29 14:32:50', NULL, NULL, 'Por Telefono - Inmediatamente', '0', '2016-08-31 00:00:00'),
+	(352, 'Oscar Bethancourt', 109, '2016-08-29 14:40:50', NULL, NULL, 'Por Telefono - Inmediatamente', '0', '2016-08-31 00:00:00'),
+	(353, 'Oscar Bethancourt', 110, '2016-08-29 14:44:28', NULL, NULL, 'Por Chat - Inmediatamente', '0', '2016-08-31 00:00:00'),
+	(354, 'Oscar Bethancourt', 111, '2016-08-29 14:50:15', NULL, NULL, 'Por Telefono - Inmediatamente', '0', '2016-08-31 00:00:00'),
+	(355, 'Oscar Bethancourt', 112, '2016-08-29 14:55:07', NULL, NULL, 'Por Chat - Inmediatamente', '0', '2016-08-31 00:00:00'),
+	(356, 'Oscar Bethancourt', 113, '2016-08-29 15:01:35', NULL, NULL, 'Por Chat - Inmediatamente', '0', '2016-08-31 00:00:00'),
+	(357, 'Oscar Bethancourt', 114, '2016-08-29 15:04:30', NULL, NULL, 'Por Chat - Inmediatamente', '0', '2016-08-31 00:00:00'),
+	(358, 'Oscar Bethancourt', 115, '2016-08-29 15:04:40', NULL, NULL, 'Por Chat - Inmediatamente', '0', '2016-08-31 00:00:00'),
+	(359, 'Oscar Bethancourt', 116, '2016-08-29 15:05:36', NULL, NULL, 'Por Chat - Inmediatamente', '0', '2016-08-31 00:00:00'),
+	(360, 'Oscar Bethancourt', 117, '2016-08-29 15:21:30', NULL, NULL, 'Por Chat - Inmediatamente', '0', '2016-08-31 00:00:00'),
+	(361, 'Oscar Bethancourt', 118, '2016-08-29 15:32:29', NULL, NULL, 'Por Chat - Inmediatamente', '0', '2016-08-31 00:00:00'),
+	(362, 'Oscar Bethancourt', 119, '2016-08-29 15:39:54', NULL, NULL, 'Por Chat - Inmediatamente', '0', '2016-08-31 00:00:00'),
+	(363, 'Oscar Bethancourt', 120, '2016-08-29 15:41:27', NULL, NULL, 'Por Chat - Inmediatamente', '0', '2016-08-31 00:00:00'),
+	(364, 'Oscar Bethancourt', 121, '2016-08-29 15:42:31', NULL, NULL, 'Por Chat - Inmediatamente', '0', '2016-08-31 00:00:00'),
+	(365, 'Oscar Bethancourt', 122, '2016-08-29 15:44:54', NULL, NULL, 'Por Chat - Inmediatamente', '0', '2016-08-31 00:00:00'),
+	(366, 'Oscar Bethancourt', 123, '2016-08-29 15:47:35', NULL, NULL, 'Por Chat - Inmediatamente', '0', '2016-08-31 00:00:00'),
+	(367, 'Oscar Bethancourt', 124, '2016-08-29 16:03:41', NULL, NULL, 'Por Chat - Inmediatamente', '0', '2016-08-31 00:00:00'),
+	(368, 'Oscar Bethancourt', 125, '2016-08-29 16:07:12', NULL, NULL, 'Por Chat - Inmediatamente', '0', '2016-08-31 00:00:00'),
+	(369, 'Oscar Bethancourt', 126, '2016-08-29 16:08:50', NULL, NULL, 'Por Chat - Inmediatamente', '0', '2016-08-31 00:00:00'),
+	(370, 'Oscar Bethancourt', 127, '2016-08-29 16:09:24', NULL, NULL, 'Por Chat - Inmediatamente', '0', '2016-08-31 00:00:00'),
+	(371, 'Oscar Bethancourt', 128, '2016-08-29 16:10:58', NULL, NULL, 'Por Chat - Inmediatamente', '0', '2016-08-31 00:00:00'),
+	(372, 'Oscar Bethancourt', 129, '2016-08-29 16:17:41', NULL, NULL, 'Por Telefono - Inmediatamente', '0', '2016-08-31 00:00:00'),
+	(373, 'Oscar Bethancourt', 130, '2016-08-29 16:27:30', NULL, NULL, 'Por Chat - Inmediatamente', '0', '2016-08-31 00:00:00'),
+	(374, 'Oscar Bethancourt', 131, '2016-08-29 16:45:51', NULL, NULL, 'Por Chat - Inmediatamente', '0', '2016-08-31 00:00:00'),
+	(375, 'Oscar Bethancourt', 132, '2016-08-29 16:54:14', NULL, NULL, 'Por Chat - Inmediatamente', '0', '2016-08-31 00:00:00'),
+	(376, 'Oscar Bethancourt', 133, '2016-08-29 16:54:15', NULL, NULL, 'Por Chat - Inmediatamente', '0', '2016-08-31 00:00:00'),
+	(377, 'Oscar Bethancourt', 134, '2016-08-30 08:32:06', NULL, NULL, 'Por Chat - Inmediatamente', '0', '2016-08-31 00:00:00'),
+	(378, 'Oscar Bethancourt', 135, '2016-08-30 09:02:17', NULL, NULL, 'Por Telefono - Inmediatamente', '0', '2016-08-31 00:00:00'),
+	(379, 'Oscar Bethancourt', 136, '2016-08-30 09:04:33', NULL, NULL, 'Por Telefono - Inmediatamente', '0', '2016-08-31 00:00:00'),
+	(380, 'Oscar Bethancourt', 137, '2016-08-30 09:05:03', NULL, NULL, 'Por Telefono - Inmediatamente', '0', '2016-08-31 00:00:00'),
+	(381, 'Oscar Bethancourt', 138, '2016-08-30 09:08:22', NULL, NULL, 'Por Chat - Inmediatamente', '0', '2016-08-31 00:00:00'),
+	(382, 'Oscar Bethancourt', 139, '2016-08-30 09:08:45', NULL, NULL, 'Por Chat - Inmediatamente', '0', '2016-08-31 00:00:00'),
+	(383, 'Oscar Bethancourt', 140, '2016-08-30 09:08:56', NULL, NULL, 'Por Chat - Inmediatamente', '0', '2016-08-31 00:00:00'),
+	(384, 'Oscar Bethancourt', 141, '2016-08-30 09:19:12', NULL, NULL, 'Por Chat - Inmediatamente', '0', '2016-08-31 00:00:00'),
+	(385, 'Oscar Bethancourt', 142, '2016-08-30 09:24:26', NULL, NULL, 'Por Chat - Inmediatamente', '0', '2016-08-31 00:00:00'),
+	(386, 'Oscar Bethancourt', 143, '2016-08-30 09:29:44', NULL, NULL, 'Por Chat - Inmediatamente', '0', '2016-08-31 00:00:00'),
+	(387, 'Oscar Bethancourt', 144, '2016-08-30 09:33:55', NULL, NULL, 'Por Chat - Inmediatamente', '0', '2016-08-31 00:00:00'),
+	(388, 'Oscar Bethancourt', 145, '2016-08-30 09:37:09', NULL, NULL, 'Por Chat - Inmediatamente', '0', '2016-08-31 00:00:00'),
+	(389, 'Oscar Bethancourt', 146, '2016-08-30 09:42:39', NULL, NULL, 'Por Chat - Inmediatamente', '0', '2016-08-31 00:00:00'),
+	(390, 'Oscar Bethancourt', 147, '2016-08-30 15:53:26', NULL, NULL, 'Por Chat - Inmediatamente', '0', '2016-08-31 00:00:00'),
+	(391, 'Oscar Bethancourt', 148, '2016-08-30 16:59:20', NULL, NULL, 'Por Telefono - 5 PM', '0', '2016-08-31 00:00:00'),
+	(392, 'Oscar Bethancourt', 149, '2016-08-31 10:11:26', NULL, NULL, 'Por Telefono - 9 AM', '0', '2016-08-31 00:00:00'),
+	(393, 'Oscar Bethancourt', 150, '2016-08-31 10:26:05', NULL, NULL, 'Por Telefono - Inmediatamente', '0', '2016-08-31 00:00:00'),
+	(394, 'Oscar Bethancourt', 151, '2016-08-31 11:07:57', NULL, NULL, 'Por Telefono - Inmediatamente', '0', '2016-08-31 00:00:00'),
+	(395, 'Oscar Bethancourt', 152, '2016-08-31 11:18:34', NULL, NULL, 'Por Telefono - Inmediatamente', '0', '2016-08-31 00:00:00'),
+	(396, 'Oscar Bethancourt', 153, '2016-08-31 11:47:03', NULL, NULL, 'Por Telefono - Inmediatamente', '0', '2016-08-31 00:00:00');
 /*!40000 ALTER TABLE `trans_detallecotizaciones` ENABLE KEYS */;
 
 
 -- Dumping structure for table catalogo.trans_resumencotizaciones
 CREATE TABLE IF NOT EXISTS `trans_resumencotizaciones` (
   `indice` int(11) NOT NULL AUTO_INCREMENT,
+  `codigoAgente` int(11) NOT NULL DEFAULT '0',
   `agente` varchar(500) DEFAULT '0',
   `asignados` int(11) DEFAULT '0',
   `atentidos` int(11) DEFAULT '0',
@@ -633,11 +814,17 @@ CREATE TABLE IF NOT EXISTS `trans_resumencotizaciones` (
   `perdidos` int(11) DEFAULT '0',
   `fueradefecha` int(11) DEFAULT '0',
   KEY `indice` (`indice`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
 
--- Dumping data for table catalogo.trans_resumencotizaciones: ~0 rows (approximately)
+-- Dumping data for table catalogo.trans_resumencotizaciones: ~5 rows (approximately)
 DELETE FROM `trans_resumencotizaciones`;
 /*!40000 ALTER TABLE `trans_resumencotizaciones` DISABLE KEYS */;
+INSERT INTO `trans_resumencotizaciones` (`indice`, `codigoAgente`, `agente`, `asignados`, `atentidos`, `pendientes`, `cerrados`, `perdidos`, `fueradefecha`) VALUES
+	(8, 1, 'Silvia de González', 0, 0, 0, 0, 0, 0),
+	(9, 2, 'Josué Hernández', 0, 0, 0, 0, 0, 0),
+	(10, 3, 'Luis Lugo', 0, 0, 0, 0, 0, 0),
+	(11, 4, 'Oscar Bethancourt', 0, 0, 0, 0, 0, 0),
+	(12, 5, 'Paola Alvarado', 0, 0, 0, 0, 0, 0);
 /*!40000 ALTER TABLE `trans_resumencotizaciones` ENABLE KEYS */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
