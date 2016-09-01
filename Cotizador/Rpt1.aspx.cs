@@ -43,9 +43,9 @@ namespace Cotizador
                 this.Image2.Height = 150;
                 this.Image3.Width = 150;
                 this.Image3.Height = 150;
-                this.HyperLink1.NavigateUrl = Cotizadores.LinkUbicaciones(codigoempresa, "Link1");
+                this.HyperLink1.NavigateUrl = Cotizadores.LinkUbicaciones(codigoempresa, "Link1") + "?asdf=" + cotizacion;
                 this.HyperLink2.NavigateUrl = Cotizadores.LinkUbicaciones(codigoempresa, "Link2") + "?asdf=" + cotizacion;
-                this.HyperLink3.NavigateUrl = Cotizadores.LinkUbicaciones(codigoempresa, "Link3") + "?asdf=" + cotizacion; ;
+                this.HyperLink3.NavigateUrl = Cotizadores.LinkUbicaciones(codigoempresa, "Link3") + "?asdf=" + cotizacion; 
             }
             catch (Exception)
             {

@@ -300,6 +300,11 @@ namespace Cotizador
               string sql = "update trans_correosenviados  set Paso3 = 1 where indice = " + _id;
               AccesoDatos.EjecutaQueryMySql(sql);
           }
+          public static void Actualiza3Paso(string _id, string _nit, string _dpi, string _direccion, string _zona, string _municipio)
+          {
+              string sql = "update trans_correosenviados  set nit = '"+ _nit +"', dpi = '"+ _dpi +"', direccion = '"+ _direccion +"', zona = '"+ _zona +"', municipio = '"+ _municipio +"' where indice = " + _id;
+              AccesoDatos.EjecutaQueryMySql(sql);
+          }
 
           public static DataTable Cotizacion(string _id)
           {

@@ -48,6 +48,7 @@ text-transform: none;">Paso 3</span> </div>
      <div style="text-align:center; width:100%; height:100%" >
        <asp:Panel ID="Panel1" runat="server" style="text-align:center; width:100%; height:100%" >
            <div style="text-align:center; width:100%; height:100%">  
+                           <asp:HiddenField ID="HiddenField1" runat="server" />
                            <table id="Principal"  class="centered-content"><tr><td class="auto-style10"> 
                                   <table aria-multiline="True"  >
                                     <tr>
@@ -75,8 +76,8 @@ text-transform: none;">Paso 3</span> </div>
                                                                                             <table id="ASPxPageControl1_ASPxPageControl2_TxtPrimerNombre" cellpadding="0" cellspacing="0" class="f1" style="border-collapse: collapse; border: 1px solid rgb(159, 159, 159); cursor: default; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); font-family: Arial, Helvetica, sans-serif; text-align: left; color: rgb(19, 27, 77);  text-decoration: none; font-weight: normal; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; text-transform: none; margin-bottom: 0px; width: 150px; background-color: white;">
                                                                                                 <tr>
                                                                                                     <td class="f0" style="font-family: Arial, Helvetica, sans-serif;  text-align: center; width: 142px; padding: 3px 3px 2px; overflow: hidden; ">
-                                                                                                        <asp:TextBox ID="txtNombre" runat="server" CssClass="dxeEditArea dxeEditAreaSys" Width="193px"   AutoCompleteType="Disabled"></asp:TextBox>  
-                                                                                                       </td><td>&nbsp;&nbsp;<img alt="" class="auto-style2" src="imagenes/Error.png" id="errNombre" style="visibility: hidden" /></td>
+                                                                                                        <asp:TextBox ID="txtNit" runat="server" CssClass="dxeEditArea dxeEditAreaSys" Width="193px"   AutoCompleteType="Disabled"></asp:TextBox>  
+                                                                                                       </td><td>&nbsp;&nbsp;<img alt="" class="auto-style2" src="imagenes/Error.png" id="errNit" style="visibility: hidden" /></td>
                                                                                                 </tr>
                                                                                             </table>
                                                                                         </td>
@@ -104,8 +105,8 @@ text-transform: none;">Paso 3</span> </div>
                                                                                             <table id="ASPxPageControl1_ASPxPageControl2_TxtPrimerNombre" cellpadding="0" cellspacing="0" class="f1" style="border-collapse: collapse; border: 1px solid rgb(159, 159, 159); cursor: default; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); font-family: Arial, Helvetica, sans-serif; text-align: left; color: rgb(19, 27, 77);  text-decoration: none; font-weight: normal; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; text-transform: none; margin-bottom: 0px; width: 150px; background-color: white;">
                                                                                                 <tr>
                                                                                                     <td class="f0" style="font-family: Arial, Helvetica, sans-serif;  text-align: center; width: 142px; padding: 3px 3px 2px; overflow: hidden; ">
-                                                                                                        <asp:TextBox ID="txtApellido" runat="server" CssClass="dxeEditArea dxeEditAreaSys" Width="193px"   AutoCompleteType="Disabled"></asp:TextBox>  
-                                                                                                       </td><td>&nbsp;&nbsp;<img alt="" class="auto-style2" src="imagenes/Error.png" id="errApellido" style="visibility: hidden" /></td>
+                                                                                                        <asp:TextBox ID="txtDPI" runat="server" CssClass="dxeEditArea dxeEditAreaSys" Width="193px"   AutoCompleteType="Disabled"></asp:TextBox>  
+                                                                                                       </td><td>&nbsp;&nbsp;<img alt="" class="auto-style2" src="imagenes/Error.png" id="errDpi" style="visibility: hidden" /></td>
                                                                                                 </tr>
                                                                                             </table>
                                                                                         </td>
@@ -134,8 +135,8 @@ text-transform: none;">Paso 3</span> </div>
                                                                                             <table id="ASPxPageControl1_ASPxPageControl2_TxtPrimerApellido" cellpadding="0" cellspacing="0" class="f1" style="border-collapse: collapse; border: 1px solid rgb(159, 159, 159); cursor: default; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); font-family: Arial, Helvetica, sans-serif; text-align: left; color: rgb(19, 27, 77);  text-decoration: none; font-weight: normal; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; text-transform: none; margin-bottom: 0px; width: 150px; background-color: white;">
                                                                                                 <tr>
                                                                                                     <td class="f0" style="font-family: Arial, Helvetica, sans-serif;   text-align: center; width: 142px; padding: 3px 3px 2px; overflow: hidden;">
-                                                                                                    <asp:TextBox ID="txtCorreo" runat="server" CssClass="dxeEditArea dxeEditAreaSys" Width="193px" AutoCompleteType="Disabled"></asp:TextBox>  
-                                                                                                         </td><td class="auto-style8">&nbsp;&nbsp;<img alt="" class="auto-style2" src="imagenes/Error.png" id="errCorreo" style="visibility: hidden" /></td>
+                                                                                                    <asp:TextBox ID="txtDireccion" runat="server" CssClass="dxeEditArea dxeEditAreaSys" Width="193px" AutoCompleteType="Disabled"></asp:TextBox>  
+                                                                                                         </td><td class="auto-style8">&nbsp;&nbsp;<img alt="" class="auto-style2" src="imagenes/Error.png" id="errDireccion" style="visibility: hidden" /></td>
                                                                                                 
                                                                                                 </tr>
                                                                                             </table>
@@ -161,8 +162,8 @@ text-transform: none;">Paso 3</span> </div>
                                                                                 <table id="ASPxPageControl1_ASPxPageControl2_TxtPrimerApellido" cellpadding="0" cellspacing="0" class="f1" style="border-collapse: collapse; border: 1px solid rgb(159, 159, 159); cursor: default; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); font-family: Arial, Helvetica, sans-serif; text-align: left; color: rgb(19, 27, 77);  text-decoration: none; font-weight: normal; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; text-transform: none; margin-bottom: 0px; width: 150px; background-color: white;">
                                                                                     <tr>
                                                                                         <td class="f0" style="font-family: Arial, Helvetica, sans-serif;  text-align: center; width: 142px; padding: 3px 3px 2px; overflow: hidden;">
-                                                                                                     <asp:TextBox ID="txtTelefono" runat="server" CssClass="dxeEditArea dxeEditAreaSys"  onkeypress="return isNumberKey(event)" Width="193px" MaxLength="8" AutoCompleteType="Disabled"></asp:TextBox> 
-                                                                                                         </td><td>&nbsp;&nbsp;<img alt="" class="auto-style2" src="imagenes/Error.png" id="errTelefono" style="visibility: hidden" /></td>
+                                                                                                     <asp:TextBox ID="txtZona" runat="server" CssClass="dxeEditArea dxeEditAreaSys"  onkeypress="return isNumberKey(event)" Width="193px" MaxLength="8" AutoCompleteType="Disabled"></asp:TextBox> 
+                                                                                                         </td><td>&nbsp;&nbsp;<img alt="" class="auto-style2" src="imagenes/Error.png" id="errZona" style="visibility: hidden" /></td>
 
                                                                                         </td>
                                                                                     </tr>
@@ -193,8 +194,8 @@ text-transform: none;">Paso 3</span> </div>
                                                                                             <table id="ASPxPageControl1_ASPxPageControl2_TxtPrimerApellido" cellpadding="0" cellspacing="0" class="f1" style="border-collapse: collapse; border: 1px solid rgb(159, 159, 159); cursor: default; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); font-family: Arial, Helvetica, sans-serif; text-align: left; color: rgb(19, 27, 77);  text-decoration: none; font-weight: normal; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; text-transform: none; margin-bottom: 0px; width: 150px; background-color: white;">
                                                                                                 <tr>
                                                                                                     <td class="f0" style="font-family: Arial, Helvetica, sans-serif; text-align: center; width: 142px; padding: 3px 3px 2px; overflow: hidden;">
-                                                                                                    <asp:TextBox ID="txtMarca" runat="server" CssClass="dxeEditArea dxeEditAreaSys" Width="193px"  AutoCompleteType="Disabled"></asp:TextBox> 
-                                                                                                </td><td>&nbsp;&nbsp;<img alt="" class="auto-style2" src="imagenes/Error.png" id="errMarca" style="visibility: hidden" /></td>
+                                                                                                    <asp:TextBox ID="txtMunicipio" runat="server" CssClass="dxeEditArea dxeEditAreaSys" Width="193px"  AutoCompleteType="Disabled"></asp:TextBox> 
+                                                                                                </td><td>&nbsp;&nbsp;<img alt="" class="auto-style2" src="imagenes/Error.png" id="errMunicipio" style="visibility: hidden" /></td>
                                                                                                 </tr>
                                                                                             </table>
                                                                                         </td>
@@ -221,6 +222,7 @@ text-transform: none;">Paso 3</span> </div>
                                                                                 </table>
                                                                            </td>
                                                                         </tr>
+                                                                           <tr><td style="text-align:left;"><p><a style="color:red; font-size:30px;">*</a>La inspección fisica del vehiculo <br /> &nbsp;&nbsp;es necesaria para que quede asegurado.</p></td></tr>
                                                                            </div>      
                                                              
                                                                        </table>

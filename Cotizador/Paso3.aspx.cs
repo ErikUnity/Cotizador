@@ -68,8 +68,9 @@ namespace Cotizador
             //StringBuilder html = proc.ObtieneMensaje(4);
             this.HyperLink1.NavigateUrl = Cotizadores.LinkUbicaciones(codigoempresa, "Link1") + "?asdf=" + cotizacion;
             this.HyperLink2.NavigateUrl = Cotizadores.LinkUbicaciones(codigoempresa, "Link2") + "?asdf=" + cotizacion;
-            this.HyperLink3.NavigateUrl = Cotizadores.LinkUbicaciones(codigoempresa, "Link3") + "?asdf=" + cotizacion; 
-           
+            this.HyperLink3.NavigateUrl = Cotizadores.LinkUbicaciones(codigoempresa, "Link3") + "?asdf=" + cotizacion;
+            this.HiddenField1.Value = cotizacion;
+
             //HtmlGenericControl div = new HtmlGenericControl();
             //div.ID = "message" ;
             //div.TagName = "div";
@@ -86,7 +87,66 @@ namespace Cotizador
 
         protected void Button1_Click(object sender, EventArgs e)
         {
+            string _id = this.HiddenField1.Value;
+                        bool Incompleto = false;
+            if (this.txtNit.Text.Trim() == "")
+            {
+                ClientScript.RegisterStartupScript(this.GetType(), "errNit", "document.getElementById('errNit').style.visibility = 'visible';", true);
+                Incompleto = true;
+            }
+            else
+            {
+                ClientScript.RegisterStartupScript(this.GetType(), "errNit", "document.getElementById('errNit').style.visibility = 'hidden';", true);
+            }
+             
+            if (this.txtDPI.Text.Trim() == "")
+            {
+                ClientScript.RegisterStartupScript(this.GetType(), "errDpi", "document.getElementById('errDpi').style.visibility = 'visible';", true);
+                Incompleto = true;
+            }
+            else
+            {
+                ClientScript.RegisterStartupScript(this.GetType(), "errDpi", "document.getElementById('errDpi').style.visibility = 'hidden';", true);
+            }
+            
+            
+            if (this.txtDireccion.Text.Trim() == "")
+            {
+                ClientScript.RegisterStartupScript(this.GetType(), "errDireccion", "document.getElementById('errDireccion').style.visibility = 'visible';", true);
+                Incompleto = true;
+            }
+            else
+            {
+                ClientScript.RegisterStartupScript(this.GetType(), "errDireccion", "document.getElementById('errDireccion').style.visibility = 'hidden';", true);
+            }
 
+
+             if (this.txtZona.Text.Trim() == "")
+            {
+                ClientScript.RegisterStartupScript(this.GetType(), "errZona", "document.getElementById('errZona').style.visibility = 'visible';", true);
+                Incompleto = true;
+            }
+            else
+            {
+                ClientScript.RegisterStartupScript(this.GetType(), "errZona", "document.getElementById('errZona').style.visibility = 'hidden';", true);
+            }
+
+             if (this.txtMunicipio.Text.Trim() == "")
+            {
+                ClientScript.RegisterStartupScript(this.GetType(), "errMunicipio", "document.getElementById('errMunicipio').style.visibility = 'visible';", true);
+                Incompleto = true;
+            }
+            else
+            {
+                ClientScript.RegisterStartupScript(this.GetType(), "errMunicipio", "document.getElementById('errMunicipio').style.visibility = 'hidden';", true);
+            }
+
+
+
+             if (Incompleto)
+                return;
+             Cotizadores.Actualiza3Paso(_id, this.txtNit.Text, this.txtNit.Text, this.txtDireccion.Text, this.txtZona.Text, this.txtMunicipio.Text);
+             ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Paso Tres Completado');", true);
         }
     }
 }
