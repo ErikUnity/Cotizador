@@ -36,6 +36,21 @@ namespace Cotizador
                 Response.Redirect("Formulario1.aspx");
             }
 
+            string codigo = "";
+            string revison_codigo = "";
+            try
+            {
+                codigo = Session["Codigo"].ToString();
+                revison_codigo = Cotizadores.ObtieneCodigo(cotizacion);
+                if (codigo != revison_codigo)
+                {
+                    Response.Redirect("Formulario1.aspx");
+                }
+            }
+            catch (Exception)
+            { Response.Redirect("Formulario1.aspx"); }
+
+
             DataTable content = Cotizadores.Cotizacion(cotizacion);
             Cotizadores.ActualizaPaso3(cotizacion);
             Session["Cotizacion"] = cotizacion;
@@ -66,7 +81,18 @@ namespace Cotizador
             this.Image3.Height = 150;
             Cotizadores proc = new Cotizadores();
             //StringBuilder html = proc.ObtieneMensaje(4);
-            this.HyperLink1.NavigateUrl = Cotizadores.LinkUbicaciones(codigoempresa, "Link1") + "?asdf=" + cotizacion;
+            string _seguro = Session["Seguro"].ToString();
+
+            if (_seguro == "Seguro Completo")
+            {
+                this.HyperLink1.NavigateUrl = Cotizadores.LinkUbicaciones(codigoempresa, "Link4") + "?asdf=" + cotizacion;
+            }
+            else
+            {
+
+                this.HyperLink1.NavigateUrl = Cotizadores.LinkUbicaciones(codigoempresa, "Link5") + "?asdf=" + cotizacion;
+                this.Image2.Visible = false;
+            }
             this.HyperLink2.NavigateUrl = Cotizadores.LinkUbicaciones(codigoempresa, "Link2") + "?asdf=" + cotizacion;
             this.HyperLink3.NavigateUrl = Cotizadores.LinkUbicaciones(codigoempresa, "Link3") + "?asdf=" + cotizacion;
             this.HiddenField1.Value = cotizacion;

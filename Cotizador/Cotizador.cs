@@ -305,7 +305,35 @@ namespace Cotizador
               string sql = "update trans_correosenviados  set nit = '"+ _nit +"', dpi = '"+ _dpi +"', direccion = '"+ _direccion +"', zona = '"+ _zona +"', municipio = '"+ _municipio +"' where indice = " + _id;
               AccesoDatos.EjecutaQueryMySql(sql);
           }
+          public static string GuardaCodigo(string _id)
+          {
+              string resultado = "";
+              string sql = "call Generacodigo()";
+              resultado = AccesoDatos.RegresaCadena_1_ResultadoMysql(sql);
 
+               sql = "update trans_correosenviados  set ingreso = '"+ resultado +"' where indice = " + _id;
+              AccesoDatos.EjecutaQueryMySql(sql);
+              return resultado;
+
+          }
+          public static string ObtieneCodigo(string _id)
+          {
+              string resultado = "";
+
+              DataTable content = new DataTable();
+              content = AccesoDatos.RegresaTablaMySql("Select ingreso  from trans_correosenviados where indice = " + _id );
+              DataView dv = new DataView(content);
+              foreach (DataRow rw in content.Rows)
+              {
+                  if (rw[0].ToString() != null && rw[0].ToString().Trim() != "")
+                  {
+                      resultado = rw[0].ToString();
+                      break;
+                 }
+              }
+
+              return resultado;
+          }
           public static DataTable Cotizacion(string _id)
           {
               DataTable content = new DataTable();
@@ -568,7 +596,7 @@ namespace Cotizador
 
              return resultado;
          }
-        
+
           
           public static string LinkUbicaciones(string _CodigoEmpresa, string _Descripcion)
          {

@@ -47,13 +47,19 @@ namespace Cotizador
               break;
           }
           Cotizadores.ActualizaPaso1(cotizacion);
+          string codigo = Cotizadores.GuardaCodigo(cotizacion);
+          Session["Codigo"] = codigo;
 
           if (tiposeguro == "Seguro Completo")
           {
+              Session["Seguro"] = "Seguro Completo";
               Response.Redirect("Rpt1.aspx");
 
           }
-          else { Response.Redirect("Rpt2.aspx"); }
+          else {
+              Session["Seguro"] = "Responsabilidad Civil";
+              Response.Redirect("Rpt2.aspx"); 
+          }
  
         }
     }

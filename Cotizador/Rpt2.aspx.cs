@@ -30,6 +30,23 @@ namespace Cotizador
             {
                 Response.Redirect("Formulario1.aspx");
             }
+            string codigo = "";
+            string revison_codigo = "";
+            try
+            {
+                codigo = Session["Codigo"].ToString();
+                revison_codigo = Cotizadores.ObtieneCodigo(cotizacion);
+                if (codigo != revison_codigo)
+                {
+                    Response.Redirect("Formulario1.aspx");
+                }
+            }
+            catch (Exception)
+            {
+
+                Response.Redirect("Formulario1.aspx");
+
+            }
 
             try
             {
@@ -43,9 +60,10 @@ namespace Cotizador
                 this.Image2.Height = 150;
                 this.Image3.Width = 150;
                 this.Image3.Height = 150;
-                this.HyperLink1.NavigateUrl = Cotizadores.LinkUbicaciones(codigoempresa, "Link1");
+                this.HyperLink1.NavigateUrl = Cotizadores.LinkUbicaciones(codigoempresa, "Link5");
                 this.HyperLink2.NavigateUrl = Cotizadores.LinkUbicaciones(codigoempresa, "Link2") + "?asdf=" + cotizacion;
                 this.HyperLink3.NavigateUrl = Cotizadores.LinkUbicaciones(codigoempresa, "Link3") + "?asdf=" + cotizacion; ;
+                this.Image2.Visible = false;
             }
             catch (Exception)
             {
