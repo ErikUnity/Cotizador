@@ -14,24 +14,24 @@
 </head>
 <body>
     <form id="form1" runat="server" class="outer-container" >
+   
+
     <div class="inner-container">
-  <div id="Relleno" style="float:left; text-align:right; width: 20%; overflow-x:auto;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
-    <div id="Asoc" class="divX">
-       <ul>
-    <li><div class="cuadro"><asp:Image ID="Image1" CssClass="cuadro" runat="server" Height="126px" ImageUrl="~/imagenes/LogoBlancoUnityPromotores.png" Width="197px" /></div></li> 
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li><div class="cuadro"><asp:Image ID="Image2" CssClass="cuadro" runat="server" Height="94px" ImageUrl="~/imagenes/LogoBlancoTransparenteElRoble.png" Width="175px" /></div></li> 
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li><div class="cuadro"><asp:Image ID="Image3" CssClass="cuadro" runat="server" Height="94px" ImageUrl="~/imagenes/LogoBlancoTransparenteCapgemini.png" Width="175px" /></div></li> 
-       </ul>
+      <div id="Asoc1" class="divX">
+       <table style="width:500px;"><tr><td>&nbsp;</td></tr>
+           <tr><td>&nbsp;</td></tr>
+           <tr><td>&nbsp;</td></tr>
+           <tr><td>&nbsp;</td></tr>
+           <tr><td>&nbsp;</td></tr>
+           <tr><td>&nbsp;</td></tr>
+           <tr><td>&nbsp;</td></tr>
+           <tr><td>&nbsp;</td></tr>
+           <tr><td style="text-align:left; float:left;"><asp:Image ID="Image2" CssClass="cuadro" runat="server" Height="226px" ImageUrl="~/imagenes/LogoBlancoUnityPromotores.png" Width="317px" /></td></tr>
+       </table>
+     
+
     </div>
-                       <div class="divX">  
+                         <div class="divX">  
                            <table id="Principal"  class="centered-content"><tr><td class="auto-style10"> 
                                   <table aria-multiline="True"  >
                                     <tr>
@@ -262,7 +262,7 @@
                                                                                                                                                       <tr>
                                                                             <td class="f1" style="font-family: Arial, Helvetica, sans-serif; text-align: left; float:left; height: 24px;">
 
-                                                                                      <table><tr><td><asp:RadioButton ID="rdSeguroCompleto" runat="server"  Text="Seguro Completo" ClientIDMode="Static" onclick="MostrarMonto()" CssClass="letra" /></td>
+                                                                                      <table><tr><td style="text-align:left;"><asp:RadioButton ID="rdSeguroCompleto" runat="server"  Text="Seguro Completo" ClientIDMode="Static" onclick="MostrarMonto()" CssClass="letra" /></td>
                                                                                           <td><img class="auto-style2" id="errDañosATerceros" src="imagenes/Error.png"  style="visibility: hidden"/></td>
                                                                                           </tr></table>
 
@@ -271,7 +271,7 @@
                                                                         <tr>
                                                                             <td class="f1" style="font-family: Arial, Helvetica, sans-serif;  text-align: left; float:left; height: 24px;">
  
-                                                                                     <table><tr><td>
+                                                                                     <table><tr><td style="text-align:left;">
                                                                                            <asp:RadioButton ID="rdResponsabilidadCivil" runat="server"  Text="Responsabilidad Civil" ClientIDMode="Static" onclick="EsconderMonto()" CssClass="letra"  />
                                                                                                 <td><img class="auto-style2" id="errResponsabilidadCivil" src="imagenes/Error.png" style="visibility: hidden" /></td>
                                                                                           </tr></table>
@@ -468,17 +468,28 @@
                                                         <b class="f0" style="display: block; clear: both; height: 0px; width: 0px;  line-height: 0; overflow: hidden; visibility: hidden;"></b>
 
         </td></tr></table>
-
+ 
                         </div>  
-
-               
+     <div id="Asoc2" class="divX">
+       <ul>
+    <li></li> 
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li><div class="cuadro"><asp:Image ID="Image4" CssClass="cuadro" runat="server" Height="94px" ImageUrl="~/imagenes/LogoBlancoTransparenteElRoble.png" Width="275px" /></div></li> 
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li><div class="cuadro"><asp:Image ID="Image5" CssClass="cuadro" runat="server" Height="94px" ImageUrl="~/imagenes/LogoBlancoTransparenteCapgemini.png" Width="275px" /></div></li> 
+       </ul>
+    </div>
+    
 </div>     
 
 
-    
  
- 
-
     </form>
 
     <script type="text/javascript">
