@@ -471,7 +471,7 @@
  
                         </div>  
      <div id="Asoc2" class="divX">
-       <ul>
+       <ul style="width:280px;">
     <li></li> 
     <li></li>
     <li></li>
