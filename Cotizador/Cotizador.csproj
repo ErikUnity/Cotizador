@@ -243,6 +243,7 @@
     <Folder Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Reportes\CotizadorRoble - Copy.rdlc" />
     <EmbeddedResource Include="Reportes\CotizadorRobleRCivil.rdlc" />
     <EmbeddedResource Include="Reportes\CotizadorRoble.rdlc" />
   </ItemGroup>

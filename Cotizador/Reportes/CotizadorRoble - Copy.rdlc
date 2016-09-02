@@ -266,7 +266,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>="Q. " &amp; Trim(FormatNumber(Format(Sum(Fields!SumaAsegurada.Value),"#,##0.##"),2))</Value>
+                              <Value>="Q. " &amp; Trim(Sum(Fields!SumaAsegurada.Value))</Value>
                               <Style>
                                 <FontFamily>Candara</FontFamily>
                               </Style>
@@ -338,7 +338,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>="Q. " &amp; Trim(FormatNumber(Format(Sum(Fields!SumaAsegurada.Value),"#,##0.##"),2))</Value>
+                              <Value>="Q. " &amp; Trim(Sum(Fields!SumaAsegurada.Value))</Value>
                               <Style>
                                 <FontFamily>Candara</FontFamily>
                               </Style>
@@ -410,7 +410,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>="Q. " &amp; Trim(FormatNumber(Format(Sum(Fields!DañosATerceros.Value),"#,##0.##"),2))</Value>
+                              <Value>="Q. " &amp; Trim(Sum(Fields!DañosATerceros.Value))</Value>
                               <Style>
                                 <FontFamily>Candara</FontFamily>
                               </Style>
@@ -2680,7 +2680,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>="Q. " &amp; Trim(FormatNumber(Format(Sum(Fields!PrimaTotalProRata.Value),"#,##0.##"),2))</Value>
+                              <Value>="Q. " &amp; Trim(Sum(Fields!PrimaTotalProRata.Value))</Value>
                               <Style>
                                 <FontFamily>Candara</FontFamily>
                               </Style>
@@ -2755,7 +2755,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>="Q. " &amp; Trim(FormatNumber(Format(Sum(Fields!CadaPago.Value),"#,##0.##"),2))</Value>
+                              <Value>="Q. " &amp; Trim(Sum(Fields!CadaPago.Value))</Value>
                               <Style>
                                 <FontFamily>Candara</FontFamily>
                               </Style>
@@ -3010,6 +3010,7 @@
                                       <PaddingBottom>2pt</PaddingBottom>
                                     </Style>
                                   </Textbox>
+                                  <rd:Selected>true</rd:Selected>
                                 </CellContents>
                               </TablixCell>
                             </TablixCells>
@@ -3127,7 +3128,7 @@
                                       <Paragraph>
                                         <TextRuns>
                                           <TextRun>
-                                            <Value>="Q. " &amp; Trim(FormatNumber(Format(Sum(Fields!MenoresDesde16.Value),"#,##0.##"),2))</Value>
+                                            <Value>="Q. " &amp; Trim(Sum(Fields!MenoresDesde16.Value))</Value>
                                             <Style>
                                               <FontFamily>Candara</FontFamily>
                                             </Style>
@@ -3196,7 +3197,7 @@
                                       <Paragraph>
                                         <TextRuns>
                                           <TextRun>
-                                            <Value>="Q. " &amp; Trim(FormatNumber(Format(Sum(Fields!MenoresDesde18.Value),"#,##0.##"),2))</Value>
+                                            <Value>="Q. " &amp; Trim(Sum(Fields!MenoresDesde18.Value))</Value>
                                             <Style>
                                               <FontFamily>Candara</FontFamily>
                                             </Style>
@@ -3265,7 +3266,7 @@
                                       <Paragraph>
                                         <TextRuns>
                                           <TextRun>
-                                            <Value>="Q. " &amp; Trim(FormatNumber(Format(Sum(Fields!ExcesoRC.Value),"#,##0.##"),2))</Value>
+                                            <Value>="Q. " &amp; Trim(Sum(Fields!ExcesoRC.Value))</Value>
                                             <Style>
                                               <FontFamily>Candara</FontFamily>
                                             </Style>
@@ -3286,7 +3287,6 @@
                                       <PaddingBottom>2pt</PaddingBottom>
                                     </Style>
                                   </Textbox>
-                                  <rd:Selected>true</rd:Selected>
                                 </CellContents>
                               </TablixCell>
                             </TablixCells>
