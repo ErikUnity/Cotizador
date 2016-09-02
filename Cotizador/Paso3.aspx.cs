@@ -72,7 +72,6 @@ namespace Cotizador
 
             this.Image1.ImageUrl = Cotizadores.LinkPaso1(codigoempresa, cotizacion);
             this.Image2.ImageUrl = Cotizadores.LinkPaso2(codigoempresa, cotizacion);
-            this.Image3.ImageUrl = Cotizadores.LinkPaso3(codigoempresa, cotizacion);
             this.Image1.Width = 150;
             this.Image1.Height = 150;
             this.Image2.Width = 150;
@@ -86,12 +85,14 @@ namespace Cotizador
             if (_seguro == "Seguro Completo")
             {
                 this.HyperLink1.NavigateUrl = Cotizadores.LinkUbicaciones(codigoempresa, "Link4") + "?asdf=" + cotizacion;
+                this.Image3.ImageUrl = Cotizadores.LinkPaso3(codigoempresa, cotizacion);
             }
             else
             {
 
                 this.HyperLink1.NavigateUrl = Cotizadores.LinkUbicaciones(codigoempresa, "Link5") + "?asdf=" + cotizacion;
                 this.Image2.Visible = false;
+                this.Image3.ImageUrl = Cotizadores.LinkPaso4(codigoempresa, cotizacion);
             }
             this.HyperLink2.NavigateUrl = Cotizadores.LinkUbicaciones(codigoempresa, "Link2") + "?asdf=" + cotizacion;
             this.HyperLink3.NavigateUrl = Cotizadores.LinkUbicaciones(codigoempresa, "Link3") + "?asdf=" + cotizacion;

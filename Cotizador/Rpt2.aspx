@@ -27,9 +27,9 @@
        <asp:Image ID="Image1" runat="server" />
        </asp:HyperLink>
        </td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-       <td>
+       <td style="width:200px;">
            <asp:HyperLink ID="HyperLink2" runat="server">
-           <asp:Image ID="Image2" runat="server" /></asp:HyperLink>
+           <asp:Image ID="Image2" runat="server"/></asp:HyperLink>
          </td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
        <td>
                <asp:HyperLink ID="HyperLink3" runat="server">

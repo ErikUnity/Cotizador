@@ -53,7 +53,7 @@ namespace Cotizador
                 string codigoempresa = Session["CodigoEmpresa"].ToString();
                 this.Image1.ImageUrl = Cotizadores.LinkPaso1(codigoempresa, cotizacion);
                 this.Image2.ImageUrl = Cotizadores.LinkPaso2(codigoempresa, cotizacion);
-                this.Image3.ImageUrl = Cotizadores.LinkPaso3(codigoempresa, cotizacion);
+                this.Image3.ImageUrl = Cotizadores.LinkPaso4(codigoempresa, cotizacion);
                 this.Image1.Width = 150;
                 this.Image1.Height = 150;
                 this.Image2.Width = 150;

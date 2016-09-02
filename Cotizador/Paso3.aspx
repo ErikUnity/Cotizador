@@ -34,7 +34,7 @@
    <table style="left:auto; right:auto;"><tr><td>
        <asp:HyperLink ID="HyperLink1" runat="server">
        <asp:Image ID="Image1" runat="server" /></asp:HyperLink></td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-       <td>
+       <td style="width:200px;">
            <asp:HyperLink ID="HyperLink2" runat="server">
            <asp:Image ID="Image2" runat="server" /></asp:HyperLink></td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
        <td>

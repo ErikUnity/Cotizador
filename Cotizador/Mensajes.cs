@@ -67,16 +67,16 @@ namespace Cotizador
             mensaje.Nombre = Nombre;
             mensaje.Paso1 = Cotizadores.LinkPaso1(CodigoEmpresa, _id);
             mensaje.Paso2 = Cotizadores.LinkPaso2(CodigoEmpresa, _id);
-            mensaje.Paso3 = Cotizadores.LinkPaso3(CodigoEmpresa, _id);
             mensaje.Link1 = Cotizadores.LinkUbicaciones(CodigoEmpresa, "Link1") + "?asdf=" + _id;
             mensaje.Link2 = Cotizadores.LinkUbicaciones(CodigoEmpresa, "Link1") + "?asdf=" + _id;
             mensaje.Link3 = Cotizadores.LinkUbicaciones(CodigoEmpresa, "Link1") + "?asdf=" + _id;
 
-
             string archivo = "";
             if (MensajeTipo == 1)
-            { archivo = EnvioDeCorreoRapido.AlmacenarPdf1(Nombre, CodigoEmpresa, Decimal.Parse(ValorMercado), RoboParcial, Menores16, Menores18, ExcesosRC, _RoboParcial, NombreCliente, DescripcionVehiculo); }
+            {   mensaje.Paso3 = Cotizadores.LinkPaso3(CodigoEmpresa, _id); 
+                archivo = EnvioDeCorreoRapido.AlmacenarPdf1(Nombre, CodigoEmpresa, Decimal.Parse(ValorMercado), RoboParcial, Menores16, Menores18, ExcesosRC, _RoboParcial, NombreCliente, DescripcionVehiculo); }
             else {
+                mensaje.Paso3 = Cotizadores.LinkPaso4(CodigoEmpresa, _id);
                 archivo = EnvioDeCorreoRapido.AlmacenarPdf2(Nombre, CodigoEmpresa, Decimal.Parse(ValorMercado), RoboParcial, Menores16, Menores18, ExcesosRC, _RoboParcial, NombreCliente, DescripcionVehiculo); 
             }
             mensaje.archivo = archivo;

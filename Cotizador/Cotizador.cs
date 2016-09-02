@@ -540,7 +540,23 @@ namespace Cotizador
 
              return resultado;
          }
+         public static string StatusDescripcionPaso4(string _id)
+         {
+             string resultado = "";
 
+             DataTable content = new DataTable();
+             content = AccesoDatos.RegresaTablaMySql("select case when ifnull(Paso3,0) = 0 then 'Paso4' else   'Paso44'   end from trans_correosenviados where indice = " + _id);
+             DataView dv = new DataView(content);
+             foreach (DataRow rw in content.Rows)
+             {
+                 if (rw[0].ToString() != null && rw[0].ToString().Trim() != "")
+                 {
+                     resultado = rw[0].ToString();
+                 }
+             }
+
+             return resultado;
+         }
          public static string LinkPaso1(string _CodigoEmpresa, string _id)
          {
              string resultado = "";
@@ -582,6 +598,24 @@ namespace Cotizador
          {
              string resultado = "";
              string descripcion = StatusDescripcionPaso3(_id);
+
+             DataTable content = new DataTable();
+             content = AccesoDatos.RegresaTablaMySql("Select Link from maestro_link_externo where CodigoEmpresa = '" + _CodigoEmpresa + "' and Descripcion = '" + descripcion + "'");
+             DataView dv = new DataView(content);
+             foreach (DataRow rw in content.Rows)
+             {
+                 if (rw[0].ToString() != null && rw[0].ToString().Trim() != "")
+                 {
+                     resultado = rw[0].ToString();
+                 }
+             }
+
+             return resultado;
+         }
+         public static string LinkPaso4(string _CodigoEmpresa, string _id)
+         {
+             string resultado = "";
+             string descripcion = StatusDescripcionPaso4(_id);
 
              DataTable content = new DataTable();
              content = AccesoDatos.RegresaTablaMySql("Select Link from maestro_link_externo where CodigoEmpresa = '" + _CodigoEmpresa + "' and Descripcion = '" + descripcion + "'");

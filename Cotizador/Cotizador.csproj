@@ -147,6 +147,8 @@
     <Content Include="imagenes\Paso22.png" />
     <Content Include="imagenes\Paso3.png" />
     <Content Include="imagenes\Paso33.png" />
+    <Content Include="imagenes\Paso4.png" />
+    <Content Include="imagenes\Paso44.png" />
     <Content Include="imagenes\SignoInterrogacion1.png" />
     <Content Include="js\jquery.js" />
     <Content Include="js\jquery.min.js" />
