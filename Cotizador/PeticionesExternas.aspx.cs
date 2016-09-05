@@ -46,7 +46,9 @@ namespace Cotizador
               Session["DescripcionVehiculo"] = rw["DescripcionVehiculo"];
               tiposeguro = rw["TipoSeguro"].ToString();
               if (int.Parse(rw["Moto"].ToString()) == 7)
-              { Session["Moto"] = "7"; }
+              { Session["Moto"] = "7";
+                 moto = 7;
+              }
               else { Session["Moto"] = ""; }
 
               break;
@@ -71,11 +73,11 @@ namespace Cotizador
               Session["Seguro"] = "Responsabilidad Civil";
               if (moto == 7)
               {
-                  Response.Redirect("Rpt2.aspx"); 
+                  Response.Redirect("Rpt4.aspx"); 
               }
               else
               {
-                  Response.Redirect("Rpt1.aspx");
+                  Response.Redirect("Rpt2.aspx");
               }
 
              

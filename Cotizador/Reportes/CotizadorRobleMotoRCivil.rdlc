@@ -69,7 +69,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>SEGURO COMPLETO PARA MOTOCICLETAS</Value>
+                              <Value>SEGURO CONTRA TERCEROS PARA MOTOCICLETAS</Value>
                               <Style>
                                 <FontFamily>Candara</FontFamily>
                                 <FontSize>12pt</FontSize>
@@ -434,7 +434,6 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
-                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
               </TablixCells>

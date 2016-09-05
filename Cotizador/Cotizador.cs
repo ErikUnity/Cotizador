@@ -479,7 +479,7 @@ namespace Cotizador
           public static DataTable Cotizacion(string _id)
           {
               DataTable content = new DataTable();
-              content = AccesoDatos.RegresaTablaMySql("Select (select tv.indice from tipodevehiculo tv where tv.Descripcion = ce.TipoDeVehiculo limit 1; ) as moto, ce.CodigoEmpresa, ce.SumaAsegurada, Concat( ce.Nombre , ' ' , ce.Apellidos) as NombreCliente , Concat(ce.TipoDeVehiculo , ' ' , ce.Marca , ' ' , ce.Modelo , ' ' ,  ce.Linea) as DescripcionVehiculo, ce.TipoSeguro from  trans_correosenviados ce where ce.indice = " + _id);
+              content = AccesoDatos.RegresaTablaMySql("Select  tv.indice as moto, ce.CodigoEmpresa, ce.SumaAsegurada, Concat( ce.Nombre , ' ' , ce.Apellidos) as NombreCliente , Concat(ce.TipoDeVehiculo , ' ' , ce.Marca , ' ' , ce.Modelo , ' ' ,  ce.Linea) as DescripcionVehiculo, ce.TipoSeguro from  trans_correosenviados ce, tipodevehiculo tv where ce.TipoDeVehiculo =  tv.Descripcion and ce.indice =  " + _id);
               DataView dv = new DataView(content);
               return content;
           }

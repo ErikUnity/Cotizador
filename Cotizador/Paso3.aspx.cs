@@ -24,7 +24,13 @@ namespace Cotizador
             }
             catch (Exception)
             { }
- 
+            string moto = "";
+            try
+            {
+                moto = Request.QueryString["Moto"];
+            }
+            catch (Exception)
+            { }
             try
             {
                 cotizacion = Session["Cotizacion"].ToString();
@@ -84,13 +90,18 @@ namespace Cotizador
 
             if (_seguro == "Seguro Completo")
             {
-                this.HyperLink1.NavigateUrl = Cotizadores.LinkUbicaciones(codigoempresa, "Link4") + "?asdf=" + cotizacion;
+                if (moto != "")
+                { this.HyperLink1.NavigateUrl = Cotizadores.LinkUbicaciones(codigoempresa, "Link6") + "?asdf=" + cotizacion; }
+                else { this.HyperLink1.NavigateUrl = Cotizadores.LinkUbicaciones(codigoempresa, "Link4") + "?asdf=" + cotizacion; }
+                
                 this.Image3.ImageUrl = Cotizadores.LinkPaso3(codigoempresa, cotizacion);
             }
             else
             {
-
-                this.HyperLink1.NavigateUrl = Cotizadores.LinkUbicaciones(codigoempresa, "Link5") + "?asdf=" + cotizacion;
+                if (moto != "")
+                { this.HyperLink1.NavigateUrl = Cotizadores.LinkUbicaciones(codigoempresa, "Link7") + "?asdf=" + cotizacion; }
+                else { this.HyperLink1.NavigateUrl = Cotizadores.LinkUbicaciones(codigoempresa, "Link5") + "?asdf=" + cotizacion; }
+                
                 this.Image2.Visible = false;
                 this.Image3.ImageUrl = Cotizadores.LinkPaso4(codigoempresa, cotizacion);
             }

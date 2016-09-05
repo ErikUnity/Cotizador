@@ -19,13 +19,6 @@ namespace Cotizador
             }
             catch (Exception)
             { }
-            string moto = "";
-            try
-            {
-                moto = Request.QueryString["Moto"];
-            }
-            catch (Exception)
-            { moto = ""; }
             try
             {
                 cotizacion = Session["Cotizacion"].ToString();
@@ -66,11 +59,7 @@ namespace Cotizador
                 this.Image2.Height = 150;
                 this.Image3.Width = 150;
                 this.Image3.Height = 150;
-                if (moto != "")
-                { this.HyperLink1.NavigateUrl = Cotizadores.LinkUbicaciones(codigoempresa, "Link6") + "?asdf=" + cotizacion; }
-                else { this.HyperLink1.NavigateUrl = Cotizadores.LinkUbicaciones(codigoempresa, "Link4") + "?asdf=" + cotizacion; }
-
-           
+                this.HyperLink1.NavigateUrl = Cotizadores.LinkUbicaciones(codigoempresa, "Link4") + "?asdf=" + cotizacion;  
                 this.HyperLink2.NavigateUrl = Cotizadores.LinkUbicaciones(codigoempresa, "Link2") + "?asdf=" + cotizacion;
                 this.HyperLink3.NavigateUrl = Cotizadores.LinkUbicaciones(codigoempresa, "Link3") + "?asdf=" + cotizacion; 
             }

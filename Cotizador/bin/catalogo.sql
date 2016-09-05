@@ -20,7 +20,7 @@ CREATE TABLE IF NOT EXISTS `iva` (
   `Iva` decimal(8,2) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table catalogo.iva: ~0 rows (approximately)
+-- Dumping data for table catalogo.iva: ~1 rows (approximately)
 DELETE FROM `iva`;
 /*!40000 ALTER TABLE `iva` DISABLE KEYS */;
 INSERT INTO `iva` (`Iva`) VALUES
@@ -36,7 +36,7 @@ CREATE TABLE IF NOT EXISTS `linea` (
   UNIQUE KEY `Descripcion` (`Descripcion`)
 ) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
 
--- Dumping data for table catalogo.linea: ~11 rows (approximately)
+-- Dumping data for table catalogo.linea: ~12 rows (approximately)
 DELETE FROM `linea`;
 /*!40000 ALTER TABLE `linea` DISABLE KEYS */;
 INSERT INTO `linea` (`indice`, `Descripcion`) VALUES
@@ -73,7 +73,8 @@ INSERT INTO `maestro_correoautomatico` (`indice`, `codigo`, `mensaje`, `descripc
 	(3, 1, '<div style="width:650px;">\r\n        <p><font style="font-family:Calibri; font-size:medium;">Gracias por tomarnos en cuenta para la asesor&iacute;a en el seguro de su veh&iacute;culo. Unity Promotores es una empresa  con  m&aacute;s  de  35  a&ntilde;os de  estar en el mercado Guatemalteco.</font></p>\r\n        <p><font style="font-family:Calibri; font-size:medium;">A continuaci&oacute;n le presentamos 3 sencillos pasos que Ud. debe seguir para poder contratar el seguro de su veh&iacute;culo.</font></p>\r\n         <table>\r\n             <tr style="width:100%;"><td class="tat">\r\n                     <a href="{Link1}"><img src="{Paso1}" style="width:150px; height:150px;" /></a></td><td></td><td class="tat"></td>\r\n            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>\r\n				 <td>\r\n                 <a href="{Link2}"><img src="{Paso2}" style="width:150px; height:150px;" /></a></td><td class="tat"></td>\r\n             <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>\r\n				 <td>\r\n                 <a href="{Link3}"><img src="{Paso3}" style="width:150px; height:150px;" /></a></td></tr></table>\r\n        <p>&nbsp;</p>\r\n        <p><font style="font-family:Calibri; font-size:medium;">En breve uno de nuestros asesores especializados se estar&aacute; comunicando con usted para resolver dudas y guiarlo/a en el proceso de contrataci&oacute;n del seguro para su veh&iacute;culo.</font></p>\r\n    </div>', 'Correo Automatico Cotizador Formato Gerencial'),
 	(4, 4, '</br>\r\n<p>Deber&aacute; realizar una inspecci&oacute;n al veh&iacute;culo y las opciones para realizar dicha inspecci&oacute;n son las siguientes: </p>\r\n <table id="Talleres"><tr><th>TALLER</th><th>DIRECCI&Oacute;N</th><th>TEL&Eacute;FONO </th> </tr>\r\n <tr><td>UNITY PROMOTORES</td><td>Avenida Las Americas 22-23 zona14</td><td>2386-3700</td></tr>\r\n <tr><td>QUANTUM</td><td>20 calle 18-01,zona 10</td><td>2384-1412</td></tr>\r\n <tr><td>TALLER DE LA CIUDAD ZONA 9</td><td>6a. Calle 6-17, zona 9</td><td>2504-3939</td></tr>\r\n <tr><td>TALLER DE LA CIUDAD CARRETERA</td><td>Km 16.5 Carr. A El Salvador</td><td>2504-3939</td></tr>\r\n <tr><td>BODY FIX</td><td>Av. Petapa 43-15 Z12</td><td>2388-5500</td></tr>\r\n <tr><td>AUTOCOLOR</td><td>10a. Avenida A 0-38 Z.7</td><td>2419-3800</td></tr>\r\n <tr><td>TALLER SPECTRA</td><td>25 Av. 4-34 Zona 11</td><td>2474-2033</td></tr>\r\n <tr><td>UNIAUTO</td><td>Avenida Petapa 36-19 zona 12</td><td>2328 8879</td></tr>\r\n <tr><td>TALLER RODAS ZONA 5</td><td>11 Avenida B 31-15 zona 5</td><td>2331-9106</td></tr>\r\n <tr><td>COJULUN ROOSEVELT</td><td>7 avenida 0-07, zona 2 de Mixco</td><td>2250-4602</td></tr>\r\n </table>\r\n \r\n <br />\r\n Su veh&iacute;culo queda asegurado inmediatamente despu&eacute;s de haber realizado la inspecci&oacute;n y completado los documentos en el paso 3 . Agradecemos su atenci&oacute;n y cualquier consulta adicional quedamos a las &oacute;rdenes.<br /> <br /> <br />Atentamente,</p> <br /> <br /> <br />', 'Se utilizapara el paso 2 informativo.'),
 	(5, 5, '<p>Estimado/a {Nombre}<br /> <br /> Su cotizaci&oacute;n en el paso 3 ya fue utilizada previamente, \r\npara actualizar sus datos un ejecutivo de cuenta le <br /> estara contactando en breve.<br /> <br /> <br />Saludos Cordiales</p>\r\n<br /><a>{Datos}</a> ', 'Mensaje del Paso3 en caso de que la información ya fue almacenada previamente.'),
-	(6, 6, '<p>Estimado/a {Nombre}<br /> <br /> Su cotizaci&oacute;n en el paso 3 fue completada con exito, \r\nun ejecutivo le estara contactando en breve.<br /> <br /> <br />Saludos Cordiales</p>\r\n<br /><a>{Datos}</a> ', 'Correo indicando la completación del paso 3');
+	(6, 6, '<p>Estimado/a {Nombre}<br /> <br /> Su cotizaci&oacute;n en el paso 3 fue completada con exito, \r\nun ejecutivo le estara contactando en breve.<br /> <br /> <br />Saludos Cordiales</p>\r\n<br /><a>{Datos}</a> ', 'Correo indicando la completación del paso 3'),
+	(7, 7, '<div style="width:650px;">\r\n        <p><font style="font-family:Calibri; font-size:medium;">Gracias por tomarnos en cuenta para la asesor&iacute;a en el seguro de su veh&iacute;culo. Unity Promotores es una empresa  con  m&aacute;s  de  35  a&ntilde;os de  estar en el mercado Guatemalteco.</font></p>\r\n        <p><font style="font-family:Calibri; font-size:medium;">A continuaci&oacute;n le presentamos 3 sencillos pasos que Ud. debe seguir para poder contratar el seguro de su veh&iacute;culo.</font></p>\r\n         <table>\r\n             <tr style="width:100%;"><td class="tat">\r\n                     <a href="{Link1}"><img src="{Paso1}" style="width:150px; height:150px;" /></a></td><td></td><td class="tat"></td>\r\n            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>\r\n				 <td>\r\n                 <a href="{Link2}"><img src="{Paso2}" style="width:150px; height:150px;" /></a></td><td class="tat"></td>\r\n             <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>\r\n				 <td>\r\n                 <a href="{Link3}"><img src="{Paso3}" style="width:150px; height:150px;" /></a></td></tr></table>\r\n        <p>&nbsp;</p>\r\n        <p><font style="font-family:Calibri; font-size:medium;">En breve uno de nuestros asesores especializados se estar&aacute; comunicando con usted para resolver dudas y guiarlo/a en el proceso de contrataci&oacute;n del seguro para su veh&iacute;culo.</font></p>\r\n    </div>', 'Mennsaje para Motos');
 /*!40000 ALTER TABLE `maestro_correoautomatico` ENABLE KEYS */;
 
 
@@ -88,7 +89,7 @@ CREATE TABLE IF NOT EXISTS `maestro_correosinternos` (
   CONSTRAINT `FK__coberturas_adicionales` FOREIGN KEY (`CodigoEmpresa`) REFERENCES `maestro_reglasnegocio` (`CodigoEmpresa`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
--- Dumping data for table catalogo.maestro_correosinternos: ~0 rows (approximately)
+-- Dumping data for table catalogo.maestro_correosinternos: ~1 rows (approximately)
 DELETE FROM `maestro_correosinternos`;
 /*!40000 ALTER TABLE `maestro_correosinternos` DISABLE KEYS */;
 INSERT INTO `maestro_correosinternos` (`indice`, `Correo`, `CodigoEmpresa`) VALUES
@@ -128,7 +129,7 @@ CREATE TABLE IF NOT EXISTS `maestro_link_externo` (
   KEY `indice` (`indice`)
 ) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
 
--- Dumping data for table catalogo.maestro_link_externo: ~13 rows (approximately)
+-- Dumping data for table catalogo.maestro_link_externo: ~14 rows (approximately)
 DELETE FROM `maestro_link_externo`;
 /*!40000 ALTER TABLE `maestro_link_externo` DISABLE KEYS */;
 INSERT INTO `maestro_link_externo` (`indice`, `Link`, `CodigoEmpresa`, `descripcion`) VALUES
@@ -145,7 +146,8 @@ INSERT INTO `maestro_link_externo` (`indice`, `Link`, `CodigoEmpresa`, `descripc
 	(11, 'http://testcotizador.unitypromotores.com/Cotizador/Rpt2.aspx', 'Roble', 'Link5'),
 	(12, 'http://testcotizador.unitypromotores.com/Cotizador/imagenes/Paso4.png', 'Roble', 'Paso4'),
 	(13, 'http://testcotizador.unitypromotores.com/Cotizador/imagenes/Paso44.png', 'Roble', 'Paso44'),
-	(14, 'http://testcotizador.unitypromotores.com/Cotizador/Rpt3.aspx', 'Roble', 'Link6');
+	(14, 'http://testcotizador.unitypromotores.com/Cotizador/Rpt3.aspx', 'Roble', 'Link6'),
+	(15, 'http://testcotizador.unitypromotores.com/Cotizador/Rpt3.aspx', 'Roble', 'Link7');
 /*!40000 ALTER TABLE `maestro_link_externo` ENABLE KEYS */;
 
 
@@ -433,7 +435,7 @@ CREATE TABLE IF NOT EXISTS `tipodevehiculo` (
   UNIQUE KEY `Descripcion` (`Descripcion`)
 ) ENGINE=InnoDB AUTO_INCREMENT=42 DEFAULT CHARSET=utf8;
 
--- Dumping data for table catalogo.tipodevehiculo: ~3 rows (approximately)
+-- Dumping data for table catalogo.tipodevehiculo: ~4 rows (approximately)
 DELETE FROM `tipodevehiculo`;
 /*!40000 ALTER TABLE `tipodevehiculo` DISABLE KEYS */;
 INSERT INTO `tipodevehiculo` (`indice`, `Descripcion`) VALUES
@@ -653,7 +655,13 @@ INSERT INTO `trans_correosenviados` (`indice`, `Nombre`, `Apellidos`, `Correo`, 
 	(174, 'Mario Fernando', 'Moreno Carrillon', 'erik.castaneda@unitypromotores.com', 'Automóvil', 'Murciela', 'FERRARI', '65465465', '2001', 0.00, '2016-09-02 14:32:02', 'Responsabilidad Civil', 'erik.castaneda@unitypromotores.com', 'Roble', 'Por Telefono - Inmediatamente', b'1', NULL, b'1', NULL, NULL, NULL, NULL, NULL, 'H764T844', NULL),
 	(175, 'Clotilda', 'Mesa', 'erik.castaneda@unitypromotores.com', 'Automóvil', 'Romeo', 'ALFA', '65465465', '2001', 0.00, '2016-09-02 14:37:28', 'Responsabilidad Civil', 'erik.castaneda@unitypromotores.com', 'Roble', 'Por Telefono - Inmediatamente', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 	(176, 'Juan Domingo', 'Perez Perez', 'erik.castaneda@unitypromotores.com', 'Camioneta', 'Familiar', 'ASIA', '65465465', '2001', 0.00, '2016-09-02 14:44:33', 'Responsabilidad Civil', 'erik.castaneda@unitypromotores.com', 'Roble', 'Por Telefono - Inmediatamente', b'1', NULL, b'1', NULL, NULL, NULL, NULL, NULL, 'H764T844', NULL),
-	(177, 'Juan Domingo', 'Perez Perez', 'erik.castaneda@unitypromotores.com', 'Camioneta', 'Familiar', 'ASIA', '65465465', '2001', 0.00, '2016-09-02 14:44:37', 'Responsabilidad Civil', 'erik.castaneda@unitypromotores.com', 'Roble', 'Por Telefono - Inmediatamente', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+	(177, 'Juan Domingo', 'Perez Perez', 'erik.castaneda@unitypromotores.com', 'Camioneta', 'Familiar', 'ASIA', '65465465', '2001', 0.00, '2016-09-02 14:44:37', 'Responsabilidad Civil', 'erik.castaneda@unitypromotores.com', 'Roble', 'Por Telefono - Inmediatamente', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+	(178, 'Byron Alejandro', 'Cumex Gomex', 'erik.castaneda@unitypromotores.com', 'Motocicleta', 'Clasica', 'HONDA', '65465465', '2001', 0.00, '2016-09-05 15:57:02', 'Responsabilidad Civil', 'erik.castaneda@unitypromotores.com', 'Roble', 'Por Telefono - Inmediatamente', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+	(179, 'Vilma Lucrecia', 'Monzon Valdez', 'erik.castaneda@unitypromotores.com', 'Motocicleta', 'Scrambler', 'HONDA', '65465465', '2001', 25000.00, '2016-09-05 16:08:43', 'Seguro Completo', 'erik.castaneda@unitypromotores.com', 'Roble', 'Por Telefono - Inmediatamente', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+	(180, 'Violeta', 'De las Nieves', 'erik.castaneda@unitypromotores.com', 'Motocicleta', 'Scrambler', 'ADMIRAL', '65465465', '2001', 25500.00, '2016-09-05 16:16:34', 'Seguro Completo', 'erik.castaneda@unitypromotores.com', 'Roble', 'Por Telefono - Inmediatamente', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+	(181, 'Maura', 'Alvarez de Bodner', 'erik.castaneda@unitypromotores.com', 'Motocicleta', 'Scrambler', 'APOLO', '65465465', '2001', 15000.00, '2016-09-05 16:25:35', 'Seguro Completo', 'erik.castaneda@unitypromotores.com', 'Roble', 'Por Telefono - Inmediatamente', b'1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'H764T844', NULL),
+	(182, 'Lucrecia Parafina', 'de Borgia', 'erik.castaneda@unitypromotores.com', 'Motocicleta', 'a', 'ACCU', '65465465', '2001', 45000.00, '2016-09-05 16:51:33', 'Seguro Completo', 'erik.castaneda@unitypromotores.com', 'Roble', 'Por Telefono - Inmediatamente', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+	(183, 'Mirna Virginia', 'Caceres Monge', 'erik.castaneda@unitypromotores.com', 'Motocicleta', 's', 'ALFA', '65465465', '2001', 0.00, '2016-09-05 16:55:30', 'Responsabilidad Civil', 'erik.castaneda@unitypromotores.com', 'Roble', 'Por Telefono - Inmediatamente', b'1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'H764T844', NULL);
 /*!40000 ALTER TABLE `trans_correosenviados` ENABLE KEYS */;
 
 
