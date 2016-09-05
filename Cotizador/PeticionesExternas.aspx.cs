@@ -31,6 +31,7 @@ namespace Cotizador
 
           DataTable content = Cotizadores.Cotizacion(cotizacion);
           string tiposeguro = "";
+          int moto = 0;
           Session["Cotizacion"] = cotizacion;
           foreach (DataRow rw in content.Rows)
           {
@@ -44,21 +45,40 @@ namespace Cotizador
               Session["NombreCliente"] = rw["NombreCliente"];
               Session["DescripcionVehiculo"] = rw["DescripcionVehiculo"];
               tiposeguro = rw["TipoSeguro"].ToString();
+              if (int.Parse(rw["Moto"].ToString()) == 7)
+              { Session["Moto"] = "7"; }
+              else { Session["Moto"] = ""; }
+
               break;
           }
           Cotizadores.ActualizaPaso1(cotizacion);
           string codigo = Cotizadores.GuardaCodigo(cotizacion);
           Session["Codigo"] = codigo;
-
+       
           if (tiposeguro == "Seguro Completo")
           {
               Session["Seguro"] = "Seguro Completo";
-              Response.Redirect("Rpt1.aspx");
-
+              if (moto == 7)
+              {
+                  Response.Redirect("Rpt3.aspx");
+              }
+              else
+              {
+                  Response.Redirect("Rpt1.aspx");
+              }
           }
           else {
               Session["Seguro"] = "Responsabilidad Civil";
-              Response.Redirect("Rpt2.aspx"); 
+              if (moto == 7)
+              {
+                  Response.Redirect("Rpt2.aspx"); 
+              }
+              else
+              {
+                  Response.Redirect("Rpt1.aspx");
+              }
+
+             
           }
  
         }

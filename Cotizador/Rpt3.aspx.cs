@@ -8,7 +8,7 @@ using Microsoft.Reporting.WebForms;
 
 namespace Cotizador
 {
-    public partial class Rpt2 : System.Web.UI.Page
+    public partial class Rpt3 : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -19,13 +19,6 @@ namespace Cotizador
             }
             catch (Exception)
             { }
-            string moto = "";
-            try
-            {
-                moto = Request.QueryString["Moto"];
-            }
-            catch (Exception)
-            { moto = ""; }
 
             try
             {
@@ -67,10 +60,7 @@ namespace Cotizador
                 this.Image2.Height = 150;
                 this.Image3.Width = 150;
                 this.Image3.Height = 150;
-
-                if (moto != "")
-                { this.HyperLink1.NavigateUrl = Cotizadores.LinkUbicaciones(codigoempresa, "Link6") + "?asdf=" + cotizacion; }
-                else { this.HyperLink1.NavigateUrl = Cotizadores.LinkUbicaciones(codigoempresa, "Link5") + "?asdf=" + cotizacion; }
+                this.HyperLink1.NavigateUrl = Cotizadores.LinkUbicaciones(codigoempresa, "Link6") + "?asdf=" + cotizacion;
                 this.HyperLink2.NavigateUrl = Cotizadores.LinkUbicaciones(codigoempresa, "Link2") + "?asdf=" + cotizacion;
                 this.HyperLink3.NavigateUrl = Cotizadores.LinkUbicaciones(codigoempresa, "Link3") + "?asdf=" + cotizacion; ;
                 this.Image2.Visible = false;

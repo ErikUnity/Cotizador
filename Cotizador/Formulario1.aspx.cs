@@ -242,7 +242,10 @@ namespace Cotizador
             { _tipo_seguro = "Responsabilidad Civil";
               MensajeTipo = 2;
             }
-        
+
+            if (cmbTipoVehiculo.SelectedValue == "7" )
+            { MensajeTipo = 7; 
+            }
 
             if (Incompleto)
                 return;

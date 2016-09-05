@@ -3286,7 +3286,6 @@
                                       <PaddingBottom>2pt</PaddingBottom>
                                     </Style>
                                   </Textbox>
-                                  <rd:Selected>true</rd:Selected>
                                 </CellContents>
                               </TablixCell>
                             </TablixCells>
@@ -3761,6 +3760,14 @@
         </Field>
         <Field Name="DescripcionVehiculo">
           <DataField>DescripcionVehiculo</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="MotoDeduciblePorDañosyAccidentes">
+          <DataField>MotoDeduciblePorDañosyAccidentes</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="MotoDeducibleRobo">
+          <DataField>MotoDeducibleRobo</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>

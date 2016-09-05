@@ -86,6 +86,8 @@ namespace Cotizador
        lista.NombreCliente = NombreCliente;
        lista.NombreAgente = "";
        lista.DescripcionVehiculo = DescripcionVehiculo;
+       lista.MotoDeduciblePorDañosyAccidentes = Calculo.MotoDeduciblesPorDañosyAccidentes;
+       lista.MotoDeducibleRobo = Calculo.MotoDeducibles_Robo;
        data.Add(lista);
 
             return data;
@@ -161,6 +163,133 @@ namespace Cotizador
             
              return resultado;
          }
+         public static decimal ObtieneMotoDañosATercerosBase(string Codigo)
+         {
+             decimal resultado = 0;
+
+             DataTable content = new DataTable();
+             content = AccesoDatos.RegresaTablaMySql("Select MotoDanosATercerosBase from maestro_reglasnegocio where CodigoEmpresa = '" + Codigo + "'");
+             DataView dv = new DataView(content);
+             foreach (DataRow rw in content.Rows)
+             {
+                 if (rw[0].ToString() != null && rw[0].ToString().Trim() != "")
+                 {
+                     resultado = decimal.Parse(rw[0].ToString());
+                 }
+             }
+
+             return resultado;
+         }
+
+         public static decimal ObtieneMotoPorcentaje_DeducibleDañosYAccidentes(string Codigo)
+         {
+             decimal resultado = 0;
+
+             DataTable content = new DataTable();
+             content = AccesoDatos.RegresaTablaMySql("Select MotoPorcentaje_DeducibleDañosYAccidentes from maestro_reglasnegocio where CodigoEmpresa = '" + Codigo + "'");
+             DataView dv = new DataView(content);
+             foreach (DataRow rw in content.Rows)
+             {
+                 if (rw[0].ToString() != null && rw[0].ToString().Trim() != "")
+                 {
+                     resultado = decimal.Parse(rw[0].ToString());
+                 }
+             }
+
+             return resultado;
+         }
+
+
+         public static decimal ObtieneMotoPorcentaje_DeducibleRobo(string Codigo)
+         {
+             decimal resultado = 0;
+
+             DataTable content = new DataTable();
+             content = AccesoDatos.RegresaTablaMySql("Select MotoPorcentaje_DeducibleRobo from maestro_reglasnegocio where CodigoEmpresa = '" + Codigo + "'");
+             DataView dv = new DataView(content);
+             foreach (DataRow rw in content.Rows)
+             {
+                 if (rw[0].ToString() != null && rw[0].ToString().Trim() != "")
+                 {
+                     resultado = decimal.Parse(rw[0].ToString());
+                 }
+             }
+
+             return resultado;
+         }
+
+         public static decimal ObtieneMotoPorcentaje_Cobro(string Codigo)
+         {
+             decimal resultado = 0;
+
+             DataTable content = new DataTable();
+             content = AccesoDatos.RegresaTablaMySql("Select MotoPorcentaje_Cobro from maestro_reglasnegocio where CodigoEmpresa = '" + Codigo + "'");
+             DataView dv = new DataView(content);
+             foreach (DataRow rw in content.Rows)
+             {
+                 if (rw[0].ToString() != null && rw[0].ToString().Trim() != "")
+                 {
+                     resultado = decimal.Parse(rw[0].ToString());
+                 }
+             }
+
+             return resultado;
+         }
+
+         public static decimal ObtieneMotoCobro_PorServicio(string Codigo)
+         {
+             decimal resultado = 0;
+
+             DataTable content = new DataTable();
+             content = AccesoDatos.RegresaTablaMySql("Select MotoCobro_PorServicio from maestro_reglasnegocio where CodigoEmpresa = '" + Codigo + "'");
+             DataView dv = new DataView(content);
+             foreach (DataRow rw in content.Rows)
+             {
+                 if (rw[0].ToString() != null && rw[0].ToString().Trim() != "")
+                 {
+                     resultado = decimal.Parse(rw[0].ToString());
+                 }
+             }
+
+             return resultado;
+         }
+
+         public static decimal ObtieneMotoPorcentaje_PorServicio(string Codigo)
+         {
+             decimal resultado = 0;
+
+             DataTable content = new DataTable();
+             content = AccesoDatos.RegresaTablaMySql("Select MotoPorcentaje_PorServicio from maestro_reglasnegocio where CodigoEmpresa = '" + Codigo + "'");
+             DataView dv = new DataView(content);
+             foreach (DataRow rw in content.Rows)
+             {
+                 if (rw[0].ToString() != null && rw[0].ToString().Trim() != "")
+                 {
+                     resultado = decimal.Parse(rw[0].ToString());
+                 }
+             }
+
+             return resultado;
+         }
+
+         public static decimal MotoSumaLimiteParaCalculo(string Codigo)
+         {
+             decimal resultado = 0;
+
+             DataTable content = new DataTable();
+             content = AccesoDatos.RegresaTablaMySql("Select MotoSumaLimiteParaCalculo from maestro_reglasnegocio where CodigoEmpresa = '" + Codigo + "'");
+             DataView dv = new DataView(content);
+             foreach (DataRow rw in content.Rows)
+             {
+                 if (rw[0].ToString() != null && rw[0].ToString().Trim() != "")
+                 {
+                     resultado = decimal.Parse(rw[0].ToString());
+                 }
+             }
+
+             return resultado;
+         }
+
          public static decimal ObtienePorcentajeMayor(string Codigo)
          {
              decimal resultado = 0;
@@ -350,7 +479,7 @@ namespace Cotizador
           public static DataTable Cotizacion(string _id)
           {
               DataTable content = new DataTable();
-              content = AccesoDatos.RegresaTablaMySql("Select CodigoEmpresa, SumaAsegurada, Concat( Nombre , ' ' , Apellidos) as NombreCliente , Concat(TipoDeVehiculo , ' ' , Marca , ' ' , Modelo , ' ' ,  Linea) as DescripcionVehiculo, TipoSeguro from  trans_correosenviados where indice = " + _id);
+              content = AccesoDatos.RegresaTablaMySql("Select (select tv.indice from tipodevehiculo tv where tv.Descripcion = ce.TipoDeVehiculo limit 1; ) as moto, ce.CodigoEmpresa, ce.SumaAsegurada, Concat( ce.Nombre , ' ' , ce.Apellidos) as NombreCliente , Concat(ce.TipoDeVehiculo , ' ' , ce.Marca , ' ' , ce.Modelo , ' ' ,  ce.Linea) as DescripcionVehiculo, ce.TipoSeguro from  trans_correosenviados ce where ce.indice = " + _id);
               DataView dv = new DataView(content);
               return content;
           }
@@ -825,7 +954,19 @@ namespace Cotizador
       public decimal Exceso_RC_Base = 0;
       public decimal DañosATerceros = 0;
       public decimal PorcentajeResponsabilidadCivil = 0;
-
+      public decimal MotoDeduciblesPorDañosyAccidentes = 0;
+      public decimal MotoDeducibles_Robo = 0;
+/// <summary>
+/// Ejecuta los valores de las formulas de acuerdo a la empresa para el calculo de la cotización.
+/// </summary>
+/// <param name="_Codigo"></param>
+/// <param name="_SumaAsegurada"></param>
+/// <param name="_roboParcial"></param>
+/// <param name="_MenoresDesde16"></param>
+/// <param name="_MenoresDesde18"></param>
+/// <param name="_ExcesoRC"></param>
+/// <param name="_RoboParcial"></param>
+/// <param name="MensajeTipo"></param>
       public Valores(string _Codigo, decimal _SumaAsegurada, bool _roboParcial, bool _MenoresDesde16, bool _MenoresDesde18, bool _ExcesoRC, decimal _RoboParcial, int MensajeTipo)
         {
             decimal equipo_especial = 0;
@@ -833,6 +974,13 @@ namespace Cotizador
             decimal mil = 1000;
             decimal docientoscientuena = 250;
             decimal PrimaNetaRC = Cotizadores.ObtienePrimaNetaRC(_Codigo);
+            decimal MotoDañosATerceros = Cotizadores.ObtieneMotoDañosATercerosBase(_Codigo);
+            decimal MotoPorcentaje_DeducibleDañosYAccidentes = Cotizadores.ObtieneMotoPorcentaje_DeducibleDañosYAccidentes(_Codigo);
+            decimal MotoSumaLimiteParaCalculo = Cotizadores.MotoSumaLimiteParaCalculo(_Codigo);
+            decimal MotoPorcentaje_DeducibleRobo = Cotizadores.ObtieneMotoPorcentaje_DeducibleRobo(_Codigo);
+            decimal MotoPorcentaje_Cobro = Cotizadores.ObtieneMotoPorcentaje_Cobro(_Codigo);
+            decimal MotoCobro_PorServicio = Cotizadores.ObtieneMotoCobro_PorServicio(_Codigo);
+            decimal MotoPorcentaje_PorServicio = Cotizadores.ObtieneMotoPorcentaje_PorServicio(_Codigo);
 
              Codigo = _Codigo;
              SumaAsegurada = _SumaAsegurada;
@@ -856,11 +1004,11 @@ namespace Cotizador
              DiasTotales = int.Parse((nextyear - olddate).TotalDays.ToString());
              DañosATerceros = Exceso_RC_Base;
              PorcentajeResponsabilidadCivil = Cotizadores.ObtienePorcentajeResponsabilidadCivil(_Codigo);
-
+             
 
              if (MensajeTipo == 1)
              {
-                 if (SumaAsegurada < SumaLimiteParaCalculo)
+                 if ((SumaAsegurada * Porcentaje_Menor_100 + Costo) < SumaLimiteParaCalculo)
                  {
                      PrimaNeta = (SumaAsegurada * Porcentaje_Menor_100 + Costo);
                      //=SI((B6*0.025+500)<1000,1000,(B6*0.025+500))+D5
@@ -872,18 +1020,74 @@ namespace Cotizador
                      //=SI((B6*0.02+500)<1000,1000,(B6*0.02+500))+D5
                  }
              }
-             else {
+
+             if (MensajeTipo == 2)
+             {
 
                  PrimaNeta = (PrimaNetaRC * PorcentajeResponsabilidadCivil);
-                 //=(D6*1.05)+145.45+((D6*1.05+145.45)*0.12)
+                 //=(D6*1.05)+145.45+((D6*1.05+145.45)*0.12) 
              }
-             
-             //L31*100/1000
-             
 
-             GastosPorEmision = PrimaNeta * (Cotizadores.ObtieneValor_GastosEmision(_Codigo));
-             PrimaNetaProRata = PrimaNeta * DiasTotales / DiasAnuales;
-             GastosPorEmisionProRata = PrimaNetaProRata * (Cotizadores.ObtieneValor_GastosEmision(_Codigo));
+             if (MensajeTipo == 7)
+             {
+                 if ((SumaAsegurada * MotoPorcentaje_DeducibleDañosYAccidentes) < MotoSumaLimiteParaCalculo)
+                 {
+                     MotoDeduciblesPorDañosyAccidentes = MotoSumaLimiteParaCalculo;
+                     
+                 // =SI(($B$6*0.05<500),500,($B$6*0.05))
+          
+                 }
+                 else {
+                     MotoDeduciblesPorDañosyAccidentes = SumaAsegurada * MotoPorcentaje_DeducibleDañosYAccidentes;
+      
+                 // =SI(($B$6*0.05<500),500,($B$6*0.05))
+         
+
+                 }
+
+                 if ((SumaAsegurada * MotoPorcentaje_DeducibleRobo) < MotoSumaLimiteParaCalculo)
+                 {
+                   
+                     MotoDeducibles_Robo = MotoSumaLimiteParaCalculo;
+                     
+                     // =SI(($B$6*0.2<500),500,($B$6*0.2))
+                 }
+                 else
+                 {
+                     MotoDeducibles_Robo = SumaAsegurada * MotoPorcentaje_DeducibleRobo;
+                   
+                     //=SI(($B$6*0.2<500),500,($B$6*0.2))
+
+                 }
+
+                 if ((SumaAsegurada * MotoPorcentaje_Cobro + MotoCobro_PorServicio) < MotoSumaLimiteParaCalculo)
+                 {
+                     PrimaNeta = MotoSumaLimiteParaCalculo;
+                 }else{
+
+                     PrimaNeta = SumaAsegurada * MotoPorcentaje_Cobro + MotoCobro_PorServicio;
+                 }
+                 
+                 
+    
+             }
+
+             //L31*100/1000
+
+             if (MensajeTipo != 7)
+             {
+                 GastosPorEmision = PrimaNeta * (Cotizadores.ObtieneValor_GastosEmision(_Codigo));
+                 PrimaNetaProRata = PrimaNeta * DiasTotales / DiasAnuales;
+                 GastosPorEmisionProRata = PrimaNetaProRata * (Cotizadores.ObtieneValor_GastosEmision(_Codigo));
+             }
+             else {
+                 GastosPorEmision = PrimaNeta * (Cotizadores.ObtieneValor_GastosEmision(_Codigo));
+                 PrimaNetaProRata = PrimaNeta * DiasTotales / DiasAnuales;
+                 //=E2/365*I3
+                 PrimaTotalProRata = PrimaNetaProRata * MotoPorcentaje_PorServicio * Iva;
+                
+             }
+
 
              if (_roboParcial)
              {
@@ -938,8 +1142,11 @@ namespace Cotizador
             Iva = (CoberturaAdicional + PrimaNeta + GastosPorEmision + Asisto) * CalculoIva;
             IvaProRata = (CoberturaAdicional + PrimaNetaProRata + GastosPorEmisionProRata + Asisto) * CalculoIva;
             PrimaTotal = CoberturaAdicional + PrimaNeta + GastosPorEmision + Asisto + Iva;
-            PrimaTotalProRata = CoberturaAdicional + PrimaNetaProRata + GastosPorEmisionProRata + Asisto + IvaProRata;
-            
+            if (MensajeTipo != 7)
+            {
+                PrimaTotalProRata = CoberturaAdicional + PrimaNetaProRata + GastosPorEmisionProRata + Asisto + IvaProRata;
+            }
+
             Iva = decimal.Parse(Iva.ToString("F", CultureInfo.InvariantCulture));
             IvaProRata =  decimal.Parse(IvaProRata.ToString("F", CultureInfo.InvariantCulture));
             PrimaNetaProRata =  decimal.Parse(PrimaNetaProRata.ToString("F", CultureInfo.InvariantCulture));
@@ -1153,6 +1360,18 @@ namespace Cotizador
       {
           get { return _DescripcionVehiculo; }
           set { this._DescripcionVehiculo = value; }
+      }
+      private decimal _MotoDeduciblePorDañosyAccidentes = 0;
+      public decimal MotoDeduciblePorDañosyAccidentes
+      {
+          get { return _MotoDeduciblePorDañosyAccidentes; }
+          set { this._MotoDeduciblePorDañosyAccidentes = value; }
+      }
+      private decimal _MotoDeducibleRobo = 0;
+      public decimal MotoDeducibleRobo
+      {
+          get { return _MotoDeducibleRobo; }
+          set { this._MotoDeducibleRobo = value; }
       }
 
     }

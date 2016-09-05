@@ -160,6 +160,7 @@
     <Content Include="PeticionesExternas.aspx" />
     <Content Include="Recursos\Script2.html" />
     <Content Include="Recursos\Script1.html" />
+    <Content Include="Rpt3.aspx" />
     <Content Include="Rpt2.aspx" />
     <Content Include="Rpt1.aspx" />
     <Content Include="Web.config" />
@@ -222,6 +223,13 @@
       <DependentUpon>PeticionesExternas.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Rpt3.aspx.cs">
+      <DependentUpon>Rpt3.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Rpt3.aspx.designer.cs">
+      <DependentUpon>Rpt3.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Rpt2.aspx.cs">
       <DependentUpon>Rpt2.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -246,6 +254,7 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Reportes\CotizadorRoble - Copy.rdlc" />
+    <EmbeddedResource Include="Reportes\CotizadorRobleMoto.rdlc" />
     <EmbeddedResource Include="Reportes\CotizadorRobleRCivil.rdlc" />
     <EmbeddedResource Include="Reportes\CotizadorRoble.rdlc" />
   </ItemGroup>
