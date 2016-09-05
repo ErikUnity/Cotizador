@@ -127,7 +127,38 @@ namespace Cotizador
 
          }
 
+         public void EnviarAviso(string Para,string  Nombre,string Descripcion, string Titulo)
+         {
 
+             string from = "erik.castaneda@unitypromotores.com";
+             System.Net.Mail.MailMessage mail = new System.Net.Mail.MailMessage();
+             mail.To.Add(Para);
+             mail.From = new MailAddress(from, Titulo, System.Text.Encoding.UTF8);
+             mail.Subject = Titulo;
+             mail.SubjectEncoding = System.Text.Encoding.UTF8;
+             mail.Body = Descripcion;
+             mail.BodyEncoding = System.Text.Encoding.UTF8;
+             mail.IsBodyHtml = true;
+             mail.Priority = MailPriority.High;
+             SmtpClient client = new SmtpClient();
+             //Add the Creddentials- use your own email id and password
+
+             client.Credentials = new System.Net.NetworkCredential(from, "Kellen2014");
+
+             client.Port = 587; // Gmail works on this port
+             client.Host = "smtp.gmail.com";
+             client.EnableSsl = true; //Gmail works on Server Secured Layer
+
+             try
+             {
+                 client.Send(mail);
+             }
+             catch (Exception ex)
+             {
+                 Helper.RegistrarEvento("Error de correo : " + ex.Message);
+
+             } // end try 
+         }
      }
 }
 

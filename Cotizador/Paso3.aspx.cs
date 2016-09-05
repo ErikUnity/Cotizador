@@ -115,7 +115,7 @@ namespace Cotizador
         protected void Button1_Click(object sender, EventArgs e)
         {
             string _id = this.HiddenField1.Value;
-                        bool Incompleto = false;
+            bool Incompleto = false;
             if (this.txtNit.Text.Trim() == "")
             {
                 ClientScript.RegisterStartupScript(this.GetType(), "errNit", "document.getElementById('errNit').style.visibility = 'visible';", true);
@@ -125,7 +125,7 @@ namespace Cotizador
             {
                 ClientScript.RegisterStartupScript(this.GetType(), "errNit", "document.getElementById('errNit').style.visibility = 'hidden';", true);
             }
-             
+
             if (this.txtDPI.Text.Trim() == "")
             {
                 ClientScript.RegisterStartupScript(this.GetType(), "errDpi", "document.getElementById('errDpi').style.visibility = 'visible';", true);
@@ -135,8 +135,8 @@ namespace Cotizador
             {
                 ClientScript.RegisterStartupScript(this.GetType(), "errDpi", "document.getElementById('errDpi').style.visibility = 'hidden';", true);
             }
-            
-            
+
+
             if (this.txtDireccion.Text.Trim() == "")
             {
                 ClientScript.RegisterStartupScript(this.GetType(), "errDireccion", "document.getElementById('errDireccion').style.visibility = 'visible';", true);
@@ -148,7 +148,7 @@ namespace Cotizador
             }
 
 
-             if (this.txtZona.Text.Trim() == "")
+            if (this.txtZona.Text.Trim() == "")
             {
                 ClientScript.RegisterStartupScript(this.GetType(), "errZona", "document.getElementById('errZona').style.visibility = 'visible';", true);
                 Incompleto = true;
@@ -158,7 +158,7 @@ namespace Cotizador
                 ClientScript.RegisterStartupScript(this.GetType(), "errZona", "document.getElementById('errZona').style.visibility = 'hidden';", true);
             }
 
-             if (this.txtMunicipio.Text.Trim() == "")
+            if (this.txtMunicipio.Text.Trim() == "")
             {
                 ClientScript.RegisterStartupScript(this.GetType(), "errMunicipio", "document.getElementById('errMunicipio').style.visibility = 'visible';", true);
                 Incompleto = true;
@@ -170,10 +170,42 @@ namespace Cotizador
 
 
 
-             if (Incompleto)
+            if (Incompleto)
                 return;
-             Cotizadores.Actualiza3Paso(_id, this.txtNit.Text, this.txtNit.Text, this.txtDireccion.Text, this.txtZona.Text, this.txtMunicipio.Text);
-             ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Paso Tres Completado');", true);
+
+            if (Cotizadores.VerificaExistenciaDato3Paso(_id))
+            {
+                string correocliente = Cotizadores.CorreoCliente(_id);
+                string nombreCliente = Cotizadores.NombreCliente(_id);
+                string apellidos = Cotizadores.ApellidosCliente(_id);
+                string descripcion = Cotizadores.MensajesAutomaticos("5");
+                string CodigoEmpresa = Cotizadores.CodigoEmpresaCliente(_id);
+                string telefono = Cotizadores.TelefonoCliente(_id);
+
+                descripcion = descripcion.Replace("{Nombre}",nombreCliente);
+                if (Cotizadores.RestringirCorreoAvisoCliente(_id) == false)
+                {
+                    EnvioDeCorreoRapido.EjecutarAvisoDeActualizacion(correocliente, nombreCliente, descripcion,"Seguro de Vehiculos Paso 3 Actualización");
+                }
+                descripcion = descripcion.Replace("{Datos}", "Datos del Cliente : " + nombreCliente + " " + apellidos + ", Correo : " + correocliente + ", Id de cotización : " + _id + ", Empresa : " + CodigoEmpresa + ", Telefono : " + telefono);
+                List<CorreosInternos> correo = new List<CorreosInternos>();
+                correo = Cotizadores.EnviarCorreosInternos(CodigoEmpresa);
+
+                if (correo.Count != 0)
+                {
+                    foreach (var item in correo)
+                    {
+                        EnvioDeCorreoRapido.EjecutarAvisoDeActualizacion(item.Correo, nombreCliente, descripcion, "Seguro de Vehiculos Paso 3 Actualización");
+                    }
+                }
+
+                ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Su información ya fue almacenada anteriormente, para actualizarla un ejecutivo estara contactandole en breve.');", true);
+            }
+            else
+            {
+                Cotizadores.Actualiza3Paso(_id, this.txtNit.Text, this.txtNit.Text, this.txtDireccion.Text, this.txtZona.Text, this.txtMunicipio.Text);
+                ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Paso Tres Completado');", true);
+            }
         }
     }
 }

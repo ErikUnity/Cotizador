@@ -14,13 +14,8 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <div>
-        <img src="imagenes/Agradecimiento.jpg" />
-    </div>
+    <table ><tr><td  ><img src="imagenes/Agradecimiento.jpg" style="width:800px; height:900px;"  /></td></tr></table>
     </form>
-    <p>
-        Ejemplo de una pagina de agredecimiento. La propuesta ha sido enviada a su correo personal.</p>
-    <p>
-        <img alt="En breve un ejecutivo lo estara contactando" class="auto-style1" src="imagenes/Contacto.jpg" />En breve un ejecutivo lo estara contactando.</p>
+ 
 </body>
 </html>

@@ -219,7 +219,66 @@ namespace Cotizador
                 }
             }
         }
+
+        public static void EjecutarAvisoDeActualizacion(string Para, string Nombre, string Descripcion, string titulo)
+        {
+
+            // Create the thread object. This does not start the thread.
+            Aviso mensaje = new Aviso();
+            mensaje.Para = Para;
+            mensaje.Nombre = Nombre;
+            mensaje.Descripcion = Descripcion;
+            mensaje.Titulo = titulo;
+
+            Thread workerThread = new Thread(mensaje.DoWork);
+
+            // Start the worker thread.
+            workerThread.Start();
+
+            // Loop until worker thread activates.
+            while (!workerThread.IsAlive) ;
+
+            // Put the main thread to sleep for 1 millisecond to
+            // allow the worker thread to do some work:
+            Thread.Sleep(1);
+
+            // Request that the worker thread stop itself:
+            mensaje.RequestStop();
+
+            // Use the Join method to block the current thread 
+            // until the object's thread terminates.
+            workerThread.Join();
+
+        }
+
+
     }
 
+    public class Aviso
+    {
+   
+        public string Para = "";
+        public string Nombre = "";
+        public string Descripcion = "";
+        public string Titulo = "";
+
+        // This method will be called when the thread is started.
+        public void DoWork()
+        {
+
+            Correo enviando = new Correo();
+            string titulo = "Actualización de datos para el Seguro de " + Titulo;
+            enviando.EnviarAviso( Para, Nombre, Descripcion, Titulo);
+        
+
+        }
+        public void RequestStop()
+        {
+            _shouldStop = true;
+        }
+        // Volatile is used as hint to the compiler that this data
+        // member will be accessed by multiple threads.
+        private volatile bool _shouldStop;
+    }
 
 }

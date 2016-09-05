@@ -305,6 +305,19 @@ namespace Cotizador
               string sql = "update trans_correosenviados  set nit = '"+ _nit +"', dpi = '"+ _dpi +"', direccion = '"+ _direccion +"', zona = '"+ _zona +"', municipio = '"+ _municipio +"' where indice = " + _id;
               AccesoDatos.EjecutaQueryMySql(sql);
           }
+          public static bool VerificaExistenciaDato3Paso(string _id)
+          {
+              string sql = "Select count(*) from trans_correosenviados where indice = " + _id + " and ifnull(dpi,'') = ''";
+              string verifica =  AccesoDatos.RegresaCadena_1_ResultadoMysql(sql);
+
+              if (verifica != "0")
+              {
+                  return false;
+              }
+              else { return true; }
+
+          }
+
           public static string GuardaCodigo(string _id)
           {
               string resultado = "";
@@ -505,7 +518,135 @@ namespace Cotizador
 
              return resultado;
          }
+         public static string CorreoCliente(string _id)
+         {
+             string resultado = "";
 
+             DataTable content = new DataTable();
+             content = AccesoDatos.RegresaTablaMySql("select correo from trans_correosenviados where indice = " + _id);
+             DataView dv = new DataView(content);
+             foreach (DataRow rw in content.Rows)
+             {
+                 if (rw[0].ToString() != null && rw[0].ToString().Trim() != "")
+                 {
+                     resultado = rw[0].ToString();
+                     break;
+                 }
+             }
+
+             return resultado;
+         }
+         public static string CodigoEmpresaCliente(string _id)
+         {
+             string resultado = "";
+
+             DataTable content = new DataTable();
+             content = AccesoDatos.RegresaTablaMySql("select CodigoEmpresa from trans_correosenviados where indice = " + _id);
+             DataView dv = new DataView(content);
+             foreach (DataRow rw in content.Rows)
+             {
+                 if (rw[0].ToString() != null && rw[0].ToString().Trim() != "")
+                 {
+                     resultado = rw[0].ToString();
+                     break;
+                 }
+             }
+
+             return resultado;
+         }
+         public static string TelefonoCliente(string _id)
+         {
+             string resultado = "";
+
+             DataTable content = new DataTable();
+             content = AccesoDatos.RegresaTablaMySql("select Telefono from trans_correosenviados where indice = " + _id);
+             DataView dv = new DataView(content);
+             foreach (DataRow rw in content.Rows)
+             {
+                 if (rw[0].ToString() != null && rw[0].ToString().Trim() != "")
+                 {
+                     resultado = rw[0].ToString();
+                     break;
+                 }
+             }
+
+             return resultado;
+         }
+
+         public static bool RestringirCorreoAvisoCliente(string _id)
+         {
+             bool resultado = false;
+
+             DataTable content = new DataTable();
+             content = AccesoDatos.RegresaTablaMySql("select status from trans_correosenviados where indice = " + _id);
+             DataView dv = new DataView(content);
+             foreach (DataRow rw in content.Rows)
+             {
+                 if (rw[0].ToString() != null && rw[0].ToString().Trim() != "")
+                 {
+                     resultado = bool.Parse(rw[0].ToString());
+                     break;
+                 }
+             }
+
+
+             return resultado;
+         }
+
+         public static string NombreCliente(string _id)
+         {
+             string resultado = "";
+
+             DataTable content = new DataTable();
+             content = AccesoDatos.RegresaTablaMySql("select Nombre from trans_correosenviados where indice = " + _id);
+             DataView dv = new DataView(content);
+             foreach (DataRow rw in content.Rows)
+             {
+                 if (rw[0].ToString() != null && rw[0].ToString().Trim() != "")
+                 {
+                     resultado = rw[0].ToString();
+                     break;
+                 }
+             }
+
+             return resultado;
+         }
+         public static string ApellidosCliente(string _id)
+         {
+             string resultado = "";
+
+             DataTable content = new DataTable();
+             content = AccesoDatos.RegresaTablaMySql("select Apellidos from trans_correosenviados where indice = " + _id);
+             DataView dv = new DataView(content);
+             foreach (DataRow rw in content.Rows)
+             {
+                 if (rw[0].ToString() != null && rw[0].ToString().Trim() != "")
+                 {
+                     resultado = rw[0].ToString();
+                     break;
+                 }
+             }
+
+             return resultado;
+         }
+         public static string MensajesAutomaticos(string _codigo)
+         {
+             string resultado = "";
+
+             DataTable content = new DataTable();
+             content = AccesoDatos.RegresaTablaMySql("select mensaje from maestro_correoautomatico where codigo = '"+ _codigo +"'");
+             DataView dv = new DataView(content);
+             foreach (DataRow rw in content.Rows)
+             {
+                 if (rw[0].ToString() != null && rw[0].ToString().Trim() != "")
+                 {
+                     resultado = rw[0].ToString();
+                     break;
+                 }
+             }
+
+             return resultado;
+         }
          public static string StatusDescripcionPaso2(string _id)
          {
              string resultado = "";
