@@ -173,14 +173,18 @@ namespace Cotizador
             if (Incompleto)
                 return;
 
+
+            List<CorreosInternos> correo = new List<CorreosInternos>();
+            string correocliente = Cotizadores.CorreoCliente(_id);
+            string nombreCliente = Cotizadores.NombreCliente(_id);
+            string apellidos = Cotizadores.ApellidosCliente(_id);
+            string descripcion = Cotizadores.MensajesAutomaticos("5");
+            string telefono = Cotizadores.TelefonoCliente(_id);
+            string CodigoEmpresa = Cotizadores.CodigoEmpresaCliente(_id);
+
+
             if (Cotizadores.VerificaExistenciaDato3Paso(_id))
             {
-                string correocliente = Cotizadores.CorreoCliente(_id);
-                string nombreCliente = Cotizadores.NombreCliente(_id);
-                string apellidos = Cotizadores.ApellidosCliente(_id);
-                string descripcion = Cotizadores.MensajesAutomaticos("5");
-                string CodigoEmpresa = Cotizadores.CodigoEmpresaCliente(_id);
-                string telefono = Cotizadores.TelefonoCliente(_id);
 
                 descripcion = descripcion.Replace("{Nombre}",nombreCliente);
                 if (Cotizadores.RestringirCorreoAvisoCliente(_id) == false)
@@ -188,9 +192,7 @@ namespace Cotizador
                     EnvioDeCorreoRapido.EjecutarAvisoDeActualizacion(correocliente, nombreCliente, descripcion,"Seguro de Vehiculos Paso 3 Actualización");
                 }
                 descripcion = descripcion.Replace("{Datos}", "Datos del Cliente : " + nombreCliente + " " + apellidos + ", Correo : " + correocliente + ", Id de cotización : " + _id + ", Empresa : " + CodigoEmpresa + ", Telefono : " + telefono);
-                List<CorreosInternos> correo = new List<CorreosInternos>();
                 correo = Cotizadores.EnviarCorreosInternos(CodigoEmpresa);
-
                 if (correo.Count != 0)
                 {
                     foreach (var item in correo)
@@ -205,6 +207,22 @@ namespace Cotizador
             {
                 Cotizadores.Actualiza3Paso(_id, this.txtNit.Text, this.txtNit.Text, this.txtDireccion.Text, this.txtZona.Text, this.txtMunicipio.Text);
                 ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Paso Tres Completado');", true);
+                descripcion = Cotizadores.MensajesAutomaticos("6");
+                descripcion = descripcion.Replace("{Nombre}", nombreCliente);
+                if (Cotizadores.RestringirCorreoAvisoCliente(_id) == false)
+                {
+                    EnvioDeCorreoRapido.EjecutarAvisoDeActualizacion(correocliente, nombreCliente, descripcion, "Seguro de Vehiculos Paso 3 Completado");
+                }
+                descripcion = descripcion.Replace("{Datos}", "Datos del Cliente : " + nombreCliente + " " + apellidos + ", Correo : " + correocliente + ", Id de cotización : " + _id + ", Empresa : " + CodigoEmpresa + ", Telefono : " + telefono);
+                correo = Cotizadores.EnviarCorreosInternos(CodigoEmpresa);
+                if (correo.Count != 0)
+                {
+                    foreach (var item in correo)
+                    {
+                        EnvioDeCorreoRapido.EjecutarAvisoDeActualizacion(item.Correo, nombreCliente, descripcion, "Seguro de Vehiculos Paso 3 Completado");
+                    }
+                }
+
             }
         }
     }
