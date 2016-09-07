@@ -26,6 +26,9 @@ namespace Cotizador
             }
             catch (Exception)
             { }
+
+            string moto = Session["Moto"].ToString();
+
             string empresa = "";
             string url = "";
             try

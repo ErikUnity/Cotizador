@@ -7,7 +7,7 @@
     <title>Cotización El Roble</title>
     <script src="js/jquery.min.js"></script>
     <script src="js/jquery.js"></script>
-    <link rel="stylesheet" type="text/css" href="css/Formulario1.css"/>
+    <link rel="stylesheet" type="text/css" href="http://testcotizador.unitypromotores.com/Cotizador/css/Formulario1.css"/>
 <style type="text/css">
     .centro {
     display: inline-block; 

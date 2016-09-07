@@ -8,7 +8,7 @@
 <head runat="server">
     <script src="js/jquery.min.js"></script>
     <script src="js/jquery.js"></script>
-    <link rel="stylesheet" type="text/css" href="css/Formulario1.css"/>
+    <link rel="stylesheet" type="text/css" href="http://testcotizador.unitypromotores.com/Cotizador/css/Formulario1.css"/>
     <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0"/>
     <title>Cotizador Unity Promotores</title>
 </head>

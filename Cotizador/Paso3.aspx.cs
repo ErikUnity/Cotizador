@@ -85,6 +85,12 @@ namespace Cotizador
                 Session["NombreCliente"] = rw["NombreCliente"];
                 Session["DescripcionVehiculo"] = rw["DescripcionVehiculo"];
                 tiposeguro = rw["TipoSeguro"].ToString();
+                if (moto == "" || moto == null)
+                {
+                    if (rw["TipoDeVehiculo"].ToString() == "Motocicleta")
+                    { moto = "7"; }
+                    else { moto = ""; };
+                }
                 break;
             }
 

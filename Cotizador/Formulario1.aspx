@@ -8,7 +8,7 @@
 <head runat="server">
     <script src="js/jquery.min.js"></script>
     <script src="js/jquery.js"></script>
-    <link rel="stylesheet" type="text/css" href="css/Formulario1.css"/>
+    <link rel="stylesheet" type="text/css" href="http://testcotizador.unitypromotores.com/Cotizador/css/Formulario1.css"/>
     <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0"/>
     <title>Cotizador Unity Promotores</title>
 </head>
@@ -482,7 +482,7 @@
     <li></li>
     <li></li>
     <li></li>
-    <li><div class="cuadro" style="text-align:right;"><asp:Image ID="Image5" CssClass="cuadro" runat="server" Height="94px" ImageUrl="http://testcotizador.unitypromotores.com/Cotizador/imagenes/logo_codisa.jpeg" Width="275px" /></div></li> 
+    <li><div class="cuadro" style="text-align:right;"><asp:Image ID="Image5" CssClass="cuadro" runat="server" Height="74px" ImageUrl="http://testcotizador.unitypromotores.com/Cotizador/imagenes/logo_codisa.jpeg" Width="163px" /></div></li> 
        </ul>
     </div>
     
