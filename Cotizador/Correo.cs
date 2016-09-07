@@ -12,9 +12,9 @@ namespace Cotizador
 
         public void EnviarCorreo(string _to, StringBuilder mensaje, string subject, int tipo, string archivo, string titulo,string Paso1,string Paso2,string Paso3, string Link1,string Link2,string Link3)
         {
-            string AtachmentPath = AppDomain.CurrentDomain.BaseDirectory + @"ASR27.xlsx";
-            Attachment data = new Attachment(AtachmentPath);
-            Attachment data1 = new Attachment(archivo);
+           // string AtachmentPath = AppDomain.CurrentDomain.BaseDirectory + @"ASR27.xlsx";
+           // Attachment data = new Attachment(AtachmentPath);
+            //Attachment data1 = new Attachment(archivo);
 
            string from = "erik.castaneda@unitypromotores.com"; 
             System.Net.Mail.MailMessage mail = new System.Net.Mail.MailMessage();

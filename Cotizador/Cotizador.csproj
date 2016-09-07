@@ -111,6 +111,7 @@
     <Reference Include="DevExpress.Web.ASPxRichEdit.v15.2, Version=15.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="SinConexion.aspx" />
     <Content Include="Agradecimiento.aspx" />
     <Content Include="bin\catalogo.sql" />
     <Content Include="bin\Cotizadores.dll" />
@@ -124,11 +125,18 @@
     <Content Include="bin\SlimeeLibrary.dll" />
     <Content Include="Cotizadores.csproj.user" />
     <Content Include="css\Formulario1.css" />
+    <Content Include="Formulario6.aspx" />
+    <Content Include="Formulario5.aspx" />
+    <Content Include="Formulario4.aspx" />
+    <Content Include="Formulario3.aspx" />
+    <Content Include="Formulario2.aspx" />
     <Content Include="Formulario1.aspx" />
     <Content Include="Global.asax" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="imagenes\Agradecimiento.jpg" />
+    <Content Include="imagenes\citibank-logo.png" />
+    <Content Include="imagenes\ColegioEstomatologico.png" />
     <Content Include="imagenes\Contacto.jpg" />
     <Content Include="imagenes\Error.png" />
     <Content Include="imagenes\FirmaEjecutivaAdministrativa.png" />
@@ -141,6 +149,10 @@
     <Content Include="imagenes\LogoCity.png" />
     <Content Include="imagenes\LogoElRoble.png" />
     <Content Include="imagenes\LogoUnity.png" />
+    <Content Include="imagenes\logo_capgemini.jpg" />
+    <Content Include="imagenes\logo_codisa.jpeg" />
+    <Content Include="imagenes\logo_fogel.png" />
+    <Content Include="imagenes\logo_telus.jpg" />
     <Content Include="imagenes\Paso1.png" />
     <Content Include="imagenes\Paso11.png" />
     <Content Include="imagenes\Paso2.png" />
@@ -157,9 +169,34 @@
     <Content Include="obj\Debug\Cotizadores.pdb" />
     <Content Include="Paso3.aspx" />
     <Content Include="Paso2.aspx" />
+    <Content Include="PeticionesExternas6.aspx" />
+    <Content Include="PeticionesExternas5.aspx" />
+    <Content Include="PeticionesExternas4.aspx" />
+    <Content Include="PeticionesExternas3.aspx" />
+    <Content Include="PeticionesExternas2.aspx" />
     <Content Include="PeticionesExternas.aspx" />
     <Content Include="Recursos\Script2.html" />
     <Content Include="Recursos\Script1.html" />
+    <Content Include="Rpt21.aspx" />
+    <Content Include="Rpt17.aspx" />
+    <Content Include="Rpt22.aspx" />
+    <Content Include="Rpt18.aspx" />
+    <Content Include="Rpt14.aspx" />
+    <Content Include="Rpt23.aspx" />
+    <Content Include="Rpt19.aspx" />
+    <Content Include="Rpt15.aspx" />
+    <Content Include="Rpt24.aspx" />
+    <Content Include="Rpt20.aspx" />
+    <Content Include="Rpt16.aspx" />
+    <Content Include="Rpt13.aspx" />
+    <Content Include="Rpt9.aspx" />
+    <Content Include="Rpt5.aspx" />
+    <Content Include="Rpt10.aspx" />
+    <Content Include="Rpt6.aspx" />
+    <Content Include="Rpt11.aspx" />
+    <Content Include="Rpt7.aspx" />
+    <Content Include="Rpt12.aspx" />
+    <Content Include="Rpt8.aspx" />
     <Content Include="Rpt4.aspx" />
     <Content Include="Rpt3.aspx" />
     <Content Include="Rpt2.aspx" />
@@ -179,6 +216,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AccesoDatos.cs" />
+    <Compile Include="SinConexion.aspx.cs">
+      <DependentUpon>SinConexion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SinConexion.aspx.designer.cs">
+      <DependentUpon>SinConexion.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Agradecimiento.aspx.cs">
       <DependentUpon>Agradecimiento.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -188,6 +232,41 @@
     </Compile>
     <Compile Include="Correo.cs" />
     <Compile Include="Cotizador.cs" />
+    <Compile Include="Formulario6.aspx.cs">
+      <DependentUpon>Formulario6.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Formulario6.aspx.designer.cs">
+      <DependentUpon>Formulario6.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Formulario5.aspx.cs">
+      <DependentUpon>Formulario5.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Formulario5.aspx.designer.cs">
+      <DependentUpon>Formulario5.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Formulario4.aspx.cs">
+      <DependentUpon>Formulario4.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Formulario4.aspx.designer.cs">
+      <DependentUpon>Formulario4.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Formulario3.aspx.cs">
+      <DependentUpon>Formulario3.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Formulario3.aspx.designer.cs">
+      <DependentUpon>Formulario3.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Formulario2.aspx.cs">
+      <DependentUpon>Formulario2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Formulario2.aspx.designer.cs">
+      <DependentUpon>Formulario2.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Formulario1.aspx.cs">
       <DependentUpon>Formulario1.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -216,6 +295,41 @@
     <Compile Include="Paso2.aspx.designer.cs">
       <DependentUpon>Paso2.aspx</DependentUpon>
     </Compile>
+    <Compile Include="PeticionesExternas6.aspx.cs">
+      <DependentUpon>PeticionesExternas6.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PeticionesExternas6.aspx.designer.cs">
+      <DependentUpon>PeticionesExternas6.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PeticionesExternas5.aspx.cs">
+      <DependentUpon>PeticionesExternas5.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PeticionesExternas5.aspx.designer.cs">
+      <DependentUpon>PeticionesExternas5.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PeticionesExternas4.aspx.cs">
+      <DependentUpon>PeticionesExternas4.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PeticionesExternas4.aspx.designer.cs">
+      <DependentUpon>PeticionesExternas4.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PeticionesExternas3.aspx.cs">
+      <DependentUpon>PeticionesExternas3.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PeticionesExternas3.aspx.designer.cs">
+      <DependentUpon>PeticionesExternas3.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PeticionesExternas2.aspx.cs">
+      <DependentUpon>PeticionesExternas2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PeticionesExternas2.aspx.designer.cs">
+      <DependentUpon>PeticionesExternas2.aspx</DependentUpon>
+    </Compile>
     <Compile Include="PeticionesExternas.aspx.cs">
       <DependentUpon>PeticionesExternas.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -224,6 +338,146 @@
       <DependentUpon>PeticionesExternas.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Rpt21.aspx.cs">
+      <DependentUpon>Rpt21.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Rpt21.aspx.designer.cs">
+      <DependentUpon>Rpt21.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Rpt17.aspx.cs">
+      <DependentUpon>Rpt17.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Rpt17.aspx.designer.cs">
+      <DependentUpon>Rpt17.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Rpt22.aspx.cs">
+      <DependentUpon>Rpt22.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Rpt22.aspx.designer.cs">
+      <DependentUpon>Rpt22.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Rpt18.aspx.cs">
+      <DependentUpon>Rpt18.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Rpt18.aspx.designer.cs">
+      <DependentUpon>Rpt18.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Rpt14.aspx.cs">
+      <DependentUpon>Rpt14.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Rpt14.aspx.designer.cs">
+      <DependentUpon>Rpt14.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Rpt23.aspx.cs">
+      <DependentUpon>Rpt23.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Rpt23.aspx.designer.cs">
+      <DependentUpon>Rpt23.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Rpt19.aspx.cs">
+      <DependentUpon>Rpt19.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Rpt19.aspx.designer.cs">
+      <DependentUpon>Rpt19.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Rpt15.aspx.cs">
+      <DependentUpon>Rpt15.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Rpt15.aspx.designer.cs">
+      <DependentUpon>Rpt15.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Rpt24.aspx.cs">
+      <DependentUpon>Rpt24.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Rpt24.aspx.designer.cs">
+      <DependentUpon>Rpt24.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Rpt20.aspx.cs">
+      <DependentUpon>Rpt20.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Rpt20.aspx.designer.cs">
+      <DependentUpon>Rpt20.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Rpt16.aspx.cs">
+      <DependentUpon>Rpt16.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Rpt16.aspx.designer.cs">
+      <DependentUpon>Rpt16.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Rpt13.aspx.cs">
+      <DependentUpon>Rpt13.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Rpt13.aspx.designer.cs">
+      <DependentUpon>Rpt13.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Rpt9.aspx.cs">
+      <DependentUpon>Rpt9.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Rpt9.aspx.designer.cs">
+      <DependentUpon>Rpt9.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Rpt5.aspx.cs">
+      <DependentUpon>Rpt5.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Rpt5.aspx.designer.cs">
+      <DependentUpon>Rpt5.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Rpt10.aspx.cs">
+      <DependentUpon>Rpt10.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Rpt10.aspx.designer.cs">
+      <DependentUpon>Rpt10.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Rpt6.aspx.cs">
+      <DependentUpon>Rpt6.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Rpt6.aspx.designer.cs">
+      <DependentUpon>Rpt6.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Rpt11.aspx.cs">
+      <DependentUpon>Rpt11.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Rpt11.aspx.designer.cs">
+      <DependentUpon>Rpt11.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Rpt7.aspx.cs">
+      <DependentUpon>Rpt7.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Rpt7.aspx.designer.cs">
+      <DependentUpon>Rpt7.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Rpt12.aspx.cs">
+      <DependentUpon>Rpt12.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Rpt12.aspx.designer.cs">
+      <DependentUpon>Rpt12.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Rpt8.aspx.cs">
+      <DependentUpon>Rpt8.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Rpt8.aspx.designer.cs">
+      <DependentUpon>Rpt8.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Rpt4.aspx.cs">
       <DependentUpon>Rpt4.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -261,11 +515,30 @@
     <Folder Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Reportes\CotizadorRoble - Copy.rdlc" />
-    <EmbeddedResource Include="Reportes\CotizadorRobleMoto.rdlc" />
-    <EmbeddedResource Include="Reportes\CotizadorRobleMotoRCivil.rdlc" />
-    <EmbeddedResource Include="Reportes\CotizadorRobleRCivil.rdlc" />
-    <EmbeddedResource Include="Reportes\CotizadorRoble.rdlc" />
+    <EmbeddedResource Include="Reportes\CotizadorCitibank.rdlc" />
+    <EmbeddedResource Include="Reportes\CotizadorCitibankMoto.rdlc" />
+    <EmbeddedResource Include="Reportes\CotizadorCitibankMotoRCivil.rdlc" />
+    <EmbeddedResource Include="Reportes\CotizadorCitibankRCivil.rdlc" />
+    <EmbeddedResource Include="Reportes\CotizadorCEG.rdlc" />
+    <EmbeddedResource Include="Reportes\CotizadorCapgemini.rdlc" />
+    <EmbeddedResource Include="Reportes\CotizadorCEGMoto.rdlc" />
+    <EmbeddedResource Include="Reportes\CotizadorCEGMotoRCivil.rdlc" />
+    <EmbeddedResource Include="Reportes\CotizadorCEGRCivil.rdlc" />
+    <EmbeddedResource Include="Reportes\CotizadorCodisa.rdlc" />
+    <EmbeddedResource Include="Reportes\CotizadorCapgeminiMoto.rdlc" />
+    <EmbeddedResource Include="Reportes\CotizadorCapgeminiMotoRCivil.rdlc" />
+    <EmbeddedResource Include="Reportes\CotizadorCapgeminiRCivil.rdlc" />
+    <EmbeddedResource Include="Reportes\CotizadorFogel.rdlc" />
+    <EmbeddedResource Include="Reportes\CotizadorFogelMoto.rdlc" />
+    <EmbeddedResource Include="Reportes\CotizadorTelusMoto.rdlc" />
+    <EmbeddedResource Include="Reportes\CotizadorCodisaMoto.rdlc" />
+    <EmbeddedResource Include="Reportes\CotizadorFogelMotoRCivil.rdlc" />
+    <EmbeddedResource Include="Reportes\CotizadorTelusMotoRCivil.rdlc" />
+    <EmbeddedResource Include="Reportes\CotizadorCodisaMotoRCivil.rdlc" />
+    <EmbeddedResource Include="Reportes\CotizadorFogelRCivil.rdlc" />
+    <EmbeddedResource Include="Reportes\CotizadorTelusRCivil.rdlc" />
+    <EmbeddedResource Include="Reportes\CotizadorCodisaRCivil.rdlc" />
+    <EmbeddedResource Include="Reportes\CotizadorTelus.rdlc" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

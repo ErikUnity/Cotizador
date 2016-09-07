@@ -28,7 +28,6 @@ namespace Cotizador
                 Response.Redirect("Formulario1.aspx");
             }
 
-
           DataTable content = Cotizadores.Cotizacion(cotizacion);
           string tiposeguro = "";
           int moto = 0;

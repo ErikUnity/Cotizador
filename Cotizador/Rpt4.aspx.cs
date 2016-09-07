@@ -26,9 +26,21 @@ namespace Cotizador
             }
             catch (Exception)
             { }
+            string empresa = "";
+            string url = "";
+            try
+            {
+                empresa = Session["CodigoEmpresa"].ToString();
+                url = Cotizadores.LinkUbicaciones(empresa, "Redireccion");
+            }
+            catch (Exception)
+            {
+                Response.Redirect("SinConexion.aspx");
+            }
+
             if (cotizacion == "")
             {
-                Response.Redirect("Formulario1.aspx");
+                Response.Redirect(url);
             }
             string codigo = "";
             string revison_codigo = "";
@@ -38,13 +50,13 @@ namespace Cotizador
                 revison_codigo = Cotizadores.ObtieneCodigo(cotizacion);
                 if (codigo != revison_codigo)
                 {
-                    Response.Redirect("Formulario1.aspx");
+                    Response.Redirect(url);
                 }
             }
             catch (Exception)
             {
 
-                Response.Redirect("Formulario1.aspx");
+                Response.Redirect(url);
 
             }
 
@@ -63,12 +75,25 @@ namespace Cotizador
                 this.HyperLink1.NavigateUrl = Cotizadores.LinkUbicaciones(codigoempresa, "Link7") + "?asdf=" + cotizacion;
                 this.HyperLink2.NavigateUrl = Cotizadores.LinkUbicaciones(codigoempresa, "Link2") + "?asdf=" + cotizacion;
                 this.HyperLink3.NavigateUrl = Cotizadores.LinkUbicaciones(codigoempresa, "Link3") + "?asdf=" + cotizacion; ;
-                this.Image2.Visible = false;
+                try
+                {
+                    string tiposeguro = Session["Seguro"].ToString(); ;
+                    if (tiposeguro != "Seguro Completo")
+                    {
+                        this.Image2.Visible = false;
+                    }
+
+                }
+                catch (Exception)
+                {
+
+                    Response.Redirect(url);
+                }
             }
             catch (Exception)
             {
 
-                Response.Redirect("Formulario1.aspx");
+                Response.Redirect(url);
             }
 
 

@@ -43,7 +43,7 @@ text-transform: none;">Paso 1</span> </div>
     <div style="text-align:center; width:100%; height:100%" >
   
         <rsweb:ReportViewer ID="ReportViewer1" runat="server" Font-Names="Verdana" Font-Size="8pt" Height="2190px" WaitMessageFont-Names="Verdana" WaitMessageFont-Size="14pt" Width="8in" CssClass="centro" >
-               <LocalReport ReportPath="Reportes\CotizadorRobleRCivil.rdlc">
+               <LocalReport ReportPath="Reportes\CotizadorCodisaRCivil.rdlc">
                 <DataSources>
                     <rsweb:ReportDataSource DataSourceId="ObjectDataSource1" Name="CotizadorRoble" />
                 </DataSources>

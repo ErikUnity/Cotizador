@@ -74,10 +74,11 @@ namespace Cotizador
             string archivo = "";
             if (MensajeTipo == 1)
             {   mensaje.Paso3 = Cotizadores.LinkPaso3(CodigoEmpresa, _id); 
-                archivo = EnvioDeCorreoRapido.AlmacenarPdf1(Nombre, CodigoEmpresa, Decimal.Parse(ValorMercado), RoboParcial, Menores16, Menores18, ExcesosRC, _RoboParcial, NombreCliente, DescripcionVehiculo); }
+               // archivo = EnvioDeCorreoRapido.AlmacenarPdf1(Nombre, CodigoEmpresa, Decimal.Parse(ValorMercado), RoboParcial, Menores16, Menores18, ExcesosRC, _RoboParcial, NombreCliente, DescripcionVehiculo); 
+            }
             else {
                 mensaje.Paso3 = Cotizadores.LinkPaso4(CodigoEmpresa, _id);
-                archivo = EnvioDeCorreoRapido.AlmacenarPdf2(Nombre, CodigoEmpresa, Decimal.Parse(ValorMercado), RoboParcial, Menores16, Menores18, ExcesosRC, _RoboParcial, NombreCliente, DescripcionVehiculo); 
+              //  archivo = EnvioDeCorreoRapido.AlmacenarPdf2(Nombre, CodigoEmpresa, Decimal.Parse(ValorMercado), RoboParcial, Menores16, Menores18, ExcesosRC, _RoboParcial, NombreCliente, DescripcionVehiculo); 
             }
             mensaje.archivo = archivo;
 

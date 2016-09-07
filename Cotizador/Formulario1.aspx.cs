@@ -243,8 +243,14 @@ namespace Cotizador
               MensajeTipo = 2;
             }
 
-            if (cmbTipoVehiculo.SelectedValue == "7" )
-            { MensajeTipo = 7; 
+            if (cmbTipoVehiculo.SelectedValue == "7" && _tipo_seguro == "Seguro Completo")
+            {
+                MensajeTipo = 7;
+            }
+
+            if (cmbTipoVehiculo.SelectedValue == "7" && _tipo_seguro == "Responsabilidad Civil")
+            {
+                MensajeTipo = 8;
             }
 
             if (Incompleto)
@@ -258,25 +264,25 @@ namespace Cotizador
                 contactar = "Por Telefono";
             contactar += " - " + this.cmbHora.SelectedItem.Text;
             string DescripcionVehiculo = this.cmbTipoVehiculo.SelectedItem.Text + " - " + this.cmbMarca.SelectedItem.Text + " - " + this.cmbModelo.SelectedItem.Text + " - " + this.txtLinea.Text;
-            string id = Cotizar.GuardaCotizacion(this.txtNombre.Text.Trim(), this.txtApellido.Text.Trim(), this.txtCorreo.Text.Trim(), this.cmbTipoVehiculo.SelectedItem.Text.Trim(), this.txtLinea.Text.Trim(), Marca, this.txtTelefono.Text.Trim(), this.cmbModelo.SelectedItem.Text.Trim(), Decimal.Parse(ValorMercado), _tipo_seguro, this.txtCorreo.Text.ToString(), "Roble", contactar);
+            string id = Cotizar.GuardaCotizacion(this.txtNombre.Text.Trim(), this.txtApellido.Text.Trim(), this.txtCorreo.Text.Trim(), this.cmbTipoVehiculo.SelectedItem.Text.Trim(), this.txtLinea.Text.Trim(), Marca, this.txtTelefono.Text.Trim(), this.cmbModelo.SelectedItem.Text.Trim(), Decimal.Parse(ValorMercado), _tipo_seguro, this.txtCorreo.Text.ToString(), "Codisa", contactar);
 
              SumaAsegurada = Decimal.Parse(ValorMercado);
-          //   Valores Calculo = new Valores("Roble", SumaAsegurada, this.chkRoboParcial.Checked, this.chkMenores16.Checked, this.chkMenores18.Checked, this.chkExcesoRC.Checked, RoboParcial, MensajeTipo);
-             Valores Calculo = new Valores("Roble", SumaAsegurada, false, false, false, false, RoboParcial, MensajeTipo);
+          //   Valores Calculo = new Valores("Codisa", SumaAsegurada, this.chkRoboParcial.Checked, this.chkMenores16.Checked, this.chkMenores18.Checked, this.chkExcesoRC.Checked, RoboParcial, MensajeTipo);
+             Valores Calculo = new Valores("Codisa", SumaAsegurada, false, false, false, false, RoboParcial, MensajeTipo);
              this.lblMsg.Text = Calculo.PrimaTotalProRata.ToString();
              
              // ClientScript.RegisterStartupScript(this.GetType(), "Alert", "alert('La cotización ha sido enviada a su correo: " + this.txtCorreo.Text + ");", true);
-             //  EnvioDeCorreoRapido.EjecutarProceso(this.txtCorreo.Text.Trim(), this.cmbTipoVehiculo.SelectedItem.Text.Trim(), this.txtLinea.Text.Trim(), Marca, this.cmbModelo.SelectedItem.Text.Trim(), ValorMercado, MensajeTipo, this.txtNombre.Text.Trim(), "Roble", this.chkRoboParcial.Checked, this.chkMenores16.Checked, this.chkMenores18.Checked, this.chkExcesoRC.Checked, RoboParcial, this.txtNombre.Text.Trim(), DescripcionVehiculo);
-             EnvioDeCorreoRapido.EjecutarProceso(this.txtCorreo.Text.Trim(), this.cmbTipoVehiculo.SelectedItem.Text.Trim(), this.txtLinea.Text.Trim(), Marca, this.cmbModelo.SelectedItem.Text.Trim(), ValorMercado, MensajeTipo, this.txtNombre.Text.Trim(), "Roble", false, false, false, false, RoboParcial, this.txtNombre.Text.Trim(), DescripcionVehiculo, id);
+             //  EnvioDeCorreoRapido.EjecutarProceso(this.txtCorreo.Text.Trim(), this.cmbTipoVehiculo.SelectedItem.Text.Trim(), this.txtLinea.Text.Trim(), Marca, this.cmbModelo.SelectedItem.Text.Trim(), ValorMercado, MensajeTipo, this.txtNombre.Text.Trim(), "Codisa", this.chkRoboParcial.Checked, this.chkMenores16.Checked, this.chkMenores18.Checked, this.chkExcesoRC.Checked, RoboParcial, this.txtNombre.Text.Trim(), DescripcionVehiculo);
+             EnvioDeCorreoRapido.EjecutarProceso(this.txtCorreo.Text.Trim(), this.cmbTipoVehiculo.SelectedItem.Text.Trim(), this.txtLinea.Text.Trim(), Marca, this.cmbModelo.SelectedItem.Text.Trim(), ValorMercado, MensajeTipo, this.txtNombre.Text.Trim(), "Codisa", false, false, false, false, RoboParcial, this.txtNombre.Text.Trim(), DescripcionVehiculo, id);
              List<CorreosInternos> correo = new List<CorreosInternos>();
-             correo = Cotizadores.EnviarCorreosInternos("Roble");
+             correo = Cotizadores.EnviarCorreosInternos("Codisa");
 
              if (correo.Count != 0)
              {
                  foreach (var item in correo)
                  {
-                     // EnvioDeCorreoRapido.EjecutarProceso(item.Correo, this.cmbTipoVehiculo.SelectedItem.Text.Trim(), this.txtLinea.Text.Trim(), Marca, this.cmbModelo.SelectedItem.Text.Trim(), ValorMercado, MensajeTipo, this.txtNombre.Text.Trim(), "Roble", this.chkRoboParcial.Checked, this.chkMenores16.Checked, this.chkMenores18.Checked, this.chkExcesoRC.Checked, RoboParcial, this.txtNombre.Text.Trim(), DescripcionVehiculo);
-                     EnvioDeCorreoRapido.EjecutarProceso(item.Correo, this.cmbTipoVehiculo.SelectedItem.Text.Trim(), this.txtLinea.Text.Trim(), Marca, this.cmbModelo.SelectedItem.Text.Trim(), ValorMercado, MensajeTipo, this.txtNombre.Text.Trim(), "Roble", false, false, false, false, RoboParcial, this.txtNombre.Text.Trim(), DescripcionVehiculo, id);
+                     // EnvioDeCorreoRapido.EjecutarProceso(item.Correo, this.cmbTipoVehiculo.SelectedItem.Text.Trim(), this.txtLinea.Text.Trim(), Marca, this.cmbModelo.SelectedItem.Text.Trim(), ValorMercado, MensajeTipo, this.txtNombre.Text.Trim(), "Codisa", this.chkRoboParcial.Checked, this.chkMenores16.Checked, this.chkMenores18.Checked, this.chkExcesoRC.Checked, RoboParcial, this.txtNombre.Text.Trim(), DescripcionVehiculo);
+                     EnvioDeCorreoRapido.EjecutarProceso(item.Correo, this.cmbTipoVehiculo.SelectedItem.Text.Trim(), this.txtLinea.Text.Trim(), Marca, this.cmbModelo.SelectedItem.Text.Trim(), ValorMercado, MensajeTipo, this.txtNombre.Text.Trim(), "Codisa", false, false, false, false, RoboParcial, this.txtNombre.Text.Trim(), DescripcionVehiculo, id);
                  }
              }
 

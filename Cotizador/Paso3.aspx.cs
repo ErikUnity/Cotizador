@@ -37,9 +37,21 @@ namespace Cotizador
             }
             catch (Exception)
             {}
+            string empresa = "";
+            string url = "";
+            try
+            {
+                empresa = Session["CodigoEmpresa"].ToString();
+                url = Cotizadores.LinkUbicaciones(empresa, "Redireccion");
+            }
+            catch (Exception)
+            {
+                Response.Redirect("SinConexion.aspx");
+            }
+
             if (cotizacion == "")
             {
-                Response.Redirect("Formulario1.aspx");
+                Response.Redirect(url);
             }
 
             string codigo = "";
@@ -50,11 +62,11 @@ namespace Cotizador
                 revison_codigo = Cotizadores.ObtieneCodigo(cotizacion);
                 if (codigo != revison_codigo)
                 {
-                    Response.Redirect("Formulario1.aspx");
+                    Response.Redirect(url);
                 }
             }
             catch (Exception)
-            { Response.Redirect("Formulario1.aspx"); }
+            { Response.Redirect(url); }
 
 
             DataTable content = Cotizadores.Cotizacion(cotizacion);
@@ -90,7 +102,7 @@ namespace Cotizador
 
             if (_seguro == "Seguro Completo")
             {
-                if (moto != "")
+                if (moto != "" && moto != null)
                 { this.HyperLink1.NavigateUrl = Cotizadores.LinkUbicaciones(codigoempresa, "Link6") + "?asdf=" + cotizacion; }
                 else { this.HyperLink1.NavigateUrl = Cotizadores.LinkUbicaciones(codigoempresa, "Link4") + "?asdf=" + cotizacion; }
                 
@@ -98,7 +110,7 @@ namespace Cotizador
             }
             else
             {
-                if (moto != "")
+                if (moto != "" && moto != null)
                 { this.HyperLink1.NavigateUrl = Cotizadores.LinkUbicaciones(codigoempresa, "Link7") + "?asdf=" + cotizacion; }
                 else { this.HyperLink1.NavigateUrl = Cotizadores.LinkUbicaciones(codigoempresa, "Link5") + "?asdf=" + cotizacion; }
                 
