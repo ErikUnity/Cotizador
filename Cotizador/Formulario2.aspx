@@ -26,7 +26,7 @@
            <tr><td>&nbsp;</td></tr>
            <tr><td>&nbsp;</td></tr>
            <tr><td>&nbsp;</td></tr>
-           <tr><td style="text-align:left; float:left;"><asp:Image ID="Image2" CssClass="cuadro" runat="server" Height="226px" ImageUrl="~/imagenes/LogoBlancoUnityPromotores.png" Width="317px" /></td></tr>
+           <tr><td style="text-align:left; float:left;"><asp:Image ID="Image2" CssClass="cuadro" runat="server" Height="226px" ImageUrl="http://testcotizador.unitypromotores.com/Cotizador/imagenes/LogoBlancoUnityPromotores.png" Width="317px" /></td></tr>
        </table>
      
 
@@ -66,7 +66,7 @@
                                                                                             <table cellpadding="0" cellspacing="0" style="width: 33px; border-collapse: collapse;">
                                                                                                 <tr>
                                                                                                     <td class="f1" style="font-family: Tahoma, Geneva, sans-serif;  text-align: center; font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; line-height: normal; color: red; padding-right: 5px;">
-                                                                                                        <img id="ASPxPageControl1_ASPxPageControl2_TxtPrimerNombre_EI" alt="" class="dxEditors_edtError" src="https://www.ducruet.com/appnewcot/DXR.axd?r=1_10-Sf1P9" style="border-width: 0px; display: block; margin: auto; width: 14px; height: 14px; background-image: url(''); background-color: transparent; background-position: -170px 0px; background-repeat: no-repeat;" /></td>
+                                                                                                        <img id="ASPxPageControl1_ASPxPageControl2_TxtPrimerNombre_EI" alt="" class="dxEditors_edtError" src="#" style="border-width: 0px; display: block; margin: auto; width: 14px; height: 14px; background-image: url(''); background-color: transparent; background-position: -170px 0px; background-repeat: no-repeat;" /></td>
                                                                                                     <td id="ASPxPageControl1_ASPxPageControl2_TxtPrimerNombre_ETC" class="f1" style="font-family: Tahoma, Geneva, sans-serif;  text-align: center; font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; line-height: normal; color: red; width: 14px; white-space: nowrap;"></td>
                                                                                                 </tr>
                                                                                             </table>
@@ -95,7 +95,7 @@
                                                                                             <table cellpadding="0" cellspacing="0" style="width: 33px; border-collapse: collapse;">
                                                                                                 <tr>
                                                                                                     <td class="f1" style="font-family: Tahoma, Geneva, sans-serif;  text-align: center; font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; line-height: normal; color: red; padding-right: 5px;">
-                                                                                                        <img id="ASPxPageControl1_ASPxPageControl2_TxtPrimerNombre_EI" alt="" class="dxEditors_edtError" src="https://www.ducruet.com/appnewcot/DXR.axd?r=1_10-Sf1P9" style="border-width: 0px; display: block; margin: auto; width: 14px; height: 14px; background-image: url(''); background-color: transparent; background-position: -170px 0px; background-repeat: no-repeat;" /></td>
+                                                                                                        <img id="ASPxPageControl1_ASPxPageControl2_TxtPrimerNombre_EI" alt="" class="dxEditors_edtError" src="#" style="border-width: 0px; display: block; margin: auto; width: 14px; height: 14px; background-image: url(''); background-color: transparent; background-position: -170px 0px; background-repeat: no-repeat;" /></td>
                                                                                                     <td id="ASPxPageControl1_ASPxPageControl2_TxtPrimerNombre_ETC" class="f1" style="font-family: Tahoma, Geneva, sans-serif;  text-align: center; font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; line-height: normal; color: red; width: 14px; white-space: nowrap;"></td>
                                                                                                 </tr>
                                                                                             </table>
@@ -146,7 +146,7 @@
                                                                                             <table cellpadding="0" cellspacing="0" style="width: 33px; border-collapse: collapse;">
                                                                                                 <tr>
                                                                                                     <td class="f1" style="font-family: Tahoma, Geneva, sans-serif;   text-align: center; font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; line-height: normal; color: red; padding-right: 5px;">
-                                                                                                        <img id="ASPxPageControl1_ASPxPageControl2_TxtPrimerApellido_EI" alt="" class="dxEditors_edtError" src="https://www.ducruet.com/appnewcot/DXR.axd?r=1_10-Sf1P9" style="border-width: 0px; display: block; margin: auto; width: 14px; height: 14px; background-image: url(''); background-color: transparent; background-position: -170px 0px; background-repeat: no-repeat;" /></td>
+                                                                                                        <img id="ASPxPageControl1_ASPxPageControl2_TxtPrimerApellido_EI" alt="" class="dxEditors_edtError" src="#" style="border-width: 0px; display: block; margin: auto; width: 14px; height: 14px; background-image: url(''); background-color: transparent; background-position: -170px 0px; background-repeat: no-repeat;" /></td>
                                                                                                     <td id="ASPxPageControl1_ASPxPageControl2_TxtPrimerApellido_ETC" class="f1" style="font-family: Tahoma, Geneva, sans-serif;   text-align: center; font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; line-height: normal; color: red; width: 14px; white-space: nowrap;"></td>
                                                                                                 </tr>
                                                                                             </table>
@@ -482,7 +482,7 @@
     <li></li>
     <li></li>
     <li></li>
-    <li><div class="cuadro" style="text-align:right;"><asp:Image ID="Image5" CssClass="cuadro" runat="server" Height="94px" ImageUrl="~/imagenes/logo_telus.jpg" Width="200px" /></div></li> 
+    <li><div class="cuadro" style="text-align:right;"><asp:Image ID="Image5" CssClass="cuadro" runat="server" Height="94px" ImageUrl="http://testcotizador.unitypromotores.com/Cotizador/imagenes/logo_telus.jpg" Width="200px" /></div></li> 
        </ul>
     </div>
     

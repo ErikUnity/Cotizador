@@ -20,7 +20,7 @@ CREATE TABLE IF NOT EXISTS `iva` (
   `Iva` decimal(8,2) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table catalogo.iva: ~1 rows (approximately)
+-- Dumping data for table catalogo.iva: ~0 rows (approximately)
 DELETE FROM `iva`;
 /*!40000 ALTER TABLE `iva` DISABLE KEYS */;
 INSERT INTO `iva` (`Iva`) VALUES
@@ -36,7 +36,7 @@ CREATE TABLE IF NOT EXISTS `linea` (
   UNIQUE KEY `Descripcion` (`Descripcion`)
 ) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
 
--- Dumping data for table catalogo.linea: ~12 rows (approximately)
+-- Dumping data for table catalogo.linea: ~11 rows (approximately)
 DELETE FROM `linea`;
 /*!40000 ALTER TABLE `linea` DISABLE KEYS */;
 INSERT INTO `linea` (`indice`, `Descripcion`) VALUES
@@ -62,38 +62,41 @@ CREATE TABLE IF NOT EXISTS `maestro_correoautomatico` (
   `mensaje` text,
   `descripcion_codigo` varchar(800) DEFAULT NULL,
   PRIMARY KEY (`indice`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
--- Dumping data for table catalogo.maestro_correoautomatico: ~6 rows (approximately)
+-- Dumping data for table catalogo.maestro_correoautomatico: ~7 rows (approximately)
 DELETE FROM `maestro_correoautomatico`;
 /*!40000 ALTER TABLE `maestro_correoautomatico` DISABLE KEYS */;
 INSERT INTO `maestro_correoautomatico` (`indice`, `codigo`, `mensaje`, `descripcion_codigo`) VALUES
 	(1, 3, '\r\n<span style="text-decoration: underline;"><p>SEGURO COMPLETO</p></span> \r\n <br />\r\n  <br />\r\n   <br />\r\n<p>De acuerdo a su solicitud, adjunto encontrar&aacute; cotizaci&oacute;n para el seguro de su veh&iacute;culo bajo el plan exclusivo de colaboradores del banco.</p>\r\n<p>En caso de ser aceptada la propuesta, necesitamos nos pueda enviar por esta v&iacute;a copia de los siguientes documentos:</p>\r\n<p>Tarjeta de circulaci&oacute;n (legible)<br />DPI<br />Recibo reciente de agua, luz o tel&eacute;fono fijo que refleje su direcci&oacute;n particular.<br />Completar campos marcados en color gris del Formulario ASR27 y enviarlo en excel (adjunto archivo) <br />Indicar su No. GEID</p>\r\n<p>Se deber&aacute; realizar una inspecci&oacute;n al veh&iacute;culo y las opciones para realizar dicha inspecci&oacute;n son las siguientes:</p>\r\n<p>Promotores Unity Avenida de las Am&eacute;ricas 22-23, Zona 14 (Frente al Monumento al Papa en horario de 8 a 16 hrs)<br />Parqueo Piedr&iacute;n/C&eacute;ntrica Plaza (fecha a convenir)<br />Campus zona 12 (fecha a convenir) <br />Cualquiera de los centros de atenci&oacute;n de Seguros El Roble, si lo realiza en estos centros, deber&aacute; hacer CITA e indicar a la persona que le realice la inspecci&oacute;n que es para incluir el veh&iacute;culo en la flotilla de CITI y que va de parte de Promotores Unity. Esta persona le entregar&aacute; una copia de la hoja que &eacute;l llena, misma que deber&aacute; de enviarnos por esta v&iacute;a a nosotros.</p>\r\n<p>Los centros autorizados por Seguros El Roble para realizar las inspecciones son:</p>\r\n\r\n<table><tr><th>TALLER</th><th>DIRECCI&Oacute;N</th><th>TEL&Eacute;FONO</th> </tr>\r\n\r\n <tr><td>QUANTUM</td><td>20 calle 18-01,zona 10</td><td>2384-1412</td></tr>\r\n <tr><td>TALLER DE LA CIUDAD ZONA 9</td><td>6a. Calle 6-17, zona 9</td><td>2504-3939</td></tr>\r\n <tr><td>TALLER DE LA CIUDAD CARRETERA</td><td>Km 16.5 Carr. A El Salvador</td><td>2504-3939</td></tr>\r\n <tr><td>BODY FIX</td><td>Av. Petapa 43-15 Z12</td><td>2388-5500</td></tr>\r\n <tr><td>AUTOCOLOR</td><td>10a. Avenida A 0-38 Z.7</td><td>2419-3800</td></tr>\r\n <tr><td>TALLER SPECTRA</td><td>25 Av. 4-34 Zona 11</td><td>2474-2033</td></tr>\r\n <tr><td>UNIAUTO</td><td>Avenida Petapa 36-19 zona 12</td><td>2328 8879</td></tr>\r\n <tr><td>TALLER RODAS ZONA 5</td><td>11 Avenida B 31-15 zona 5</td><td>2331-9106</td></tr>\r\n <tr><td>COJULUN ROOSEVELT</td><td>7 avenida 0-07, zona 2 de Mixco</td><td>2250-4602</td></tr>\r\n </table>\r\n <br />Su veh&iacute;culo queda asegurado inmediatamente despu&eacute;s de haber realizado la inspecci&oacute;n y completado los documentos ac&aacute; detallados.<br />Agradecemos su atenci&oacute;n y cualquier consulta adicional quedamos a las &oacute;rdenes.<br /> <br /> <br />Atentamente,</p> <br /> <br /> <br />\r\n', 'Seguro Completo'),
-	(2, 2, '<div style="width:650px;>"  <span style="text-decoration: underline;"><p>SOLO RC</p></span> \r\n <br />\r\n  <br />\r\n<p><span style="font-weight: 400;">De acuerdo a su solicitud, adjunto encontrar&aacute; cotizaci&oacute;n para el seguro de su veh&iacute;culo bajo &nbsp;el plan exclusivo de colaboradores del banco.</span></p>\r\n<p><span style="font-weight: 400;">En caso de ser aceptada la propuesta, &nbsp;favor enviar los siguientes documentos:</span></p>\r\n<br />\r\n<ul>\r\n<li><strong><strong>Tarjeta de circulaci&oacute;n</strong></strong></li>\r\n<li><strong>DPI</strong></li>\r\n<li style="font-weight: 400;"><strong>Recibo reciente de agua, luz o tel&eacute;fono fijo&nbsp;</strong><span style="font-weight: 400;">que refleje su direcci&oacute;n particular.</span></li>\r\n<li style="font-weight: 400;"><span style="font-weight: 400;">Completar campos&nbsp;</span><span style="font-weight: 400;">marcados en color gris</span><span style="font-weight: 400;">&nbsp;del Formulario&nbsp;&nbsp;</span><strong>ASR27</strong><span style="font-weight: 400;">&nbsp;y enviarlo en excel (adjunto)</span><strong> No. GEID</strong></li>\r\n</ul>\r\n<p><span style="font-weight: 400;">Dichos documentos puede enviarlos&nbsp;&nbsp;escaneados, hasta que nosotros tengamos los documentos completos el veh&iacute;culo queda asegurado.</span></p>\r\n<p><span style="font-weight: 400;">Agradecemos su atenci&oacute;n y cualquier consulta adicional quedamos a las &oacute;rdenes.</span></p>\r\n            <table>\r\n             <tr style="width:100%;"><td class="tat">\r\n                     <a href="{Link1}"><img src="{Paso1}" style="width:150px; height:150px;" /></a></td><td></td><td class="tat"></td>\r\n            <td style="width:200px;"></td>\r\n				 <td>\r\n                 </td><td class="tat"></td>\r\n             <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>\r\n				 <td>\r\n                 <a href="{Link3}"><img src="{Paso3}" style="width:150px; height:150px;" /></a></td></tr></table>\r\n   <br />\r\n<p><span style="font-weight: 400;">Cordialmente,</span></p>\r\n<p>&nbsp;</p></div>\r\n', 'Responsabilidad Civil'),
+	(2, 2, '<div style="width:650px;>"  <span style="text-decoration: underline;"><p>SOLO RC</p></span> \r\n <br />\r\n<p><span style="font-weight: 400;">De acuerdo a su solicitud, adjunto encontrar&aacute; cotizaci&oacute;n para el seguro de su veh&iacute;culo bajo &nbsp;el plan exclusivo de colaboradores del banco.</span></p>\r\n<p><span style="font-weight: 400;">En caso de ser aceptada la propuesta, &nbsp;favor enviar los siguientes documentos:</span></p>\r\n<br />\r\n<ul>\r\n<li><strong><strong>Tarjeta de circulaci&oacute;n</strong></strong></li>\r\n<li><strong>DPI</strong></li>\r\n<li style="font-weight: 400;"><strong>Recibo reciente de agua, luz o tel&eacute;fono fijo&nbsp;</strong><span style="font-weight: 400;">que refleje su direcci&oacute;n particular.</span></li>\r\n<li style="font-weight: 400;"><span style="font-weight: 400;">Completar campos&nbsp;</span><span style="font-weight: 400;">marcados en color gris</span><span style="font-weight: 400;">&nbsp;del Formulario&nbsp;&nbsp;</span><strong>ASR27</strong><span style="font-weight: 400;">&nbsp;y enviarlo en excel (adjunto)</span><strong> No. GEID</strong></li>\r\n</ul>\r\n<p><span style="font-weight: 400;">Dichos documentos puede enviarlos&nbsp;&nbsp;escaneados, hasta que nosotros tengamos los documentos completos el veh&iacute;culo queda asegurado.</span></p>\r\n<p><span style="font-weight: 400;">Agradecemos su atenci&oacute;n y cualquier consulta adicional quedamos a las &oacute;rdenes.</span></p>\r\n            <table>\r\n             <tr style="width:100%;"><td class="tat">\r\n                     <a href="{Link1}"><img src="{Paso1}" style="width:150px; height:150px;" /></a></td><td></td><td class="tat"></td>\r\n            <td style="width:200px;"></td>\r\n				 <td>\r\n                 </td><td class="tat"></td>\r\n             <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>\r\n				 <td>\r\n                 <a href="{Link3}"><img src="{Paso3}" style="width:150px; height:150px;" /></a></td></tr></table>\r\n   <br />\r\n<p><span style="font-weight: 400;">Cordialmente,</span></p>\r\n<p>&nbsp;</p></div>\r\n', 'Responsabilidad Civil'),
 	(3, 1, '<div style="width:650px;">\r\n        <p><font style="font-family:Calibri; font-size:medium;">Gracias por tomarnos en cuenta para la asesor&iacute;a en el seguro de su veh&iacute;culo. Unity Promotores es una empresa  con  m&aacute;s  de  35  a&ntilde;os de  estar en el mercado Guatemalteco.</font></p>\r\n        <p><font style="font-family:Calibri; font-size:medium;">A continuaci&oacute;n le presentamos 3 sencillos pasos que Ud. debe seguir para poder contratar el seguro de su veh&iacute;culo.</font></p>\r\n         <table>\r\n             <tr style="width:100%;"><td class="tat">\r\n                     <a href="{Link1}"><img src="{Paso1}" style="width:150px; height:150px;" /></a></td><td></td><td class="tat"></td>\r\n            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>\r\n				 <td>\r\n                 <a href="{Link2}"><img src="{Paso2}" style="width:150px; height:150px;" /></a></td><td class="tat"></td>\r\n             <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>\r\n				 <td>\r\n                 <a href="{Link3}"><img src="{Paso3}" style="width:150px; height:150px;" /></a></td></tr></table>\r\n        <p>&nbsp;</p>\r\n        <p><font style="font-family:Calibri; font-size:medium;">En breve uno de nuestros asesores especializados se estar&aacute; comunicando con usted para resolver dudas y guiarlo/a en el proceso de contrataci&oacute;n del seguro para su veh&iacute;culo.</font></p>\r\n    </div>', 'Correo Automatico Cotizador Formato Gerencial'),
 	(4, 4, '</br>\r\n<p>Deber&aacute; realizar una inspecci&oacute;n al veh&iacute;culo y las opciones para realizar dicha inspecci&oacute;n son las siguientes: </p>\r\n <table id="Talleres"><tr><th>TALLER</th><th>DIRECCI&Oacute;N</th><th>TEL&Eacute;FONO </th> </tr>\r\n <tr><td>UNITY PROMOTORES</td><td>Avenida Las Americas 22-23 zona14</td><td>2386-3700</td></tr>\r\n <tr><td>QUANTUM</td><td>20 calle 18-01,zona 10</td><td>2384-1412</td></tr>\r\n <tr><td>TALLER DE LA CIUDAD ZONA 9</td><td>6a. Calle 6-17, zona 9</td><td>2504-3939</td></tr>\r\n <tr><td>TALLER DE LA CIUDAD CARRETERA</td><td>Km 16.5 Carr. A El Salvador</td><td>2504-3939</td></tr>\r\n <tr><td>BODY FIX</td><td>Av. Petapa 43-15 Z12</td><td>2388-5500</td></tr>\r\n <tr><td>AUTOCOLOR</td><td>10a. Avenida A 0-38 Z.7</td><td>2419-3800</td></tr>\r\n <tr><td>TALLER SPECTRA</td><td>25 Av. 4-34 Zona 11</td><td>2474-2033</td></tr>\r\n <tr><td>UNIAUTO</td><td>Avenida Petapa 36-19 zona 12</td><td>2328 8879</td></tr>\r\n <tr><td>TALLER RODAS ZONA 5</td><td>11 Avenida B 31-15 zona 5</td><td>2331-9106</td></tr>\r\n <tr><td>COJULUN ROOSEVELT</td><td>7 avenida 0-07, zona 2 de Mixco</td><td>2250-4602</td></tr>\r\n </table>\r\n \r\n <br />\r\n Su veh&iacute;culo queda asegurado inmediatamente despu&eacute;s de haber realizado la inspecci&oacute;n y completado los documentos en el paso 3 . Agradecemos su atenci&oacute;n y cualquier consulta adicional quedamos a las &oacute;rdenes.<br /> <br /> <br />Atentamente,</p> <br /> <br /> <br />', 'Se utilizapara el paso 2 informativo.'),
 	(5, 5, '<p>Estimado/a {Nombre}<br /> <br /> Su cotizaci&oacute;n en el paso 3 ya fue utilizada previamente, \r\npara actualizar sus datos un ejecutivo de cuenta le <br /> estara contactando en breve.<br /> <br /> <br />Saludos Cordiales</p>\r\n<br /><a>{Datos}</a> ', 'Mensaje del Paso3 en caso de que la información ya fue almacenada previamente.'),
 	(6, 6, '<p>Estimado/a {Nombre}<br /> <br /> Su cotizaci&oacute;n en el paso 3 fue completada con exito, \r\nun ejecutivo le estara contactando en breve.<br /> <br /> <br />Saludos Cordiales</p>\r\n<br /><a>{Datos}</a> ', 'Correo indicando la completación del paso 3'),
-	(7, 7, '<div style="width:650px;">\r\n        <p><font style="font-family:Calibri; font-size:medium;">Gracias por tomarnos en cuenta para la asesor&iacute;a en el seguro de su veh&iacute;culo. Unity Promotores es una empresa  con  m&aacute;s  de  35  a&ntilde;os de  estar en el mercado Guatemalteco.</font></p>\r\n        <p><font style="font-family:Calibri; font-size:medium;">A continuaci&oacute;n le presentamos 3 sencillos pasos que Ud. debe seguir para poder contratar el seguro de su veh&iacute;culo.</font></p>\r\n         <table>\r\n             <tr style="width:100%;"><td class="tat">\r\n                     <a href="{Link1}"><img src="{Paso1}" style="width:150px; height:150px;" /></a></td><td></td><td class="tat"></td>\r\n            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>\r\n				 <td>\r\n                 <a href="{Link2}"><img src="{Paso2}" style="width:150px; height:150px;" /></a></td><td class="tat"></td>\r\n             <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>\r\n				 <td>\r\n                 <a href="{Link3}"><img src="{Paso3}" style="width:150px; height:150px;" /></a></td></tr></table>\r\n        <p>&nbsp;</p>\r\n        <p><font style="font-family:Calibri; font-size:medium;">En breve uno de nuestros asesores especializados se estar&aacute; comunicando con usted para resolver dudas y guiarlo/a en el proceso de contrataci&oacute;n del seguro para su veh&iacute;culo.</font></p>\r\n    </div>', 'Mennsaje para Motos');
+	(7, 7, '<div style="width:650px;">\r\n        <p><font style="font-family:Calibri; font-size:medium;">Gracias por tomarnos en cuenta para la asesor&iacute;a en el seguro de su veh&iacute;culo. Unity Promotores es una empresa  con  m&aacute;s  de  35  a&ntilde;os de  estar en el mercado Guatemalteco.</font></p>\r\n        <p><font style="font-family:Calibri; font-size:medium;">A continuaci&oacute;n le presentamos 3 sencillos pasos que Ud. debe seguir para poder contratar el seguro de su veh&iacute;culo.</font></p>\r\n         <table>\r\n             <tr style="width:100%;"><td class="tat">\r\n                     <a href="{Link1}"><img src="{Paso1}" style="width:150px; height:150px;" /></a></td><td></td><td class="tat"></td>\r\n            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>\r\n				 <td>\r\n                 <a href="{Link2}"><img src="{Paso2}" style="width:150px; height:150px;" /></a></td><td class="tat"></td>\r\n             <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>\r\n				 <td>\r\n                 <a href="{Link3}"><img src="{Paso3}" style="width:150px; height:150px;" /></a></td></tr></table>\r\n        <p>&nbsp;</p>\r\n        <p><font style="font-family:Calibri; font-size:medium;">En breve uno de nuestros asesores especializados se estar&aacute; comunicando con usted para resolver dudas y guiarlo/a en el proceso de contrataci&oacute;n del seguro para su veh&iacute;culo.</font></p>\r\n    </div>', 'Mennsaje para Motos Seguro Completo'),
+	(8, 8, '<div style="width:650px;>"  <span style="text-decoration: underline;"><p>SOLO RC</p></span> \r\n <br />\r\n<p><span style="font-weight: 400;">De acuerdo a su solicitud, adjunto encontrar&aacute; cotizaci&oacute;n para el seguro de su veh&iacute;culo bajo &nbsp;el plan exclusivo de colaboradores del banco.</span></p>\r\n<p><span style="font-weight: 400;">En caso de ser aceptada la propuesta, &nbsp;favor enviar los siguientes documentos:</span></p>\r\n<br />\r\n<ul>\r\n<li><strong><strong>Tarjeta de circulaci&oacute;n</strong></strong></li>\r\n<li><strong>DPI</strong></li>\r\n<li style="font-weight: 400;"><strong>Recibo reciente de agua, luz o tel&eacute;fono fijo&nbsp;</strong><span style="font-weight: 400;">que refleje su direcci&oacute;n particular.</span></li>\r\n<li style="font-weight: 400;"><span style="font-weight: 400;">Completar campos&nbsp;</span><span style="font-weight: 400;">marcados en color gris</span><span style="font-weight: 400;">&nbsp;del Formulario&nbsp;&nbsp;</span><strong>ASR27</strong><span style="font-weight: 400;">&nbsp;y enviarlo en excel (adjunto)</span><strong> No. GEID</strong></li>\r\n</ul>\r\n<p><span style="font-weight: 400;">Dichos documentos puede enviarlos&nbsp;&nbsp;escaneados, hasta que nosotros tengamos los documentos completos el veh&iacute;culo queda asegurado.</span></p>\r\n<p><span style="font-weight: 400;">Agradecemos su atenci&oacute;n y cualquier consulta adicional quedamos a las &oacute;rdenes.</span></p>\r\n            <table>\r\n             <tr style="width:100%;"><td class="tat">\r\n                     <a href="{Link1}"><img src="{Paso1}" style="width:150px; height:150px;" /></a></td><td></td><td class="tat"></td>\r\n            <td style="width:200px;"></td>\r\n				 <td>\r\n                 </td><td class="tat"></td>\r\n             <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>\r\n				 <td>\r\n                 <a href="{Link3}"><img src="{Paso3}" style="width:150px; height:150px;" /></a></td></tr></table>\r\n   <br />\r\n<p><span style="font-weight: 400;">Cordialmente,</span></p>\r\n<p>&nbsp;</p></div>\r\n', 'Mensaje para Motos Responsabilidad Civil');
 /*!40000 ALTER TABLE `maestro_correoautomatico` ENABLE KEYS */;
 
 
 -- Dumping structure for table catalogo.maestro_correosinternos
 CREATE TABLE IF NOT EXISTS `maestro_correosinternos` (
-  `indice` int(11) NOT NULL AUTO_INCREMENT,
-  `Correo` varchar(75) NOT NULL DEFAULT '0',
-  `CodigoEmpresa` varchar(75) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`Correo`,`CodigoEmpresa`),
-  KEY `indice` (`indice`),
-  KEY `FK__coberturas_adicionales` (`CodigoEmpresa`),
-  CONSTRAINT `FK__coberturas_adicionales` FOREIGN KEY (`CodigoEmpresa`) REFERENCES `maestro_reglasnegocio` (`CodigoEmpresa`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+  `indice` int(11) DEFAULT NULL,
+  `Correo` varchar(150) DEFAULT NULL,
+  `CodigoEmpresa` varchar(350) DEFAULT NULL,
+  KEY `indice` (`indice`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table catalogo.maestro_correosinternos: ~1 rows (approximately)
+-- Dumping data for table catalogo.maestro_correosinternos: ~0 rows (approximately)
 DELETE FROM `maestro_correosinternos`;
 /*!40000 ALTER TABLE `maestro_correosinternos` DISABLE KEYS */;
 INSERT INTO `maestro_correosinternos` (`indice`, `Correo`, `CodigoEmpresa`) VALUES
-	(3, 'erik.castaneda@unitypromotores.com', 'Roble');
+	(NULL, 'erik.castaneda@unitypromotores.com', 'Codisa'),
+	(NULL, 'erik.castaneda@unitypromotores.com', 'Telus'),
+	(NULL, 'erik.castaneda@unitypromotores.com', 'Fogel'),
+	(NULL, 'erik.castaneda@unitypromotores.com', 'Capgemini'),
+	(NULL, 'erik.castaneda@unitypromotores.com', 'CEG'),
+	(NULL, 'erik.castaneda@unitypromotores.com', 'Citibank');
 /*!40000 ALTER TABLE `maestro_correosinternos` ENABLE KEYS */;
 
 
@@ -127,27 +130,108 @@ CREATE TABLE IF NOT EXISTS `maestro_link_externo` (
   `CodigoEmpresa` varchar(300) DEFAULT '0',
   `descripcion` varchar(800) DEFAULT '0',
   KEY `indice` (`indice`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=97 DEFAULT CHARSET=utf8;
 
--- Dumping data for table catalogo.maestro_link_externo: ~14 rows (approximately)
+-- Dumping data for table catalogo.maestro_link_externo: ~90 rows (approximately)
 DELETE FROM `maestro_link_externo`;
 /*!40000 ALTER TABLE `maestro_link_externo` DISABLE KEYS */;
 INSERT INTO `maestro_link_externo` (`indice`, `Link`, `CodigoEmpresa`, `descripcion`) VALUES
-	(1, 'http://testcotizador.unitypromotores.com/Cotizador/PeticionesExternas.aspx', 'Roble', 'Link1'),
-	(2, 'http://testcotizador.unitypromotores.com/Cotizador/imagenes/Paso1.png', 'Roble', 'Paso1'),
-	(3, 'http://testcotizador.unitypromotores.com/Cotizador/imagenes/Paso2.png', 'Roble', 'Paso2'),
-	(4, 'http://testcotizador.unitypromotores.com/Cotizador/imagenes/Paso3.png', 'Roble', 'Paso3'),
-	(5, 'http://testcotizador.unitypromotores.com/Cotizador/imagenes/Paso11.png', 'Roble', 'Paso11'),
-	(6, 'http://testcotizador.unitypromotores.com/Cotizador/imagenes/Paso22.png', 'Roble', 'Paso22'),
-	(7, 'http://testcotizador.unitypromotores.com/Cotizador/imagenes/Paso33.png', 'Roble', 'Paso33'),
-	(8, 'http://testcotizador.unitypromotores.com/Cotizador/Paso2.aspx', 'Roble', 'Link2'),
-	(9, 'http://testcotizador.unitypromotores.com/Cotizador/Paso3.aspx', 'Roble', 'Link3'),
-	(10, 'http://testcotizador.unitypromotores.com/Cotizador/Rpt1.aspx', 'Roble', 'Link4'),
-	(11, 'http://testcotizador.unitypromotores.com/Cotizador/Rpt2.aspx', 'Roble', 'Link5'),
-	(12, 'http://testcotizador.unitypromotores.com/Cotizador/imagenes/Paso4.png', 'Roble', 'Paso4'),
-	(13, 'http://testcotizador.unitypromotores.com/Cotizador/imagenes/Paso44.png', 'Roble', 'Paso44'),
-	(14, 'http://testcotizador.unitypromotores.com/Cotizador/Rpt3.aspx', 'Roble', 'Link6'),
-	(15, 'http://testcotizador.unitypromotores.com/Cotizador/Rpt3.aspx', 'Roble', 'Link7');
+	(1, 'http://testcotizador.unitypromotores.com/Cotizador/PeticionesExternas.aspx', 'Codisa', 'Link1'),
+	(2, 'http://testcotizador.unitypromotores.com/Cotizador/imagenes/Paso1.png', 'Codisa', 'Paso1'),
+	(3, 'http://testcotizador.unitypromotores.com/Cotizador/imagenes/Paso2.png', 'Codisa', 'Paso2'),
+	(4, 'http://testcotizador.unitypromotores.com/Cotizador/imagenes/Paso3.png', 'Codisa', 'Paso3'),
+	(5, 'http://testcotizador.unitypromotores.com/Cotizador/imagenes/Paso11.png', 'Codisa', 'Paso11'),
+	(6, 'http://testcotizador.unitypromotores.com/Cotizador/imagenes/Paso22.png', 'Codisa', 'Paso22'),
+	(7, 'http://testcotizador.unitypromotores.com/Cotizador/imagenes/Paso33.png', 'Codisa', 'Paso33'),
+	(8, 'http://testcotizador.unitypromotores.com/Cotizador/Paso2.aspx', 'Codisa', 'Link2'),
+	(9, 'http://testcotizador.unitypromotores.com/Cotizador/Paso3.aspx', 'Codisa', 'Link3'),
+	(10, 'http://testcotizador.unitypromotores.com/Cotizador/Rpt1.aspx', 'Codisa', 'Link4'),
+	(11, 'http://testcotizador.unitypromotores.com/Cotizador/Rpt2.aspx', 'Codisa', 'Link5'),
+	(12, 'http://testcotizador.unitypromotores.com/Cotizador/imagenes/Paso4.png', 'Codisa', 'Paso4'),
+	(13, 'http://testcotizador.unitypromotores.com/Cotizador/imagenes/Paso44.png', 'Codisa', 'Paso44'),
+	(14, 'http://testcotizador.unitypromotores.com/Cotizador/Rpt3.aspx', 'Codisa', 'Link6'),
+	(15, 'http://testcotizador.unitypromotores.com/Cotizador/Rpt4.aspx', 'Codisa', 'Link7'),
+	(16, 'http://testcotizador.unitypromotores.com/Cotizador/PeticionesExternas6.aspx', 'Citibank', 'Link1'),
+	(17, 'http://testcotizador.unitypromotores.com/Cotizador/imagenes/Paso1.png', 'Citibank', 'Paso1'),
+	(18, 'http://testcotizador.unitypromotores.com/Cotizador/imagenes/Paso2.png', 'Citibank', 'Paso2'),
+	(19, 'http://testcotizador.unitypromotores.com/Cotizador/imagenes/Paso3.png', 'Citibank', 'Paso3'),
+	(20, 'http://testcotizador.unitypromotores.com/Cotizador/imagenes/Paso11.png', 'Citibank', 'Paso11'),
+	(21, 'http://testcotizador.unitypromotores.com/Cotizador/imagenes/Paso22.png', 'Citibank', 'Paso22'),
+	(22, 'http://testcotizador.unitypromotores.com/Cotizador/imagenes/Paso33.png', 'Citibank', 'Paso33'),
+	(23, 'http://testcotizador.unitypromotores.com/Cotizador/Paso2.aspx', 'Citibank', 'Link2'),
+	(24, 'http://testcotizador.unitypromotores.com/Cotizador/Paso3.aspx', 'Citibank', 'Link3'),
+	(25, 'http://testcotizador.unitypromotores.com/Cotizador/Rpt21.aspx', 'Citibank', 'Link4'),
+	(26, 'http://testcotizador.unitypromotores.com/Cotizador/Rpt22.aspx', 'Citibank', 'Link5'),
+	(27, 'http://testcotizador.unitypromotores.com/Cotizador/imagenes/Paso4.png', 'Citibank', 'Paso4'),
+	(28, 'http://testcotizador.unitypromotores.com/Cotizador/imagenes/Paso44.png', 'Citibank', 'Paso44'),
+	(29, 'http://testcotizador.unitypromotores.com/Cotizador/Rpt23.aspx', 'Citibank', 'Link6'),
+	(30, 'http://testcotizador.unitypromotores.com/Cotizador/Rpt24.aspx', 'Citibank', 'Link7'),
+	(31, 'http://testcotizador.unitypromotores.com/Cotizador/PeticionesExternas5.aspx', 'CEG', 'Link1'),
+	(32, 'http://testcotizador.unitypromotores.com/Cotizador/imagenes/Paso1.png', 'CEG', 'Paso1'),
+	(33, 'http://testcotizador.unitypromotores.com/Cotizador/imagenes/Paso2.png', 'CEG', 'Paso2'),
+	(34, 'http://testcotizador.unitypromotores.com/Cotizador/imagenes/Paso3.png', 'CEG', 'Paso3'),
+	(35, 'http://testcotizador.unitypromotores.com/Cotizador/imagenes/Paso11.png', 'CEG', 'Paso11'),
+	(36, 'http://testcotizador.unitypromotores.com/Cotizador/imagenes/Paso22.png', 'CEG', 'Paso22'),
+	(37, 'http://testcotizador.unitypromotores.com/Cotizador/imagenes/Paso33.png', 'CEG', 'Paso33'),
+	(38, 'http://testcotizador.unitypromotores.com/Cotizador/Paso2.aspx', 'CEG', 'Link2'),
+	(39, 'http://testcotizador.unitypromotores.com/Cotizador/Paso3.aspx', 'CEG', 'Link3'),
+	(40, 'http://testcotizador.unitypromotores.com/Cotizador/Rpt17.aspx', 'CEG', 'Link4'),
+	(41, 'http://testcotizador.unitypromotores.com/Cotizador/Rpt18.aspx', 'CEG', 'Link5'),
+	(42, 'http://testcotizador.unitypromotores.com/Cotizador/imagenes/Paso4.png', 'CEG', 'Paso4'),
+	(43, 'http://testcotizador.unitypromotores.com/Cotizador/imagenes/Paso44.png', 'CEG', 'Paso44'),
+	(44, 'http://testcotizador.unitypromotores.com/Cotizador/Rpt19.aspx', 'CEG', 'Link6'),
+	(45, 'http://testcotizador.unitypromotores.com/Cotizador/Rpt20.aspx', 'CEG', 'Link7'),
+	(46, 'http://testcotizador.unitypromotores.com/Cotizador/PeticionesExternas4.aspx', 'Capgemini', 'Link1'),
+	(47, 'http://testcotizador.unitypromotores.com/Cotizador/imagenes/Paso1.png', 'Capgemini', 'Paso1'),
+	(48, 'http://testcotizador.unitypromotores.com/Cotizador/imagenes/Paso2.png', 'Capgemini', 'Paso2'),
+	(49, 'http://testcotizador.unitypromotores.com/Cotizador/imagenes/Paso3.png', 'Capgemini', 'Paso3'),
+	(50, 'http://testcotizador.unitypromotores.com/Cotizador/imagenes/Paso11.png', 'Capgemini', 'Paso11'),
+	(51, 'http://testcotizador.unitypromotores.com/Cotizador/imagenes/Paso22.png', 'Capgemini', 'Paso22'),
+	(52, 'http://testcotizador.unitypromotores.com/Cotizador/imagenes/Paso33.png', 'Capgemini', 'Paso33'),
+	(53, 'http://testcotizador.unitypromotores.com/Cotizador/Paso2.aspx', 'Capgemini', 'Link2'),
+	(54, 'http://testcotizador.unitypromotores.com/Cotizador/Paso3.aspx', 'Capgemini', 'Link3'),
+	(55, 'http://testcotizador.unitypromotores.com/Cotizador/Rpt13.aspx', 'Capgemini', 'Link4'),
+	(56, 'http://testcotizador.unitypromotores.com/Cotizador/Rpt14.aspx', 'Capgemini', 'Link5'),
+	(57, 'http://testcotizador.unitypromotores.com/Cotizador/imagenes/Paso4.png', 'Capgemini', 'Paso4'),
+	(58, 'http://testcotizador.unitypromotores.com/Cotizador/imagenes/Paso44.png', 'Capgemini', 'Paso44'),
+	(59, 'http://testcotizador.unitypromotores.com/Cotizador/Rpt15.aspx', 'Capgemini', 'Link6'),
+	(60, 'http://testcotizador.unitypromotores.com/Cotizador/Rpt16.aspx', 'Capgemini', 'Link7'),
+	(61, 'http://testcotizador.unitypromotores.com/Cotizador/PeticionesExternas3.aspx', 'Fogel', 'Link1'),
+	(62, 'http://testcotizador.unitypromotores.com/Cotizador/imagenes/Paso1.png', 'Fogel', 'Paso1'),
+	(63, 'http://testcotizador.unitypromotores.com/Cotizador/imagenes/Paso2.png', 'Fogel', 'Paso2'),
+	(64, 'http://testcotizador.unitypromotores.com/Cotizador/imagenes/Paso3.png', 'Fogel', 'Paso3'),
+	(65, 'http://testcotizador.unitypromotores.com/Cotizador/imagenes/Paso11.png', 'Fogel', 'Paso11'),
+	(66, 'http://testcotizador.unitypromotores.com/Cotizador/imagenes/Paso22.png', 'Fogel', 'Paso22'),
+	(67, 'http://testcotizador.unitypromotores.com/Cotizador/imagenes/Paso33.png', 'Fogel', 'Paso33'),
+	(68, 'http://testcotizador.unitypromotores.com/Cotizador/Paso2.aspx', 'Fogel', 'Link2'),
+	(69, 'http://testcotizador.unitypromotores.com/Cotizador/Paso3.aspx', 'Fogel', 'Link3'),
+	(70, 'http://testcotizador.unitypromotores.com/Cotizador/Rpt9.aspx', 'Fogel', 'Link4'),
+	(71, 'http://testcotizador.unitypromotores.com/Cotizador/Rpt10.aspx', 'Fogel', 'Link5'),
+	(72, 'http://testcotizador.unitypromotores.com/Cotizador/imagenes/Paso4.png', 'Fogel', 'Paso4'),
+	(73, 'http://testcotizador.unitypromotores.com/Cotizador/imagenes/Paso44.png', 'Fogel', 'Paso44'),
+	(74, 'http://testcotizador.unitypromotores.com/Cotizador/Rpt11.aspx', 'Fogel', 'Link6'),
+	(75, 'http://testcotizador.unitypromotores.com/Cotizador/Rpt12.aspx', 'Fogel', 'Link7'),
+	(76, 'http://testcotizador.unitypromotores.com/Cotizador/PeticionesExternas2.aspx', 'Telus', 'Link1'),
+	(77, 'http://testcotizador.unitypromotores.com/Cotizador/imagenes/Paso1.png', 'Telus', 'Paso1'),
+	(78, 'http://testcotizador.unitypromotores.com/Cotizador/imagenes/Paso2.png', 'Telus', 'Paso2'),
+	(79, 'http://testcotizador.unitypromotores.com/Cotizador/imagenes/Paso3.png', 'Telus', 'Paso3'),
+	(80, 'http://testcotizador.unitypromotores.com/Cotizador/imagenes/Paso11.png', 'Telus', 'Paso11'),
+	(81, 'http://testcotizador.unitypromotores.com/Cotizador/imagenes/Paso22.png', 'Telus', 'Paso22'),
+	(82, 'http://testcotizador.unitypromotores.com/Cotizador/imagenes/Paso33.png', 'Telus', 'Paso33'),
+	(83, 'http://testcotizador.unitypromotores.com/Cotizador/Paso2.aspx', 'Telus', 'Link2'),
+	(84, 'http://testcotizador.unitypromotores.com/Cotizador/Paso3.aspx', 'Telus', 'Link3'),
+	(85, 'http://testcotizador.unitypromotores.com/Cotizador/Rpt5.aspx', 'Telus', 'Link4'),
+	(86, 'http://testcotizador.unitypromotores.com/Cotizador/Rpt6.aspx', 'Telus', 'Link5'),
+	(87, 'http://testcotizador.unitypromotores.com/Cotizador/imagenes/Paso4.png', 'Telus', 'Paso4'),
+	(88, 'http://testcotizador.unitypromotores.com/Cotizador/imagenes/Paso44.png', 'Telus', 'Paso44'),
+	(89, 'http://testcotizador.unitypromotores.com/Cotizador/Rpt7.aspx', 'Telus', 'Link6'),
+	(90, 'http://testcotizador.unitypromotores.com/Cotizador/Rpt8.aspx', 'Telus', 'Link7'),
+	(91, 'http://testcotizador.unitypromotores.com/Cotizador/Formulario1.aspx', 'Codisa', 'Redireccion'),
+	(92, 'http://testcotizador.unitypromotores.com/Cotizador/Formulario2.aspx', 'Telus', 'Redireccion'),
+	(93, 'http://testcotizador.unitypromotores.com/Cotizador/Formulario3.aspx', 'Fogel', 'Redireccion'),
+	(94, 'http://testcotizador.unitypromotores.com/Cotizador/Formulario4.aspx', 'Capgemini', 'Redireccion'),
+	(95, 'http://testcotizador.unitypromotores.com/Cotizador/Formulario5.aspx', 'CEG', 'Redireccion'),
+	(96, 'http://testcotizador.unitypromotores.com/Cotizador/Formulario6.aspx', 'Citibank', 'Redireccion');
 /*!40000 ALTER TABLE `maestro_link_externo` ENABLE KEYS */;
 
 
@@ -181,13 +265,18 @@ CREATE TABLE IF NOT EXISTS `maestro_reglasnegocio` (
   `MotoPorcentaje_PorServicio` decimal(10,2) DEFAULT NULL,
   PRIMARY KEY (`indice`),
   UNIQUE KEY `codigo` (`CodigoEmpresa`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
--- Dumping data for table catalogo.maestro_reglasnegocio: ~1 rows (approximately)
+-- Dumping data for table catalogo.maestro_reglasnegocio: ~6 rows (approximately)
 DELETE FROM `maestro_reglasnegocio`;
 /*!40000 ALTER TABLE `maestro_reglasnegocio` DISABLE KEYS */;
 INSERT INTO `maestro_reglasnegocio` (`indice`, `CodigoEmpresa`, `base`, `suma_asegurada_limite`, `porcentaje_menor_100`, `porcentaje_mayor_100`, `costo`, `robo_parcial`, `Menores_desde_16`, `Menores_desde_18`, `Exceso_RC`, `gastos_emision`, `asisto`, `iva`, `Exceso_RC_ElevacionDeCobertura`, `Exceso_RC_Base`, `PrimaNetaRC`, `MenorNombradoRC`, `PorcentajeResponsabilidadCivil`, `MotoDanosATercerosBase`, `MotoPorcentaje_DeducibleDañosYAccidentes`, `MotoSumaLimiteParaCalculo`, `MotoPorcentaje_DeducibleRobo`, `MotoPorcentaje_Cobro`, `MotoCobro_PorServicio`, `MotoPorcentaje_PorServicio`) VALUES
-	(1, 'Roble', 1000.00, 100000.00, 0.025, 0.020, 500.00, 267.54, 500.00, 1000.00, 200.00, 0.05, 145.45, 0.12, 250000.00, 800000.00, 900.00, NULL, 1.05, 300000.00, 0.05, 500.00, 0.02, 0.05, 250.00, 1.05);
+	(1, 'Codisa', 1000.00, 100000.00, 0.025, 0.020, 500.00, 267.54, 500.00, 1000.00, 200.00, 0.05, 145.45, 0.12, 250000.00, 800000.00, 900.00, NULL, 1.05, 300000.00, 0.05, 500.00, 0.02, 0.05, 250.00, 1.05),
+	(2, 'Telus', 1000.00, 100000.00, 0.025, 0.020, 500.00, 267.54, 500.00, 1000.00, 200.00, 0.05, 145.45, 0.12, 250000.00, 800000.00, 900.00, NULL, 1.05, 300000.00, 0.05, 500.00, 0.02, 0.05, 250.00, 1.05),
+	(3, 'Fogel', 1000.00, 100000.00, 0.025, 0.020, 500.00, 267.54, 500.00, 1000.00, 200.00, 0.05, 145.45, 0.12, 250000.00, 800000.00, 900.00, NULL, 1.05, 300000.00, 0.05, 500.00, 0.02, 0.05, 250.00, 1.05),
+	(4, 'Capgemini', 1000.00, 100000.00, 0.025, 0.020, 500.00, 267.54, 500.00, 1000.00, 200.00, 0.05, 145.45, 0.12, 250000.00, 800000.00, 900.00, NULL, 1.05, 300000.00, 0.05, 500.00, 0.02, 0.05, 250.00, 1.05),
+	(5, 'CEG', 1000.00, 100000.00, 0.025, 0.020, 500.00, 267.54, 500.00, 1000.00, 200.00, 0.05, 145.45, 0.12, 250000.00, 800000.00, 900.00, NULL, 1.05, 300000.00, 0.05, 500.00, 0.02, 0.05, 250.00, 1.05),
+	(6, 'Citibank', 1000.00, 100000.00, 0.025, 0.020, 500.00, 267.54, 500.00, 1000.00, 200.00, 0.05, 145.45, 0.12, 250000.00, 800000.00, 900.00, NULL, 1.05, 300000.00, 0.05, 500.00, 0.02, 0.05, 250.00, 1.05);
 /*!40000 ALTER TABLE `maestro_reglasnegocio` ENABLE KEYS */;
 
 
@@ -435,7 +524,7 @@ CREATE TABLE IF NOT EXISTS `tipodevehiculo` (
   UNIQUE KEY `Descripcion` (`Descripcion`)
 ) ENGINE=InnoDB AUTO_INCREMENT=42 DEFAULT CHARSET=utf8;
 
--- Dumping data for table catalogo.tipodevehiculo: ~4 rows (approximately)
+-- Dumping data for table catalogo.tipodevehiculo: ~3 rows (approximately)
 DELETE FROM `tipodevehiculo`;
 /*!40000 ALTER TABLE `tipodevehiculo` DISABLE KEYS */;
 INSERT INTO `tipodevehiculo` (`indice`, `Descripcion`) VALUES
@@ -474,9 +563,9 @@ CREATE TABLE IF NOT EXISTS `trans_correosenviados` (
   `ingreso` varchar(50) DEFAULT NULL,
   `status` bit(1) DEFAULT NULL,
   PRIMARY KEY (`indice`)
-) ENGINE=InnoDB AUTO_INCREMENT=178 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=195 DEFAULT CHARSET=utf8;
 
--- Dumping data for table catalogo.trans_correosenviados: ~176 rows (approximately)
+-- Dumping data for table catalogo.trans_correosenviados: ~182 rows (approximately)
 DELETE FROM `trans_correosenviados`;
 /*!40000 ALTER TABLE `trans_correosenviados` DISABLE KEYS */;
 INSERT INTO `trans_correosenviados` (`indice`, `Nombre`, `Apellidos`, `Correo`, `TipoDeVehiculo`, `Linea`, `Marca`, `Telefono`, `Modelo`, `SumaAsegurada`, `Fecha`, `TipoSeguro`, `contactar`, `CodigoEmpresa`, `ComoContactar`, `Paso1`, `Paso2`, `Paso3`, `Nit`, `DPI`, `Direccion`, `Zona`, `Municipio`, `ingreso`, `status`) VALUES
@@ -661,7 +750,18 @@ INSERT INTO `trans_correosenviados` (`indice`, `Nombre`, `Apellidos`, `Correo`, 
 	(180, 'Violeta', 'De las Nieves', 'erik.castaneda@unitypromotores.com', 'Motocicleta', 'Scrambler', 'ADMIRAL', '65465465', '2001', 25500.00, '2016-09-05 16:16:34', 'Seguro Completo', 'erik.castaneda@unitypromotores.com', 'Roble', 'Por Telefono - Inmediatamente', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 	(181, 'Maura', 'Alvarez de Bodner', 'erik.castaneda@unitypromotores.com', 'Motocicleta', 'Scrambler', 'APOLO', '65465465', '2001', 15000.00, '2016-09-05 16:25:35', 'Seguro Completo', 'erik.castaneda@unitypromotores.com', 'Roble', 'Por Telefono - Inmediatamente', b'1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'H764T844', NULL),
 	(182, 'Lucrecia Parafina', 'de Borgia', 'erik.castaneda@unitypromotores.com', 'Motocicleta', 'a', 'ACCU', '65465465', '2001', 45000.00, '2016-09-05 16:51:33', 'Seguro Completo', 'erik.castaneda@unitypromotores.com', 'Roble', 'Por Telefono - Inmediatamente', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-	(183, 'Mirna Virginia', 'Caceres Monge', 'erik.castaneda@unitypromotores.com', 'Motocicleta', 's', 'ALFA', '65465465', '2001', 0.00, '2016-09-05 16:55:30', 'Responsabilidad Civil', 'erik.castaneda@unitypromotores.com', 'Roble', 'Por Telefono - Inmediatamente', b'1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'H764T844', NULL);
+	(183, 'Mirna Virginia', 'Caceres Monge', 'erik.castaneda@unitypromotores.com', 'Motocicleta', 's', 'ALFA', '65465465', '2001', 0.00, '2016-09-05 16:55:30', 'Responsabilidad Civil', 'erik.castaneda@unitypromotores.com', 'Roble', 'Por Telefono - Inmediatamente', b'1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'H764T844', NULL),
+	(184, 'Telus', 'Telus', 'erik.castaneda@unitypromotores.com', 'Automóvil', 'Verde', 'ALFA', '65465465', '2001', 50000.00, '2016-09-07 12:14:35', 'Seguro Completo', 'erik.castaneda@unitypromotores.com', 'Telus', 'Por Telefono - Inmediatamente', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+	(185, 'Telus', 'Telus', 'erik.castaneda@unitypromotores.com', 'Automóvil', 'Clasica', 'ALFA', '65465465', '2001', 45000.00, '2016-09-07 12:20:11', 'Seguro Completo', 'erik.castaneda@unitypromotores.com', 'Telus', 'Por Telefono - Inmediatamente', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+	(186, 'Telus', 'Telus', 'erik.castaneda@unitypromotores.com', 'Automóvil', 'Clasica', 'ALFA', '65465465', '2001', 45000.00, '2016-09-07 12:20:28', 'Seguro Completo', 'erik.castaneda@unitypromotores.com', 'Telus', 'Por Telefono - Inmediatamente', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+	(187, 'Telus', 'Telus', 'erik.castaneda@unitypromotores.com', 'Automóvil', 'Clasica', 'ALFA ROMEO', '65465465', '2001', 45000.00, '2016-09-07 12:24:27', 'Seguro Completo', 'erik.castaneda@unitypromotores.com', 'Telus', 'Por Telefono - Inmediatamente', b'1', b'1', b'1', NULL, NULL, NULL, NULL, NULL, 'H764T844', NULL),
+	(188, 'Codisa', 'Responsabilidad Civil', 'erik.castaneda@unitypromotores.com', 'Automóvil', 'clasica', 'ALFA', '65465465', '2001', 0.00, '2016-09-07 14:15:34', 'Responsabilidad Civil', 'erik.castaneda@unitypromotores.com', 'Codisa', 'Por Telefono - Inmediatamente', b'1', NULL, b'1', NULL, NULL, NULL, NULL, NULL, 'H764T844', NULL),
+	(189, 'Telus', 'RC', 'erik.castaneda@unitypromotores.com', 'Automóvil', 'clasica', 'ASTON MARTIN', '65465465', '2001', 0.00, '2016-09-07 14:17:40', 'Responsabilidad Civil', 'erik.castaneda@unitypromotores.com', 'Telus', 'Por Telefono - Inmediatamente', b'1', NULL, b'1', NULL, NULL, NULL, NULL, NULL, 'H764T844', NULL),
+	(190, 'Telus moto', 'Completo', 'erik.castaneda@unitypromotores.com', 'Motocicleta', 'Clasica', 'ALFA', '65465465', '2001', 25000.00, '2016-09-07 14:28:25', 'Seguro Completo', 'erik.castaneda@unitypromotores.com', 'Telus', 'Por Telefono - Inmediatamente', b'1', b'1', b'1', NULL, NULL, NULL, NULL, NULL, 'H764T844', NULL),
+	(191, 'Telus RC', 'RC', 'erik.castaneda@unitypromotores.com', 'Motocicleta', 'Kawasaki', 'ACCU', '65498798', '2001', 0.00, '2016-09-07 15:05:58', 'Responsabilidad Civil', 'erik.castaneda@unitypromotores.com', 'Telus', 'Por Telefono - Inmediatamente', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+	(192, 'Telus RC', 'RC', 'erik.castaneda@unitypromotores.com', 'Motocicleta', 'Fija', 'AVANTI', '65465465', '2001', 0.00, '2016-09-07 15:16:17', 'Responsabilidad Civil', 'erik.castaneda@unitypromotores.com', 'Telus', 'Por Telefono - Inmediatamente', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+	(193, 'Telus RC', 'RC', 'erik.castaneda@unitypromotores.com', 'Motocicleta', 'clasica', 'ALFA ROMEO', '65465465', '2001', 0.00, '2016-09-07 15:31:40', 'Responsabilidad Civil', 'erik.castaneda@unitypromotores.com', 'Telus', 'Por Telefono - Inmediatamente', b'1', NULL, b'1', NULL, NULL, NULL, NULL, NULL, 'H764T844', NULL),
+	(194, 'Codisa SC', 'SC', 'erik.castaneda@unitypromotores.com', 'Automóvil', 'Clasica', 'ALFA ROMEO', '64565465', '2001', 45000.00, '2016-09-07 15:37:57', 'Seguro Completo', 'erik.castaneda@unitypromotores.com', 'Codisa', 'Por Telefono - Inmediatamente', b'1', b'1', b'1', NULL, NULL, NULL, NULL, NULL, 'H764T844', NULL);
 /*!40000 ALTER TABLE `trans_correosenviados` ENABLE KEYS */;
 
 
