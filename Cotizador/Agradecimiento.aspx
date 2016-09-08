@@ -5,16 +5,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
-    <style type="text/css">
-        .auto-style1 {
-            width: 275px;
-            height: 183px;
+    <style>
+        #Panel1{
+            background-size:cover;
         }
     </style>
-</head>
+    </head>
 <body>
     <form id="form1" runat="server">
-    <table ><tr><td  ><img src="imagenes/Agradecimiento.jpg" style="width:800px; height:900px;"  /></td></tr></table>
+ 
+        <asp:Panel ID="Panel1" runat="server" BackImageUrl="http://testcotizador.unitypromotores.com/Cotizador/imagenes/Agradecimiento.jpg" Height="400px" Width="900px" ></asp:Panel>
     </form>
  
 </body>

@@ -12,6 +12,24 @@ namespace Cotizador
         protected void Page_Load(object sender, EventArgs e)
         {
 
+            string correo = "";
+            string telefono = "";
+
+            try
+            {
+                correo = Request.QueryString["correo"];
+            }
+            catch (Exception)
+            { }
+
+            try
+            {
+                telefono = Request.QueryString["telefono"];
+            }
+            catch (Exception)
+            { }
+
+
         }
     }
 }
