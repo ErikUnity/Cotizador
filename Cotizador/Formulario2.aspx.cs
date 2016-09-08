@@ -285,10 +285,17 @@ namespace Cotizador
                  }
              }
 
-             string _correo = this.txtCorreo.Text;
-             string _telefono = this.txtTelefono.Text;
+             if (this.chkChat.Checked)
+             {
+                 Response.Redirect("http://chat.unityseguros.com/chat/unity_promotores/chat.php?a=c8c50");
+             }
+             else
+             {
+                 string _correo = this.txtCorreo.Text;
+                 string _telefono = this.txtTelefono.Text;
 
-             Response.Redirect("Agradecimiento.aspx?correo=" + _correo + "&telefono=" + _telefono);
+                 Response.Redirect("Agradecimiento.aspx?correo=" + _correo + "&telefono=" + _telefono);
+             }
 
             //if (MensajeTipo == 1)
             // {

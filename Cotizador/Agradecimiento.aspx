@@ -4,48 +4,39 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-      <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0"/>
+    <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
     <title></title>
     <style>
-        #Panel1{
-             background-size:contain;
-            background-attachment: fixed; 
-            Height:800px;
-            Width:900px;
-            background-image: url(http://testcotizador.unitypromotores.com/Cotizador/imagenes/Agradecimiento.jpg); background-attachment: fixed; background-repeat: no-repeat;
-        }
+        @media screen and (max-device-height: 150px) {
 
-        @media screen and (max-device-height: 150px){
-         #Panel1{
-            background-size:contain;
-            Height:2600px;
-            Width:1800px;
-            background-attachment: fixed; 
-            background-image: url(http://testcotizador.unitypromotores.com/Cotizador/imagenes/Agradecimiento.jpg); background-attachment: fixed; background-repeat: no-repeat;
+            body {
+                zoom: 200%;
+            }
         }
-
-        body {
-           zoom:200%;
-        }
- }
-
     </style>
-    </head>
+</head>
 <body>
     <form id="form1" runat="server">
-         <asp:Panel ID="Panel1" runat="server" >
-             
- 
-            <asp:Panel ID="Panel3" runat="server" Style="position: absolute; top: 655px; left: 271px;
-                width: 216px; height: 38px;  margin-left: 0px;" ForeColor="White">
-                <asp:Label ID="lblCorreo" runat="server" Font-Bold="True" Font-Names="Candara" Font-Size="X-Large" ForeColor="White" Text="Correo"></asp:Label>
-            </asp:Panel>
-                <asp:Panel ID="Panel2" runat="server" Style="position: absolute; top: 765px; left: 278px;
-                width: 216px; height: 38px;  margin-left: 0px;" ForeColor="White">
-                <asp:Label ID="lblTelefono" runat="server" Font-Bold="True" Font-Names="Candara" Font-Size="X-Large" ForeColor="White" Text="Telefono"></asp:Label>
-            </asp:Panel>
-         </asp:Panel>
+         <div style="background-image:url('http://testcotizador.unitypromotores.com/Cotizador/imagenes/Agradecimiento/Agradecimiento1.jpg'); height: 862px; background-size:contain; background-repeat: no-repeat; background-attachment: fixed; width: 562px;">
+            <table style="width:562px;">
+                <tr><td colspan="2">
+                    &nbsp;</td></tr>
+                <tr><td colspan="2" style="text-align:center;">
+                    <asp:Label ID="lblCorreo0" runat="server" Font-Bold="True" Font-Names="Candara" Font-Size="X-Large" ForeColor="White" Text="Correo">Gracias por confiar en:</asp:Label></td></tr>
+                <tr><td colspan="2" style="text-align:center;">
+                    <asp:Image ID="Image1" runat="server" ImageUrl="~/imagenes/Agradecimiento/Unity Promotores- Logo en blanco.png" Width="387px" />&nbsp;&nbsp;&nbsp;</td></tr>
+                <tr><td colspan="2" style="text-align:center;">
+                    <asp:Label ID="lblCorreo1" runat="server" Font-Bold="True" Font-Names="Candara" Font-Size="X-Large" ForeColor="White" Text="Correo">La propuesta ha sido enviada</asp:Label>
+                    </td></tr>
+                <tr><td colspan="2" style="text-align:center;"><asp:Label ID="Label1" runat="server" Font-Bold="True" Font-Names="Candara" Font-Size="X-Large" ForeColor="White" Text="Correo">a su correo personal exitosamente</asp:Label></td></tr>
+                <tr><td colspan="2" style="text-align:center;"><a style="color:white;">@   </a><asp:Label ID="lblCorreo" runat="server" Font-Bold="True" Font-Names="Candara" Font-Size="X-Large" ForeColor="White" Text="Correo">Correo</asp:Label></td></tr>
+                <tr><td style="text-align:center;"><asp:Label ID="Label2" runat="server" Font-Bold="True" Font-Names="Candara" Font-Size="X-Large" ForeColor="White" Text="Correo">En breve un ejecutivo lo estara</asp:Label></td></tr>
+                <tr><td style="text-align:center;"><asp:Label ID="Label3" runat="server" Font-Bold="True" Font-Names="Candara" Font-Size="X-Large" ForeColor="White" Text="Correo">contactando</asp:Label></td></tr>
+                <tr><td style="text-align:center;"><a style="color:white;">&#9743;   </a><asp:Label ID="lblTelefono" runat="server" Font-Bold="True" Font-Names="Candara" Font-Size="X-Large" ForeColor="White" Text="Telefono">Telefono</asp:Label></td></tr>
+   </table>
+
+         </div>
     </form>
- 
+
 </body>
 </html>

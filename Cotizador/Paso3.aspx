@@ -57,7 +57,7 @@ text-transform: none;">Paso 3</span> </div>
                                             </span></td>
                                     </tr>
                                     <tr>
-                                        <td class="f1" style="font-family: Arial, Helvetica, sans-serif; text-align: center;"  ><span id="TxtTipoPoliza" class="f3" style="font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal;  line-height: normal; font-family: Tahoma, Geneva, sans-serif; color: rgb(21, 27, 79); width: 262px; display: inline-block;">Datos Complementarios</span></td>
+                                        <td class="f1" style="font-family: Arial, Helvetica, sans-serif; text-align: center;"  ><span id="TxtTipoPoliza" class="f3" style="font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal;  line-height: normal; font-family: Tahoma, Geneva, sans-serif; color: rgb(21, 27, 79); width: 262px; display: inline-block;">Datos Complementarios ASR27&nbsp;&nbsp;&nbsp;&nbsp;</span></td>
                                     </tr>
         
 
