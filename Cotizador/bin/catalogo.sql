@@ -20,7 +20,7 @@ CREATE TABLE IF NOT EXISTS `iva` (
   `Iva` decimal(8,2) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table catalogo.iva: ~0 rows (approximately)
+-- Dumping data for table catalogo.iva: ~1 rows (approximately)
 DELETE FROM `iva`;
 /*!40000 ALTER TABLE `iva` DISABLE KEYS */;
 INSERT INTO `iva` (`Iva`) VALUES
@@ -36,7 +36,7 @@ CREATE TABLE IF NOT EXISTS `linea` (
   UNIQUE KEY `Descripcion` (`Descripcion`)
 ) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
 
--- Dumping data for table catalogo.linea: ~11 rows (approximately)
+-- Dumping data for table catalogo.linea: ~12 rows (approximately)
 DELETE FROM `linea`;
 /*!40000 ALTER TABLE `linea` DISABLE KEYS */;
 INSERT INTO `linea` (`indice`, `Descripcion`) VALUES
@@ -481,6 +481,7 @@ INSERT INTO `marca` (`indice`, `Descripcion`) VALUES
 	(811, 'YAMAHA'),
 	(918, 'YUMBO'),
 	(830, 'ZUKYAMA'),
+	(1029, 'ZUSUKI'),
 	(844, 'ZX');
 /*!40000 ALTER TABLE `marca` ENABLE KEYS */;
 
@@ -566,7 +567,7 @@ CREATE TABLE IF NOT EXISTS `trans_correosenviados` (
   PRIMARY KEY (`indice`)
 ) ENGINE=InnoDB AUTO_INCREMENT=216 DEFAULT CHARSET=utf8;
 
--- Dumping data for table catalogo.trans_correosenviados: ~208 rows (approximately)
+-- Dumping data for table catalogo.trans_correosenviados: ~214 rows (approximately)
 DELETE FROM `trans_correosenviados`;
 /*!40000 ALTER TABLE `trans_correosenviados` DISABLE KEYS */;
 INSERT INTO `trans_correosenviados` (`indice`, `Nombre`, `Apellidos`, `Correo`, `TipoDeVehiculo`, `Linea`, `Marca`, `Telefono`, `Modelo`, `SumaAsegurada`, `Fecha`, `TipoSeguro`, `contactar`, `CodigoEmpresa`, `ComoContactar`, `Paso1`, `Paso2`, `Paso3`, `Nit`, `DPI`, `Direccion`, `Zona`, `Municipio`, `ingreso`, `status`) VALUES
@@ -783,7 +784,12 @@ INSERT INTO `trans_correosenviados` (`indice`, `Nombre`, `Apellidos`, `Correo`, 
 	(212, 'Citi SCV', 'SCV', 'erik.castaneda@unitypromotores.com', 'Automóvil', 'blanca', 'ACCU', '65468798', '2001', 15500.00, '2016-09-08 09:12:46', 'Seguro Completo', 'erik.castaneda@unitypromotores.com', 'Citibank', 'Por Telefono - Inmediatamente', b'1', b'1', b'1', NULL, NULL, NULL, NULL, NULL, 'H764T844', NULL),
 	(213, 'Citi RCV', 'RCV', 'erik.castaneda@unitypromotores.com', 'Automóvil', 'a', 'ACCU', '65465465', '2001', 0.00, '2016-09-08 09:13:50', 'Responsabilidad Civil', 'erik.castaneda@unitypromotores.com', 'Citibank', 'Por Telefono - Inmediatamente', b'1', NULL, b'1', NULL, NULL, NULL, NULL, NULL, 'H764T844', NULL),
 	(214, 'Citi SCM', 'SCM', 'erik.castaneda@unitypromotores.com', 'Motocicleta', 'azul', 'ACCU', '65465465', '2001', 25300.00, '2016-09-08 09:15:01', 'Seguro Completo', 'erik.castaneda@unitypromotores.com', 'Citibank', 'Por Telefono - Inmediatamente', b'1', b'1', b'1', NULL, NULL, NULL, NULL, NULL, 'H764T844', NULL),
-	(215, 'Citi RCM', 'RCM', 'erik.castaneda@unitypromotores.com', 'Motocicleta', 'l', 'ACCU', '65465465', '2001', 0.00, '2016-09-08 09:16:04', 'Responsabilidad Civil', 'erik.castaneda@unitypromotores.com', 'Citibank', 'Por Telefono - Inmediatamente', b'1', NULL, b'1', NULL, NULL, NULL, NULL, NULL, 'H764T844', NULL);
+	(215, 'Citi RCM', 'RCM', 'erik.castaneda@unitypromotores.com', 'Motocicleta', 'l', 'ACCU', '65465465', '2001', 0.00, '2016-09-08 09:16:04', 'Responsabilidad Civil', 'erik.castaneda@unitypromotores.com', 'Citibank', 'Por Telefono - Inmediatamente', b'1', NULL, b'1', NULL, NULL, NULL, NULL, NULL, 'H764T844', NULL),
+	(216, 'Mira Flauers', 'Monteverde', 'erik.castaneda@unitypromotores.com', 'Automóvil', '54', 'ACCU', '65465465', '2001', 15400.00, '2016-09-08 10:06:36', 'Seguro Completo', 'erik.castaneda@unitypromotores.com', 'Codisa', 'Por Telefono - Inmediatamente', b'1', b'1', b'1', NULL, NULL, NULL, NULL, NULL, 'H764T844', NULL),
+	(217, 'asdf', 'asdf', 'erik.castaneda@unitypromotores.com', 'Automóvil', 'beich', 'ACCU', '65465465', '2001', 0.00, '2016-09-08 10:18:06', 'Responsabilidad Civil', 'erik.castaneda@unitypromotores.com', 'Codisa', 'Por Telefono - Inmediatamente', b'1', NULL, b'1', NULL, NULL, NULL, NULL, NULL, 'H764T844', NULL),
+	(218, 'Cpdisa', 'Scv', 'erik.castaneda@unitypromotores.com', 'Automóvil', 'Fd', 'ACCU', '45667788', '2001', 50500.00, '2016-09-08 10:25:28', 'Seguro Completo', 'erik.castaneda@unitypromotores.com', 'Codisa', 'Por Telefono - Inmediatamente', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+	(219, 'asdf', 'asdfasd', 'erik.castaneda@unitypromotores.com', 'Automóvil', 'azul', 'ACCU', '65465465', '2001', 0.00, '2016-09-08 10:32:56', 'Responsabilidad Civil', 'erik.castaneda@unitypromotores.com', 'Codisa', 'Por Telefono - Inmediatamente', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+	(220, 'adfasdf', 'asfasdf', 'erik.castaneda@unitypromotores.com', 'Automóvil', 'sd', 'ACCU', '65465465', '2001', 0.00, '2016-09-08 11:30:53', 'Responsabilidad Civil', 'erik.castaneda@unitypromotores.com', 'Codisa', 'Por Telefono - Inmediatamente', b'1', NULL, b'1', NULL, NULL, NULL, NULL, NULL, 'H764T844', NULL);
 /*!40000 ALTER TABLE `trans_correosenviados` ENABLE KEYS */;
 
 
