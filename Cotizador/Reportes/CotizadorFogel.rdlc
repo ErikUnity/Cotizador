@@ -105,43 +105,6 @@
               <TablixCells>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox37">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value />
-                              <Style />
-                            </TextRun>
-                          </TextRuns>
-                          <Style />
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Textbox37</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Color>LightGrey</Color>
-                          <Style>Solid</Style>
-                        </Border>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                    <ColSpan>2</ColSpan>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell />
-              </TablixCells>
-            </TablixRow>
-            <TablixRow>
-              <Height>0.25in</Height>
-              <TablixCells>
-                <TablixCell>
-                  <CellContents>
                     <Textbox Name="Textbox86">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
@@ -1413,7 +1376,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>SOLO APLICA si es colaborador de CITI y debe ser nombrado en la póliza</Value>
+                              <Value>SOLO APLICA si es colaborador de FOGEL-GROUP y debe ser nombrado en la póliza</Value>
                               <Style>
                                 <FontFamily>Candara</FontFamily>
                               </Style>
@@ -1450,7 +1413,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Arrendamiento de vehículo en caso de Robo, colisión ó pérdidas parciales, máximo 30 días. </Value>
+                              <Value>Arrendamiento de vehículo en caso de Robo, pérdida total o pérdidas parciales, máximo 30 días. </Value>
                               <Style>
                                 <FontFamily>Candara</FontFamily>
                               </Style>
@@ -1557,7 +1520,9 @@
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox119</rd:DefaultName>
@@ -1768,7 +1733,9 @@
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox113</rd:DefaultName>
@@ -2959,7 +2926,7 @@
                                       <Paragraph>
                                         <TextRuns>
                                           <TextRun>
-                                            <Value>Otros Seguros :</Value>
+                                            <Value>Coberturas Complementarias :</Value>
                                             <Style>
                                               <FontFamily>Candara</FontFamily>
                                             </Style>
@@ -2980,38 +2947,10 @@
                                       <PaddingBottom>2pt</PaddingBottom>
                                     </Style>
                                   </Textbox>
+                                  <ColSpan>2</ColSpan>
                                 </CellContents>
                               </TablixCell>
-                              <TablixCell>
-                                <CellContents>
-                                  <Textbox Name="Textbox10">
-                                    <CanGrow>true</CanGrow>
-                                    <KeepTogether>true</KeepTogether>
-                                    <Paragraphs>
-                                      <Paragraph>
-                                        <TextRuns>
-                                          <TextRun>
-                                            <Value />
-                                            <Style />
-                                          </TextRun>
-                                        </TextRuns>
-                                        <Style />
-                                      </Paragraph>
-                                    </Paragraphs>
-                                    <rd:DefaultName>Textbox10</rd:DefaultName>
-                                    <Style>
-                                      <Border>
-                                        <Color>LightGrey</Color>
-                                        <Style>Solid</Style>
-                                      </Border>
-                                      <PaddingLeft>2pt</PaddingLeft>
-                                      <PaddingRight>2pt</PaddingRight>
-                                      <PaddingTop>2pt</PaddingTop>
-                                      <PaddingBottom>2pt</PaddingBottom>
-                                    </Style>
-                                  </Textbox>
-                                </CellContents>
-                              </TablixCell>
+                              <TablixCell />
                             </TablixCells>
                           </TablixRow>
                           <TablixRow>
@@ -3286,6 +3225,7 @@
                                       <PaddingBottom>2pt</PaddingBottom>
                                     </Style>
                                   </Textbox>
+                                  <rd:Selected>true</rd:Selected>
                                 </CellContents>
                               </TablixCell>
                             </TablixCells>
@@ -3343,7 +3283,7 @@
                               </Style>
                             </TextRun>
                             <TextRun>
-                              <Value>Los presentes costos y beneficios son exclusivos del plan de colaboradores CITI, si se retira de la institución, deberá dar aviso inmediatamente a Unity Promotores para poder ofrecerle un plan de seguro individual ya que la cobertura en la presente póliza queda nula el último día del mes en que finalizó  su relación laboral con CITI.</Value>
+                              <Value>Los presentes costos y beneficios son exclusivos del plan de colaboradores FOGEL-GROUP, si se retira de la institución, deberá dar aviso inmediatamente a Unity Promotores para poder ofrecerle un plan de seguro individual ya que la cobertura en la presente póliza queda nula el último día del mes en que finalizó  su relación laboral con FOGEL-GROUP.</Value>
                               <Style>
                                 <FontFamily>Candara</FontFamily>
                                 <Color>Red</Color>
@@ -3539,13 +3479,12 @@
             <TablixMember />
             <TablixMember />
             <TablixMember />
-            <TablixMember />
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>CotizadorRoble</DataSetName>
         <Top>0.92584in</Top>
         <Left>0.28in</Left>
-        <Height>15.17705in</Height>
+        <Height>14.92705in</Height>
         <Width>7.34376in</Width>
         <Style>
           <Border>

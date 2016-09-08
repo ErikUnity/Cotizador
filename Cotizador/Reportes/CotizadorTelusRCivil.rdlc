@@ -105,43 +105,6 @@
               <TablixCells>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox37">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value />
-                              <Style />
-                            </TextRun>
-                          </TextRuns>
-                          <Style />
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Textbox37</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Color>LightGrey</Color>
-                          <Style>Solid</Style>
-                        </Border>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                    <ColSpan>2</ColSpan>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell />
-              </TablixCells>
-            </TablixRow>
-            <TablixRow>
-              <Height>0.25in</Height>
-              <TablixCells>
-                <TablixCell>
-                  <CellContents>
                     <Textbox Name="Textbox86">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
@@ -1295,7 +1258,7 @@
                               </Style>
                             </TextRun>
                             <TextRun>
-                              <Value>Los presentes costos y beneficios son exclusivos del plan de colaboradores CITI, si se retira de la institución, deberá dar aviso inmediatamente a Unity Promotores para poder ofrecerle un plan de seguro individual ya que la cobertura en la presente póliza queda nula el último día del mes en que finalizó  su relación laboral con CITI.</Value>
+                              <Value>Los presentes costos y beneficios son exclusivos del plan de colaboradores TELUS, si se retira de la institución, deberá dar aviso inmediatamente a Unity Promotores para poder ofrecerle un plan de seguro individual ya que la cobertura en la presente póliza queda nula el último día del mes en que finalizó  su relación laboral con TELUS.</Value>
                               <Style>
                                 <FontFamily>Candara</FontFamily>
                                 <Color>Red</Color>
@@ -1468,13 +1431,12 @@
             <TablixMember />
             <TablixMember />
             <TablixMember />
-            <TablixMember />
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>CotizadorRoble</DataSetName>
         <Top>1.12375in</Top>
         <Left>0.28in</Left>
-        <Height>7.67707in</Height>
+        <Height>7.42707in</Height>
         <Width>7.34376in</Width>
         <Style>
           <Border>

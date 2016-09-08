@@ -29,7 +29,8 @@ namespace Cotizador
             catch (Exception)
             { }
 
-
+            this.lblCorreo.Text = correo;
+            this.lblTelefono.Text = telefono;
         }
     }
 }

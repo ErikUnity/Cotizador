@@ -285,7 +285,10 @@ namespace Cotizador
                  }
              }
 
-             Response.Redirect("Agradecimiento.aspx");
+             string _correo = this.txtCorreo.Text;
+             string _telefono = this.txtTelefono.Text;
+
+             Response.Redirect("Agradecimiento.aspx?correo=" + _correo + "&telefono=" + _telefono);
 
             //if (MensajeTipo == 1)
             // {

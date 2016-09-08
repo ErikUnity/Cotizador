@@ -1295,7 +1295,7 @@
                               </Style>
                             </TextRun>
                             <TextRun>
-                              <Value>Los presentes costos y beneficios son exclusivos del plan de colaboradores CITI, si se retira de la institución, deberá dar aviso inmediatamente a Unity Promotores para poder ofrecerle un plan de seguro individual ya que la cobertura en la presente póliza queda nula el último día del mes en que finalizó  su relación laboral con CITI.</Value>
+                              <Value>Los presentes costos y beneficios son exclusivos del plan de doctores afiliados al Colegio Estomatologico, si se retira de la institución, deberá dar aviso inmediatamente a Unity Promotores para poder ofrecerle un plan de seguro individual ya que la cobertura en la presente póliza queda nula el último día del mes en que finalizó  su afiliación al Colegio Estomatologico.</Value>
                               <Style>
                                 <FontFamily>Candara</FontFamily>
                                 <Color>Red</Color>
@@ -1392,6 +1392,7 @@
                       </Style>
                     </Textbox>
                     <ColSpan>2</ColSpan>
+                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
                 <TablixCell />
