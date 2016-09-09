@@ -476,14 +476,29 @@ namespace Cotizador
 
               return resultado;
           }
-          public static DataTable Cotizacion(string _id)
+          public static List<string> Autocomplete(string _nombre)
+          {
+              List<string> retorna = new List<string>();
+              string linea = "";
+              DataTable content = new DataTable();
+              content = AccesoDatos.RegresaTablaMySql("Select concat(Apellidos , ',' , Nombre , '/ ' , TipoDeVehiculo , ' ' , Marca , ' ' , Fecha) as Nombre, indice as id  from trans_correosenviados where concat(Apellidos, ',', Nombre) like '%" + _nombre + "%'  order by concat(Apellidos, ',', Nombre), Fecha desc");
+              DataView dv = new DataView(content);
+              foreach (DataRow rw in content.Rows)
+              {
+                  linea = rw[0] + " >" + rw[1];
+                  retorna.Add(linea);
+              }
+              return retorna;
+          }
+        public static DataTable Cotizacion(string _id)
           {
               DataTable content = new DataTable();
               content = AccesoDatos.RegresaTablaMySql("Select  tv.indice as moto, ce.CodigoEmpresa, ce.SumaAsegurada, Concat( ce.Nombre , ' ' , ce.Apellidos) as NombreCliente , Concat(ce.TipoDeVehiculo , ' ' , ce.Marca , ' ' , ce.Modelo , ' ' ,  ce.Linea) as DescripcionVehiculo, ce.TipoSeguro, ce.TipoDeVehiculo from  trans_correosenviados ce, tipodevehiculo tv where ce.TipoDeVehiculo =  tv.Descripcion and ce.indice =  " + _id);
               DataView dv = new DataView(content);
               return content;
           }
-       
+
+   
         public static decimal ObtieneExcesoRC_Base(string Codigo)
          {
              decimal resultado = 0;

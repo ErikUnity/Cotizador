@@ -19,17 +19,8 @@
     <div class="inner-container">
       <div id="Asoc1" class="divX">
        <table style="width:500px;"><tr><td>&nbsp;</td></tr>
-           <tr><td>&nbsp;</td></tr>
-           <tr><td>&nbsp;</td></tr>
-           <tr><td>&nbsp;</td></tr>
-           <tr><td>&nbsp;</td></tr>
-           <tr><td>&nbsp;</td></tr>
-           <tr><td>&nbsp;</td></tr>
-           <tr><td>&nbsp;</td></tr>
            <tr><td style="text-align:left; float:left;"><asp:Image ID="Image2" CssClass="cuadro" runat="server" Height="226px" ImageUrl="http://testcotizador.unitypromotores.com/Cotizador/imagenes/LogoBlancoUnityPromotores.png" Width="317px" /></td></tr>
        </table>
-     
-
     </div>
                          <div class="divX">  
                            <table id="Principal"  class="centered-content"><tr><td class="auto-style10"> 

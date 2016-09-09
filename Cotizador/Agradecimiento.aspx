@@ -10,7 +10,7 @@
         @media screen and (max-device-height: 150px) {
 
             body {
-                zoom: 200%;
+                zoom: 100%;
             }
         }
     </style>
