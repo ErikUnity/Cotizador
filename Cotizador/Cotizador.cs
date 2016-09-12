@@ -481,7 +481,7 @@ namespace Cotizador
               List<string> retorna = new List<string>();
               string linea = "";
               DataTable content = new DataTable();
-              content = AccesoDatos.RegresaTablaMySql("Select concat(Apellidos , ',' , Nombre , '/ ' , TipoDeVehiculo , ' ' , Marca , ' ' , Fecha) as Nombre, indice as id  from trans_correosenviados where concat(Apellidos, ',', Nombre) like '%" + _nombre + "%'  order by concat(Apellidos, ',', Nombre), Fecha desc");
+              content = AccesoDatos.RegresaTablaMySql("Select concat(Apellidos , ',' , Nombre , '/ ' , TipoDeVehiculo , ' ' , Marca , ' Modelo=', Modelo, ' Fecha Solicitud: ' , Fecha) as Nombre, indice as id  from trans_correosenviados where concat(Apellidos, ',', Nombre) like '%" + _nombre + "%'  order by concat(Apellidos, ',', Nombre), Fecha desc");
               DataView dv = new DataView(content);
               foreach (DataRow rw in content.Rows)
               {
@@ -490,6 +490,13 @@ namespace Cotizador
               }
               return retorna;
           }
+          public static DataTable Datos(string _indice)
+          {
+              DataTable content = new DataTable();
+              content = AccesoDatos.RegresaTablaMySql("Select * from trans_correosenviados where indice = " + _indice);
+              return content;
+          }
+
         public static DataTable Cotizacion(string _id)
           {
               DataTable content = new DataTable();

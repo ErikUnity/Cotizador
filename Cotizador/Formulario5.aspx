@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Formulario1.aspx.cs" Inherits="Cotizador.Formulario1" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Formulario5.aspx.cs" Inherits="Cotizador.Formulario5" %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
 
  
@@ -11,12 +11,6 @@
     <link rel="stylesheet" type="text/css" href="http://testcotizador.unitypromotores.com/Cotizador/css/Formulario1.css"/>
     <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0"/>
     <title>Cotizador Unity Promotores</title>
-    <style type="text/css">
-        .auto-style8 {
-            font-size: 12px;
-            height: 28px;
-        }
-    </style>
 </head>
 <body>
     <form id="form1" runat="server" class="outer-container" >
@@ -25,14 +19,23 @@
     <div class="inner-container">
       <div id="Asoc1" class="divX">
        <table style="width:500px;"><tr><td>&nbsp;</td></tr>
+           <tr><td>&nbsp;</td></tr>
+           <tr><td>&nbsp;</td></tr>
+           <tr><td>&nbsp;</td></tr>
+           <tr><td>&nbsp;</td></tr>
+           <tr><td>&nbsp;</td></tr>
+           <tr><td>&nbsp;</td></tr>
+           <tr><td>&nbsp;</td></tr>
            <tr><td style="text-align:left; float:left;"><asp:Image ID="Image2" CssClass="cuadro" runat="server" Height="226px" ImageUrl="http://testcotizador.unitypromotores.com/Cotizador/imagenes/LogoBlancoUnityPromotores.png" Width="317px" /></td></tr>
        </table>
+     
+
     </div>
                          <div class="divX">  
                            <table id="Principal"  class="centered-content"><tr><td class="auto-style10"> 
                                   <table aria-multiline="True"  >
                                     <tr>
-                                        <td class="auto-style8" style="font-family: Arial, Helvetica, sans-serif;  text-align: center; "><span id="TxtTitulo" class="f2" style="font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal;  line-height: normal; font-family: Arial, Helvetica, sans-serif; text-align: left; color: rgb(19, 27, 77); letter-spacing: 3px; text-decoration: none; text-transform: none;">DATOS A COTIZAR</span></td>
+                                        <td class="f1" style="font-family: Arial, Helvetica, sans-serif;  text-align: center; "><span id="TxtTitulo" class="f2" style="font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal;  line-height: normal; font-family: Arial, Helvetica, sans-serif; text-align: left; color: rgb(19, 27, 77); letter-spacing: 3px; text-decoration: none; text-transform: none;">DATOS A COTIZAR</span></td>
                                     </tr>
                                     <tr>
                                         <td class="f1" style="font-family: Arial, Helvetica, sans-serif; text-align: center;"  ><span id="TxtTipoPoliza" class="f3" style="font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal;  line-height: normal; font-family: Tahoma, Geneva, sans-serif; color: rgb(21, 27, 79); width: 262px; display: inline-block;">Solo se cotizan pólizas para vehículos particulares</span></td>
@@ -479,7 +482,7 @@
     <li></li>
     <li></li>
     <li></li>
-    <li><div class="cuadro" style="text-align:right;"><asp:Image ID="Image5" CssClass="cuadro" runat="server" Height="74px" ImageUrl="http://testcotizador.unitypromotores.com/Cotizador/imagenes/logo_codisa.jpeg" Width="163px" /></div></li> 
+    <li><div class="cuadro" style="text-align:right;"><asp:Image ID="Image5" CssClass="cuadro" runat="server" Height="94px" ImageUrl="http://testcotizador.unitypromotores.com/Cotizador/imagenes/ColegioEstomatologico.png" Width="94px" /></div></li> 
        </ul>
     </div>
     

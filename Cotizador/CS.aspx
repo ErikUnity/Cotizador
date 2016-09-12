@@ -20,16 +20,16 @@
             border: buttonshadow;
             border-width: 1px;
             border-style: solid;
-            cursor:pointer;
+            cursor: pointer;
             overflow: auto;
             max-height: 300px;
             text-align: left;
             list-style-type: none;
             font-family: Arial;
             font-size: 9pt;
-            list-style-type:none;
-            padding:0px 0px 0px 0px;
-            width:500px;
+            list-style-type: none;
+            padding: 0px 0px 0px 0px;
+            width: 500px;
         }
 
         /* AutoComplete highlighted item */
@@ -38,7 +38,7 @@
             background-color: #ffff99;
             color: black;
             padding: 1px;
-            list-style-type:none;
+            list-style-type: none;
         }
 
 
@@ -48,67 +48,59 @@
             background-color: window;
             color: windowtext;
             padding: 1px;
-            list-style-type:none;
+            list-style-type: none;
         }
     </style>
 </head>
 <body>
     <form id="form1" runat="server" class="outer-container">
+        <asp:ScriptManager ID="ScriptManager2" runat="server">
+        </asp:ScriptManager>
+
         <div class="inner-container">
-            <div id="Asoc1" class="divX">
-
-                <asp:Image ID="Image2" CssClass="cuadro" runat="server" Height="226px" ImageUrl="http://testcotizador.unitypromotores.com/Cotizador/imagenes/LogoBlancoUnityPromotores.png" Width="317px" /></td>
-
-                <div style="border: 2px solid rgb(255,255,255); background-color: white;">
-                    <p style="font-family: Roboto; font-size: 22px; text-align: left; color: rgb(19, 27, 77); text-decoration: none; font-weight: bold; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; text-transform: none;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Buscador</p>
-                </div>
-                <div style="border: 2px solid rgb(255,255,255); background-color: white;">
-                    <p style="font-family: Roboto; font-size: 22px; text-align: left; color: rgb(19, 27, 77); text-decoration: none; font-weight: bold; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; text-transform: none;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Por Nombre</p>
-                </div>
-                <div style="border: 2px solid rgb(255,255,255); background-color: white;">
-                    <div>
-                        <asp:ScriptManager ID="ScriptManager1" runat="server"
-                            EnablePageMethods="true">
-                        </asp:ScriptManager>
-
-                        <asp:TextBox ID="txtContactsSearch" runat="server" Font-Size="12px" Width="25em" autocomplete="off"></asp:TextBox>
-                        <cc1:AutoCompleteExtender ServiceMethod="SearchCustomers"
-                            MinimumPrefixLength="2"
-                            CompletionInterval="100" EnableCaching="false" CompletionSetCount="50"
-                            TargetControlID="txtContactsSearch"
-                            ID="AutoCompleteExtender1" runat="server" FirstRowSelected="false"
-                            CompletionListCssClass="autocomplete_completionListElement"
-                            CompletionListItemCssClass="autocomplete_listItem"
-                            CompletionListHighlightedItemCssClass="autocomplete_highlightedListItem">
-                        </cc1:AutoCompleteExtender>
-                    </div>
-                                            <asp:Button ID="Button2" runat="server" Text="Buscar" />
-                    
-                </div>
-                <div style="border: 2px solid rgb(255,255,255); background-color: white;">
-                    <p style="font-family: Roboto; font-size: 22px; text-align: left; color: rgb(19, 27, 77); text-decoration: none; font-weight: bold; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; text-transform: none;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Por Id: </p>
-                </div>
-                <div style="border: 2px solid rgb(255,255,255); background-color: white;">
-                    <p style="font-family: Roboto; font-size: 22px; text-align: left; color: rgb(19, 27, 77); text-decoration: none; font-weight: bold; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; text-transform: none;">
-                        <asp:TextBox ID="TextBox2" runat="server" Height="17px" Width="261px"></asp:TextBox>
-                        <asp:Button ID="Button1" runat="server" Text="Buscar" />
-                    </p>
-                </div>
-
-
-
-            </div>
             <table id="Principal" class="centered-content">
+                <tr>
+                    <td colspan="2">
+ 
+                                <table aria-multiline="True">
+                                    <tr>
+                                        <td class="auto-style8" style="font-family: Arial, Helvetica, sans-serif; text-align: center;"><span id="TxtTitulo" class="f2" style="font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; line-height: normal; font-family: Arial, Helvetica, sans-serif; text-align: left; color: rgb(19, 27, 77); letter-spacing: 3px; text-decoration: none; text-transform: none;">BUSCAR COTIZACIONES</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="f1" style="font-family: Arial, Helvetica, sans-serif; text-align: center;">
+                                            <p style="font-family: Roboto; font-size: 22px; text-align: left; color: rgb(19, 27, 77); text-decoration: none; font-weight: bold; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; text-transform: none;">
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Por Nombre
+                                            </p>
+                                            <asp:TextBox ID="txtContactsSearch" runat="server" autocomplete="off" Font-Size="12px" onclick="Vaciar();" Width="25em"></asp:TextBox>
+                                            <cc1:AutoCompleteExtender ID="AutoCompleteExtender1" runat="server" CompletionInterval="100" CompletionListCssClass="autocomplete_completionListElement" CompletionListHighlightedItemCssClass="autocomplete_highlightedListItem" CompletionListItemCssClass="autocomplete_listItem" CompletionSetCount="50" EnableCaching="false" FirstRowSelected="false" MinimumPrefixLength="2" ServiceMethod="SearchCustomers" TargetControlID="txtContactsSearch">
+                                            </cc1:AutoCompleteExtender>
+                                            <asp:Button ID="Button2" runat="server" OnClick="Button2_Click" Text="Buscar" />
+                                            <p style="font-family: Roboto; font-size: 22px; text-align: left; color: rgb(19, 27, 77); text-decoration: none; font-weight: bold; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; text-transform: none;">
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Por Id:
+                                            </p>
+                                            <p style="font-family: Roboto; font-size: 22px; text-align: left; color: rgb(19, 27, 77); text-decoration: none; font-weight: bold; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; text-transform: none;">
+                                                <asp:TextBox ID="txtId" runat="server" Height="17px" Width="261px"></asp:TextBox>
+                                                <cc1:FilteredTextBoxExtender ID="txtId_FilteredTextBoxExtender" runat="server" FilterType="Numbers" TargetControlID="txtId">
+                                                </cc1:FilteredTextBoxExtender>
+                                                <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Buscar" />
+                                                <asp:Button ID="Button3" runat="server" OnClick="Button3_Click" Text="ASR27" />
+                                            </p>
+                                        </td>
+                                    </tr>
+                                </table>
+ 
+                    </td>
+                </tr>
                 <tr>
                     <td class="f4" style="font-family: Roboto; text-align: left; color: rgb(19, 27, 77); text-decoration: none; font-weight: normal; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; text-transform: none;">Nombres:</td>
                     <td class="f4" style="font-family: Roboto; text-align: left; color: rgb(19, 27, 77); text-decoration: none; font-weight: normal; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; text-transform: none;">Apellidos:</td>
                 </tr>
                 <tr>
                     <td class="f0" style="font-family: Arial, Helvetica, sans-serif; text-align: center; width: 142px; padding: 3px 3px 2px; overflow: hidden;">
-                        <asp:TextBox ID="txtNombre" runat="server" CssClass="dxeEditArea dxeEditAreaSys" Width="193px" AutoCompleteType="Disabled"></asp:TextBox>
+                        <asp:TextBox ID="txtNombre" runat="server" AutoCompleteType="Disabled" CssClass="dxeEditArea dxeEditAreaSys" ReadOnly="True" Width="193px" BackColor="#FFFFCC" Font-Bold="False" Font-Names="Candara" Font-Size="15px"></asp:TextBox>
                     </td>
                     <td class="f0" style="font-family: Arial, Helvetica, sans-serif; text-align: center; width: 142px; padding: 3px 3px 2px; overflow: hidden;">
-                        <asp:TextBox ID="txtApellido" runat="server" CssClass="dxeEditArea dxeEditAreaSys" Width="193px" AutoCompleteType="Disabled"></asp:TextBox>
+                        <asp:TextBox ID="txtApellido" runat="server" AutoCompleteType="Disabled" CssClass="dxeEditArea dxeEditAreaSys" ReadOnly="True" Width="193px" BackColor="#FFFFCC" Font-Bold="False" Font-Names="Candara" Font-Size="15px"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
@@ -117,10 +109,10 @@
                 </tr>
                 <tr>
                     <td class="f0" style="font-family: Arial, Helvetica, sans-serif; text-align: center; width: 142px; padding: 3px 3px 2px; overflow: hidden;">
-                        <asp:TextBox ID="txtCorreo" runat="server" CssClass="dxeEditArea dxeEditAreaSys" Width="193px" AutoCompleteType="Disabled"></asp:TextBox>
+                        <asp:TextBox ID="txtCorreo" runat="server" AutoCompleteType="Disabled" CssClass="dxeEditArea dxeEditAreaSys" ReadOnly="True" Width="193px" BackColor="#FFFFCC" Font-Bold="False" Font-Names="Candara" Font-Size="15px"></asp:TextBox>
                     </td>
                     <td class="f0" style="font-family: Arial, Helvetica, sans-serif; text-align: center; width: 142px; padding: 3px 3px 2px; overflow: hidden;">
-                        <asp:TextBox ID="txtTipoVehiculo" runat="server" CssClass="dxeEditArea dxeEditAreaSys" Width="193px" AutoCompleteType="Disabled"></asp:TextBox>
+                        <asp:TextBox ID="txtTipoVehiculo" runat="server" AutoCompleteType="Disabled" CssClass="dxeEditArea dxeEditAreaSys" ReadOnly="True" Width="193px" BackColor="#FFFFCC" Font-Bold="False" Font-Names="Candara" Font-Size="15px"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
@@ -129,10 +121,10 @@
                 </tr>
                 <tr>
                     <td class="f0" style="font-family: Arial, Helvetica, sans-serif; text-align: center; width: 142px; padding: 3px 3px 2px; overflow: hidden;">
-                        <asp:TextBox ID="txtLinea" runat="server" CssClass="dxeEditArea dxeEditAreaSys" Width="193px" AutoCompleteType="Disabled"></asp:TextBox>
+                        <asp:TextBox ID="txtLinea" runat="server" AutoCompleteType="Disabled" CssClass="dxeEditArea dxeEditAreaSys" ReadOnly="True" Width="193px" BackColor="#FFFFCC" Font-Bold="False" Font-Names="Candara" Font-Size="15px"></asp:TextBox>
                     </td>
                     <td class="f0" style="font-family: Arial, Helvetica, sans-serif; text-align: center; width: 142px; padding: 3px 3px 2px; overflow: hidden;">
-                        <asp:TextBox ID="txtMarca" runat="server" CssClass="dxeEditArea dxeEditAreaSys" Width="193px" AutoCompleteType="Disabled"></asp:TextBox>
+                        <asp:TextBox ID="txtMarca" runat="server" AutoCompleteType="Disabled" CssClass="dxeEditArea dxeEditAreaSys" ReadOnly="True" Width="193px" BackColor="#FFFFCC" Font-Bold="False" Font-Names="Candara" Font-Size="15px"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
@@ -141,10 +133,10 @@
                 </tr>
                 <tr>
                     <td class="f0" style="font-family: Arial, Helvetica, sans-serif; text-align: center; width: 142px; padding: 3px 3px 2px; overflow: hidden;">
-                        <asp:TextBox ID="txtTelefono" runat="server" CssClass="dxeEditArea dxeEditAreaSys" Width="193px" AutoCompleteType="Disabled"></asp:TextBox>
+                        <asp:TextBox ID="txtTelefono" runat="server" AutoCompleteType="Disabled" CssClass="dxeEditArea dxeEditAreaSys" ReadOnly="True" Width="193px" BackColor="#FFFFCC" Font-Bold="False" Font-Names="Candara" Font-Size="15px"></asp:TextBox>
                     </td>
                     <td class="f0" style="font-family: Arial, Helvetica, sans-serif; text-align: center; width: 142px; padding: 3px 3px 2px; overflow: hidden;">
-                        <asp:TextBox ID="txtModelo" runat="server" CssClass="dxeEditArea dxeEditAreaSys" Width="193px" AutoCompleteType="Disabled"></asp:TextBox>
+                        <asp:TextBox ID="txtModelo" runat="server" AutoCompleteType="Disabled" CssClass="dxeEditArea dxeEditAreaSys" ReadOnly="True" Width="193px" BackColor="#FFFFCC" Font-Bold="False" Font-Names="Candara" Font-Size="15px"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
@@ -153,10 +145,10 @@
                 </tr>
                 <tr>
                     <td class="f0" style="font-family: Arial, Helvetica, sans-serif; text-align: center; width: 142px; padding: 3px 3px 2px; overflow: hidden;">
-                        <asp:TextBox ID="txtSumaAsegurada" runat="server" CssClass="dxeEditArea dxeEditAreaSys" Width="193px" AutoCompleteType="Disabled"></asp:TextBox>
+                        <asp:TextBox ID="txtSumaAsegurada" runat="server" AutoCompleteType="Disabled" CssClass="dxeEditArea dxeEditAreaSys" ReadOnly="True" Width="193px" BackColor="#FFFFCC" Font-Bold="False" Font-Names="Candara" Font-Size="15px"></asp:TextBox>
                     </td>
                     <td class="f0" style="font-family: Arial, Helvetica, sans-serif; text-align: center; width: 142px; padding: 3px 3px 2px; overflow: hidden;">
-                        <asp:TextBox ID="txtFecha" runat="server" CssClass="dxeEditArea dxeEditAreaSys" Width="193px" AutoCompleteType="Disabled"></asp:TextBox>
+                        <asp:TextBox ID="txtFecha" runat="server" AutoCompleteType="Disabled" CssClass="dxeEditArea dxeEditAreaSys" ReadOnly="True" Width="193px" BackColor="#FFFFCC" Font-Bold="False" Font-Names="Candara" Font-Size="15px"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
@@ -165,10 +157,10 @@
                 </tr>
                 <tr>
                     <td class="f0" style="font-family: Arial, Helvetica, sans-serif; text-align: center; width: 142px; padding: 3px 3px 2px; overflow: hidden;">
-                        <asp:TextBox ID="txtTipoSeguro" runat="server" CssClass="dxeEditArea dxeEditAreaSys" Width="193px" AutoCompleteType="Disabled"></asp:TextBox>
+                        <asp:TextBox ID="txtTipoSeguro" runat="server" AutoCompleteType="Disabled" CssClass="dxeEditArea dxeEditAreaSys" ReadOnly="True" Width="193px" BackColor="#FFFFCC" Font-Bold="False" Font-Names="Candara" Font-Size="15px"></asp:TextBox>
                     </td>
                     <td class="f0" style="font-family: Arial, Helvetica, sans-serif; text-align: center; width: 142px; padding: 3px 3px 2px; overflow: hidden;">
-                        <asp:TextBox ID="txtContactar" runat="server" CssClass="dxeEditArea dxeEditAreaSys" Width="193px" AutoCompleteType="Disabled"></asp:TextBox>
+                        <asp:TextBox ID="txtContactar" runat="server" AutoCompleteType="Disabled" CssClass="dxeEditArea dxeEditAreaSys" ReadOnly="True" Width="193px" BackColor="#FFFFCC" Font-Bold="False" Font-Names="Candara" Font-Size="15px"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
@@ -177,10 +169,10 @@
                 </tr>
                 <tr>
                     <td class="f0" style="font-family: Arial, Helvetica, sans-serif; text-align: center; width: 142px; padding: 3px 3px 2px; overflow: hidden;">
-                        <asp:TextBox ID="txtCodigoEmpresa" runat="server" CssClass="dxeEditArea dxeEditAreaSys" Width="193px" AutoCompleteType="Disabled"></asp:TextBox>
+                        <asp:TextBox ID="txtCodigoEmpresa" runat="server" AutoCompleteType="Disabled" CssClass="dxeEditArea dxeEditAreaSys" ReadOnly="True" Width="193px" BackColor="#FFFFCC" Font-Bold="False" Font-Names="Candara" Font-Size="15px"></asp:TextBox>
                     </td>
                     <td class="f0" style="font-family: Arial, Helvetica, sans-serif; text-align: center; width: 142px; padding: 3px 3px 2px; overflow: hidden;">
-                        <asp:TextBox ID="txtComoContactar" runat="server" CssClass="dxeEditArea dxeEditAreaSys" Width="193px" AutoCompleteType="Disabled"></asp:TextBox>
+                        <asp:TextBox ID="txtComoContactar" runat="server" AutoCompleteType="Disabled" CssClass="dxeEditArea dxeEditAreaSys" ReadOnly="True" Width="193px" BackColor="#FFFFCC" Font-Bold="False" Font-Names="Candara" Font-Size="15px"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
@@ -189,10 +181,10 @@
                 </tr>
                 <tr>
                     <td class="f0" style="font-family: Arial, Helvetica, sans-serif; text-align: center; width: 142px; padding: 3px 3px 2px; overflow: hidden;">
-                        <asp:TextBox ID="txtPaso1" runat="server" CssClass="dxeEditArea dxeEditAreaSys" Width="193px" AutoCompleteType="Disabled"></asp:TextBox>
+                        <asp:TextBox ID="txtPaso1" runat="server" AutoCompleteType="Disabled" BackColor="#FFFFCC" CssClass="dxeEditArea dxeEditAreaSys" ReadOnly="True" Width="193px" Font-Bold="False" Font-Names="Candara" Font-Size="15px"></asp:TextBox>
                     </td>
                     <td class="f0" style="font-family: Arial, Helvetica, sans-serif; text-align: center; width: 142px; padding: 3px 3px 2px; overflow: hidden;">
-                        <asp:TextBox ID="txtPaso2" runat="server" CssClass="dxeEditArea dxeEditAreaSys" Width="193px" AutoCompleteType="Disabled"></asp:TextBox>
+                        <asp:TextBox ID="txtPaso2" runat="server" AutoCompleteType="Disabled" BackColor="#FFFFCC" CssClass="dxeEditArea dxeEditAreaSys" ReadOnly="True" Width="193px" Font-Bold="False" Font-Names="Candara" Font-Size="15px"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
@@ -201,10 +193,10 @@
                 </tr>
                 <tr>
                     <td class="f0" style="font-family: Arial, Helvetica, sans-serif; text-align: center; width: 142px; padding: 3px 3px 2px; overflow: hidden;">
-                        <asp:TextBox ID="txtPaso3" runat="server" CssClass="dxeEditArea dxeEditAreaSys" Width="193px" AutoCompleteType="Disabled"></asp:TextBox>
+                        <asp:TextBox ID="txtPaso3" runat="server" AutoCompleteType="Disabled" BackColor="#FFFFCC" CssClass="dxeEditArea dxeEditAreaSys" ReadOnly="True" Width="193px" Font-Bold="False" Font-Names="Candara" Font-Size="15px"></asp:TextBox>
                     </td>
                     <td class="f0" style="font-family: Arial, Helvetica, sans-serif; text-align: center; width: 142px; padding: 3px 3px 2px; overflow: hidden;">
-                        <asp:TextBox ID="txtNit" runat="server" CssClass="dxeEditArea dxeEditAreaSys" Width="193px" AutoCompleteType="Disabled"></asp:TextBox>
+                        <asp:TextBox ID="txtNit" runat="server" AutoCompleteType="Disabled" CssClass="dxeEditArea dxeEditAreaSys" ReadOnly="True" Width="193px" BackColor="#FFFFCC" Font-Bold="False" Font-Names="Candara" Font-Size="15px"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
@@ -213,10 +205,10 @@
                 </tr>
                 <tr>
                     <td class="f0" style="font-family: Arial, Helvetica, sans-serif; text-align: center; width: 142px; padding: 3px 3px 2px; overflow: hidden;">
-                        <asp:TextBox ID="txtDPI" runat="server" CssClass="dxeEditArea dxeEditAreaSys" Width="193px" AutoCompleteType="Disabled"></asp:TextBox>
+                        <asp:TextBox ID="txtDPI" runat="server" AutoCompleteType="Disabled" CssClass="dxeEditArea dxeEditAreaSys" ReadOnly="True" Width="193px" BackColor="#FFFFCC" Font-Bold="False" Font-Names="Candara" Font-Size="15px"></asp:TextBox>
                     </td>
                     <td class="f0" style="font-family: Arial, Helvetica, sans-serif; text-align: center; width: 142px; padding: 3px 3px 2px; overflow: hidden;">
-                        <asp:TextBox ID="txtDireccion" runat="server" CssClass="dxeEditArea dxeEditAreaSys" Width="193px" AutoCompleteType="Disabled"></asp:TextBox>
+                        <asp:TextBox ID="txtDireccion" runat="server" AutoCompleteType="Disabled" CssClass="dxeEditArea dxeEditAreaSys" ReadOnly="True" Width="193px" BackColor="#FFFFCC" Font-Bold="False" Font-Names="Candara" Font-Size="15px"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
@@ -225,10 +217,10 @@
                 </tr>
                 <tr>
                     <td class="f0" style="font-family: Arial, Helvetica, sans-serif; text-align: center; width: 142px; padding: 3px 3px 2px; overflow: hidden;">
-                        <asp:TextBox ID="txtZona" runat="server" CssClass="dxeEditArea dxeEditAreaSys" Width="193px" AutoCompleteType="Disabled"></asp:TextBox>
+                        <asp:TextBox ID="txtZona" runat="server" AutoCompleteType="Disabled" CssClass="dxeEditArea dxeEditAreaSys" ReadOnly="True" Width="193px" BackColor="#FFFFCC" Font-Bold="False" Font-Names="Candara" Font-Size="15px"></asp:TextBox>
                     </td>
                     <td class="f0" style="font-family: Arial, Helvetica, sans-serif; text-align: center; width: 142px; padding: 3px 3px 2px; overflow: hidden;">
-                        <asp:TextBox ID="txtMunicipio" runat="server" CssClass="dxeEditArea dxeEditAreaSys" Width="193px" AutoCompleteType="Disabled"></asp:TextBox>
+                        <asp:TextBox ID="txtMunicipio" runat="server" AutoCompleteType="Disabled" CssClass="dxeEditArea dxeEditAreaSys" ReadOnly="True" Width="193px" BackColor="#FFFFCC" Font-Bold="False" Font-Names="Candara" Font-Size="15px"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
@@ -237,24 +229,30 @@
                 </tr>
                 <tr>
                     <td class="f0" style="font-family: Arial, Helvetica, sans-serif; text-align: center; width: 142px; padding: 3px 3px 2px; overflow: hidden;">
-                        <asp:TextBox ID="txtIngreso" runat="server" CssClass="dxeEditArea dxeEditAreaSys" Width="193px" AutoCompleteType="Disabled"></asp:TextBox>
+                        <asp:TextBox ID="txtIngreso" runat="server" AutoCompleteType="Disabled" CssClass="dxeEditArea dxeEditAreaSys" ReadOnly="True" Width="193px" BackColor="#FFFFCC" Font-Bold="False" Font-Names="Candara" Font-Size="15px"></asp:TextBox>
                     </td>
                     <td class="f0" style="font-family: Arial, Helvetica, sans-serif; text-align: center; width: 142px; padding: 3px 3px 2px; overflow: hidden;">
-                        <asp:TextBox ID="txtStatus" runat="server" CssClass="dxeEditArea dxeEditAreaSys" Width="193px" AutoCompleteType="Disabled"></asp:TextBox>
+                        <asp:TextBox ID="txtStatus" runat="server" AutoCompleteType="Disabled" CssClass="dxeEditArea dxeEditAreaSys" ReadOnly="True" Width="193px" BackColor="#FFFFCC" Font-Bold="False" Font-Names="Candara" Font-Size="15px"></asp:TextBox>
                     </td>
                 </tr>
             </table>
-            <%--"Nombre","Apellidos","Correo","TipoDeVehiculo","Linea","Marca","Telefono","Modelo","SumaAsegurada","Fecha","TipoSeguro"
+        </div>
+
+
+        <%--"Nombre","Apellidos","Correo","TipoDeVehiculo","Linea","Marca","Telefono","Modelo","SumaAsegurada","Fecha","TipoSeguro"
      "contactar","CodigoEmpresa","ComoContactar","Paso1","Paso2","Paso3","Nit","DPI","Direccion","Zona","Municipio"
      "ingreso","status"--%>
-        </div>
     </form>
     <script type="text/javascript">
-    function onListPopulated() {
+        function onListPopulated() {
 
-        var completionList = $find("AutoCompleteEx").get_completionList();
-        completionList.style.width = 'auto';
-    }
-        </script>
+            var completionList = $find("AutoCompleteEx").get_completionList();
+            completionList.style.width = 'auto';
+        }
+        function Vaciar() {
+            $("#txtContactsSearch").val("");
+
+        }
+    </script>
 </body>
 </html>
