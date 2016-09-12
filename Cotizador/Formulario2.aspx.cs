@@ -263,13 +263,14 @@ namespace Cotizador
                 contactar = "Por Telefono";
             contactar += " - " + this.cmbHora.SelectedItem.Text;
             string DescripcionVehiculo = this.cmbTipoVehiculo.SelectedItem.Text + " - " + this.cmbMarca.SelectedItem.Text + " - " + this.cmbModelo.SelectedItem.Text + " - " + this.txtLinea.Text;
-            string id = Cotizar.GuardaCotizacion(this.txtNombre.Text.Trim(), this.txtApellido.Text.Trim(), this.txtCorreo.Text.Trim(), this.cmbTipoVehiculo.SelectedItem.Text.Trim(), this.txtLinea.Text.Trim(), Marca, this.txtTelefono.Text.Trim(), this.cmbModelo.SelectedItem.Text.Trim(), Decimal.Parse(ValorMercado), _tipo_seguro, this.txtCorreo.Text.ToString(), "Telus", contactar);
+            string id = Cotizar.GuardaCotizacion(this.txtNombre.Text.Trim(), this.txtApellido.Text.Trim(), this.txtCorreo.Text.Trim(), this.cmbTipoVehiculo.SelectedItem.Text.Trim(), this.txtLinea.Text.Trim(), Marca, this.txtTelefono.Text.Trim(), this.cmbModelo.SelectedItem.Text.Trim(), Decimal.Parse(ValorMercado), _tipo_seguro, this.txtCorreo.Text.ToString(), "Telus", contactar, this.HiddenField1.Value.ToString());
 
              SumaAsegurada = Decimal.Parse(ValorMercado);
           //   Valores Calculo = new Valores("Telus", SumaAsegurada, this.chkRoboParcial.Checked, this.chkMenores16.Checked, this.chkMenores18.Checked, this.chkExcesoRC.Checked, RoboParcial, MensajeTipo);
              Valores Calculo = new Valores("Telus", SumaAsegurada, false, false, false, false, RoboParcial, MensajeTipo);
              this.lblMsg.Text = Calculo.PrimaTotalProRata.ToString();
-             
+             Cotizadores.ActualizaPrima(id, Calculo.PrimaTotalProRata.ToString());
+
              // ClientScript.RegisterStartupScript(this.GetType(), "Alert", "alert('La cotización ha sido enviada a su correo: " + this.txtCorreo.Text + ");", true);
              //  EnvioDeCorreoRapido.EjecutarProceso(this.txtCorreo.Text.Trim(), this.cmbTipoVehiculo.SelectedItem.Text.Trim(), this.txtLinea.Text.Trim(), Marca, this.cmbModelo.SelectedItem.Text.Trim(), ValorMercado, MensajeTipo, this.txtNombre.Text.Trim(), "Telus", this.chkRoboParcial.Checked, this.chkMenores16.Checked, this.chkMenores18.Checked, this.chkExcesoRC.Checked, RoboParcial, this.txtNombre.Text.Trim(), DescripcionVehiculo);
              EnvioDeCorreoRapido.EjecutarProceso(this.txtCorreo.Text.Trim(), this.cmbTipoVehiculo.SelectedItem.Text.Trim(), this.txtLinea.Text.Trim(), Marca, this.cmbModelo.SelectedItem.Text.Trim(), ValorMercado, MensajeTipo, this.txtNombre.Text.Trim(), "Telus", false, false, false, false, RoboParcial, this.txtNombre.Text.Trim(), DescripcionVehiculo, id);

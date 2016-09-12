@@ -31,6 +31,7 @@ namespace Cotizador
            return dv;
 
         }
+
         public static List<CorreosInternos> EnviarCorreosInternos(string CodigoEmpresa)
         {
 
@@ -45,6 +46,78 @@ namespace Cotizador
                 data.Add(address);
             }
             
+            return data;
+
+        }
+
+        public static List<ImprimirFormato> ReporteAsr27(string indice)
+        {
+
+            DataTable content = new DataTable();
+            content = AccesoDatos.RegresaTablaMySql("Select * from trans_correosenviados where indice = " + indice);
+            DataView dv = new DataView(content);
+            ImprimirFormato lista = new ImprimirFormato();
+            List<ImprimirFormato> data = new List<ImprimirFormato>();
+            string NombreP = "", NombreS = "", Nombres = "";
+            string ApellidoP = "", ApellidoS ="", Apellido = "";
+            foreach (DataRow rw in content.Rows)
+            {
+                Nombres = rw["Nombre"].ToString();
+                if (Nombres.Trim().IndexOf(" ") == -1)
+                {
+                    NombreP = Nombres;
+                }
+                else {
+                    NombreP = Nombres.Substring(0, Nombres.Trim().IndexOf(" "));
+                    NombreS = Nombres.Substring(Nombres.Trim().IndexOf(" "), Nombres.Length - Nombres.Trim().IndexOf(" "));
+                }
+                if (Apellido.Trim().IndexOf(" ") == -1)
+                {
+                    ApellidoP = Apellido;
+                }
+                else
+                {
+                    ApellidoP = Apellido.Substring(0, Apellido.Trim().IndexOf(" "));
+                    ApellidoS = Apellido.Substring(Apellido.Trim().IndexOf(" "), Apellido.Length - Apellido.Trim().IndexOf(" "));
+                }
+
+
+                lista.Nombre = rw["Nombre"].ToString();
+                lista.Apellidos = rw["Apellidos"].ToString();
+                lista.Correo = rw["Correo"].ToString();
+                lista.TipoDeVehiculo = rw["TipoDeVehiculo"].ToString();
+                lista.Linea = rw["Linea"].ToString();
+                lista.Marca = rw["Marca"].ToString();
+                lista.Telefono = rw["Telefono"].ToString();
+                lista.Modelo = rw["Modelo"].ToString();
+                lista.SumaAsegurada = rw["SumaAsegurada"].ToString();
+                lista.Fecha = rw["Fecha"].ToString();
+                lista.TipoSeguro = rw["TipoSeguro"].ToString();
+                lista.contactar = rw["contactar"].ToString();
+                lista.CodigoEmpresa = rw["CodigoEmpresa"].ToString();
+                lista.ComoContactar = rw["ComoContactar"].ToString();
+                lista.Paso1 = rw["Paso1"].ToString();
+                lista.Paso2 = rw["Paso2"].ToString();
+                lista.Paso3 = rw["Paso3"].ToString();
+                lista.Nit = rw["Nit"].ToString();
+                lista.DPI = rw["DPI"].ToString();
+                lista.Direccion = rw["Direccion"].ToString();
+                lista.Zona = rw["Zona"].ToString();
+                lista.Municipio = rw["Municipio"].ToString();
+                lista.ingreso = rw["ingreso"].ToString();
+                lista.status = rw["status"].ToString();
+                lista.FechaInicio = rw["FechaInicio"].ToString();
+                lista.Prima = rw["prima"].ToString();
+                lista.Pasaporte = rw["passaporte"].ToString();
+                lista.Nacimiento = rw["nacimiento"].ToString();
+                lista.NombreP = NombreP;
+                lista.NombreS = NombreS;
+                lista.ApellidoP = ApellidoP;
+                lista.ApellidoS = ApellidoS;
+
+                data.Add(lista);
+            }
+
             return data;
 
         }
@@ -137,11 +210,11 @@ namespace Cotizador
 
         }
 
-        public string GuardaCotizacion(string _Nombre,string Apellidos, string _Correo, string _TipoDeVehiculo, string _Linea, string _Marca, string _Telefono, string _Modelo, decimal _SumaAsegurada, string _TipoSeguro, string Hora, string _CodigoEmpresa, string _ComoContactar) 
+        public string GuardaCotizacion(string _Nombre,string Apellidos, string _Correo, string _TipoDeVehiculo, string _Linea, string _Marca, string _Telefono, string _Modelo, decimal _SumaAsegurada, string _TipoSeguro, string Hora, string _CodigoEmpresa, string _ComoContactar, string _nacimiento) 
          {
              string id = "";
-             string sql = " insert into trans_correosenviados(Nombre, Apellidos, Correo, TipoDeVehiculo, Linea, Marca, Telefono, Modelo, SumaAsegurada, TipoSeguro, contactar, CodigoEmpresa,ComoContactar)";
-             sql += " values('" + _Nombre.Trim() + "','" + Apellidos.Trim() + "','" + _Correo + "','" + _TipoDeVehiculo + "','" + _Linea + "','" + _Marca + "','" + _Telefono + "','" + _Modelo + "'," + _SumaAsegurada.ToString() + ",'" + _TipoSeguro + "','" + Hora + "','" + _CodigoEmpresa + "','" + _ComoContactar + "')";
+             string sql = " insert into trans_correosenviados(Nombre, Apellidos, Correo, TipoDeVehiculo, Linea, Marca, Telefono, Modelo, SumaAsegurada, TipoSeguro, contactar, CodigoEmpresa,ComoContactar, prima, nacimiento)";
+             sql += " values('" + _Nombre.Trim() + "','" + Apellidos.Trim() + "','" + _Correo + "','" + _TipoDeVehiculo + "','" + _Linea + "','" + _Marca + "','" + _Telefono + "','" + _Modelo + "'," + _SumaAsegurada.ToString() + ",'" + _TipoSeguro + "','" + Hora + "','" + _CodigoEmpresa + "','" + _ComoContactar + "', '" + _nacimiento  + "')";
              AccesoDatos.EjecutaQueryMySql( sql);
              id = AccesoDatos.RegresaCadena_1_ResultadoMysql("select max(indice) from trans_correosenviados where Nombre = '"+ _Nombre.Trim() + "' and Apellidos = '"+ Apellidos.Trim() + "'");
              return id;
@@ -429,11 +502,19 @@ namespace Cotizador
               string sql = "update trans_correosenviados  set Paso3 = 1 where indice = " + _id;
               AccesoDatos.EjecutaQueryMySql(sql);
           }
-          public static void Actualiza3Paso(string _id, string _nit, string _dpi, string _direccion, string _zona, string _municipio)
+          public static void Actualiza3Paso(string _id, string _nit, string _dpi, string _direccion, string _zona, string _municipio, string numero_pasaporte)
           {
-              string sql = "update trans_correosenviados  set nit = '"+ _nit +"', dpi = '"+ _dpi +"', direccion = '"+ _direccion +"', zona = '"+ _zona +"', municipio = '"+ _municipio +"' where indice = " + _id;
+              string sql = "update trans_correosenviados  set nit = '" + _nit + "', dpi = '" + _dpi + "', direccion = '" + _direccion + "', zona = '" + _zona + "', municipio = '" + _municipio + "', FechaInicio = curdate() , passaporte = '" + numero_pasaporte + "'  where indice = " + _id;
               AccesoDatos.EjecutaQueryMySql(sql);
+        
           }
+          public static void ActualizaPrima(string _id, string _prima)
+          {
+              string sql = "update trans_correosenviados  set prima = " + _prima + "  where indice = " + _id;
+              AccesoDatos.EjecutaQueryMySql(sql);
+
+          }
+
           public static bool VerificaExistenciaDato3Paso(string _id)
           {
               string sql = "Select count(*) from trans_correosenviados where indice = " + _id + " and ifnull(dpi,'') = ''";
@@ -1191,6 +1272,211 @@ namespace Cotizador
         public CorreosInternos() { }
     }
 
+    public class ImprimirFormato
+    {
+        public ImprimirFormato()
+        { }
+        private string _Nombre = "";
+        public string Nombre
+        {
+            get { return _Nombre; }
+            set { this._Nombre = value; }
+        }
+        private string _Apellidos = "";
+        public string Apellidos
+        {
+            get { return _Apellidos; }
+            set { this._Apellidos = value; }
+        }
+        private string _Correo = "";
+        public string Correo
+        {
+            get { return _Correo; }
+            set { this._Correo = value; }
+        }
+
+        private string _TipoDeVehiculo = "";
+        public string TipoDeVehiculo
+        {
+            get { return _TipoDeVehiculo; }
+            set { this._TipoDeVehiculo = value; }
+        }
+        private string _Linea = "";
+        public string Linea
+        {
+            get { return _Linea; }
+            set { this._Linea = value; }
+        }
+        private string _Marca = "";
+        public string Marca
+        {
+            get { return _Marca; }
+            set { this._Marca = value; }
+        }
+        private string _Telefono = "";
+        public string Telefono
+        {
+            get { return _Telefono; }
+            set { this._Telefono = value; }
+        }
+
+        private string _Modelo = "";
+        public string Modelo
+        {
+            get { return _Modelo; }
+            set { this._Modelo = value; }
+        }
+
+        private string _SumaAsegurada = "";
+        public string SumaAsegurada
+        {
+            get { return _SumaAsegurada; }
+            set { this._SumaAsegurada = value; }
+        }
+        private string _Fecha = "";
+        public string Fecha
+        {
+            get { return _Fecha; }
+            set { this._Fecha = value; }
+        }
+        private string _TipoSeguro = "";
+        public string TipoSeguro
+        {
+            get { return _TipoSeguro; }
+            set { this._TipoSeguro = value; }
+        }
+        private string _contactar = "";
+        public string contactar
+        {
+            get { return _contactar; }
+            set { this._contactar = value; }
+        }
+        private string _CodigoEmpresar = "";
+        public string CodigoEmpresa
+        {
+            get { return _CodigoEmpresar; }
+            set { this._CodigoEmpresar = value; }
+        }
+        private string _ComoContactar = "";
+        public string ComoContactar
+        {
+            get { return _ComoContactar; }
+            set { this._ComoContactar = value; }
+        }
+        private string _Paso1 = "";
+        public string Paso1
+        {
+            get { return _Paso1; }
+            set { this._Paso1 = value; }
+        }
+
+        private string _Paso2 = "";
+        public string Paso2
+        {
+            get { return _Paso2; }
+            set { this._Paso2 = value; }
+        }
+
+        private string _Paso3 = "";
+        public string Paso3
+        {
+            get { return _Paso3; }
+            set { this._Paso3 = value; }
+        }
+        private string _Nit = "";
+        public string Nit
+        {
+            get { return _Nit; }
+            set { this._Nit = value; }
+        }
+        private string _DPI = "";
+        public string DPI
+        {
+            get { return _DPI; }
+            set { this._DPI = value; }
+        }
+        private string _Direccion = "";
+        public string Direccion
+        {
+            get { return _Direccion; }
+            set { this._Direccion = value; }
+        }
+        private string _Zona = "";
+        public string Zona
+        {
+            get { return _Zona; }
+            set { this._Zona = value; }
+        }
+        private string _Municipio = "";
+        public string Municipio
+        {
+            get { return _Municipio; }
+            set { this._Municipio = value; }
+        }
+        private string _ingreso = "";
+        public string ingreso
+        {
+            get { return _ingreso; }
+            set { this._ingreso = value; }
+        }
+        private string _status = "";
+        public string status
+        {
+            get { return _status; }
+            set { this._status = value; }
+        }
+
+        private string _FechaInicio = "";
+        public string FechaInicio
+        {
+            get { return _FechaInicio; }
+            set { this._FechaInicio = value; }
+        }
+
+        private string _Prima = "";
+        public string Prima
+        {
+            get { return _Prima; }
+            set { this._Prima = value; }
+        }
+
+        private string _Pasaporte = "";
+        public string Pasaporte
+        {
+            get { return _Pasaporte; }
+            set { this._Pasaporte = value; }
+        }
+        private string _Nacimiento = "";
+        public string Nacimiento
+        {
+            get { return _Nacimiento; }
+            set { this._Nacimiento = value; }
+        }
+        private string _ApellidoP = "";
+        public string ApellidoP
+        {
+            get { return _ApellidoP; }
+            set { this._ApellidoP = value; }
+        }
+        private string _ApellidoS = "";
+        public string ApellidoS
+        {
+            get { return _ApellidoS; }
+            set { this._ApellidoS = value; }
+        }
+        private string _NombreP = "";
+        public string NombreP
+        {
+            get { return _NombreP; }
+            set { this._NombreP = value; }
+        }
+        private string _NombreS = "";
+        public string NombreS 
+        {
+            get { return _NombreS; }
+            set { this._NombreS = value; }
+        }
+    }
     public class Impresion
     {
 

@@ -210,7 +210,7 @@ namespace Cotizador
             string descripcion = Cotizadores.MensajesAutomaticos("5");
             string telefono = Cotizadores.TelefonoCliente(_id);
             string CodigoEmpresa = Cotizadores.CodigoEmpresaCliente(_id);
-
+            string numero_pasaporte = this.txtPasaporte.Text;
 
             if (Cotizadores.VerificaExistenciaDato3Paso(_id))
             {
@@ -234,7 +234,7 @@ namespace Cotizador
             }
             else
             {
-                Cotizadores.Actualiza3Paso(_id, this.txtNit.Text, this.txtNit.Text, this.txtDireccion.Text, this.txtZona.Text, this.txtMunicipio.Text);
+                Cotizadores.Actualiza3Paso(_id, this.txtNit.Text, this.txtNit.Text, this.txtDireccion.Text, this.txtZona.Text, this.txtMunicipio.Text, numero_pasaporte);
                 ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Paso Tres Completado');", true);
                 descripcion = Cotizadores.MensajesAutomaticos("6");
                 descripcion = descripcion.Replace("{Nombre}", nombreCliente);

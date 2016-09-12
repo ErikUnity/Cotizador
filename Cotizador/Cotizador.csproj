@@ -116,7 +116,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="CS.aspx" />
-    <Content Include="CS1.aspx" />
     <Content Include="Formulario3.aspx" />
     <Content Include="Formulario4.aspx" />
     <Content Include="Formulario5.aspx" />
@@ -131,6 +130,8 @@
     <Content Include="Rpt18.aspx" />
     <Content Include="Rpt20.aspx" />
     <Content Include="Rpt23.aspx" />
+    <Content Include="Rpt24.aspx" />
+    <Content Include="Rpt25.aspx" />
     <Content Include="Rpt6.aspx" />
     <Content Include="Rpt7.aspx" />
     <Content Include="SinConexion.aspx" />
@@ -200,7 +201,6 @@
     <Content Include="Rpt14.aspx" />
     <Content Include="Rpt19.aspx" />
     <Content Include="Rpt15.aspx" />
-    <Content Include="Rpt24.aspx" />
     <Content Include="Rpt16.aspx" />
     <Content Include="Rpt13.aspx" />
     <Content Include="Rpt9.aspx" />
@@ -234,13 +234,6 @@
     </Compile>
     <Compile Include="CS.aspx.designer.cs">
       <DependentUpon>CS.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="CS1.aspx.cs">
-      <DependentUpon>CS1.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="CS1.aspx.designer.cs">
-      <DependentUpon>CS1.aspx</DependentUpon>
     </Compile>
     <Compile Include="Formulario3.aspx.cs">
       <DependentUpon>Formulario3.aspx</DependentUpon>
@@ -298,6 +291,20 @@
     </Compile>
     <Compile Include="Rpt23.aspx.designer.cs">
       <DependentUpon>Rpt23.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Rpt24.aspx.cs">
+      <DependentUpon>Rpt24.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Rpt24.aspx.designer.cs">
+      <DependentUpon>Rpt24.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Rpt25.aspx.cs">
+      <DependentUpon>Rpt25.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Rpt25.aspx.designer.cs">
+      <DependentUpon>Rpt25.aspx</DependentUpon>
     </Compile>
     <Compile Include="Rpt6.aspx.cs">
       <DependentUpon>Rpt6.aspx</DependentUpon>
@@ -442,13 +449,6 @@
     <Compile Include="Rpt15.aspx.designer.cs">
       <DependentUpon>Rpt15.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Rpt24.aspx.cs">
-      <DependentUpon>Rpt24.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Rpt24.aspx.designer.cs">
-      <DependentUpon>Rpt24.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Rpt16.aspx.cs">
       <DependentUpon>Rpt16.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -542,6 +542,8 @@
     <Folder Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Reportes\ASR27.rdlc" />
     <EmbeddedResource Include="Reportes\CotizadorCitibank.rdlc" />
     <EmbeddedResource Include="Reportes\CotizadorCitibankMoto.rdlc" />
     <EmbeddedResource Include="Reportes\CotizadorCitibankMotoRCivil.rdlc" />

@@ -123,7 +123,35 @@ text-transform: none;">Paso 3</span> </div>
                                                                                 </table>
                                                                             </td>
                                                                         </tr> 
-
+                                                                                                                                                                                                                             <tr>
+                                                                            <td class="f4" style="font-family: Roboto; text-align: left; color: rgb(19, 27, 77); text-decoration: none; font-weight: normal; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; text-transform: none;">Pasaporte:</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td class="f1" style="font-family: Arial, Helvetica, sans-serif;  text-align: center;">
+                                                                                <table id="ASPxPageControl1_ASPxPageControl2_TxtPrimerNombre_ET" cellpadding="0" cellspacing="0" class="dxeErrorFrame" errorframe="errorFrame" style="border-collapse: collapse; visibility: hidden;">
+                                                                                    <tr>
+                                                                                        <td class="f1" style="font-family: Arial, Helvetica, sans-serif;  text-align: center; visibility: visible; vertical-align: middle;">
+                                                                                            <table id="ASPxPageControl1_ASPxPageControl2_TxtPrimerNombre" cellpadding="0" cellspacing="0" class="f1" style="border-collapse: collapse; border: 1px solid rgb(159, 159, 159); cursor: default; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); font-family: Arial, Helvetica, sans-serif; text-align: left; color: rgb(19, 27, 77);  text-decoration: none; font-weight: normal; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; text-transform: none; margin-bottom: 0px; width: 150px; background-color: white;">
+                                                                                                <tr>
+                                                                                                    <td class="f0" style="font-family: Arial, Helvetica, sans-serif;  text-align: center; width: 142px; padding: 3px 3px 2px; overflow: hidden; ">
+                                                                                                        <asp:TextBox ID="txtPasaporte" runat="server" CssClass="dxeEditArea dxeEditAreaSys" Width="193px"   AutoCompleteType="Disabled"></asp:TextBox>  
+                                                                                                       </td><td>&nbsp;&nbsp;<img alt="" class="auto-style2" src="http://testcotizador.unitypromotores.com/Cotizador/imagenes/Error.png" id="errDpi" style="visibility: hidden" /></td>
+                                                                                                </tr>
+                                                                                            </table>
+                                                                                        </td>
+                                                                                        <td id="ASPxPageControl1_ASPxPageControl2_TxtPrimerNombre_EC" class="f1" style="font-family: Tahoma, Geneva, sans-serif;  text-align: center; font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; line-height: normal; color: red; padding-left: 4px; padding-right: 5px; vertical-align: middle;">
+                                                                                            <table cellpadding="0" cellspacing="0" style="width: 33px; border-collapse: collapse;">
+                                                                                                <tr>
+                                                                                                    <td class="f1" style="font-family: Tahoma, Geneva, sans-serif;  text-align: center; font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; line-height: normal; color: red; padding-right: 5px;">
+                                                                                                        <img id="ASPxPageControl1_ASPxPageControl2_TxtPrimerNombre_EI" alt="" class="dxEditors_edtError" src="#" style="border-width: 0px; display: block; margin: auto; width: 14px; height: 14px; background-image: url(''); background-color: transparent; background-position: -170px 0px; background-repeat: no-repeat;" /></td>
+                                                                                                    <td id="ASPxPageControl1_ASPxPageControl2_TxtPrimerNombre_ETC" class="f1" style="font-family: Tahoma, Geneva, sans-serif;  text-align: center; font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; line-height: normal; color: red; width: 14px; white-space: nowrap;"></td>
+                                                                                                </tr>
+                                                                                            </table>
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                </table>
+                                                                            </td>
+                                                                        </tr> 
                                                                         <tr>
                                                                             <td class="f4" style="font-family: Roboto;  text-align: left; color: rgb(19, 27, 77); text-decoration: none; font-weight: normal; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; text-transform: none;">Dirección:</td>
                                                                         </tr>
