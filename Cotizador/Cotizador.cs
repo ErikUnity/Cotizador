@@ -1044,6 +1044,7 @@ namespace Cotizador
       public decimal MenoresDesde18 = 0;
       public decimal ExcesoRC = 0;
       public decimal GastosPorEmision = 0;
+      public decimal PorcenajeGastosPorEmision = 0;
       public decimal GastosPorEmisionProRata = 0;
       public decimal Asisto = 0;
       public decimal Iva = 0;
@@ -1077,7 +1078,7 @@ namespace Cotizador
             decimal equipo_especial = 0;
             decimal cien = 100;
             decimal mil = 1000;
-            decimal docientoscientuena = 250;
+            decimal docientoscincuenta = 250;
             decimal PrimaNetaRC = Cotizadores.ObtienePrimaNetaRC(_Codigo);
             decimal MotoDañosATerceros = Cotizadores.ObtieneMotoDañosATercerosBase(_Codigo);
             decimal MotoPorcentaje_DeducibleDañosYAccidentes = Cotizadores.ObtieneMotoPorcentaje_DeducibleDañosYAccidentes(_Codigo);
@@ -1086,6 +1087,8 @@ namespace Cotizador
             decimal MotoPorcentaje_Cobro = Cotizadores.ObtieneMotoPorcentaje_Cobro(_Codigo);
             decimal MotoCobro_PorServicio = Cotizadores.ObtieneMotoCobro_PorServicio(_Codigo);
             decimal MotoPorcentaje_PorServicio = Cotizadores.ObtieneMotoPorcentaje_PorServicio(_Codigo);
+            decimal resultado = 0;
+            decimal PorcenajeGastosPorEmision = Cotizadores.ObtieneValor_GastosEmision(_Codigo);
 
              Codigo = _Codigo;
              SumaAsegurada = _SumaAsegurada;
@@ -1109,89 +1112,92 @@ namespace Cotizador
              DiasTotales = int.Parse((nextyear - olddate).TotalDays.ToString());
              DañosATerceros = Exceso_RC_Base;
              PorcentajeResponsabilidadCivil = Cotizadores.ObtienePorcentajeResponsabilidadCivil(_Codigo);
-             
 
              if (MensajeTipo == 1)
              {
-                 if ((SumaAsegurada * Porcentaje_Menor_100 + Costo) < SumaLimiteParaCalculo)
+                 if (SumaAsegurada < SumaLimiteParaCalculo)
                  {
-                     PrimaNeta = (SumaAsegurada * Porcentaje_Menor_100 + Costo);
-                     //=SI((B6*0.025+500)<1000,1000,(B6*0.025+500))+D5
+                     if ((SumaAsegurada * Porcentaje_Menor_100 + Costo) < MontoBase)
+                     {
+                         PrimaNeta = MontoBase;
+                         GastosPorEmision = PrimaNeta * PorcenajeGastosPorEmision;
+                         Iva = (PrimaNeta + Costo + GastosPorEmision)  * CalculoIva;
+                         PrimaNeta = (PrimaNeta + Costo + GastosPorEmision + Iva);
+                         //=SI((B6*0.025+500)<1000,1000,(B6*0.025+500))+D5
+                     }
+                     else
+                     {
+                         PrimaNeta = (SumaAsegurada * Porcentaje_Menor_100 + Costo);
+                         GastosPorEmision = PrimaNeta * PorcenajeGastosPorEmision;
+                         Iva = (PrimaNeta + Costo + GastosPorEmision) * CalculoIva;
+                         PrimaNeta = (PrimaNeta + Costo + GastosPorEmision + Iva);
+                         //=SI((B6*0.02+500)<1000,1000,(B6*0.02+500))+D5
+                     }
 
                  }
-                 else
+
+                 if (SumaAsegurada > SumaLimiteParaCalculo)
                  {
-                     PrimaNeta = (SumaAsegurada * Porcentaje_Mayor_100 + Costo);
-                     //=SI((B6*0.02+500)<1000,1000,(B6*0.02+500))+D5
+                     if ((SumaAsegurada * Porcentaje_Mayor_100 + Costo) < MontoBase)
+                     {
+                         PrimaNeta = MontoBase;
+                         GastosPorEmision = PrimaNeta * PorcenajeGastosPorEmision;
+                         Iva = (PrimaNeta + Costo + GastosPorEmision) * CalculoIva;
+                         PrimaNeta = (PrimaNeta + Costo + GastosPorEmision + Iva);
+                         //=SI((B6*0.025+500)<1000,1000,(B6*0.025+500))+D5
+
+                     }
+                     else
+                     {
+                         PrimaNeta = (SumaAsegurada * Porcentaje_Mayor_100 + Costo);
+                         GastosPorEmision = PrimaNeta * PorcenajeGastosPorEmision;
+                         Iva = (PrimaNeta + Costo + GastosPorEmision) * CalculoIva;
+                         PrimaNeta = (PrimaNeta + Costo + GastosPorEmision + Iva);
+                         //=SI((B6*0.02+500)<1000,1000,(B6*0.02+500))+D5
+                     }
+
                  }
+
              }
 
              if (MensajeTipo == 2)
              {
+               
+                 PrimaNeta = (PrimaNetaRC * PorcentajeResponsabilidadCivil) + Asisto;
+                 Iva = PrimaNeta * CalculoIva;
+                 PrimaNeta = PrimaNeta + Iva;
 
-                 PrimaNeta = (PrimaNetaRC * PorcentajeResponsabilidadCivil);
                  //=(D6*1.05)+145.45+((D6*1.05+145.45)*0.12) 
              }
 
              if (MensajeTipo == 7)
              {
-                 if ((SumaAsegurada * MotoPorcentaje_DeducibleDañosYAccidentes) < MotoSumaLimiteParaCalculo)
-                 {
-                     MotoDeduciblesPorDañosyAccidentes = MotoSumaLimiteParaCalculo;
-                     
-                 // =SI(($B$6*0.05<500),500,($B$6*0.05))
-          
-                 }
-                 else {
-                     MotoDeduciblesPorDañosyAccidentes = SumaAsegurada * MotoPorcentaje_DeducibleDañosYAccidentes;
-      
-                 // =SI(($B$6*0.05<500),500,($B$6*0.05))
-         
-
-                 }
-
-                 if ((SumaAsegurada * MotoPorcentaje_DeducibleRobo) < MotoSumaLimiteParaCalculo)
-                 {
-                   
-                     MotoDeducibles_Robo = MotoSumaLimiteParaCalculo;
-                     
-                     // =SI(($B$6*0.2<500),500,($B$6*0.2))
-                 }
-                 else
-                 {
-                     MotoDeducibles_Robo = SumaAsegurada * MotoPorcentaje_DeducibleRobo;
-                   
-                     //=SI(($B$6*0.2<500),500,($B$6*0.2))
-
-                 }
-
                  if ((SumaAsegurada * MotoPorcentaje_Cobro + MotoCobro_PorServicio) < MotoSumaLimiteParaCalculo)
                  {
                      PrimaNeta = MotoSumaLimiteParaCalculo;
-                 }else{
+                     PrimaNeta = PrimaNeta * MotoPorcentaje_PorServicio;
+                     Iva = PrimaNeta * CalculoIva;
+                     PrimaNeta = PrimaNeta + Iva;
 
-                     PrimaNeta = SumaAsegurada * MotoPorcentaje_Cobro + MotoCobro_PorServicio;
                  }
-                 
-                 
-    
+                 else {
+                      PrimaNeta = (SumaAsegurada * MotoPorcentaje_Cobro + MotoCobro_PorServicio);
+                      PrimaNeta = PrimaNeta * MotoPorcentaje_PorServicio;
+                      Iva = PrimaNeta * CalculoIva;
+                      PrimaNeta = PrimaNeta + Iva;
+                 }
+
              }
 
-             //L31*100/1000
-
-             if (MensajeTipo != 7)
+             if (MensajeTipo == 8)
              {
-                 GastosPorEmision = PrimaNeta * (Cotizadores.ObtieneValor_GastosEmision(_Codigo));
-                 PrimaNetaProRata = PrimaNeta * DiasTotales / DiasAnuales;
-                 GastosPorEmisionProRata = PrimaNetaProRata * (Cotizadores.ObtieneValor_GastosEmision(_Codigo));
+                 PrimaNeta = MotoSumaLimiteParaCalculo;
+                 PrimaNeta = PrimaNeta * MotoPorcentaje_PorServicio;
+                 Iva = PrimaNeta * CalculoIva;
+                 PrimaNeta = PrimaNeta + Iva;
+
              }
-             else {
-                 GastosPorEmision = PrimaNeta * (Cotizadores.ObtieneValor_GastosEmision(_Codigo));
-                 PrimaNetaProRata = PrimaNeta * DiasTotales / DiasAnuales;
-                 //=E2/365*I3
-                 PrimaTotalProRata = PrimaNetaProRata * MotoPorcentaje_PorServicio * Iva;
-                
-             }
+
 
 
              if (_roboParcial)
@@ -1209,48 +1215,40 @@ namespace Cotizador
                  CoberturaAdicional += RoboParcial;
 
              }
-             else {
-                 RoboParcial = SumaAsegurada * (cien) / (mil);
-             }
+
 
              if (_MenoresDesde16)
              {
-                 MenoresDesde16 = PrimaNeta * (docientoscientuena) / (mil);
+                 MenoresDesde16 = PrimaNeta * (docientoscincuenta) / (mil);
                  CoberturaAdicional += MenoresDesde16;
              }
-             else {
-                 MenoresDesde16 = PrimaNeta * (docientoscientuena) / (mil);
-             }
+
 
              if (_MenoresDesde18)
              {
-                 MenoresDesde18 = PrimaNeta * (docientoscientuena) / (mil);
+                 MenoresDesde18 = PrimaNeta * (docientoscincuenta) / (mil);
                  CoberturaAdicional += MenoresDesde18;
              }
-             else {
-                 MenoresDesde18 = PrimaNeta * (docientoscientuena) / (mil);
-             }
+
 
              if (_ExcesoRC)
              {
                  if (_MenoresDesde16 == true || _MenoresDesde18 == true)
                  {
-                     ExcesoRC += PrimaNeta * (docientoscientuena) / (mil);
+                     ExcesoRC += PrimaNeta * (docientoscincuenta) / (mil);
                  }
 
                  DañosATerceros += Exceso_RC_ElevacionDeCobertura;
                  CoberturaAdicional += ExcesoRC;
              }
 
+             IvaProRata = CoberturaAdicional * CalculoIva;
+             Iva += IvaProRata;
+             CoberturaAdicional += IvaProRata;
 
-
-            Iva = (CoberturaAdicional + PrimaNeta + GastosPorEmision + Asisto) * CalculoIva;
-            IvaProRata = (CoberturaAdicional + PrimaNetaProRata + GastosPorEmisionProRata + Asisto) * CalculoIva;
-            PrimaTotal = CoberturaAdicional + PrimaNeta + GastosPorEmision + Asisto + Iva;
-            if (MensajeTipo != 7)
-            {
-                PrimaTotalProRata = CoberturaAdicional + PrimaNetaProRata + GastosPorEmisionProRata + Asisto + IvaProRata;
-            }
+             PrimaTotal = CoberturaAdicional + PrimaNeta;
+             PrimaTotalProRata = PrimaTotal;
+             PrimaNetaProRata = PrimaNeta;
 
             Iva = decimal.Parse(Iva.ToString("F", CultureInfo.InvariantCulture));
             IvaProRata =  decimal.Parse(IvaProRata.ToString("F", CultureInfo.InvariantCulture));

@@ -20,7 +20,7 @@ CREATE TABLE IF NOT EXISTS `iva` (
   `Iva` decimal(8,2) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table catalogo.iva: ~0 rows (approximately)
+-- Dumping data for table catalogo.iva: ~1 rows (approximately)
 DELETE FROM `iva`;
 /*!40000 ALTER TABLE `iva` DISABLE KEYS */;
 INSERT INTO `iva` (`Iva`) VALUES
@@ -36,7 +36,7 @@ CREATE TABLE IF NOT EXISTS `linea` (
   UNIQUE KEY `Descripcion` (`Descripcion`)
 ) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
 
--- Dumping data for table catalogo.linea: ~11 rows (approximately)
+-- Dumping data for table catalogo.linea: ~12 rows (approximately)
 DELETE FROM `linea`;
 /*!40000 ALTER TABLE `linea` DISABLE KEYS */;
 INSERT INTO `linea` (`indice`, `Descripcion`) VALUES
@@ -64,7 +64,7 @@ CREATE TABLE IF NOT EXISTS `maestro_correoautomatico` (
   PRIMARY KEY (`indice`)
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
--- Dumping data for table catalogo.maestro_correoautomatico: ~7 rows (approximately)
+-- Dumping data for table catalogo.maestro_correoautomatico: ~8 rows (approximately)
 DELETE FROM `maestro_correoautomatico`;
 /*!40000 ALTER TABLE `maestro_correoautomatico` DISABLE KEYS */;
 INSERT INTO `maestro_correoautomatico` (`indice`, `codigo`, `mensaje`, `descripcion_codigo`) VALUES
@@ -132,7 +132,7 @@ CREATE TABLE IF NOT EXISTS `maestro_link_externo` (
   KEY `indice` (`indice`)
 ) ENGINE=InnoDB AUTO_INCREMENT=97 DEFAULT CHARSET=utf8;
 
--- Dumping data for table catalogo.maestro_link_externo: ~90 rows (approximately)
+-- Dumping data for table catalogo.maestro_link_externo: ~96 rows (approximately)
 DELETE FROM `maestro_link_externo`;
 /*!40000 ALTER TABLE `maestro_link_externo` DISABLE KEYS */;
 INSERT INTO `maestro_link_externo` (`indice`, `Link`, `CodigoEmpresa`, `descripcion`) VALUES
@@ -276,7 +276,7 @@ INSERT INTO `maestro_reglasnegocio` (`indice`, `CodigoEmpresa`, `base`, `suma_as
 	(3, 'Fogel', 1000.00, 100000.00, 0.025, 0.020, 500.00, 267.54, 500.00, 1000.00, 200.00, 0.05, 145.45, 0.12, 250000.00, 800000.00, 900.00, NULL, 1.05, 300000.00, 0.05, 500.00, 0.02, 0.05, 250.00, 1.05),
 	(4, 'Capgemini', 1000.00, 100000.00, 0.025, 0.020, 500.00, 267.54, 500.00, 1000.00, 200.00, 0.05, 145.45, 0.12, 250000.00, 800000.00, 900.00, NULL, 1.05, 300000.00, 0.05, 500.00, 0.02, 0.05, 250.00, 1.05),
 	(5, 'CEG', 1000.00, 100000.00, 0.025, 0.020, 500.00, 267.54, 500.00, 1000.00, 200.00, 0.05, 145.45, 0.12, 250000.00, 800000.00, 900.00, NULL, 1.05, 300000.00, 0.05, 500.00, 0.02, 0.05, 250.00, 1.05),
-	(6, 'Citibank', 1000.00, 100000.00, 0.025, 0.020, 500.00, 267.54, 500.00, 1000.00, 200.00, 0.05, 145.45, 0.12, 250000.00, 800000.00, 900.00, NULL, 1.05, 300000.00, 0.05, 500.00, 0.02, 0.05, 250.00, 1.05);
+	(6, 'Citibank', 1000.00, 100000.00, 2.500, 2.000, 500.00, 267.54, 500.00, 1000.00, 200.00, 0.05, 145.45, 0.12, 250000.00, 800000.00, 900.00, NULL, 1.05, 300000.00, 0.05, 500.00, 0.02, 0.05, 250.00, 1.05);
 /*!40000 ALTER TABLE `maestro_reglasnegocio` ENABLE KEYS */;
 
 
@@ -288,7 +288,7 @@ CREATE TABLE IF NOT EXISTS `marca` (
   UNIQUE KEY `Descripcion` (`Descripcion`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1030 DEFAULT CHARSET=utf8;
 
--- Dumping data for table catalogo.marca: ~190 rows (approximately)
+-- Dumping data for table catalogo.marca: ~191 rows (approximately)
 DELETE FROM `marca`;
 /*!40000 ALTER TABLE `marca` DISABLE KEYS */;
 INSERT INTO `marca` (`indice`, `Descripcion`) VALUES
@@ -494,7 +494,7 @@ CREATE TABLE IF NOT EXISTS `modelo` (
   UNIQUE KEY `Descripcion` (`Descripcion`)
 ) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
 
--- Dumping data for table catalogo.modelo: ~17 rows (approximately)
+-- Dumping data for table catalogo.modelo: ~16 rows (approximately)
 DELETE FROM `modelo`;
 /*!40000 ALTER TABLE `modelo` DISABLE KEYS */;
 INSERT INTO `modelo` (`indice`, `Descripcion`) VALUES
