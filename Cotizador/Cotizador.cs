@@ -1249,6 +1249,7 @@ namespace Cotizador
              PrimaTotal = CoberturaAdicional + PrimaNeta;
              PrimaTotalProRata = PrimaTotal;
              PrimaNetaProRata = PrimaNeta;
+             GastosPorEmisionProRata = GastosPorEmision;
 
             Iva = decimal.Parse(Iva.ToString("F", CultureInfo.InvariantCulture));
             IvaProRata =  decimal.Parse(IvaProRata.ToString("F", CultureInfo.InvariantCulture));
