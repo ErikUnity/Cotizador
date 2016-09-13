@@ -71,6 +71,8 @@ namespace Cotizador
                     NombreP = Nombres.Substring(0, Nombres.Trim().IndexOf(" "));
                     NombreS = Nombres.Substring(Nombres.Trim().IndexOf(" "), Nombres.Length - Nombres.Trim().IndexOf(" "));
                 }
+                Apellido = rw["Apellidos"].ToString();
+
                 if (Apellido.Trim().IndexOf(" ") == -1)
                 {
                     ApellidoP = Apellido;

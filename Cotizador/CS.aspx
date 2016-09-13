@@ -79,7 +79,7 @@
                                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Por Id:
                                             </p>
                                             <p style="font-family: Roboto; font-size: 22px; text-align: left; color: rgb(19, 27, 77); text-decoration: none; font-weight: bold; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; text-transform: none;">
-                                                <asp:TextBox ID="txtId" runat="server" Height="17px" Width="261px"></asp:TextBox>
+                                                <asp:TextBox ID="txtId" runat="server" Height="17px" Width="261px" autocomplete="off"></asp:TextBox>
                                                 <cc1:FilteredTextBoxExtender ID="txtId_FilteredTextBoxExtender" runat="server" FilterType="Numbers" TargetControlID="txtId">
                                                 </cc1:FilteredTextBoxExtender>
                                                 <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Buscar" />
