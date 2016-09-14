@@ -125,6 +125,8 @@
     <Content Include="imagenes\Agradecimiento\Agradecimiento5.jpg" />
     <Content Include="imagenes\Agradecimiento\Agradecimiento6.jpg" />
     <Content Include="imagenes\Agradecimiento\Unity Promotores- Logo en blanco.png" />
+    <Content Include="Logs\2016\20160830.txt" />
+    <Content Include="Logs\2016\20160831.txt" />
     <Content Include="PeticionesExternas4.aspx" />
     <Content Include="PeticionesExternas5.aspx" />
     <Content Include="Rpt18.aspx" />
@@ -537,36 +539,35 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Documentos\" />
-    <Folder Include="Logs\" />
     <Folder Include="obj\Debug\TempPE\" />
     <Folder Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Reportes\ASR27.rdlc" />
+    <EmbeddedResource Include="Reportes\CotizadorCapgemini.rdlc" />
+    <EmbeddedResource Include="Reportes\CotizadorCapgeminiMoto.rdlc" />
+    <EmbeddedResource Include="Reportes\CotizadorCapgeminiMotoRCivil.rdlc" />
+    <EmbeddedResource Include="Reportes\CotizadorCapgeminiRCivil.rdlc" />
+    <EmbeddedResource Include="Reportes\CotizadorCEG.rdlc" />
     <EmbeddedResource Include="Reportes\CotizadorCitibank.rdlc" />
     <EmbeddedResource Include="Reportes\CotizadorCitibankMoto.rdlc" />
     <EmbeddedResource Include="Reportes\CotizadorCitibankMotoRCivil.rdlc" />
     <EmbeddedResource Include="Reportes\CotizadorCitibankRCivil.rdlc" />
-    <EmbeddedResource Include="Reportes\CotizadorCEG.rdlc" />
-    <EmbeddedResource Include="Reportes\CotizadorCapgemini.rdlc" />
     <EmbeddedResource Include="Reportes\CotizadorCEGMoto.rdlc" />
     <EmbeddedResource Include="Reportes\CotizadorCEGMotoRCivil.rdlc" />
     <EmbeddedResource Include="Reportes\CotizadorCEGRCivil.rdlc" />
     <EmbeddedResource Include="Reportes\CotizadorCodisa.rdlc" />
-    <EmbeddedResource Include="Reportes\CotizadorCapgeminiMoto.rdlc" />
-    <EmbeddedResource Include="Reportes\CotizadorCapgeminiMotoRCivil.rdlc" />
-    <EmbeddedResource Include="Reportes\CotizadorCapgeminiRCivil.rdlc" />
+    <EmbeddedResource Include="Reportes\CotizadorCodisaMoto.rdlc" />
+    <EmbeddedResource Include="Reportes\CotizadorCodisaMotoRCivil.rdlc" />
+    <EmbeddedResource Include="Reportes\CotizadorCodisaRCivil.rdlc" />
     <EmbeddedResource Include="Reportes\CotizadorFogel.rdlc" />
     <EmbeddedResource Include="Reportes\CotizadorFogelMoto.rdlc" />
     <EmbeddedResource Include="Reportes\CotizadorTelusMoto.rdlc" />
-    <EmbeddedResource Include="Reportes\CotizadorCodisaMoto.rdlc" />
     <EmbeddedResource Include="Reportes\CotizadorFogelMotoRCivil.rdlc" />
     <EmbeddedResource Include="Reportes\CotizadorTelusMotoRCivil.rdlc" />
-    <EmbeddedResource Include="Reportes\CotizadorCodisaMotoRCivil.rdlc" />
     <EmbeddedResource Include="Reportes\CotizadorFogelRCivil.rdlc" />
     <EmbeddedResource Include="Reportes\CotizadorTelusRCivil.rdlc" />
-    <EmbeddedResource Include="Reportes\CotizadorCodisaRCivil.rdlc" />
     <EmbeddedResource Include="Reportes\CotizadorTelus.rdlc" />
   </ItemGroup>
   <PropertyGroup>
