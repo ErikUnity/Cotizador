@@ -109,7 +109,7 @@ namespace Cotizador
 
 
             // Create Report DataSource
-            ReportDataSource rds = new ReportDataSource("CotizadorRoble", Cotizadores.ReporteCotizacion1( CodigoEmpresa, SumaAsegurada, RoboParcial,  Menores16,  Menores18, ExcesosRC,  _RoboParcial, NombreCliente,  DescripcionVehiculo));
+            ReportDataSource rds = new ReportDataSource("CotizadorRoble", Cotizadores.ReporteCotizacion1( CodigoEmpresa, SumaAsegurada, RoboParcial,  Menores16,  Menores18, ExcesosRC,  _RoboParcial, NombreCliente,  DescripcionVehiculo,"0"));
             string path = HttpContext.Current.Request.PhysicalApplicationPath;
             string archivo = path + @"Documentos\" + nombre.Replace(" ", "_").Replace(".", "") + ".pdf";
             // Variables
@@ -158,7 +158,7 @@ namespace Cotizador
 
 
             // Create Report DataSource
-            ReportDataSource rds = new ReportDataSource("CotizadorRoble", Cotizadores.ReporteCotizacion1(CodigoEmpresa, SumaAsegurada, RoboParcial, Menores16, Menores18, ExcesosRC, _RoboParcial, NombreCliente, DescripcionVehiculo));
+            ReportDataSource rds = new ReportDataSource("CotizadorRoble", Cotizadores.ReporteCotizacion1(CodigoEmpresa, SumaAsegurada, RoboParcial, Menores16, Menores18, ExcesosRC, _RoboParcial, NombreCliente, DescripcionVehiculo,"0"));
             string path = HttpContext.Current.Request.PhysicalApplicationPath;
             string archivo = path + @"Documentos\" + nombre.Replace(" ", "_").Replace(".", "") + "2.pdf";
             // Variables

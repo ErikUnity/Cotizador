@@ -49,6 +49,8 @@ namespace Cotizador
                  moto = 7;
               }
               else { Session["Moto"] = ""; }
+              Session["mensajetipo"] = rw["mensajetipo"];
+               
 
               break;
           }

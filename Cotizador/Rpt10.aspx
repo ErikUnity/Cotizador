@@ -61,6 +61,7 @@ text-transform: none;">Paso 1</span> </div>
                 <asp:SessionParameter DefaultValue="0" Name="_RoboParcial" SessionField="_RoboParcial" Type="Decimal" />
                 <asp:SessionParameter DefaultValue="&quot;&quot;" Name="NombreCliente" SessionField="NombreCliente" Type="String" />
                 <asp:SessionParameter DefaultValue="&quot;&quot;" Name="DescripcionVehiculo" SessionField="DescripcionVehiculo" Type="String" />
+                <asp:SessionParameter DefaultValue="&quot;&quot;" Name="mensajetipo" SessionField="mensajetipo" Type="String" />
             </SelectParameters>
         </asp:ObjectDataSource>
     

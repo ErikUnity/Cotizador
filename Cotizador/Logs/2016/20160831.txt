@@ -1,5 +1,0 @@
-[2016-08-31 10:11:45] - Error al escribir el archivo pdf The process cannot access the file 'C:\ProyectoCotizadores\Cotizador\Cotizador\Documentos\Monica_Arce.pdf' because it is being used by another process.
-[2016-08-31 10:26:17] - Error al escribir el archivo pdf The process cannot access the file 'C:\ProyectoCotizadores\Cotizador\Cotizador\Documentos\Monica_Arce.pdf' because it is being used by another process.
-[2016-08-31 11:08:11] - Error al escribir el archivo pdf The process cannot access the file 'C:\ProyectoCotizadores\Cotizador\Cotizador\Documentos\Monica_Arce.pdf' because it is being used by another process.
-[2016-08-31 11:18:38] - Error al escribir el archivo pdf The process cannot access the file 'C:\ProyectoCotizadores\Cotizador\Cotizador\Documentos\Jennifer.pdf' because it is being used by another process.
-[2016-08-31 11:47:10] - Error al escribir el archivo pdf The process cannot access the file 'C:\ProyectoCotizadores\Cotizador\Cotizador\Documentos\Monica_Veronica.pdf' because it is being used by another process.

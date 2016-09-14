@@ -124,10 +124,10 @@ namespace Cotizador
 
         }
 
-        public static List<Impresion> ReporteCotizacion1(string CodigoEmpresa,decimal SumaAsegurada, bool RoboParcial, bool Menores16, bool Menores18,bool ExcesosRC, decimal _RoboParcial,string NombreCliente, string DescripcionVehiculo)
+        public static List<Impresion> ReporteCotizacion1(string CodigoEmpresa,decimal SumaAsegurada, bool RoboParcial, bool Menores16, bool Menores18,bool ExcesosRC, decimal _RoboParcial,string NombreCliente, string DescripcionVehiculo, string mensajetipo)
         {
 
-            Valores Calculo = new Valores(CodigoEmpresa, SumaAsegurada, RoboParcial, Menores16, Menores18, ExcesosRC, _RoboParcial, 0);
+            Valores Calculo = new Valores(CodigoEmpresa, SumaAsegurada, RoboParcial, Menores16, Menores18, ExcesosRC, _RoboParcial, int.Parse(mensajetipo));
             Impresion lista = new Impresion();
             List<Impresion> data = new List<Impresion>();
        lista.SumaAsegurada = Calculo.SumaAsegurada;
@@ -212,11 +212,11 @@ namespace Cotizador
 
         }
 
-        public string GuardaCotizacion(string _Nombre,string Apellidos, string _Correo, string _TipoDeVehiculo, string _Linea, string _Marca, string _Telefono, string _Modelo, decimal _SumaAsegurada, string _TipoSeguro, string Hora, string _CodigoEmpresa, string _ComoContactar,string prima, string _nacimiento) 
+        public string GuardaCotizacion(string _Nombre, string Apellidos, string _Correo, string _TipoDeVehiculo, string _Linea, string _Marca, string _Telefono, string _Modelo, decimal _SumaAsegurada, string _TipoSeguro, string Hora, string _CodigoEmpresa, string _ComoContactar, string prima, string _nacimiento, string _mensajetipo) 
          {
              string id = "";
-             string sql = " insert into trans_correosenviados(Nombre, Apellidos, Correo, TipoDeVehiculo, Linea, Marca, Telefono, Modelo, SumaAsegurada, TipoSeguro, contactar, CodigoEmpresa,ComoContactar, prima, nacimiento)";
-             sql += " values('" + _Nombre.Trim() + "','" + Apellidos.Trim() + "','" + _Correo + "','" + _TipoDeVehiculo + "','" + _Linea + "','" + _Marca + "','" + _Telefono + "','" + _Modelo + "'," + _SumaAsegurada.ToString() + ",'" + _TipoSeguro + "','" + Hora + "','" + _CodigoEmpresa + "','" + _ComoContactar + "', " + prima + " ,'" + _nacimiento + "')";
+             string sql = " insert into trans_correosenviados(Nombre, Apellidos, Correo, TipoDeVehiculo, Linea, Marca, Telefono, Modelo, SumaAsegurada, TipoSeguro, contactar, CodigoEmpresa,ComoContactar, prima, nacimiento, mensajetipo)";
+             sql += " values('" + _Nombre.Trim() + "','" + Apellidos.Trim() + "','" + _Correo + "','" + _TipoDeVehiculo + "','" + _Linea + "','" + _Marca + "','" + _Telefono + "','" + _Modelo + "'," + _SumaAsegurada.ToString() + ",'" + _TipoSeguro + "','" + Hora + "','" + _CodigoEmpresa + "','" + _ComoContactar + "', " + prima + " ,'" + _nacimiento + "', "+ _mensajetipo +" )";
              AccesoDatos.EjecutaQueryMySql( sql);
              id = AccesoDatos.RegresaCadena_1_ResultadoMysql("select max(indice) from trans_correosenviados where Nombre = '"+ _Nombre.Trim() + "' and Apellidos = '"+ Apellidos.Trim() + "'");
              return id;
@@ -583,7 +583,7 @@ namespace Cotizador
         public static DataTable Cotizacion(string _id)
           {
               DataTable content = new DataTable();
-              content = AccesoDatos.RegresaTablaMySql("Select  tv.indice as moto, ce.CodigoEmpresa, ce.SumaAsegurada, Concat( ce.Nombre , ' ' , ce.Apellidos) as NombreCliente , Concat(ce.TipoDeVehiculo , ' ' , ce.Marca , ' ' , ce.Modelo , ' ' ,  ce.Linea) as DescripcionVehiculo, ce.TipoSeguro, ce.TipoDeVehiculo from  trans_correosenviados ce, tipodevehiculo tv where ce.TipoDeVehiculo =  tv.Descripcion and ce.indice =  " + _id);
+              content = AccesoDatos.RegresaTablaMySql("Select  tv.indice as moto, ce.CodigoEmpresa, ce.SumaAsegurada, Concat( ce.Nombre , ' ' , ce.Apellidos) as NombreCliente , Concat(ce.TipoDeVehiculo , ' ' , ce.Marca , ' ' , ce.Modelo , ' ' ,  ce.Linea) as DescripcionVehiculo, ce.TipoSeguro, ce.TipoDeVehiculo, ce.mensajetipo from  trans_correosenviados ce, tipodevehiculo tv where ce.TipoDeVehiculo =  tv.Descripcion and ce.indice =  " + _id);
               DataView dv = new DataView(content);
               return content;
           }
@@ -1215,6 +1215,17 @@ namespace Cotizador
                  CoberturaAdicional += RoboParcial;
 
              }
+             else {
+                 equipo_especial = SumaAsegurada * (cien) / (mil);
+                 if (_RoboParcial > equipo_especial)
+                 {
+                     RoboParcial = equipo_especial * (cien) / (mil);
+                 }
+                 else
+                 {
+                     RoboParcial = _RoboParcial * (cien) / (mil);
+                 }
+             }
 
 
              if (_MenoresDesde16)
@@ -1222,12 +1233,15 @@ namespace Cotizador
                  MenoresDesde16 = PrimaNeta * (docientoscincuenta) / (mil);
                  CoberturaAdicional += MenoresDesde16;
              }
-
+             else { MenoresDesde16 = PrimaNeta * (docientoscincuenta) / (mil); }
 
              if (_MenoresDesde18)
              {
                  MenoresDesde18 = PrimaNeta * (docientoscincuenta) / (mil);
                  CoberturaAdicional += MenoresDesde18;
+             }
+             else {
+                 MenoresDesde18 = PrimaNeta * (docientoscincuenta) / (mil);
              }
 
 
@@ -1241,6 +1255,7 @@ namespace Cotizador
                  DañosATerceros += Exceso_RC_ElevacionDeCobertura;
                  CoberturaAdicional += ExcesoRC;
              }
+
 
              IvaProRata = CoberturaAdicional * CalculoIva;
              Iva += IvaProRata;
