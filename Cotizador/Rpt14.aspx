@@ -54,7 +54,7 @@
         <div style="text-align: center; width: 100%; height: 100%">
 
             <rsweb:ReportViewer ID="ReportViewer1" runat="server" Font-Names="Verdana" Font-Size="8pt" Height="2190px" WaitMessageFont-Names="Verdana" WaitMessageFont-Size="14pt" Width="8in" CssClass="centro">
-                <LocalReport ReportPath="Reportes\CotizadorCapgeminiMotoRCivil.rdlc">
+                <LocalReport ReportPath="Reportes\CotizadorCapgeminiRCivil.rdlc">
                     <DataSources>
                         <rsweb:ReportDataSource DataSourceId="ObjectDataSource1" Name="CotizadorRoble" />
                     </DataSources>
