@@ -16,7 +16,7 @@ namespace Cotizador
            // Attachment data = new Attachment(AtachmentPath);
             //Attachment data1 = new Attachment(archivo);
 
-           string from = "erik.castaneda@unitypromotores.com"; 
+            string from = "erik.castaneda@unitypromotores.com"; 
             System.Net.Mail.MailMessage mail = new System.Net.Mail.MailMessage();
             mail.To.Add(_to);
             mail.From = new MailAddress(from, titulo, System.Text.Encoding.UTF8);
@@ -32,11 +32,15 @@ namespace Cotizador
             SmtpClient client = new SmtpClient();
             //Add the Creddentials- use your own email id and password
 
-            client.Credentials = new System.Net.NetworkCredential(from, "Kellen2014");
+            client.Credentials = new System.Net.NetworkCredential(from, "Unity2016");
 
-            client.Port = 587; // Gmail works on this port
-            client.Host = "smtp.gmail.com";
-            client.EnableSsl = true; //Gmail works on Server Secured Layer
+            //client.Port = 587; // Gmail works on this port
+            //client.Host = "smtp.gmail.com";
+            //client.EnableSsl = true; //Gmail works on Server Secured Layer
+
+            client.Port = 587; // Outlook works on this port
+            client.Host = "smtp.office365.com";
+            client.EnableSsl = true; //Outlook works on Server Secured Layer
 
             try
             {
