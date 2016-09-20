@@ -1239,6 +1239,7 @@ namespace Cotizador
                      PrimaNeta = ((SumaAsegurada * MotoPorcentaje_PorServicio) / 100) + MotoCobro_PorServicio;
                      Iva = PrimaNeta * CalculoIva;
                      PrimaNeta = PrimaNeta + Iva;
+
                  }
 
              }
