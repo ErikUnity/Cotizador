@@ -506,6 +506,24 @@ namespace Cotizador
 
               return resultado;
           }
+          public static decimal ObtienePrimaNetaRC_Moto(string Codigo)
+          {
+              decimal resultado = 0;
+
+              DataTable content = new DataTable();
+              content = AccesoDatos.RegresaTablaMySql("Select PrimaNetaMotoRC from maestro_reglasnegocio where CodigoEmpresa = '" + Codigo + "'");
+              DataView dv = new DataView(content);
+              foreach (DataRow rw in content.Rows)
+              {
+                  if (rw[0].ToString() != null && rw[0].ToString().Trim() != "")
+                  {
+                      resultado = decimal.Parse(rw[0].ToString());
+                  }
+              }
+
+              return resultado;
+          }
+
           public static void ActualizaPaso1(string _id)
           {
               string sql = "update trans_correosenviados  set Paso1 = 1 where indice = " + _id; 
@@ -1080,6 +1098,7 @@ namespace Cotizador
       public decimal PorcentajeResponsabilidadCivil = 0;
       public decimal MotoDeduciblesPorDañosyAccidentes = 0;
       public decimal MotoDeducibles_Robo = 0;
+      public decimal PrimaNetaMotoRC = 0;
 /// <summary>
 /// Ejecuta los valores de las formulas de acuerdo a la empresa para el calculo de la cotización.
 /// </summary>
@@ -1099,6 +1118,7 @@ namespace Cotizador
             decimal docientoscincuenta = 250;
             decimal PrimaNetaRC = Cotizadores.ObtienePrimaNetaRC(_Codigo);
             PrimaNetaPickUpRC = Cotizadores.ObtienePrimaNetaRC_Pickup(_Codigo);
+            PrimaNetaMotoRC = Cotizadores.ObtienePrimaNetaRC_Moto(_Codigo);
             decimal MotoDañosATerceros = Cotizadores.ObtieneMotoDañosATercerosBase(_Codigo);
             decimal MotoPorcentaje_DeducibleDañosYAccidentes = Cotizadores.ObtieneMotoPorcentaje_DeducibleDañosYAccidentes(_Codigo);
             decimal MotoSumaLimiteParaCalculo = Cotizadores.MotoSumaLimiteParaCalculo(_Codigo);
@@ -1188,7 +1208,7 @@ namespace Cotizador
                  Iva = PrimaNeta * CalculoIva;
                  PrimaNeta = PrimaNeta + Iva;
                 
-                 // Le agregas 5% de emisión + 145.45 de asisto+12% de iva en ese orden=(D6*1.05)+145.45+((D6*1.05+145.45)*0.12) 
+                 // Le agregas 5% de emisión + 145.45 de asisto+12% de iva en ese orden  
              }
 
              if (MensajeTipo == 3)
@@ -1197,38 +1217,39 @@ namespace Cotizador
                  PrimaNeta = PrimaNetaPickUpRC + emision + Asisto;
                  Iva = PrimaNeta * CalculoIva;
                  PrimaNeta = PrimaNeta + Iva;
- 
 
-                 //=(D6*1.05)+145.45+((D6*1.05+145.45)*0.12) 
+
+                 // Le agregas 5% de emisión + 145.45 de asisto+12% de iva en ese orden  
              }
 
 
              if (MensajeTipo == 7)
              {
-                 if ((SumaAsegurada * MotoPorcentaje_Cobro + MotoCobro_PorServicio) < MotoSumaLimiteParaCalculo)
+                 if (SumaAsegurada + ((SumaAsegurada * MotoPorcentaje_Cobro) / 100) + MotoCobro_PorServicio < MotoSumaLimiteParaCalculo)
                  {
-                     PrimaNeta = MotoSumaLimiteParaCalculo;
-                     PrimaNeta = PrimaNeta * MotoPorcentaje_PorServicio;
+                      
+                     emision = (MotoSumaLimiteParaCalculo * MotoPorcentaje_PorServicio) / 100;
+                     PrimaNeta = MotoSumaLimiteParaCalculo + emision + MotoCobro_PorServicio;
                      Iva = PrimaNeta * CalculoIva;
                      PrimaNeta = PrimaNeta + Iva;
 
                  }
                  else {
-                      PrimaNeta = (SumaAsegurada * MotoPorcentaje_Cobro + MotoCobro_PorServicio);
-                      PrimaNeta = PrimaNeta * MotoPorcentaje_PorServicio;
-                      Iva = PrimaNeta * CalculoIva;
-                      PrimaNeta = PrimaNeta + Iva;
+            
+                     PrimaNeta = SumaAsegurada + ((SumaAsegurada * MotoPorcentaje_Cobro) / 100) + MotoCobro_PorServicio;
+                     Iva = PrimaNeta * CalculoIva;
+                     PrimaNeta = PrimaNeta + Iva;
                  }
 
              }
 
              if (MensajeTipo == 8)
              {
-                 PrimaNeta = MotoSumaLimiteParaCalculo;
-                 PrimaNeta = PrimaNeta * MotoPorcentaje_PorServicio;
+                 emision = (PrimaNetaMotoRC * PorcentajeResponsabilidadCivil) / 100;
+                 PrimaNeta = PrimaNetaMotoRC + emision + Asisto;
                  Iva = PrimaNeta * CalculoIva;
                  PrimaNeta = PrimaNeta + Iva;
-
+ 
              }
 
 

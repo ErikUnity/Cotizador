@@ -948,7 +948,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=FormatNumber(Format(Sum(Fields!PrimaTotalProRata.Value),"#,##0"),2)</Value>
+                              <Value>="Q. " &amp; Trim(Format(Sum(Fields!PrimaTotalProRata.Value),"#,##0.00"))</Value>
                               <Style>
                                 <FontFamily>Candara</FontFamily>
                               </Style>
@@ -1023,7 +1023,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=FormatNumber(Format(Sum(Fields!CadaPago.Value),"#,##0"),2)</Value>
+                              <Value>="Q. " &amp; Trim(Format(Sum(Fields!CadaPago.Value),"#,##0.00"))</Value>
                               <Style>
                                 <FontFamily>Candara</FontFamily>
                               </Style>
@@ -1047,6 +1047,7 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
+                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
               </TablixCells>
