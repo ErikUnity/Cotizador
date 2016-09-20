@@ -1225,7 +1225,7 @@ namespace Cotizador
 
              if (MensajeTipo == 7)
              {
-                 if (SumaAsegurada + ((SumaAsegurada * MotoPorcentaje_Cobro) / 100) + MotoCobro_PorServicio < MotoSumaLimiteParaCalculo)
+                 if ( ((SumaAsegurada * MotoPorcentaje_PorServicio) / 100) + MotoCobro_PorServicio < MotoSumaLimiteParaCalculo)
                  {
                       
                      emision = (MotoSumaLimiteParaCalculo * MotoPorcentaje_PorServicio) / 100;
@@ -1235,8 +1235,8 @@ namespace Cotizador
 
                  }
                  else {
-            
-                     PrimaNeta = SumaAsegurada + ((SumaAsegurada * MotoPorcentaje_Cobro) / 100) + MotoCobro_PorServicio;
+
+                     PrimaNeta = ((SumaAsegurada * MotoPorcentaje_PorServicio) / 100) + MotoCobro_PorServicio;
                      Iva = PrimaNeta * CalculoIva;
                      PrimaNeta = PrimaNeta + Iva;
                  }
