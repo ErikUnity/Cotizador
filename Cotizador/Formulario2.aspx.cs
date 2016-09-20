@@ -252,6 +252,11 @@ namespace Cotizador
                 MensajeTipo = 8;
             }
 
+            if (cmbTipoVehiculo.SelectedValue == "41" && _tipo_seguro == "Responsabilidad Civil")
+            {
+                MensajeTipo = 3;
+            }
+
             if (Incompleto)
                 return;
 

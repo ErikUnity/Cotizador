@@ -488,7 +488,24 @@ namespace Cotizador
 
              return resultado;
          }
+          //_Pickup
+          public static decimal ObtienePrimaNetaRC_Pickup(string Codigo)
+          {
+              decimal resultado = 0;
 
+              DataTable content = new DataTable();
+              content = AccesoDatos.RegresaTablaMySql("Select PrimaNetaPickUpRC from maestro_reglasnegocio where CodigoEmpresa = '" + Codigo + "'");
+              DataView dv = new DataView(content);
+              foreach (DataRow rw in content.Rows)
+              {
+                  if (rw[0].ToString() != null && rw[0].ToString().Trim() != "")
+                  {
+                      resultado = decimal.Parse(rw[0].ToString());
+                  }
+              }
+
+              return resultado;
+          }
           public static void ActualizaPaso1(string _id)
           {
               string sql = "update trans_correosenviados  set Paso1 = 1 where indice = " + _id; 
@@ -1046,6 +1063,7 @@ namespace Cotizador
       public decimal GastosPorEmision = 0;
       public decimal PorcenajeGastosPorEmision = 0;
       public decimal GastosPorEmisionProRata = 0;
+      public decimal PrimaNetaPickUpRC = 0;
       public decimal Asisto = 0;
       public decimal Iva = 0;
       public decimal IvaProRata = 0;
@@ -1080,6 +1098,7 @@ namespace Cotizador
             decimal mil = 1000;
             decimal docientoscincuenta = 250;
             decimal PrimaNetaRC = Cotizadores.ObtienePrimaNetaRC(_Codigo);
+            PrimaNetaPickUpRC = Cotizadores.ObtienePrimaNetaRC_Pickup(_Codigo);
             decimal MotoDañosATerceros = Cotizadores.ObtieneMotoDañosATercerosBase(_Codigo);
             decimal MotoPorcentaje_DeducibleDañosYAccidentes = Cotizadores.ObtieneMotoPorcentaje_DeducibleDañosYAccidentes(_Codigo);
             decimal MotoSumaLimiteParaCalculo = Cotizadores.MotoSumaLimiteParaCalculo(_Codigo);
@@ -1087,9 +1106,9 @@ namespace Cotizador
             decimal MotoPorcentaje_Cobro = Cotizadores.ObtieneMotoPorcentaje_Cobro(_Codigo);
             decimal MotoCobro_PorServicio = Cotizadores.ObtieneMotoCobro_PorServicio(_Codigo);
             decimal MotoPorcentaje_PorServicio = Cotizadores.ObtieneMotoPorcentaje_PorServicio(_Codigo);
-            decimal resultado = 0;
+            decimal emision = 0;
             decimal PorcenajeGastosPorEmision = Cotizadores.ObtieneValor_GastosEmision(_Codigo);
-
+      
              Codigo = _Codigo;
              SumaAsegurada = _SumaAsegurada;
              Exceso_RC_ElevacionDeCobertura = Cotizadores.ObtieneElecacionDeCoberturaRC(_Codigo);
@@ -1117,20 +1136,21 @@ namespace Cotizador
              {
                  if (SumaAsegurada < SumaLimiteParaCalculo)
                  {
-                     if ((SumaAsegurada * Porcentaje_Menor_100 + Costo) < MontoBase)
+                     if (((SumaAsegurada * Porcentaje_Menor_100/100) + Costo + Asisto) < MontoBase)
                      {
-                         PrimaNeta = MontoBase;
-                         GastosPorEmision = PrimaNeta * PorcenajeGastosPorEmision;
-                         Iva = (PrimaNeta + Costo + GastosPorEmision)  * CalculoIva;
-                         PrimaNeta = (PrimaNeta + Costo + GastosPorEmision + Iva);
+                         PrimaNeta = MontoBase + Costo + Asisto;
+                         //GastosPorEmision = PrimaNeta * PorcenajeGastosPorEmision;
+                         GastosPorEmision = Costo + Asisto;
+                         Iva = PrimaNeta  * CalculoIva;
+                         PrimaNeta = (PrimaNeta + Iva);
                          //=SI((B6*0.025+500)<1000,1000,(B6*0.025+500))+D5
                      }
                      else
                      {
-                         PrimaNeta = (SumaAsegurada * Porcentaje_Menor_100 + Costo);
-                         GastosPorEmision = PrimaNeta * PorcenajeGastosPorEmision;
-                         Iva = (PrimaNeta + Costo + GastosPorEmision) * CalculoIva;
-                         PrimaNeta = (PrimaNeta + Costo + GastosPorEmision + Iva);
+                         PrimaNeta = ((SumaAsegurada * Porcentaje_Menor_100 / 100) + Costo + Asisto);
+                         GastosPorEmision = Costo + Asisto;
+                         Iva = PrimaNeta * CalculoIva;
+                         PrimaNeta = (PrimaNeta + Iva);
                          //=SI((B6*0.02+500)<1000,1000,(B6*0.02+500))+D5
                      }
 
@@ -1138,21 +1158,22 @@ namespace Cotizador
 
                  if (SumaAsegurada > SumaLimiteParaCalculo)
                  {
-                     if ((SumaAsegurada * Porcentaje_Mayor_100 + Costo) < MontoBase)
+                     if (((SumaAsegurada * Porcentaje_Mayor_100 / 100) + Costo + Asisto) < MontoBase)
                      {
-                         PrimaNeta = MontoBase;
-                         GastosPorEmision = PrimaNeta * PorcenajeGastosPorEmision;
-                         Iva = (PrimaNeta + Costo + GastosPorEmision) * CalculoIva;
-                         PrimaNeta = (PrimaNeta + Costo + GastosPorEmision + Iva);
+                         PrimaNeta = MontoBase + Costo + Asisto;
+                         //GastosPorEmision = PrimaNeta * PorcenajeGastosPorEmision;
+                         GastosPorEmision = Costo + Asisto;
+                         Iva = PrimaNeta * CalculoIva;
+                         PrimaNeta = (PrimaNeta + Iva);
                          //=SI((B6*0.025+500)<1000,1000,(B6*0.025+500))+D5
 
                      }
                      else
                      {
-                         PrimaNeta = (SumaAsegurada * Porcentaje_Mayor_100 + Costo);
-                         GastosPorEmision = PrimaNeta * PorcenajeGastosPorEmision;
-                         Iva = (PrimaNeta + Costo + GastosPorEmision) * CalculoIva;
-                         PrimaNeta = (PrimaNeta + Costo + GastosPorEmision + Iva);
+                         PrimaNeta = ((SumaAsegurada * Porcentaje_Mayor_100 / 100) + Costo + Asisto);
+                         GastosPorEmision = Costo + Asisto;
+                         Iva = PrimaNeta * CalculoIva;
+                         PrimaNeta = (PrimaNeta + Iva);
                          //=SI((B6*0.02+500)<1000,1000,(B6*0.02+500))+D5
                      }
 
@@ -1162,13 +1183,25 @@ namespace Cotizador
 
              if (MensajeTipo == 2)
              {
-               
-                 PrimaNeta = (PrimaNetaRC * PorcentajeResponsabilidadCivil) + Asisto;
+                 emision = (PrimaNetaRC * PorcentajeResponsabilidadCivil) / 100;
+                 PrimaNeta = PrimaNetaRC + emision + Asisto;
                  Iva = PrimaNeta * CalculoIva;
                  PrimaNeta = PrimaNeta + Iva;
+                
+                 // Le agregas 5% de emisión + 145.45 de asisto+12% de iva en ese orden=(D6*1.05)+145.45+((D6*1.05+145.45)*0.12) 
+             }
+
+             if (MensajeTipo == 3)
+             {
+                 emision = (PrimaNetaPickUpRC * PorcentajeResponsabilidadCivil) / 100;
+                 PrimaNeta = PrimaNetaPickUpRC + emision + Asisto;
+                 Iva = PrimaNeta * CalculoIva;
+                 PrimaNeta = PrimaNeta + Iva;
+ 
 
                  //=(D6*1.05)+145.45+((D6*1.05+145.45)*0.12) 
              }
+
 
              if (MensajeTipo == 7)
              {

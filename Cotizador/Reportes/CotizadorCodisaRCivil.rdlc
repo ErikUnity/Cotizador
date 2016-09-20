@@ -1509,21 +1509,6 @@
           </Border>
         </Style>
       </Image>
-      <Image Name="Image6">
-        <Source>Embedded</Source>
-        <Value>logo_codisa1</Value>
-        <Sizing>FitProportional</Sizing>
-        <Top>0.22569in</Top>
-        <Left>5.88417in</Left>
-        <Height>0.8425in</Height>
-        <Width>1.73959in</Width>
-        <ZIndex>2</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-        </Style>
-      </Image>
     </ReportItems>
     <Height>10.17708in</Height>
     <Style>

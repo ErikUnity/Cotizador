@@ -2708,7 +2708,6 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
-                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
               </TablixCells>
@@ -3551,21 +3550,6 @@
         <Height>0.8425in</Height>
         <Width>3.17709in</Width>
         <ZIndex>1</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-        </Style>
-      </Image>
-      <Image Name="Image5">
-        <Source>Embedded</Source>
-        <Value>logo_codisa1</Value>
-        <Sizing>FitProportional</Sizing>
-        <Top>0.04167in</Top>
-        <Left>5.88417in</Left>
-        <Height>0.8425in</Height>
-        <Width>1.73959in</Width>
-        <ZIndex>2</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
