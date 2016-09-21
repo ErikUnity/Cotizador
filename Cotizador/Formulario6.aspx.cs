@@ -295,7 +295,11 @@ namespace Cotizador
 
              if (this.chkChat.Checked)
              {
-                 Response.Redirect("http://chat.unityseguros.com/chat/unity_promotores/chat.php?a=c8c50");
+                 string nombrechat = Cotizadores.Base64Encode(this.txtNombre.Text.ToString() + " " + this.txtApellido.Text.ToString());
+                 string correochat = Cotizadores.Base64Encode(this.txtCorreo.Text.ToString());
+                 string telefonochat = Cotizadores.Base64Encode(this.txtTelefono.Text.ToString());
+                 string url = "http://chat.unityseguros.com/chat/unity_promotores/chat.php?a=c8c50&intgroup=Q290aXphY2nDs24gU2VndXJvIFZlaMOtY3Vsb3M_&en=" + nombrechat + "&ee=" + correochat + "&ep=" + telefonochat + "&mp=MQ__";
+                 Response.Redirect(url);
              }
              else
              {
