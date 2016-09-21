@@ -281,13 +281,14 @@ namespace Cotizador
              EnvioDeCorreoRapido.EjecutarProceso(this.txtCorreo.Text.Trim(), this.cmbTipoVehiculo.SelectedItem.Text.Trim(), this.txtLinea.Text.Trim(), Marca, this.cmbModelo.SelectedItem.Text.Trim(), ValorMercado, MensajeTipo, this.txtNombre.Text.Trim(), "Capgemini", false, false, false, false, RoboParcial, this.txtNombre.Text.Trim(), DescripcionVehiculo, id);
              List<CorreosInternos> correo = new List<CorreosInternos>();
              correo = Cotizadores.EnviarCorreosInternos("Capgemini");
+             string lineaTitulo = this.txtNombre.Text + " Tel: " + this.txtTelefono.Text + " Correo: " + this.txtCorreo.Text;
 
              if (correo.Count != 0)
              {
                  foreach (var item in correo)
                  {
                      // EnvioDeCorreoRapido.EjecutarProceso(item.Correo, this.cmbTipoVehiculo.SelectedItem.Text.Trim(), this.txtLinea.Text.Trim(), Marca, this.cmbModelo.SelectedItem.Text.Trim(), ValorMercado, MensajeTipo, this.txtNombre.Text.Trim(), "Capgemini", this.chkRoboParcial.Checked, this.chkMenores16.Checked, this.chkMenores18.Checked, this.chkExcesoRC.Checked, RoboParcial, this.txtNombre.Text.Trim(), DescripcionVehiculo);
-                     EnvioDeCorreoRapido.EjecutarProceso(item.Correo, this.cmbTipoVehiculo.SelectedItem.Text.Trim(), this.txtLinea.Text.Trim(), Marca, this.cmbModelo.SelectedItem.Text.Trim(), ValorMercado, MensajeTipo, this.txtNombre.Text.Trim(), "Capgemini", false, false, false, false, RoboParcial, this.txtNombre.Text.Trim(), DescripcionVehiculo, id);
+                     EnvioDeCorreoRapido.EjecutarProceso(item.Correo, this.cmbTipoVehiculo.SelectedItem.Text.Trim(), this.txtLinea.Text.Trim() + " " + lineaTitulo, Marca, this.cmbModelo.SelectedItem.Text.Trim(), ValorMercado, MensajeTipo, this.txtNombre.Text.Trim(), "Capgemini", false, false, false, false, RoboParcial, this.txtNombre.Text.Trim(), DescripcionVehiculo, id);
                  }
              }
 
