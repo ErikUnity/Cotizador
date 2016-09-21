@@ -20,7 +20,7 @@ CREATE TABLE IF NOT EXISTS `iva` (
   `Iva` decimal(8,2) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table catalogo.iva: ~1 rows (approximately)
+-- Dumping data for table catalogo.iva: ~0 rows (approximately)
 DELETE FROM `iva`;
 /*!40000 ALTER TABLE `iva` DISABLE KEYS */;
 INSERT INTO `iva` (`Iva`) VALUES
@@ -36,7 +36,7 @@ CREATE TABLE IF NOT EXISTS `linea` (
   UNIQUE KEY `Descripcion` (`Descripcion`)
 ) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
 
--- Dumping data for table catalogo.linea: ~12 rows (approximately)
+-- Dumping data for table catalogo.linea: ~11 rows (approximately)
 DELETE FROM `linea`;
 /*!40000 ALTER TABLE `linea` DISABLE KEYS */;
 INSERT INTO `linea` (`indice`, `Descripcion`) VALUES
@@ -62,9 +62,9 @@ CREATE TABLE IF NOT EXISTS `maestro_correoautomatico` (
   `mensaje` text,
   `descripcion_codigo` varchar(800) DEFAULT NULL,
   PRIMARY KEY (`indice`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
--- Dumping data for table catalogo.maestro_correoautomatico: ~9 rows (approximately)
+-- Dumping data for table catalogo.maestro_correoautomatico: ~8 rows (approximately)
 DELETE FROM `maestro_correoautomatico`;
 /*!40000 ALTER TABLE `maestro_correoautomatico` DISABLE KEYS */;
 INSERT INTO `maestro_correoautomatico` (`indice`, `codigo`, `mensaje`, `descripcion_codigo`) VALUES
@@ -133,7 +133,7 @@ CREATE TABLE IF NOT EXISTS `maestro_link_externo` (
   KEY `indice` (`indice`)
 ) ENGINE=InnoDB AUTO_INCREMENT=97 DEFAULT CHARSET=utf8;
 
--- Dumping data for table catalogo.maestro_link_externo: ~96 rows (approximately)
+-- Dumping data for table catalogo.maestro_link_externo: ~90 rows (approximately)
 DELETE FROM `maestro_link_externo`;
 /*!40000 ALTER TABLE `maestro_link_externo` DISABLE KEYS */;
 INSERT INTO `maestro_link_externo` (`indice`, `Link`, `CodigoEmpresa`, `descripcion`) VALUES
@@ -265,6 +265,7 @@ CREATE TABLE IF NOT EXISTS `maestro_reglasnegocio` (
   `MotoCobro_PorServicio` decimal(10,2) DEFAULT NULL,
   `MotoPorcentaje_PorServicio` decimal(10,2) DEFAULT NULL,
   `PrimaNetaPickUpRC` decimal(10,2) DEFAULT NULL,
+  `PrimaNetaMotoRC` decimal(10,2) DEFAULT NULL,
   PRIMARY KEY (`indice`),
   UNIQUE KEY `codigo` (`CodigoEmpresa`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
@@ -290,7 +291,7 @@ CREATE TABLE IF NOT EXISTS `marca` (
   UNIQUE KEY `Descripcion` (`Descripcion`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1030 DEFAULT CHARSET=utf8;
 
--- Dumping data for table catalogo.marca: ~191 rows (approximately)
+-- Dumping data for table catalogo.marca: ~190 rows (approximately)
 DELETE FROM `marca`;
 /*!40000 ALTER TABLE `marca` DISABLE KEYS */;
 INSERT INTO `marca` (`indice`, `Descripcion`) VALUES
@@ -496,7 +497,7 @@ CREATE TABLE IF NOT EXISTS `modelo` (
   UNIQUE KEY `Descripcion` (`Descripcion`)
 ) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
 
--- Dumping data for table catalogo.modelo: ~16 rows (approximately)
+-- Dumping data for table catalogo.modelo: ~17 rows (approximately)
 DELETE FROM `modelo`;
 /*!40000 ALTER TABLE `modelo` DISABLE KEYS */;
 INSERT INTO `modelo` (`indice`, `Descripcion`) VALUES
@@ -572,9 +573,9 @@ CREATE TABLE IF NOT EXISTS `trans_correosenviados` (
   `nacimiento` varchar(250) DEFAULT NULL,
   `mensajetipo` int(11) DEFAULT NULL,
   PRIMARY KEY (`indice`)
-) ENGINE=InnoDB AUTO_INCREMENT=275 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=291 DEFAULT CHARSET=utf8;
 
--- Dumping data for table catalogo.trans_correosenviados: ~46 rows (approximately)
+-- Dumping data for table catalogo.trans_correosenviados: ~55 rows (approximately)
 DELETE FROM `trans_correosenviados`;
 /*!40000 ALTER TABLE `trans_correosenviados` DISABLE KEYS */;
 INSERT INTO `trans_correosenviados` (`indice`, `Nombre`, `Apellidos`, `Correo`, `TipoDeVehiculo`, `Linea`, `Marca`, `Telefono`, `Modelo`, `SumaAsegurada`, `Fecha`, `TipoSeguro`, `contactar`, `CodigoEmpresa`, `ComoContactar`, `Paso1`, `Paso2`, `Paso3`, `Nit`, `DPI`, `Direccion`, `Zona`, `Municipio`, `ingreso`, `status`, `FechaInicio`, `prima`, `passaporte`, `nacimiento`, `mensajetipo`) VALUES
@@ -629,7 +630,12 @@ INSERT INTO `trans_correosenviados` (`indice`, `Nombre`, `Apellidos`, `Correo`, 
 	(282, 'Automovil Pickup', 'Responsabilidad Civil', 'erik.castaneda@unitypromotores.com', 'Pickup', 'XL', 'ACCU', '65465465', '2001', 0.00, '2016-09-20 15:58:42', 'Responsabilidad Civil', 'erik.castaneda@unitypromotores.com', 'Codisa', 'Por Telefono - Inmediatamente', b'1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'H764T844', NULL, NULL, 1456.50, NULL, '2016-09-06', 3),
 	(283, 'Vehiculo Pickup', 'Responsabilidad Civil', 'erik.castaneda@unitypromotores.com', 'Pickup', 'XL', 'ACCU', '65465465', '2001', 0.00, '2016-09-20 16:05:11', 'Responsabilidad Civil', 'erik.castaneda@unitypromotores.com', 'Codisa', 'Por Telefono - Inmediatamente', b'1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'H764T844', NULL, NULL, 1456.50, NULL, '2016-09-06', 3),
 	(284, 'Vehiculo Pickup', 'Responsabilidad Civil', 'erik.castaneda@unitypromotores.com', 'Pickup', 'XL', 'ACCU', '65465465', '2001', 0.00, '2016-09-20 16:07:26', 'Responsabilidad Civil', 'erik.castaneda@unitypromotores.com', 'Codisa', 'Por Telefono - Inmediatamente', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1456.50, NULL, '2016-09-06', 3),
-	(285, 'Vehiculo Pickup', 'Responsabilidad Civil', 'erik.castaneda@unitypromotores.com', 'Pickup', 'XL', 'ACCU', '65465465', '2001', 0.00, '2016-09-20 16:13:59', 'Responsabilidad Civil', 'erik.castaneda@unitypromotores.com', 'Codisa', 'Por Telefono - Inmediatamente', b'1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'H764T844', NULL, NULL, 1456.50, NULL, '2016-09-06', 3);
+	(285, 'Vehiculo Pickup', 'Responsabilidad Civil', 'erik.castaneda@unitypromotores.com', 'Pickup', 'XL', 'ACCU', '65465465', '2001', 0.00, '2016-09-20 16:13:59', 'Responsabilidad Civil', 'erik.castaneda@unitypromotores.com', 'Codisa', 'Por Telefono - Inmediatamente', b'1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'H764T844', NULL, NULL, 1456.50, NULL, '2016-09-06', 3),
+	(286, 'Vehiculo Motocicleta', 'Responsabilidad Civil', 'erik.castaneda@unitypromotores.com', 'Motocicleta', 'KZ', 'ACCU', '65465465', '2001', 0.00, '2016-09-20 16:45:12', 'Responsabilidad Civil', 'erik.castaneda@unitypromotores.com', 'Codisa', 'Por Telefono - Inmediatamente', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 750.90, NULL, '2016-09-06', 8),
+	(287, 'Vehiculo Motocicleta', 'Responsabilidad Civil', 'erik.castaneda@unitypromotores.com', 'Motocicleta', 'KZ', 'ACCU', '65465465', '2001', 0.00, '2016-09-20 16:47:21', 'Responsabilidad Civil', 'erik.castaneda@unitypromotores.com', 'Codisa', 'Por Telefono - Inmediatamente', b'1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'H764T844', NULL, NULL, 750.90, NULL, '2016-09-06', 8),
+	(288, 'Vehiculo Motocicleta', 'Seguro Completo', 'erik.castaneda@unitypromotores.com', 'Motocicleta', 'KJ', 'ACCU', '65465465', '2001', 25500.00, '2016-09-20 16:50:51', 'Seguro Completo', 'erik.castaneda@unitypromotores.com', 'Codisa', 'Por Telefono - Inmediatamente', b'1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'H764T844', NULL, NULL, 28854.28, NULL, '2016-09-06', 7),
+	(289, 'Erik Luis', 'Contreras Veliz', 'Erik.Contreras@heil.com', 'Automóvil', 's', 'ACCU', '65465465', '2001', 0.00, '2016-09-21 11:18:29', 'Responsabilidad Civil', 'Erik.Contreras@heil.com', 'Codisa', 'Por Chat - Inmediatamente', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1221.30, NULL, '2016-09-06', 2),
+	(290, 'Fernando Carlos', 'Bolaños Mazariegos', 'miguel.antonio@hotmail.com', 'Automóvil', 's', 'ACCU', '65465465', '2001', 0.00, '2016-09-21 11:20:15', 'Responsabilidad Civil', 'miguel.antonio@hotmail.com', 'Codisa', 'Por Chat - Inmediatamente', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1221.30, NULL, '2016-09-06', 2);
 /*!40000 ALTER TABLE `trans_correosenviados` ENABLE KEYS */;
 
 
