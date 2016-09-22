@@ -12,20 +12,7 @@ namespace Cotizador
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            string Id = "";
-            try
-            {
-                Id = Session["Id"].ToString();
-            }
-            catch (Exception)
-            {
-                Response.Redirect("http://testcotizador.unitypromotores.com/Cotizador/SinConexion.aspx");
-            }
 
-            if (Id == "")
-            {
-                Response.Redirect("http://testcotizador.unitypromotores.com/Cotizador/SinConexion.aspx");
-            }
 
         }
     }
