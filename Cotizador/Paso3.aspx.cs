@@ -218,7 +218,7 @@ namespace Cotizador
                 descripcion = descripcion.Replace("{Nombre}",nombreCliente);
                 if (Cotizadores.RestringirCorreoAvisoCliente(_id) == false)
                 {
-                    EnvioDeCorreoRapido.EjecutarAvisoDeActualizacion(correocliente, nombreCliente, descripcion,"Seguro de Vehiculos Paso 3 Actualización");
+                    EnvioDeCorreoRapido.EjecutarAvisoDeActualizacion(correocliente, nombreCliente, descripcion,"Seguro de Vehiculos Ultimo Paso  Actualización");
                 }
                 descripcion = descripcion.Replace("{Datos}", "Datos del Cliente : " + nombreCliente + " " + apellidos + ", Correo : " + correocliente + ", Id de cotización : " + _id + ", Empresa : " + CodigoEmpresa + ", Telefono : " + telefono);
                 correo = Cotizadores.EnviarCorreosInternos(CodigoEmpresa);
@@ -226,7 +226,7 @@ namespace Cotizador
                 {
                     foreach (var item in correo)
                     {
-                        EnvioDeCorreoRapido.EjecutarAvisoDeActualizacion(item.Correo, nombreCliente, descripcion, "Seguro de Vehiculos Paso 3 Actualización");
+                        EnvioDeCorreoRapido.EjecutarAvisoDeActualizacion(item.Correo, nombreCliente, descripcion, "Seguro de Vehiculos Ultimo Paso  Actualización");
                     }
                 }
 
@@ -240,7 +240,7 @@ namespace Cotizador
                 descripcion = descripcion.Replace("{Nombre}", nombreCliente);
                 if (Cotizadores.RestringirCorreoAvisoCliente(_id) == false)
                 {
-                    EnvioDeCorreoRapido.EjecutarAvisoDeActualizacion(correocliente, nombreCliente, descripcion, "Seguro de Vehiculos Paso 3 Completado");
+                    EnvioDeCorreoRapido.EjecutarAvisoDeActualizacion(correocliente, nombreCliente, descripcion, "Seguro de Vehiculos Ultimo Paso Completado");
                 }
                 descripcion = descripcion.Replace("{Datos}", "Datos del Cliente : " + nombreCliente + " " + apellidos + ", Correo : " + correocliente + ", Id de cotización : " + _id + ", Empresa : " + CodigoEmpresa + ", Telefono : " + telefono);
                 correo = Cotizadores.EnviarCorreosInternos(CodigoEmpresa);
@@ -248,7 +248,7 @@ namespace Cotizador
                 {
                     foreach (var item in correo)
                     {
-                        EnvioDeCorreoRapido.EjecutarAvisoDeActualizacion(item.Correo, nombreCliente, descripcion, "Seguro de Vehiculos Paso 3 Completado");
+                        EnvioDeCorreoRapido.EjecutarAvisoDeActualizacion(item.Correo, nombreCliente, descripcion, "Seguro de Vehiculos Ultimo Paso Completado");
                     }
                 }
 

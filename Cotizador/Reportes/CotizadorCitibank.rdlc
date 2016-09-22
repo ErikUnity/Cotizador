@@ -229,7 +229,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>="Q. " &amp; Trim(FormatNumber(Format(Sum(Fields!SumaAsegurada.Value),"#,##0.##"),2))</Value>
+                              <Value>="Q. " &amp; Trim(Format(Sum(Fields!SumaAsegurada.Value),"#,##0.##"))</Value>
                               <Style>
                                 <FontFamily>Candara</FontFamily>
                               </Style>
@@ -301,7 +301,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>="Q. " &amp; Trim(FormatNumber(Format(Sum(Fields!SumaAsegurada.Value),"#,##0.##"),2))</Value>
+                              <Value>="Q. " &amp; Trim(Format(Sum(Fields!SumaAsegurada.Value),"#,##0.00"))</Value>
                               <Style>
                                 <FontFamily>Candara</FontFamily>
                               </Style>
@@ -445,7 +445,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>="Q. " &amp; Trim(FormatNumber(Format(Sum(Fields!DañosATerceros.Value),"#,##0.##"),2))</Value>
+                              <Value>="Q. " &amp; Trim(Format(Sum(Fields!DañosATerceros.Value),"#,##0.00"))</Value>
                               <Style>
                                 <FontFamily>Candara</FontFamily>
                               </Style>
@@ -469,6 +469,7 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
+                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
               </TablixCells>
@@ -4686,7 +4687,7 @@ las mercancías cumplan con las regulaciones de la ley de tránsito y con las me
         <DataSetName>CotizadorRoble</DataSetName>
         <Top>0.92584in</Top>
         <Left>0.28in</Left>
-        <Height>21.55333in</Height>
+        <Height>21.55332in</Height>
         <Width>7.34376in</Width>
         <Style>
           <Border>

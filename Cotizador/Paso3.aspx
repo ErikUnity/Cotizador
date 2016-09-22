@@ -44,7 +44,7 @@
               <br /><br /><br />
         <div style="text-align:center; width:100%; height:100%"><span id="Tit" class="f2" style="font-style: normal; font-variant: normal; font-weight: bold; font-stretch: normal;  line-height: normal; 
 font-family: Arial, Helvetica, sans-serif; text-align: left; color: rgb(19, 27, 77); letter-spacing: 3px; text-decoration: none; 
-text-transform: none;">Paso 3</span> </div>
+text-transform: none;">Ultimo Paso </span>&nbsp;</div>
      <div style="text-align:center; width:100%; height:100%" >
        <asp:Panel ID="Panel1" runat="server" style="text-align:center; width:100%; height:100%" >
            <div style="text-align:center; width:100%; height:100%">  
