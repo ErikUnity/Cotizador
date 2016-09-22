@@ -54,7 +54,7 @@ namespace Cotizador
 
             ImprimirEstado lista = new ImprimirEstado();
             List<ImprimirEstado> data = new List<ImprimirEstado>();
-            DataTable content = AccesoDatos.RegresaTablaMySql("select concat(Nombre,' ' , Apellidos) as Nombre, Correo, Telefono, Fecha, DateDiff(curdate(), Fecha) as Dias  from trans_correosenviados where ifnull(Paso3,0) != 1");
+            DataTable content = AccesoDatos.RegresaTablaMySql("select concat(Nombre,' ' , Apellidos) as Nombre, Correo, Telefono, Fecha, DateDiff(curdate(), Fecha) as Dias  from trans_correosenviados where ifnull(Paso3,0) != 1 order by Fecha desc");
 
             foreach (DataRow rw in content.Rows)
             {
@@ -671,7 +671,7 @@ namespace Cotizador
               List<string> retorna = new List<string>();
               string linea = "";
               DataTable content = new DataTable();
-              content = AccesoDatos.RegresaTablaMySql("Select concat(Apellidos , ',' , Nombre , '/ ' , TipoDeVehiculo , ' ' , Marca , ' Modelo=', Modelo, ' Fecha Solicitud: ' , Fecha) as Nombre, indice as id  from trans_correosenviados where concat(Apellidos, ',', Nombre) like '%" + _nombre + "%'  order by concat(Apellidos, ',', Nombre), Fecha desc");
+              content = AccesoDatos.RegresaTablaMySql("Select concat(Apellidos , ',' , Nombre , '/ ' , TipoDeVehiculo , ' ' , Marca , ' Modelo=', Modelo, ' Fecha Solicitud: ' , Fecha) as Nombre, indice as id  from trans_correosenviados where concat(Apellidos, ' ', Nombre) like '%" + _nombre + "%'  order by concat(Apellidos, ',', Nombre), Fecha desc");
               DataView dv = new DataView(content);
               foreach (DataRow rw in content.Rows)
               {

@@ -254,6 +254,15 @@
             $("#txtContactsSearch").val("");
 
         }
+       
+
+            $( document ).ready(function() {
+                $("#txtContactsSearch").keypress(function(e){
+                    if (e.which == 13) {
+                            return false;
+                    }
+                });
+            });
     </script>
 </body>
 </html>
