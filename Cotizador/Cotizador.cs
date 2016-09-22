@@ -49,7 +49,28 @@ namespace Cotizador
             return data;
 
         }
+        public static List<ImprimirEstado> ReporteEstado()
+        {
 
+            ImprimirEstado lista = new ImprimirEstado();
+            List<ImprimirEstado> data = new List<ImprimirEstado>();
+            DataTable content = AccesoDatos.RegresaTablaMySql("select concat(Nombre,' ' , Apellidos) as Nombre, Correo, Telefono, Fecha, DateDiff(curdate(), Fecha) as Dias  from trans_correosenviados where ifnull(Paso3,0) != 1");
+
+            foreach (DataRow rw in content.Rows)
+            {
+                lista = new ImprimirEstado();
+                lista.Nombre = rw["Nombre"].ToString();
+                lista.Correo = rw["Correo"].ToString();
+                lista.Telefono = rw["Telefono"].ToString();
+                lista.Fecha = rw["Fecha"].ToString();
+                lista.Dias = rw["Dias"].ToString();
+
+                data.Add(lista);
+            }
+
+            return data;
+
+        }
         public static List<ImprimirFormato> ReporteAsr27(string indice)
         {
 
@@ -124,6 +145,48 @@ namespace Cotizador
 
         }
 
+
+
+        public class ImprimirEstado
+        {
+            public ImprimirEstado() { }
+
+            private string _Nombre = "";
+            public string Nombre
+            {
+                get { return _Nombre; }
+                set { this._Nombre = value; }
+            }
+
+            private string _Correo = "";
+            public string Correo
+            {
+                get { return _Correo; }
+                set { this._Correo = value; }
+            }
+
+            private string _Telefono = "";
+            public string Telefono
+            {
+                get { return _Telefono; }
+                set { this._Telefono = value; }
+            }
+
+            private string _Fecha = "";
+            public string Fecha
+            {
+                get { return _Fecha; }
+                set { this._Fecha = value; }
+            }
+            private string _Dias = "";
+            public string Dias
+            {
+                get { return _Dias; }
+                set { this._Dias = value; }
+            }
+
+
+        }
         public static List<Impresion> ReporteCotizacion1(string CodigoEmpresa,decimal SumaAsegurada, bool RoboParcial, bool Menores16, bool Menores18,bool ExcesosRC, decimal _RoboParcial,string NombreCliente, string DescripcionVehiculo, string mensajetipo)
         {
 

@@ -64,7 +64,7 @@ CREATE TABLE IF NOT EXISTS `maestro_correoautomatico` (
   PRIMARY KEY (`indice`)
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
--- Dumping data for table catalogo.maestro_correoautomatico: ~8 rows (approximately)
+-- Dumping data for table catalogo.maestro_correoautomatico: ~7 rows (approximately)
 DELETE FROM `maestro_correoautomatico`;
 /*!40000 ALTER TABLE `maestro_correoautomatico` DISABLE KEYS */;
 INSERT INTO `maestro_correoautomatico` (`indice`, `codigo`, `mensaje`, `descripcion_codigo`) VALUES
@@ -573,9 +573,9 @@ CREATE TABLE IF NOT EXISTS `trans_correosenviados` (
   `nacimiento` varchar(250) DEFAULT NULL,
   `mensajetipo` int(11) DEFAULT NULL,
   PRIMARY KEY (`indice`)
-) ENGINE=InnoDB AUTO_INCREMENT=291 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=296 DEFAULT CHARSET=utf8;
 
--- Dumping data for table catalogo.trans_correosenviados: ~55 rows (approximately)
+-- Dumping data for table catalogo.trans_correosenviados: ~56 rows (approximately)
 DELETE FROM `trans_correosenviados`;
 /*!40000 ALTER TABLE `trans_correosenviados` DISABLE KEYS */;
 INSERT INTO `trans_correosenviados` (`indice`, `Nombre`, `Apellidos`, `Correo`, `TipoDeVehiculo`, `Linea`, `Marca`, `Telefono`, `Modelo`, `SumaAsegurada`, `Fecha`, `TipoSeguro`, `contactar`, `CodigoEmpresa`, `ComoContactar`, `Paso1`, `Paso2`, `Paso3`, `Nit`, `DPI`, `Direccion`, `Zona`, `Municipio`, `ingreso`, `status`, `FechaInicio`, `prima`, `passaporte`, `nacimiento`, `mensajetipo`) VALUES
@@ -635,7 +635,12 @@ INSERT INTO `trans_correosenviados` (`indice`, `Nombre`, `Apellidos`, `Correo`, 
 	(287, 'Vehiculo Motocicleta', 'Responsabilidad Civil', 'erik.castaneda@unitypromotores.com', 'Motocicleta', 'KZ', 'ACCU', '65465465', '2001', 0.00, '2016-09-20 16:47:21', 'Responsabilidad Civil', 'erik.castaneda@unitypromotores.com', 'Codisa', 'Por Telefono - Inmediatamente', b'1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'H764T844', NULL, NULL, 750.90, NULL, '2016-09-06', 8),
 	(288, 'Vehiculo Motocicleta', 'Seguro Completo', 'erik.castaneda@unitypromotores.com', 'Motocicleta', 'KJ', 'ACCU', '65465465', '2001', 25500.00, '2016-09-20 16:50:51', 'Seguro Completo', 'erik.castaneda@unitypromotores.com', 'Codisa', 'Por Telefono - Inmediatamente', b'1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'H764T844', NULL, NULL, 28854.28, NULL, '2016-09-06', 7),
 	(289, 'Erik Luis', 'Contreras Veliz', 'Erik.Contreras@heil.com', 'Automóvil', 's', 'ACCU', '65465465', '2001', 0.00, '2016-09-21 11:18:29', 'Responsabilidad Civil', 'Erik.Contreras@heil.com', 'Codisa', 'Por Chat - Inmediatamente', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1221.30, NULL, '2016-09-06', 2),
-	(290, 'Fernando Carlos', 'Bolaños Mazariegos', 'miguel.antonio@hotmail.com', 'Automóvil', 's', 'ACCU', '65465465', '2001', 0.00, '2016-09-21 11:20:15', 'Responsabilidad Civil', 'miguel.antonio@hotmail.com', 'Codisa', 'Por Chat - Inmediatamente', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1221.30, NULL, '2016-09-06', 2);
+	(290, 'Fernando Carlos', 'Bolaños Mazariegos', 'miguel.antonio@hotmail.com', 'Automóvil', 's', 'ACCU', '65465465', '2001', 0.00, '2016-09-21 11:20:15', 'Responsabilidad Civil', 'miguel.antonio@hotmail.com', 'Codisa', 'Por Chat - Inmediatamente', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1221.30, NULL, '2016-09-06', 2),
+	(291, 'Manolo Manuel', 'Montoya Rancho', 'erik.castaneda@unitypromotores.com', 'Automóvil', 'Celica', 'ACCU', '65465465', '2001', 125000.00, '2016-09-21 15:29:18', 'Seguro Completo', 'erik.castaneda@unitypromotores.com', 'Citibank', 'Por Telefono - Inmediatamente', b'1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'H764T844', NULL, NULL, 3522.90, NULL, '2016-09-21', 1),
+	(292, 'Juan Antonio', 'Samayoa', 'julian.presa@unitypromotorores.com', 'Automóvil', 'Q5', 'AUDI', '23863700', '2016', 400000.00, '2016-09-21 16:08:30', 'Seguro Completo', 'julian.presa@unitypromotorores.com', 'Codisa', 'Por Telefono - Inmediatamente', b'1', b'1', b'1', '4168345-5', '4168345-5', 'avenida las americas 22-23 ', '14', 'Guatemala', 'H764T844', NULL, '2016-09-21 00:00:00', 9682.90, '188748202', '1981-07-22', 1),
+	(293, 'Juan Antonio', 'Samayoa', 'julian.presa@unitypromotores.com', 'Automóvil', 'Q5', 'AUDI', '23863700', '2016', 400000.00, '2016-09-21 16:22:09', 'Seguro Completo', 'julian.presa@unitypromotores.com', 'Codisa', 'Por Chat - Inmediatamente', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 9682.90, NULL, '1981-01-22', 1),
+	(294, 'Maria', 'Flores', 'rosario.arango@unitypromotores.com', 'Automóvil', 'añslf', 'ACCU', '23863760', '2001', 50000.00, '2016-09-21 17:36:28', 'Seguro Completo', 'rosario.arango@unitypromotores.com', 'Codisa', 'Por Chat - Inmediatamente', b'1', b'1', b'1', NULL, NULL, NULL, NULL, NULL, 'H764T844', NULL, NULL, 2122.90, NULL, '1959-03-13', 1),
+	(295, 'Maria', 'Flores', 'rosario.arango@unitypromotores.com', 'Automóvil', 'añslf', 'ACCU', '23863760', '2001', 50000.00, '2016-09-21 17:36:45', 'Seguro Completo', 'rosario.arango@unitypromotores.com', 'Codisa', 'Por Chat - Inmediatamente', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2122.90, NULL, '1959-03-13', 1);
 /*!40000 ALTER TABLE `trans_correosenviados` ENABLE KEYS */;
 
 

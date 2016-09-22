@@ -133,6 +133,7 @@
     <Content Include="Rpt20.aspx" />
     <Content Include="Rpt23.aspx" />
     <Content Include="Rpt24.aspx" />
+    <Content Include="Rpt26.aspx" />
     <Content Include="Rpt25.aspx" />
     <Content Include="Rpt6.aspx" />
     <Content Include="Rpt7.aspx" />
@@ -307,6 +308,13 @@
     </Compile>
     <Compile Include="Rpt24.aspx.designer.cs">
       <DependentUpon>Rpt24.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Rpt26.aspx.cs">
+      <DependentUpon>Rpt26.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Rpt26.aspx.designer.cs">
+      <DependentUpon>Rpt26.aspx</DependentUpon>
     </Compile>
     <Compile Include="Rpt25.aspx.cs">
       <DependentUpon>Rpt25.aspx</DependentUpon>
@@ -576,6 +584,7 @@
     <EmbeddedResource Include="Reportes\CotizadorFogelRCivil.rdlc" />
     <EmbeddedResource Include="Reportes\CotizadorTelusRCivil.rdlc" />
     <EmbeddedResource Include="Reportes\CotizadorTelus.rdlc" />
+    <EmbeddedResource Include="Reportes\Estado.rdlc" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

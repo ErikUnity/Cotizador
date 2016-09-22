@@ -84,6 +84,7 @@
                                                 </cc1:FilteredTextBoxExtender>
                                                 <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Buscar" />
                                                 <asp:Button ID="Button3" runat="server" OnClick="Button3_Click" Text="ASR27" />
+                                                <asp:Button ID="Button4" runat="server" OnClick="Button4_Click" Text="En Tramite" />
                                             </p>
                                         </td>
                                     </tr>
