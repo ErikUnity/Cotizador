@@ -70,7 +70,7 @@ namespace Cotizador
 
 
             DataTable content = Cotizadores.Cotizacion(cotizacion);
-            Cotizadores.ActualizaPaso3(cotizacion);
+           
             Session["Cotizacion"] = cotizacion;
             foreach (DataRow rw in content.Rows)
             {
@@ -211,6 +211,7 @@ namespace Cotizador
             string telefono = Cotizadores.TelefonoCliente(_id);
             string CodigoEmpresa = Cotizadores.CodigoEmpresaCliente(_id);
             string numero_pasaporte = this.txtPasaporte.Text;
+            Cotizadores.ActualizaPaso3(_id);
 
             if (Cotizadores.VerificaExistenciaDato3Paso(_id))
             {
