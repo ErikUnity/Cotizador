@@ -127,6 +127,7 @@
     <Content Include="imagenes\Agradecimiento\Agradecimiento6.jpg" />
     <Content Include="imagenes\Agradecimiento\Unity Promotores- Logo en blanco.png" />
     <Content Include="Logs\2016\20160914.txt" />
+    <Content Include="Paso2.aspx" />
     <Content Include="PeticionesExternas4.aspx" />
     <Content Include="PeticionesExternas5.aspx" />
     <Content Include="Rpt18.aspx" />
@@ -191,7 +192,6 @@
     <Content Include="obj\Debug\Cotizadores.dll" />
     <Content Include="obj\Debug\Cotizadores.pdb" />
     <Content Include="Paso3.aspx" />
-    <Content Include="Paso2.aspx" />
     <Content Include="PeticionesExternas6.aspx" />
     <Content Include="PeticionesExternas3.aspx" />
     <Content Include="PeticionesExternas2.aspx" />
@@ -267,6 +267,13 @@
       <DependentUpon>Formulario5.aspx</DependentUpon>
     </Compile>
     <Compile Include="IAutocomplete.cs" />
+    <Compile Include="Paso2.aspx.cs">
+      <DependentUpon>Paso2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Paso2.aspx.designer.cs">
+      <DependentUpon>Paso2.aspx</DependentUpon>
+    </Compile>
     <Compile Include="PeticionesExternas4.aspx.cs">
       <DependentUpon>PeticionesExternas4.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -387,13 +394,6 @@
     </Compile>
     <Compile Include="Paso3.aspx.designer.cs">
       <DependentUpon>Paso3.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Paso2.aspx.cs">
-      <DependentUpon>Paso2.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Paso2.aspx.designer.cs">
-      <DependentUpon>Paso2.aspx</DependentUpon>
     </Compile>
     <Compile Include="PeticionesExternas6.aspx.cs">
       <DependentUpon>PeticionesExternas6.aspx</DependentUpon>
