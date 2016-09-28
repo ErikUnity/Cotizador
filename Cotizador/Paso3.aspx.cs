@@ -85,12 +85,14 @@ namespace Cotizador
                 Session["NombreCliente"] = rw["NombreCliente"];
                 Session["DescripcionVehiculo"] = rw["DescripcionVehiculo"];
                 tiposeguro = rw["TipoSeguro"].ToString();
+
                 if (moto == "" || moto == null)
                 {
                     if (rw["TipoDeVehiculo"].ToString() == "Motocicleta")
                     { moto = "7"; }
                     else { moto = ""; };
                 }
+
                 break;
             }
 
@@ -220,17 +222,9 @@ namespace Cotizador
                 if (Cotizadores.RestringirCorreoAvisoCliente(_id) == false)
                 {
                     EnvioDeCorreoRapido.EjecutarAvisoDeActualizacion(correocliente, nombreCliente, descripcion,"Seguro de Vehiculos Ultimo Paso  Actualización");
+              
                 }
                 descripcion = descripcion.Replace("{Datos}", "Datos del Cliente : " + nombreCliente + " " + apellidos + ", Correo : " + correocliente + ", Id de cotización : " + _id + ", Empresa : " + CodigoEmpresa + ", Telefono : " + telefono);
-                correo = Cotizadores.EnviarCorreosInternos(CodigoEmpresa);
-                if (correo.Count != 0)
-                {
-                    foreach (var item in correo)
-                    {
-                        EnvioDeCorreoRapido.EjecutarAvisoDeActualizacion(item.Correo, nombreCliente, descripcion, "Seguro de Vehiculos Ultimo Paso  Actualización");
-                    }
-                }
-
                 ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Su información ya fue almacenada anteriormente, para actualizarla un ejecutivo estara contactandole en breve.');", true);
             }
             else
@@ -239,19 +233,15 @@ namespace Cotizador
                 ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Paso Tres Completado');", true);
                 descripcion = Cotizadores.MensajesAutomaticos("6");
                 descripcion = descripcion.Replace("{Nombre}", nombreCliente);
+                string CorreoCierre = Cotizadores.ObtieneCorreoDeCierre(_id.ToString());
+                 
                 if (Cotizadores.RestringirCorreoAvisoCliente(_id) == false)
                 {
                     EnvioDeCorreoRapido.EjecutarAvisoDeActualizacion(correocliente, nombreCliente, descripcion, "Seguro de Vehiculos Ultimo Paso Completado");
+                    EnvioDeCorreoRapido.EjecutarAvisoDeActualizacion(CorreoCierre, nombreCliente, descripcion, "El Sr./Sra. " + nombreCliente + " ha conlcuido el ultimo paso de Cotización de Vehiculos");
                 }
+               
                 descripcion = descripcion.Replace("{Datos}", "Datos del Cliente : " + nombreCliente + " " + apellidos + ", Correo : " + correocliente + ", Id de cotización : " + _id + ", Empresa : " + CodigoEmpresa + ", Telefono : " + telefono);
-                correo = Cotizadores.EnviarCorreosInternos(CodigoEmpresa);
-                if (correo.Count != 0)
-                {
-                    foreach (var item in correo)
-                    {
-                        EnvioDeCorreoRapido.EjecutarAvisoDeActualizacion(item.Correo, nombreCliente, descripcion, "Seguro de Vehiculos Ultimo Paso Completado");
-                    }
-                }
 
             }
         }

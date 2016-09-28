@@ -27,6 +27,7 @@ namespace Cotizador
         public string Link1 = "";
         public string Link2 = "";
         public string Link3 = "";
+        public string valorprima = "";
 
         // This method will be called when the thread is started.
         public void DoWork()
@@ -35,6 +36,7 @@ namespace Cotizador
             Cotizadores Cotizar = new Cotizadores();
             Correo enviando = new Correo();
             StringBuilder msg = Cotizar.ObtieneMensaje(MensajeTipo);
+            msg.Append("Valor Prima :" + valorprima);
             string titulo = "Cotización de Seguro para " + TipoDeVehiculo + " " + Marca + " " + Modelo + " " + Linea;
             enviando.EnviarCorreo(Correo, msg, Nombre, MensajeTipo, archivo, titulo, Paso1, Paso2,Paso3, Link1, Link2, Link3);
             EnvioDeCorreoRapido.LimpiarArchivo(archivo);
@@ -52,7 +54,7 @@ namespace Cotizador
     public class EnvioDeCorreoRapido
     {
 
-        public static void EjecutarProceso(string Correo, string TipoDeVehiculo, string Linea, string Marca, string Modelo, string ValorMercado, int MensajeTipo, string Nombre, string CodigoEmpresa,bool RoboParcial,bool Menores16,bool Menores18,bool ExcesosRC,decimal _RoboParcial,string NombreCliente,string DescripcionVehiculo, string _id)
+        public static void EjecutarProceso(string Correo, string TipoDeVehiculo, string Linea, string Marca, string Modelo, string ValorMercado, int MensajeTipo, string Nombre, string CodigoEmpresa,bool RoboParcial,bool Menores16,bool Menores18,bool ExcesosRC,decimal _RoboParcial,string NombreCliente,string DescripcionVehiculo, string _id, string _valorprima)
         {
 
             // Create the thread object. This does not start the thread.
@@ -65,6 +67,7 @@ namespace Cotizador
             mensaje.ValorMercado = ValorMercado;
             mensaje.MensajeTipo = MensajeTipo;
             mensaje.Nombre = Nombre;
+            mensaje.valorprima = _valorprima;
             mensaje.Paso1 = Cotizadores.LinkPaso1(CodigoEmpresa, _id);
             mensaje.Paso2 = Cotizadores.LinkPaso2(CodigoEmpresa, _id);
             mensaje.Link1 = Cotizadores.LinkUbicaciones(CodigoEmpresa, "Link1") + "?asdf=" + _id;

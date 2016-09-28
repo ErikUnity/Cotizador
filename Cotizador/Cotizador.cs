@@ -24,7 +24,6 @@ namespace Cotizador
         public DataView LlenaComboTipoVehiculo()
         {
 
-
            DataTable content = new DataTable();
            content = AccesoDatos.RegresaTablaMySql("Select indice, Descripcion from TipodeVehiculo order by Descripcion");
            DataView dv = new DataView(content);
@@ -71,6 +70,7 @@ namespace Cotizador
             return data;
 
         }
+
         public static List<ImprimirFormato> ReporteAsr27(string indice)
         {
 
@@ -462,6 +462,24 @@ namespace Cotizador
 
              return resultado;
          }
+
+         public static string ObtieneCorreoDeCierre(string _id)
+         {
+             string resultado = "";
+             DataTable content = new DataTable();
+             content = AccesoDatos.RegresaTablaMySql("Select correocierre from  trans_correosenviados where indice = " + _id );
+             DataView dv = new DataView(content);
+             foreach (DataRow rw in content.Rows)
+             {
+                 if (rw[0].ToString() != null && rw[0].ToString().Trim() != "")
+                 {
+                     resultado =  rw[0].ToString();
+                 }
+             }
+
+             return resultado;
+         }
+
          public static decimal ObtieneBase(string Codigo)
          {
              decimal resultado = 0;
@@ -666,6 +684,7 @@ namespace Cotizador
 
               return resultado;
           }
+
           public static List<string> Autocomplete(string _nombre)
           {
               List<string> retorna = new List<string>();
@@ -680,6 +699,7 @@ namespace Cotizador
               }
               return retorna;
           }
+
           public static DataTable Datos(string _indice)
           {
               DataTable content = new DataTable();
@@ -832,6 +852,7 @@ namespace Cotizador
 
              return resultado;
          }
+
          public static List<Impresion> ReporteFormato1()
          {
              List<Impresion> data = new List<Impresion>();
@@ -844,6 +865,7 @@ namespace Cotizador
 
          public static string StatusDescripcionPaso1(string _id)
          {
+
              string resultado = "";
 
              DataTable content = new DataTable();

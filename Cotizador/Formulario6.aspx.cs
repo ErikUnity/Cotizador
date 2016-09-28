@@ -276,11 +276,12 @@ namespace Cotizador
           //   Valores Calculo = new Valores("Citibank", SumaAsegurada, this.chkRoboParcial.Checked, this.chkMenores16.Checked, this.chkMenores18.Checked, this.chkExcesoRC.Checked, RoboParcial, MensajeTipo);
              Valores Calculo = new Valores("Citibank", SumaAsegurada, false, false, false, false, RoboParcial, MensajeTipo);
              this.lblMsg.Text = Calculo.PrimaTotalProRata.ToString();
+             string valorprima = Calculo.PrimaTotalProRata.ToString();
              Cotizadores.ActualizaPrima(id, Calculo.PrimaTotalProRata.ToString());
 
              // ClientScript.RegisterStartupScript(this.GetType(), "Alert", "alert('La cotización ha sido enviada a su correo: " + this.txtCorreo.Text + ");", true);
              //  EnvioDeCorreoRapido.EjecutarProceso(this.txtCorreo.Text.Trim(), this.cmbTipoVehiculo.SelectedItem.Text.Trim(), this.txtLinea.Text.Trim(), Marca, this.cmbModelo.SelectedItem.Text.Trim(), ValorMercado, MensajeTipo, this.txtNombre.Text.Trim(), "Citibank", this.chkRoboParcial.Checked, this.chkMenores16.Checked, this.chkMenores18.Checked, this.chkExcesoRC.Checked, RoboParcial, this.txtNombre.Text.Trim(), DescripcionVehiculo);
-             EnvioDeCorreoRapido.EjecutarProceso(this.txtCorreo.Text.Trim(), this.cmbTipoVehiculo.SelectedItem.Text.Trim(), this.txtLinea.Text.Trim(), Marca, this.cmbModelo.SelectedItem.Text.Trim(), ValorMercado, MensajeTipo, this.txtNombre.Text.Trim(), "Citibank", false, false, false, false, RoboParcial, this.txtNombre.Text.Trim(), DescripcionVehiculo, id);
+             EnvioDeCorreoRapido.EjecutarProceso(this.txtCorreo.Text.Trim(), this.cmbTipoVehiculo.SelectedItem.Text.Trim(), this.txtLinea.Text.Trim(), Marca, this.cmbModelo.SelectedItem.Text.Trim(), ValorMercado, MensajeTipo, this.txtNombre.Text.Trim(), "Citibank", false, false, false, false, RoboParcial, this.txtNombre.Text.Trim(), DescripcionVehiculo, id, valorprima);
              List<CorreosInternos> correo = new List<CorreosInternos>();
              correo = Cotizadores.EnviarCorreosInternos("Citibank");
              string lineaTitulo = this.txtNombre.Text + " Tel: " + this.txtTelefono.Text + " Correo: " + this.txtCorreo.Text;
@@ -291,7 +292,7 @@ namespace Cotizador
                  foreach (var item in correo)
                  {
                      // EnvioDeCorreoRapido.EjecutarProceso(item.Correo, this.cmbTipoVehiculo.SelectedItem.Text.Trim(), this.txtLinea.Text.Trim(), Marca, this.cmbModelo.SelectedItem.Text.Trim(), ValorMercado, MensajeTipo, this.txtNombre.Text.Trim(), "Citibank", this.chkRoboParcial.Checked, this.chkMenores16.Checked, this.chkMenores18.Checked, this.chkExcesoRC.Checked, RoboParcial, this.txtNombre.Text.Trim(), DescripcionVehiculo);
-                     EnvioDeCorreoRapido.EjecutarProceso(item.Correo, this.cmbTipoVehiculo.SelectedItem.Text.Trim(), this.txtLinea.Text.Trim() + " " + lineaTitulo, Marca, this.cmbModelo.SelectedItem.Text.Trim(), ValorMercado, MensajeTipo, this.txtNombre.Text.Trim(), "Citibank", false, false, false, false, RoboParcial, this.txtNombre.Text.Trim(), DescripcionVehiculo, id);
+                     EnvioDeCorreoRapido.EjecutarProceso(item.Correo, this.cmbTipoVehiculo.SelectedItem.Text.Trim(), this.txtLinea.Text.Trim() + " " + lineaTitulo, Marca, this.cmbModelo.SelectedItem.Text.Trim(), ValorMercado, MensajeTipo, this.txtNombre.Text.Trim(), "Citibank", false, false, false, false, RoboParcial, this.txtNombre.Text.Trim(), DescripcionVehiculo, id, valorprima);
                  }
              }
 
