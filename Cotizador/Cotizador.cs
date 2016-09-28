@@ -952,7 +952,6 @@ namespace Cotizador
                  }
              }
 
-
              return resultado;
          }
 

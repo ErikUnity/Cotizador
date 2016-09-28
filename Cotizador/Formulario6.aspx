@@ -8,9 +8,23 @@
 <head runat="server">
     <script src="js/jquery.min.js"></script>
     <script src="js/jquery.js"></script>
+    <script src="https://www.google-analytics.com/analytics.js" ></script>
     <link rel="stylesheet" type="text/css" href="http://testcotizador.unitypromotores.com/Cotizador/css/Formulario1.css"/>
     <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0"/>
     <title>Cotizador Unity Promotores</title>
+    <!-- Google Analytics -->
+<script>
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date(); a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-XXXXX-Y', 'auto');
+    ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
 </head>
 <body>
     <form id="form1" runat="server" class="outer-container" >
@@ -467,7 +481,7 @@
 
         </td></tr></table>
  
-                        </div>  
+  </div>  
      <div id="Asoc2" class="divX">
        <ul style="width:280px;">
     <li></li> 
@@ -504,44 +518,44 @@
 
             var Completo = document.getElementById("rdSeguroCompleto").checked;
             var Civil = document.getElementById("rdResponsabilidadCivil").checked;
-         
-           
-                if (Completo == true && Civil == false) {
-                  
-                    document.getElementById("Monto").style.display = "inline";
-                    document.getElementById("Monto1").style.display = "inline";
-                    document.getElementById("Monto").style.visibility = "visible";
-                    document.getElementById("Monto1").style.visibility = "visible";
-                }
 
-                if (Completo == false && Civil == false) {
-               
-                    document.getElementById("Monto").style.display = "none";
-                    document.getElementById("Monto1").style.display = "none";
-                    document.getElementById("Monto").style.visibility = "hidden";
-                    document.getElementById("Monto1").style.visibility = "hidden";
-                }
 
-                if (Completo == false && Civil == true) {
-         
-                    document.getElementById("Monto").style.display = "none";
-                    document.getElementById("Monto1").style.display = "none";
-                    document.getElementById("Monto").style.visibility = "hidden";
-                    document.getElementById("Monto1").style.visibility = "hidden";
-                }
-  
-               // ProcesarRobo();
+            if (Completo == true && Civil == false) {
 
-         
-                var _Marca = document.getElementById("cmbMarca").options[document.getElementById("cmbMarca").selectedIndex].text;
-            
-                if (_Marca != "...OTRAS MARCAS") {
+                document.getElementById("Monto").style.display = "inline";
+                document.getElementById("Monto1").style.display = "inline";
+                document.getElementById("Monto").style.visibility = "visible";
+                document.getElementById("Monto1").style.visibility = "visible";
+            }
 
-                    document.getElementById("Marca1").style.visibility = "hidden";
-                    document.getElementById("Marca1").style.display = "none";
-                    document.getElementById("Marca2").style.visibility = "hidden";
-                    document.getElementById("Marca2").style.display = "none";
-                }
+            if (Completo == false && Civil == false) {
+
+                document.getElementById("Monto").style.display = "none";
+                document.getElementById("Monto1").style.display = "none";
+                document.getElementById("Monto").style.visibility = "hidden";
+                document.getElementById("Monto1").style.visibility = "hidden";
+            }
+
+            if (Completo == false && Civil == true) {
+
+                document.getElementById("Monto").style.display = "none";
+                document.getElementById("Monto1").style.display = "none";
+                document.getElementById("Monto").style.visibility = "hidden";
+                document.getElementById("Monto1").style.visibility = "hidden";
+            }
+
+            // ProcesarRobo();
+
+
+            var _Marca = document.getElementById("cmbMarca").options[document.getElementById("cmbMarca").selectedIndex].text;
+
+            if (_Marca != "...OTRAS MARCAS") {
+
+                document.getElementById("Marca1").style.visibility = "hidden";
+                document.getElementById("Marca1").style.display = "none";
+                document.getElementById("Marca2").style.visibility = "hidden";
+                document.getElementById("Marca2").style.display = "none";
+            }
 
         });
 
@@ -555,7 +569,7 @@
             document.getElementById("rdSeguroCompleto").checked = false;
             document.getElementById("rdResponsabilidadCivil").checked = true;
             ApagarFocoRd();
-       
+
         }
         function MostrarMonto() {
             document.getElementById("Monto").style.display = "inline";
@@ -565,12 +579,11 @@
             document.getElementById("rdSeguroCompleto").checked = true;
             document.getElementById("rdResponsabilidadCivil").checked = false;
             ApagarFocoRd();;
-        
+
         }
 
         function ProcesarRobo() {
-            if (document.getElementById("chkRoboParcial").checked == true)
-            {
+            if (document.getElementById("chkRoboParcial").checked == true) {
                 document.getElementById("Robo1").style.display = "inline";
                 document.getElementById("Robo2").style.display = "inline";
                 document.getElementById("Robo1").style.visibility = "visible";
