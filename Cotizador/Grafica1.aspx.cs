@@ -256,5 +256,10 @@ namespace Cotizador
             dt.Dispose();
 
         }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("CS.aspx");
+        }
     }
 }

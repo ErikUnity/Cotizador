@@ -78,7 +78,7 @@
 
                                         <tr>
                                             <td style="text-align:left; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size: large; font-weight: bold; font-style: normal;">
-                                                <asp:TextBox ID="txtContactsSearch" runat="server" autocomplete="off" Font-Size="12px" onclick="Vaciar();" Width="31.4em" Height="16px"></asp:TextBox>
+                                                <asp:TextBox ID="txtContactsSearch" runat="server" autocomplete="off" Font-Size="12px" onclick="Vaciar();" Width="26.2em" Height="16px"></asp:TextBox>
                                                 <cc1:AutoCompleteExtender ID="AutoCompleteExtender1" runat="server" CompletionInterval="100" CompletionListCssClass="autocomplete_completionListElement" CompletionListHighlightedItemCssClass="autocomplete_highlightedListItem" CompletionListItemCssClass="autocomplete_listItem" CompletionSetCount="50" EnableCaching="false" FirstRowSelected="false" MinimumPrefixLength="2" ServiceMethod="SearchCustomers" TargetControlID="txtContactsSearch">
                                                 </cc1:AutoCompleteExtender>
                                                 <asp:Button ID="Button2" runat="server" OnClick="Button2_Click" Text="Buscar" />

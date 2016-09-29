@@ -38,7 +38,7 @@
                         <asp:ScriptManager ID="ScriptManager1" runat="server">
                                     </asp:ScriptManager>
                         <table>
-                            <tr style="background-color: dodgerblue"><td colspan="3"><a style="color:white">Use el combo para visualizar las graficas</a></td></tr>
+                            <tr style="background-color: dodgerblue"><td colspan="3"><a style="color:white; font-size: x-large; font-weight: bold;">Use el combo para visualizar las gráficas</a></td></tr>
                             <tr style="background-color: dodgerblue">
                                 <td colspan="2">
 
@@ -47,17 +47,18 @@
 
                                 </td>
                                 <td>
+                                    <asp:Button ID="Button2" runat="server" OnClick="Button2_Click" Text="&lt;--Regresar" Width="150px" />
                                     </td>
 
                             </tr>
                             <tr style="background-color: dodgerblue">
                                 <td>
-                                    <asp:Button ID="btnPie" runat="server" Text="Pie Chart Anual" OnClick="btnPie_Click" />
+                                    <asp:Button ID="btnPie" runat="server" Text="Pie Chart Anual" OnClick="btnPie_Click" Width="150px" />
                                    </td>
                                     <td>
-                                        <asp:Button ID="btnLine" runat="server" Text="Line Graph Anual" OnClick="btnLine_Click" /></td>
+                                        <asp:Button ID="btnLine" runat="server" Text="Line Graph Anual" OnClick="btnLine_Click" Width="150px" /></td>
                                     <td>
-                                        <asp:Button ID="btnBar" runat="server" Text="Bar Graph Anual" OnClick="btnBar_Click" /></td>
+                                        <asp:Button ID="btnBar" runat="server" Text="Bar Graph Anual" OnClick="btnBar_Click" Width="150px" /></td>
                             </tr>
                             <tr style="background-color: aquamarine">
                                 <td>
@@ -68,7 +69,7 @@
                                     <input id="FechaFin" type="date" onchange="LlenarFechaFin()" />
                                 </td>
                                 <td>
-                                    <asp:Button ID="Button1" runat="server" Text="Reporte por Fechas" OnClick="Button1_Click" /></td>
+                                    <asp:Button ID="Button1" runat="server" Text="Reporte por Fechas" OnClick="Button1_Click" Width="150px" /></td>
                             </tr>
                             <tr>
                                 <td colspan="3">
