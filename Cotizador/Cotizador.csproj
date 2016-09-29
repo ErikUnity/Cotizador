@@ -113,6 +113,10 @@
     <Reference Include="DevExpress.Web.ASPxSpreadsheet.v15.2, Version=15.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.RichEdit.v15.2.Core, Version=15.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Web.ASPxRichEdit.v15.2, Version=15.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="WebChart, Version=1.1.1.4, Culture=neutral">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\WebChart.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="CS.aspx" />
@@ -120,6 +124,7 @@
     <Content Include="Formulario3.aspx" />
     <Content Include="Formulario4.aspx" />
     <Content Include="Formulario5.aspx" />
+    <Content Include="Grafica1.aspx" />
     <Content Include="imagenes\Agradecimiento\Agradecimiento1.jpg" />
     <Content Include="imagenes\Agradecimiento\Agradecimiento2.jpg" />
     <Content Include="imagenes\Agradecimiento\Agradecimiento3.jpg" />
@@ -265,6 +270,13 @@
     </Compile>
     <Compile Include="Formulario5.aspx.designer.cs">
       <DependentUpon>Formulario5.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Grafica1.aspx.cs">
+      <DependentUpon>Grafica1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Grafica1.aspx.designer.cs">
+      <DependentUpon>Grafica1.aspx</DependentUpon>
     </Compile>
     <Compile Include="IAutocomplete.cs" />
     <Compile Include="Paso2.aspx.cs">

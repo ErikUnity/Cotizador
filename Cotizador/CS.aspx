@@ -50,6 +50,12 @@
             padding: 1px;
             list-style-type: none;
         }
+        .auto-style8 {
+            height: 30px;
+        }
+        .auto-style9 {
+            width: 89%;
+        }
     </style>
 </head>
 <body>
@@ -61,34 +67,54 @@
             <table id="Principal" class="centered-content">
                 <tr>
                     <td colspan="2">
- 
-                                <table aria-multiline="True">
-                                    <tr>
-                                        <td class="auto-style8" style="font-family: Arial, Helvetica, sans-serif; text-align: center;"><span id="TxtTitulo" class="f2" style="font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; line-height: normal; font-family: Arial, Helvetica, sans-serif; text-align: left; color: rgb(19, 27, 77); letter-spacing: 3px; text-decoration: none; text-transform: none;">BUSCAR COTIZACIONES</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td class="f1" style="font-family: Arial, Helvetica, sans-serif; text-align: center;">
-                                            <p style="font-family: Roboto; font-size: 22px; text-align: left; color: rgb(19, 27, 77); text-decoration: none; font-weight: bold; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; text-transform: none;">
-                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Por Nombre
-                                            </p>
-                                            <asp:TextBox ID="txtContactsSearch" runat="server" autocomplete="off" Font-Size="12px" onclick="Vaciar();" Width="25em"></asp:TextBox>
-                                            <cc1:AutoCompleteExtender ID="AutoCompleteExtender1" runat="server" CompletionInterval="100" CompletionListCssClass="autocomplete_completionListElement" CompletionListHighlightedItemCssClass="autocomplete_highlightedListItem" CompletionListItemCssClass="autocomplete_listItem" CompletionSetCount="50" EnableCaching="false" FirstRowSelected="false" MinimumPrefixLength="2" ServiceMethod="SearchCustomers" TargetControlID="txtContactsSearch">
-                                            </cc1:AutoCompleteExtender>
-                                            <asp:Button ID="Button2" runat="server" OnClick="Button2_Click" Text="Buscar" />
-                                            <p style="font-family: Roboto; font-size: 22px; text-align: left; color: rgb(19, 27, 77); text-decoration: none; font-weight: bold; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; text-transform: none;">
-                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Por Id:
-                                            </p>
-                                            <p style="font-family: Roboto; font-size: 22px; text-align: left; color: rgb(19, 27, 77); text-decoration: none; font-weight: bold; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; text-transform: none;">
-                                                <asp:TextBox ID="txtId" runat="server" Height="17px" Width="261px" autocomplete="off"></asp:TextBox>
-                                                <cc1:FilteredTextBoxExtender ID="txtId_FilteredTextBoxExtender" runat="server" FilterType="Numbers" TargetControlID="txtId">
-                                                </cc1:FilteredTextBoxExtender>
-                                                <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Buscar" />
-                                                <asp:Button ID="Button3" runat="server" OnClick="Button3_Click" Text="ASR27" />
-                                                <asp:Button ID="Button4" runat="server" OnClick="Button4_Click" Text="En Tramite" />
-                                            </p>
-                                        </td>
-                                    </tr>
-                                </table>
+
+                        <table>
+                            <tr>
+                                <td class="auto-style8" style="font-family: Arial, Helvetica, sans-serif; text-align: center;"><span id="TxtTitulo" class="f2" style="font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; line-height: normal; font-family: Arial, Helvetica, sans-serif; text-align: left; color: rgb(19, 27, 77); letter-spacing: 3px; text-decoration: none; text-transform: none;">BUSCAR COTIZACIONES</span></td>
+                            </tr>
+                            <tr>
+                                <td style="text-align:left; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size: large; font-weight: bold; font-style: normal;">Por Nombre&nbsp;&nbsp;&nbsp;
+                                    <table>
+
+                                        <tr>
+                                            <td style="text-align:left; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size: large; font-weight: bold; font-style: normal;">
+                                                <asp:TextBox ID="txtContactsSearch" runat="server" autocomplete="off" Font-Size="12px" onclick="Vaciar();" Width="31.4em" Height="16px"></asp:TextBox>
+                                                <cc1:AutoCompleteExtender ID="AutoCompleteExtender1" runat="server" CompletionInterval="100" CompletionListCssClass="autocomplete_completionListElement" CompletionListHighlightedItemCssClass="autocomplete_highlightedListItem" CompletionListItemCssClass="autocomplete_listItem" CompletionSetCount="50" EnableCaching="false" FirstRowSelected="false" MinimumPrefixLength="2" ServiceMethod="SearchCustomers" TargetControlID="txtContactsSearch">
+                                                </cc1:AutoCompleteExtender>
+                                                <asp:Button ID="Button2" runat="server" OnClick="Button2_Click" Text="Buscar" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align:right">
+                                                <table><tr><td class="auto-style9" style="text-align:left; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size: large; font-weight: bold; font-style: normal">Por Id <asp:TextBox ID="txtId" runat="server" Height="17px" Width="261px" autocomplete="off"></asp:TextBox>
+                                                    <cc1:FilteredTextBoxExtender ID="txtId_FilteredTextBoxExtender" runat="server" FilterType="Numbers" TargetControlID="txtId">
+                                                    </cc1:FilteredTextBoxExtender>
+                                                    </td><td><asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Buscar" /></td></tr></table>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align:right">
+                                                <table><tr><td>Imprimir ASR27.......................................</td><td style="text-align:right"><asp:Button ID="Button3" runat="server" OnClick="Button3_Click" Text="ASR27" Width="150px" /></td></tr></table>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align:right">
+                                               <table><tr><td>Cotizaciones en Tramite......................</td><td  style="text-align:right"><asp:Button ID="Button4" runat="server" OnClick="Button4_Click" Text="En Tramite" Width="150px" /></td></tr></table> 
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align:right">
+                                            <table><tr><td>Estadisticas................................................</td><td style="text-align:right"><asp:Button ID="Button5" runat="server" OnClick="Button5_Click" Text="Ver Gráficas" Width="150px" /></td></tr></table>    
+                                            </td>
+                                        </tr>
+                                    </table>
+
+
+
+
+                                </td>
+                </tr>
+                </table>
  
                     </td>
                 </tr>
@@ -254,15 +280,15 @@
             $("#txtContactsSearch").val("");
 
         }
-       
 
-            $( document ).ready(function() {
-                $("#txtContactsSearch").keypress(function(e){
-                    if (e.which == 13) {
-                            return false;
-                    }
-                });
+
+        $(document).ready(function () {
+            $("#txtContactsSearch").keypress(function (e) {
+                if (e.which == 13) {
+                    return false;
+                }
             });
+        });
     </script>
 </body>
 </html>
