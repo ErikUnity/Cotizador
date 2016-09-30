@@ -31,6 +31,15 @@ namespace Cotizador {
         protected global::System.Web.UI.ScriptManager ScriptManager1;
         
         /// <summary>
+        /// txtAño control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtAño;
+        
+        /// <summary>
         /// cmbEmpresas control.
         /// </summary>
         /// <remarks>
@@ -112,6 +121,15 @@ namespace Cotizador {
         protected global::System.Web.UI.WebControls.Label lblMsg;
         
         /// <summary>
+        /// Chart1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image Chart1;
+        
+        /// <summary>
         /// ChartControl1 control.
         /// </summary>
         /// <remarks>
@@ -119,5 +137,50 @@ namespace Cotizador {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::WebChart.ChartControl ChartControl1;
+        
+        /// <summary>
+        /// Chart2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image Chart2;
+        
+        /// <summary>
+        /// ChartControl2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::WebChart.ChartControl ChartControl2;
+        
+        /// <summary>
+        /// ChartControl2_RoundedCornersExtender control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.RoundedCornersExtender ChartControl2_RoundedCornersExtender;
+        
+        /// <summary>
+        /// Chart3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image Chart3;
+        
+        /// <summary>
+        /// ChartControl3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::WebChart.ChartControl ChartControl3;
     }
 }

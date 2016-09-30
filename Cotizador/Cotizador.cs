@@ -330,7 +330,41 @@ namespace Cotizador
 
             return resultado;
         }
+ 
+         public static void LimpiarGraficas(string path)
+        {
+            path += @"\WebCharts";
+            string[] fileEntries = Directory.GetFiles(path);
+            try
+            {
+                foreach (string fileName in fileEntries)
+                {
+                    File.Delete(fileName);
+                }
+            }
+            catch (System.Exception es)
+            {
+                Helper.RegistrarEvento(es.Message);
+            }
+ 
+        }
+         public static void LimpiarDocumentos(string path)
+         {
+             path += @"\Documentos";
+             string[] fileEntries = Directory.GetFiles(path);
+             try
+             {
+                 foreach (string fileName in fileEntries)
+                 {
+                     File.Delete(fileName);
+                 }
+             }
+             catch (System.Exception es)
+             {
+                 Helper.RegistrarEvento(es.Message);
+             }
 
+         }
         public static decimal ObtieneMotoPorcentaje_DeducibleDañosYAccidentes(string Codigo)
         {
             decimal resultado = 0;
@@ -492,17 +526,70 @@ namespace Cotizador
             return resultado;
         }
 
-        public static int ObtieneEstadisticaPorMes(string _Mes, string _Empresa = "")
+        public static int ObtieneEstadisticaPorMes(string _Mes, string _Empresa = "", string _year = "2016")
         {
             string resultado = "";
             DataTable content = new DataTable();
             if (_Empresa == "")
             {
-                content = AccesoDatos.RegresaTablaMySql("Select count(*)  from trans_correosenviados where month(Fecha)  = " + _Mes);
+                content = AccesoDatos.RegresaTablaMySql("Select count(*)  from trans_correosenviados where  year(Fecha) = "+ _year +"  and  month(Fecha)  = " + _Mes);
             }
             else
             {
-                content = AccesoDatos.RegresaTablaMySql("Select count(*)  from trans_correosenviados where month(Fecha)  = " + _Mes + " and CodigoEmpresa = '" + _Empresa + "'");
+                content = AccesoDatos.RegresaTablaMySql("Select count(*)  from trans_correosenviados where year(Fecha) =   " + _year + " and month(Fecha)  = " + _Mes + " and CodigoEmpresa = '" + _Empresa + "'");
+            }
+
+            DataView dv = new DataView(content);
+            foreach (DataRow rw in content.Rows)
+            {
+                if (rw[0].ToString() != null && rw[0].ToString().Trim() != "")
+                {
+                    resultado = rw[0].ToString();
+                }
+            }
+
+            return int.Parse(resultado);
+        }
+
+        public static int ObtieneEstadisticaPorMesAbandonados(string _Mes, string _Empresa = "", string _year = "2016")
+        {
+            string resultado = "";
+            string sql = "";
+
+            DataTable content = new DataTable();
+            if (_Empresa == "")
+            {
+                sql = "Select count(*)  from trans_correosenviados where ifnull(abandono,'') != '' and  ifnull(Paso3,0) != 0 and   year(FechaInicio) = " + _year + "  and  month(FechaInicio)  = " + _Mes ;
+                content = AccesoDatos.RegresaTablaMySql(sql);
+            }
+            else
+            {
+                sql = "Select count(*)  from trans_correosenviados where ifnull(abandono,'') != '' and  ifnull(Paso3,0) != 0 and  year(FechaInicio) =   " + _year + " and month(FechaInicio)  = " + _Mes + " and CodigoEmpresa = '" + _Empresa + "'";
+                content = AccesoDatos.RegresaTablaMySql(sql);
+            }
+
+            DataView dv = new DataView(content);
+            foreach (DataRow rw in content.Rows)
+            {
+                if (rw[0].ToString() != null && rw[0].ToString().Trim() != "")
+                {
+                    resultado = rw[0].ToString();
+                }
+            }
+
+            return int.Parse(resultado);
+        }
+        public static int ObtieneEstadisticaPorMesReales(string _Mes, string _Empresa = "", string _year = "2016")
+        {
+            string resultado = "";
+            DataTable content = new DataTable();
+            if (_Empresa == "")
+            {
+                content = AccesoDatos.RegresaTablaMySql("Select count(*)  from trans_correosenviados where ifnull(abandono,'') = '' and  ifnull(Paso3,0) != 0 and   year(FechaInicio) = " + _year + "  and  month(FechaInicio)  = " + _Mes);
+            }
+            else
+            {
+                content = AccesoDatos.RegresaTablaMySql("Select count(*)  from trans_correosenviados where ifnull(abandono,'') = '' and  ifnull(Paso3,0) != 0 and  year(FechaInicio) =   " + _year + " and month(FechaInicio)  = " + _Mes + " and CodigoEmpresa = '" + _Empresa + "'");
             }
 
             DataView dv = new DataView(content);
@@ -681,6 +768,15 @@ namespace Cotizador
             string sql = "update trans_correosenviados  set Paso1 = 1 where indice = " + _id;
             AccesoDatos.EjecutaQueryMySql(sql);
         }
+        public static void CierrePorAbandono(string _id, string _motivo)
+        {
+            string fecha = System.DateTime.Now.ToString();
+            _motivo += " " + fecha;
+            string sql = "update trans_correosenviados set abandono ='" + _motivo  + "', Paso3 = 1 where indice = " + _id;
+            AccesoDatos.EjecutaQueryMySql(sql);
+
+        }
+
         public static void ActualizaPaso2(string _id)
         {
             string sql = "update trans_correosenviados  set Paso2 = 1 where indice = " + _id;

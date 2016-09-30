@@ -2,6 +2,8 @@
 
 <%@ Register Assembly="WebChart" Namespace="WebChart" TagPrefix="Web" %>
 
+<%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="cc1" %>
+
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -38,11 +40,13 @@
                         <asp:ScriptManager ID="ScriptManager1" runat="server">
                                     </asp:ScriptManager>
                         <table>
-                            <tr style="background-color: dodgerblue"><td colspan="3"><a style="color:white; font-size: x-large; font-weight: bold;">Use el combo para visualizar las gráficas</a></td></tr>
+                            <tr style="background-color: dodgerblue"><td colspan="3"><a style="color:white; font-size: x-large; font-weight: bold;">De que Año quiere ver la información:
+                                <asp:TextBox ID="txtAño" runat="server" Font-Size="X-Large" TextMode="Number" Font-Bold="False" Font-Names="Candara" Height="23px" Width="85px"></asp:TextBox>
+                                </a></td></tr>
                             <tr style="background-color: dodgerblue">
                                 <td colspan="2">
-
-                                    <asp:DropDownList ID="cmbEmpresas" runat="server" Height="20px" OnSelectedIndexChanged="cmbEmpresas_SelectedIndexChanged" Width="310px" AutoPostBack="False" onclick="MostrarSeleccion();">
+                                    <a style="color:white; font-size: x-large; font-weight: bold;">De que Empresa :</a>
+                                    <asp:DropDownList ID="cmbEmpresas" runat="server" Height="35px" OnSelectedIndexChanged="cmbEmpresas_SelectedIndexChanged" Width="310px" AutoPostBack="False" onclick="MostrarSeleccion();" Font-Bold="False" Font-Names="Candara" Font-Size="X-Large">
                                     </asp:DropDownList>
 
                                 </td>
@@ -81,6 +85,7 @@
                 </tr>
                 <tr>
                     <td>
+                        <asp:Image ID="Chart1" runat="server" />
                         <Web:ChartControl ID="ChartControl1" runat="server" BorderStyle="Outset" BorderWidth="5px" Height="550px" Width="864px" ChartPadding="30" GridLines="Both" HasChartLegend="False" ShowTitlesOnBackground="False" TopPadding="20" YCustomEnd="0" YCustomStart="0" YValuesInterval="0">
                             <Border Color="CornflowerBlue" />
                             <Background Color="CornflowerBlue" Angle="90" EndPoint="100, 400" ForeColor="#80FF80" Type="LinearGradient"></Background>
@@ -99,6 +104,53 @@
                         </Web:ChartControl>
                     </td>
                 </tr>
+                <tr>
+                    <td>
+                        <asp:Image ID="Chart2" runat="server" />
+                        <Web:ChartControl ID="ChartControl2" runat="server" BorderStyle="Outset" BorderWidth="5px" Height="550px" Width="864px" ChartPadding="30" GridLines="Both" HasChartLegend="False" ShowTitlesOnBackground="False" TopPadding="20" YCustomEnd="0" YCustomStart="0" YValuesInterval="0" Padding="13">
+                            <Border Color="222, 186, 132" Width="2" />
+                            <Background Color="#000084" Angle="90" EndPoint="100, 400" ForeColor="Gainsboro" Type="LinearGradient" HatchStyle="DiagonalBrick"></Background>
+
+                            <PlotBackground Angle="90" EndPoint="100, 400" ForeColor="#FFFFC0" Color="#EEEEEE" />
+
+                            <ChartTitle StringFormat="Near,Near,Character,LineLimit" Font="Verdana, 10pt, style=Bold" ForeColor="DeepSkyBlue"></ChartTitle>
+
+                            <XAxisFont StringFormat="Center,Near,Character,LineLimit" Font="Tahoma, 8pt, style=Bold" ForeColor="115, 138, 156"></XAxisFont>
+
+                            <YAxisFont StringFormat="Far,Near,Character,LineLimit" Font="Tahoma, 8pt, style=Bold" ForeColor="115, 138, 156"></YAxisFont>
+
+                            <XTitle StringFormat="Center,Near,Character,LineLimit" Font="Tahoma, 8pt, style=Bold" ForeColor="White"></XTitle>
+
+                            <YTitle StringFormat="Center,Near,Character,DirectionVertical" Font="Tahoma, 8pt, style=Bold" ForeColor="White"></YTitle>
+                        </Web:ChartControl>
+                        <cc1:RoundedCornersExtender ID="ChartControl2_RoundedCornersExtender" runat="server" Enabled="True" TargetControlID="ChartControl2">
+                        </cc1:RoundedCornersExtender>
+                    </td>
+
+                </tr>
+               <tr>
+                    <td>
+                         <asp:Image ID="Chart3" runat="server" />
+                        <Web:ChartControl ID="ChartControl3" runat="server" BorderStyle="Outset" BorderWidth="5px" Height="550px" Width="864px" ChartPadding="30" GridLines="Both" HasChartLegend="False" ShowTitlesOnBackground="False" TopPadding="20" YCustomEnd="0" YCustomStart="0" YValuesInterval="0" Padding="13">
+                            <Border Color="51, 102, 102" Width="2" />
+                            <Background Color="#336666" EndPoint="500, 500" ForeColor="SteelBlue" Type="LinearGradient" HatchStyle="DiagonalBrick"></Background>
+
+                            <PlotBackground Angle="90" EndPoint="100, 400" ForeColor="#FFFFC0" />
+
+                            <ChartTitle StringFormat="Near,Near,Character,LineLimit" Font="Verdana, 10pt, style=Bold" ForeColor="DeepSkyBlue"></ChartTitle>
+
+                            <XAxisFont StringFormat="Center,Near,Character,LineLimit" Font="Tahoma, 8pt, style=Bold" ForeColor="115, 138, 156"></XAxisFont>
+
+                            <YAxisFont StringFormat="Far,Near,Character,LineLimit" Font="Tahoma, 8pt, style=Bold" ForeColor="115, 138, 156"></YAxisFont>
+
+                            <XTitle StringFormat="Center,Near,Character,LineLimit" Font="Tahoma, 8pt, style=Bold" ForeColor="White"></XTitle>
+
+                            <YTitle StringFormat="Center,Near,Character,DirectionVertical" Font="Tahoma, 8pt, style=Bold" ForeColor="White"></YTitle>
+                        </Web:ChartControl>
+                    </td>
+
+                </tr>
+
             </table>
 
 

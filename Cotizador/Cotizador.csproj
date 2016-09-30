@@ -119,6 +119,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="bin\AjaxControlToolkit.dll" />
+    <Content Include="bin\Microsoft.ReportViewer.Common.dll" />
+    <Content Include="bin\Microsoft.ReportViewer.ProcessingObjectModel.DLL" />
+    <Content Include="bin\Microsoft.ReportViewer.WebForms.DLL" />
+    <Content Include="bin\WebChart.dll" />
     <Content Include="CS.aspx" />
     <Content Include="Formulario.aspx" />
     <Content Include="Formulario3.aspx" />
@@ -131,6 +136,7 @@
     <Content Include="imagenes\Agradecimiento\Agradecimiento5.jpg" />
     <Content Include="imagenes\Agradecimiento\Agradecimiento6.jpg" />
     <Content Include="imagenes\Agradecimiento\Unity Promotores- Logo en blanco.png" />
+    <Content Include="imagenes\NoData.png" />
     <Content Include="Logs\2016\20160914.txt" />
     <Content Include="Paso2.aspx" />
     <Content Include="PeticionesExternas4.aspx" />
@@ -568,6 +574,7 @@
     <Folder Include="Documentos\" />
     <Folder Include="obj\Debug\TempPE\" />
     <Folder Include="Service References\" />
+    <Folder Include="WebCharts\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\licenses.licx" />

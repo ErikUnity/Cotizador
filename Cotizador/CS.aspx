@@ -262,6 +262,13 @@
                         <asp:TextBox ID="txtStatus" runat="server" AutoCompleteType="Disabled" CssClass="dxeEditArea dxeEditAreaSys" ReadOnly="True" Width="193px" BackColor="#FFFFCC" Font-Bold="False" Font-Names="Candara" Font-Size="15px"></asp:TextBox>
                     </td>
                 </tr>
+                <tr><td class="f4" style="font-family: Roboto; text-align: left; color: rgb(19, 27, 77); text-decoration: none; font-weight: normal; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; text-transform: none;">Motivo :</td></tr>
+                 <tr>
+                    <td colspan="2" class="f0" style="font-family: Arial, Helvetica, sans-serif; text-align: center; width: 142px; padding: 3px 3px 2px; overflow: hidden;">
+                        <asp:TextBox ID="txtMotivo" runat="server" AutoCompleteType="Disabled" CssClass="dxeEditArea dxeEditAreaSys"  Width="275px" BackColor="#FFFFCC" Font-Bold="False" Font-Names="Candara" Font-Size="15px" Height="16px"></asp:TextBox>
+                        <asp:Button ID="Button6" runat="server" Text="Cierre por Abandono" OnClick="Button6_Click" />
+                    </td>
+                </tr>
             </table>
         </div>
 

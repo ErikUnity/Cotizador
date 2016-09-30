@@ -218,7 +218,7 @@ namespace Cotizador
                 }
                 catch (System.IO.IOException e)
                 {
-                    Console.WriteLine(e.Message);
+                    
                     return;
                 }
             }
@@ -273,7 +273,7 @@ namespace Cotizador
             Correo enviando = new Correo();
             string titulo = "Actualización de datos para el Seguro de " + Titulo;
             enviando.EnviarAviso( Para, Nombre, Descripcion, Titulo);
-        
+
 
         }
         public void RequestStop()
