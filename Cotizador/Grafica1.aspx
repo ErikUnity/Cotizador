@@ -8,6 +8,8 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
+   <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.js"></script>
     <title></title>
     <style type="text/css">
         .centro {
@@ -167,12 +169,14 @@
         $('div#oReportDiv table', window.parent.frames[0].frames[1].document).attr("align", "center");
     };
     function LlenarFechaIni() {
-        var ver = document.getElementById("FechaIni").value;
-        $("#HiddenField1").val(ver);
+        var ver1 = document.getElementById("FechaIni").value;
+    
+        $("#HiddenField1").val(ver1);
     }
     function LlenarFechaFin() {
-        var ver = document.getElementById("FechaFin").value;
-        $("#HiddenField2").val(ver);
+        var ver2 = document.getElementById("FechaFin").value;
+ 
+        $("#HiddenField2").val(ver2);
     }
 
 

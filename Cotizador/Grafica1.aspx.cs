@@ -648,6 +648,19 @@ namespace Cotizador
         {
             string path = HttpContext.Current.Request.PhysicalApplicationPath;
             Cotizadores.LimpiarGraficas(path);
+            string _fechaini = this.HiddenField1.Value.ToString();
+            string _fechafin = this.HiddenField2.Value.ToString();
+            string _CodigoEmpresa = this.cmbEmpresas.Text;
+            if (_CodigoEmpresa == "")
+                _CodigoEmpresa = "Todas..";
+
+            Session.Add("FechaIni", _fechaini);
+            Session.Add("FechaFin", _fechafin);
+            Session.Add("CodigoEmpresa", _CodigoEmpresa);
+
+            Response.Redirect("Rpt27.aspx");
+
+
         }
 
         protected void cmbEmpresas_SelectedIndexChanged(object sender, EventArgs e)

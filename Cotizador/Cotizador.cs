@@ -70,7 +70,87 @@ namespace Cotizador
             return data;
 
         }
+        public static List<ImpresionEsadistico> ReporteEstadistico(string FechaIni, string FechaFin, string CodigoEmpresa)
+        {
 
+            DataTable content = new DataTable();
+            if (CodigoEmpresa == "Todas..")
+            {
+                content = AccesoDatos.RegresaTablaMySql("Select C.CodigoEmpresa, C.Cotizaciones, R.CierreReal, A.CierreAbandono, T.TransitoPendiente from  "
+    + " (select CodigoEmpresa, count(*) as Cotizaciones from trans_correosenviados where Fecha between '" + FechaIni + "' and '" + FechaFin + "' group by CodigoEmpresa) C  "
+    + " left join  "
+    + " (select CodigoEmpresa, count(*) as CierreReal from trans_correosenviados where ifnull(abandono, '') = '' and ifnull(Paso3, 0) != 0 and Fecha between '" + FechaIni + "' and '" + FechaFin + "' group by CodigoEmpresa) R  "
+    + " on C.CodigoEmpresa = R.CodigoEmpresa  "
+    + " left join  "
+    + " (select CodigoEmpresa, count(*) as CierreAbandono from trans_correosenviados where ifnull(abandono, '') != '' and ifnull(Paso3, 0) != 0 and Fecha between '" + FechaIni + "' and '" + FechaFin + "' group by CodigoEmpresa) A  "
+    + " on C.CodigoEmpresa = A.CodigoEmpresa  "
+    + " left join  "
+    + " (select CodigoEmpresa, count(*) as TransitoPendiente from trans_correosenviados where ifnull(abandono, '') = '' and ifnull(Paso3, 0) = 0 and Fecha between '" + FechaIni + "' and '" + FechaFin + "' group by CodigoEmpresa) T  "
+    + " on C.CodigoEmpresa = T.CodigoEmpresa ");
+            }
+            else
+            {
+                content = AccesoDatos.RegresaTablaMySql("Select C.CodigoEmpresa, C.Cotizaciones, R.CierreReal, A.CierreAbandono, T.TransitoPendiente from  "
++ " (select CodigoEmpresa, count(*) as Cotizaciones from trans_correosenviados where CodigoEmpresa = '" + CodigoEmpresa + "' and Fecha between '" + FechaIni + "' and '" + FechaFin + "' group by CodigoEmpresa) C  "
++ " left join  "
++ " (select CodigoEmpresa, count(*) as CierreReal from trans_correosenviados where CodigoEmpresa = '" + CodigoEmpresa + "' and  ifnull(abandono, '') = '' and ifnull(Paso3, 0) != 0 and Fecha between '" + FechaIni + "' and '" + FechaFin + "' group by CodigoEmpresa) R  "
++ " on C.CodigoEmpresa = R.CodigoEmpresa  "
++ " left join  "
++ " (select CodigoEmpresa, count(*) as CierreAbandono from trans_correosenviados where CodigoEmpresa = '" + CodigoEmpresa + "' and  ifnull(abandono, '') != '' and ifnull(Paso3, 0) != 0 and Fecha between '" + FechaIni + "' and '" + FechaFin + "' group by CodigoEmpresa) A  "
++ " on C.CodigoEmpresa = A.CodigoEmpresa  "
++ " left join  "
++ " (select CodigoEmpresa, count(*) as TransitoPendiente from trans_correosenviados where CodigoEmpresa = '" + CodigoEmpresa + "' and  ifnull(abandono, '') = '' and ifnull(Paso3, 0) = 0 and Fecha between '" + FechaIni + "' and '" + FechaFin + "' group by CodigoEmpresa) T  "
++ " on C.CodigoEmpresa = T.CodigoEmpresa ");
+
+            }
+            DataView dv = new DataView(content);
+     
+            List<ImpresionEsadistico> data = new List<ImpresionEsadistico>();
+            foreach (DataRow rw in content.Rows)
+            {
+                ImpresionEsadistico lista = new ImpresionEsadistico();
+                lista.CodigoEmpresa = rw["CodigoEmpresa"].ToString() + " del " + FechaIni + " al " + FechaFin;
+                lista.Cotizaciones = rw["Cotizaciones"].ToString();
+                lista.CierreReal = rw["CierreReal"].ToString();
+                lista.CierreAbandono = rw["CierreAbandono"].ToString();
+                lista.TransitoPendiente = rw["TransitoPendiente"].ToString();
+
+                data.Add(lista);
+            }
+
+            return data;
+
+        }
+        public static List<ImpresionAbandonos> ReporteAbandonos(string FechaIni, string FechaFin, string CodigoEmpresa)
+        {
+
+            DataTable content = new DataTable();
+            if (CodigoEmpresa == "Todas..")
+            {
+                content = AccesoDatos.RegresaTablaMySql("Select indice,  abandono   from  trans_correosenviados where ifnull(abandono,'') != '' and  Fecha between '" + FechaIni + "' and '" + FechaFin + "' group by indice , abandono ");
+
+            }
+            else
+            {
+                content = AccesoDatos.RegresaTablaMySql("Select indice,  abandono   from  trans_correosenviados where ifnull(abandono,'') != '' and  CodigoEmpresa = '" + CodigoEmpresa + "' and  Fecha between '" + FechaIni + "' and '" + FechaFin + "'  group by indice , abandono");
+            }
+            DataView dv = new DataView(content);
+            ImpresionAbandonos lista = new ImpresionAbandonos();
+            List<ImpresionAbandonos> data = new List<ImpresionAbandonos>();
+            foreach (DataRow rw in content.Rows)
+            {
+
+
+                lista.id = rw["indice"].ToString();
+                lista.motivo = rw["abandono"].ToString();
+
+
+                data.Add(lista);
+            }
+
+            return data;
+
+        }
         public static List<ImprimirFormato> ReporteAsr27(string indice)
         {
 
@@ -1802,6 +1882,67 @@ namespace Cotizador
             set { this._NombreS = value; }
         }
     }
+
+    public class ImpresionEsadistico
+    {
+
+        public ImpresionEsadistico() { }
+
+        public string _CodigoEmpresa = "";
+        public string CodigoEmpresa
+        {
+            get { return _CodigoEmpresa; }
+            set { this._CodigoEmpresa = value; }
+        }
+        public string _Cotizaciones = "";
+        public string Cotizaciones
+        {
+            get { return _Cotizaciones; }
+            set { this._Cotizaciones = value; }
+        }
+        public string _CierreReal = "";
+        public string CierreReal
+        {
+            get { return _CierreReal; }
+            set { this._CierreReal = value; }
+        }
+        public string _CierreAbandono = "";
+        public string CierreAbandono
+        {
+            get { return _CierreAbandono; }
+            set { this._CierreAbandono = value; }
+        }
+        public string _TransitoPendiente = "";
+        public string TransitoPendiente
+        {
+            get { return _TransitoPendiente; }
+            set { this._TransitoPendiente = value; }
+        }
+
+
+    }
+
+    public class ImpresionAbandonos
+    {
+        public ImpresionAbandonos() { }
+
+        public string _id = "";
+        public string id
+        {
+            get { return _id; }
+            set { this._id = value; }
+
+        }
+        public string _motivo = "";
+        public string motivo
+        {
+            get { return _motivo; }
+            set { this._motivo = value; }
+
+        }
+    }
+
+
     public class Impresion
     {
 
