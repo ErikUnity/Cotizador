@@ -67,10 +67,10 @@
                                         <asp:Button ID="btnBar" runat="server" Text="Bar Graph Anual" OnClick="btnBar_Click" Width="150px" /></td>
                             </tr>
                             <tr style="background-color: aquamarine">
-                                <td>
+                                <td>Fecha Inicial : 
                                     <asp:HiddenField ID="HiddenField1" runat="server" />
                                     <input id="FechaIni" type="date" onchange="LlenarFechaIni()" /></td>
-                                <td>
+                                <td>Fecha Final : 
                                     <asp:HiddenField ID="HiddenField2" runat="server" />
                                     <input id="FechaFin" type="date" onchange="LlenarFechaFin()" />
                                 </td>

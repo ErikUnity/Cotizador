@@ -86,7 +86,20 @@ namespace Cotizador
     + " on C.CodigoEmpresa = A.CodigoEmpresa  "
     + " left join  "
     + " (select CodigoEmpresa, count(*) as TransitoPendiente from trans_correosenviados where ifnull(abandono, '') = '' and ifnull(Paso3, 0) = 0 and Fecha between '" + FechaIni + "' and '" + FechaFin + "' group by CodigoEmpresa) T  "
-    + " on C.CodigoEmpresa = T.CodigoEmpresa ");
+    + " on C.CodigoEmpresa = T.CodigoEmpresa " +
+    " union all " +
+    "Select 'Totales', sum( C.Cotizaciones) as Cotizaciones, sum(R.CierreReal) as CierreReal, sum(A.CierreAbandono) as CierreAbandono, sum(T.TransitoPendiente) as TransitoPendiente from  "
+    + " (select CodigoEmpresa, count(*) as Cotizaciones from trans_correosenviados where Fecha between '" + FechaIni + "' and '" + FechaFin + "' group by CodigoEmpresa) C  "
+    + " left join  "
+    + " (select CodigoEmpresa, count(*) as CierreReal from trans_correosenviados where ifnull(abandono, '') = '' and ifnull(Paso3, 0) != 0 and Fecha between '" + FechaIni + "' and '" + FechaFin + "' group by CodigoEmpresa) R  "
+    + " on C.CodigoEmpresa = R.CodigoEmpresa  "
+    + " left join  "
+    + " (select CodigoEmpresa, count(*) as CierreAbandono from trans_correosenviados where ifnull(abandono, '') != '' and ifnull(Paso3, 0) != 0 and Fecha between '" + FechaIni + "' and '" + FechaFin + "' group by CodigoEmpresa) A  "
+    + " on C.CodigoEmpresa = A.CodigoEmpresa  "
+    + " left join  "
+    + " (select CodigoEmpresa, count(*) as TransitoPendiente from trans_correosenviados where ifnull(abandono, '') = '' and ifnull(Paso3, 0) = 0 and Fecha between '" + FechaIni + "' and '" + FechaFin + "' group by CodigoEmpresa) T  "
+    + " on C.CodigoEmpresa = T.CodigoEmpresa "
+    );
             }
             else
             {
@@ -100,7 +113,20 @@ namespace Cotizador
 + " on C.CodigoEmpresa = A.CodigoEmpresa  "
 + " left join  "
 + " (select CodigoEmpresa, count(*) as TransitoPendiente from trans_correosenviados where CodigoEmpresa = '" + CodigoEmpresa + "' and  ifnull(abandono, '') = '' and ifnull(Paso3, 0) = 0 and Fecha between '" + FechaIni + "' and '" + FechaFin + "' group by CodigoEmpresa) T  "
-+ " on C.CodigoEmpresa = T.CodigoEmpresa ");
++ " on C.CodigoEmpresa = T.CodigoEmpresa " +
+" union all " +
+"Select 'Totales', sum(C.Cotizaciones) as Cotizaciones, sum( R.CierreReal) as CierreReal, sum(A.CierreAbandono) as CierreAbandono, sum( T.TransitoPendiente) as TransitoPendiente from  "
++ " (select CodigoEmpresa, count(*) as Cotizaciones from trans_correosenviados where CodigoEmpresa = '" + CodigoEmpresa + "' and Fecha between '" + FechaIni + "' and '" + FechaFin + "' group by CodigoEmpresa) C  "
++ " left join  "
++ " (select CodigoEmpresa, count(*) as CierreReal from trans_correosenviados where CodigoEmpresa = '" + CodigoEmpresa + "' and  ifnull(abandono, '') = '' and ifnull(Paso3, 0) != 0 and Fecha between '" + FechaIni + "' and '" + FechaFin + "' group by CodigoEmpresa) R  "
++ " on C.CodigoEmpresa = R.CodigoEmpresa  "
++ " left join  "
++ " (select CodigoEmpresa, count(*) as CierreAbandono from trans_correosenviados where CodigoEmpresa = '" + CodigoEmpresa + "' and  ifnull(abandono, '') != '' and ifnull(Paso3, 0) != 0 and Fecha between '" + FechaIni + "' and '" + FechaFin + "' group by CodigoEmpresa) A  "
++ " on C.CodigoEmpresa = A.CodigoEmpresa  "
++ " left join  "
++ " (select CodigoEmpresa, count(*) as TransitoPendiente from trans_correosenviados where CodigoEmpresa = '" + CodigoEmpresa + "' and  ifnull(abandono, '') = '' and ifnull(Paso3, 0) = 0 and Fecha between '" + FechaIni + "' and '" + FechaFin + "' group by CodigoEmpresa) T  "
++ " on C.CodigoEmpresa = T.CodigoEmpresa "
+);
 
             }
             DataView dv = new DataView(content);
@@ -109,12 +135,12 @@ namespace Cotizador
             foreach (DataRow rw in content.Rows)
             {
                 ImpresionEsadistico lista = new ImpresionEsadistico();
-                lista.CodigoEmpresa = rw["CodigoEmpresa"].ToString() + " del " + FechaIni + " al " + FechaFin;
+                lista.CodigoEmpresa = rw["CodigoEmpresa"].ToString() ;
                 lista.Cotizaciones = rw["Cotizaciones"].ToString();
                 lista.CierreReal = rw["CierreReal"].ToString();
                 lista.CierreAbandono = rw["CierreAbandono"].ToString();
                 lista.TransitoPendiente = rw["TransitoPendiente"].ToString();
-
+                lista.Rango = "Del " + FechaIni + " al " + FechaFin;
                 data.Add(lista);
             }
 
@@ -1917,6 +1943,12 @@ namespace Cotizador
         {
             get { return _TransitoPendiente; }
             set { this._TransitoPendiente = value; }
+        }
+        public string _Rango = "";
+        public string Rango
+        {
+            get { return _Rango; }
+            set { this._Rango = value; }
         }
 
 
