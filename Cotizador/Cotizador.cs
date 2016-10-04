@@ -153,20 +153,20 @@ namespace Cotizador
             DataTable content = new DataTable();
             if (CodigoEmpresa == "Todas..")
             {
-                content = AccesoDatos.RegresaTablaMySql("Select indice,  abandono   from  trans_correosenviados where ifnull(abandono,'') != '' and  Fecha between '" + FechaIni + "' and '" + FechaFin + "' group by indice , abandono ");
+                content = AccesoDatos.RegresaTablaMySql("Select concat(indice,' ',CodigoEmpresa ) as indice,  abandono   from  trans_correosenviados where ifnull(abandono,'') != '' and  Fecha between '" + FechaIni + "' and '" + FechaFin + "' group by indice , abandono order by CodigoEmpresa");
 
             }
             else
             {
-                content = AccesoDatos.RegresaTablaMySql("Select indice,  abandono   from  trans_correosenviados where ifnull(abandono,'') != '' and  CodigoEmpresa = '" + CodigoEmpresa + "' and  Fecha between '" + FechaIni + "' and '" + FechaFin + "'  group by indice , abandono");
+                content = AccesoDatos.RegresaTablaMySql("Select concat(indice,' ',CodigoEmpresa ) as indice,  abandono   from  trans_correosenviados where ifnull(abandono,'') != '' and  CodigoEmpresa = '" + CodigoEmpresa + "' and  Fecha between '" + FechaIni + "' and '" + FechaFin + "'  group by indice , abandono order by CodigoEmpresa");
             }
             DataView dv = new DataView(content);
-            ImpresionAbandonos lista = new ImpresionAbandonos();
+      
             List<ImpresionAbandonos> data = new List<ImpresionAbandonos>();
             foreach (DataRow rw in content.Rows)
             {
 
-
+                ImpresionAbandonos lista = new ImpresionAbandonos();
                 lista.id = rw["indice"].ToString();
                 lista.motivo = rw["abandono"].ToString();
 
@@ -878,7 +878,7 @@ namespace Cotizador
         {
             string fecha = System.DateTime.Now.ToString();
             _motivo += " " + fecha;
-            string sql = "update trans_correosenviados set abandono ='" + _motivo  + "', Paso3 = 1 where indice = " + _id;
+            string sql = "update trans_correosenviados set abandono ='" + _motivo  + "', Paso3 = 1, FechaInicio = curdate() where indice = " + _id;
             AccesoDatos.EjecutaQueryMySql(sql);
 
         }
@@ -1071,6 +1071,23 @@ namespace Cotizador
 
             DataTable content = new DataTable();
             content = AccesoDatos.RegresaTablaMySql("Select gastos_emision from maestro_reglasnegocio where CodigoEmpresa = '" + Codigo + "'");
+            DataView dv = new DataView(content);
+            foreach (DataRow rw in content.Rows)
+            {
+                if (rw[0].ToString() != null && rw[0].ToString().Trim() != "")
+                {
+                    resultado = decimal.Parse(rw[0].ToString());
+                }
+            }
+
+            return resultado;
+        }
+        public static decimal ObtieneValor_Mensualidades(string Codigo)
+        {
+            decimal resultado = 0;
+
+            DataTable content = new DataTable();
+            content = AccesoDatos.RegresaTablaMySql("Select mensualidades from maestro_reglasnegocio where CodigoEmpresa = '" + Codigo + "'");
             DataView dv = new DataView(content);
             foreach (DataRow rw in content.Rows)
             {
@@ -1485,7 +1502,8 @@ namespace Cotizador
             decimal MotoPorcentaje_PorServicio = Cotizadores.ObtieneMotoPorcentaje_PorServicio(_Codigo);
             decimal emision = 0;
             decimal PorcenajeGastosPorEmision = Cotizadores.ObtieneValor_GastosEmision(_Codigo);
-
+            decimal Mensualidades = Cotizadores.ObtieneValor_Mensualidades(_Codigo); 
+ 
             Codigo = _Codigo;
             SumaAsegurada = _SumaAsegurada;
             Exceso_RC_ElevacionDeCobertura = Cotizadores.ObtieneElecacionDeCoberturaRC(_Codigo);
@@ -1515,17 +1533,18 @@ namespace Cotizador
                 {
                     if (((SumaAsegurada * Porcentaje_Menor_100 / 100) + Costo + Asisto) < MontoBase)
                     {
-                        PrimaNeta = MontoBase + Costo + Asisto;
-                        //GastosPorEmision = PrimaNeta * PorcenajeGastosPorEmision;
-                        GastosPorEmision = Costo + Asisto;
+                        PrimaNeta = MontoBase + Costo ;
+                        GastosPorEmision = PrimaNeta * PorcenajeGastosPorEmision;
+                        PrimaNeta = PrimaNeta + GastosPorEmision + Asisto;
                         Iva = PrimaNeta * CalculoIva;
                         PrimaNeta = (PrimaNeta + Iva);
                         //=SI((B6*0.025+500)<1000,1000,(B6*0.025+500))+D5
                     }
                     else
                     {
-                        PrimaNeta = ((SumaAsegurada * Porcentaje_Menor_100 / 100) + Costo + Asisto);
-                        GastosPorEmision = Costo + Asisto;
+                        PrimaNeta = ((SumaAsegurada * Porcentaje_Menor_100 / 100) + Costo );
+                        GastosPorEmision = PrimaNeta * PorcenajeGastosPorEmision;
+                        PrimaNeta = PrimaNeta + GastosPorEmision + Asisto;
                         Iva = PrimaNeta * CalculoIva;
                         PrimaNeta = (PrimaNeta + Iva);
                         //=SI((B6*0.02+500)<1000,1000,(B6*0.02+500))+D5
@@ -1687,7 +1706,7 @@ namespace Cotizador
             PrimaTotal = decimal.Parse(PrimaTotal.ToString("F", CultureInfo.InvariantCulture));
             PrimaTotalProRata = decimal.Parse(PrimaTotalProRata.ToString("F", CultureInfo.InvariantCulture));
             GastosPorEmisionProRata = decimal.Parse(GastosPorEmisionProRata.ToString("F", CultureInfo.InvariantCulture));
-            CadaPago = decimal.Parse((PrimaTotalProRata / 12).ToString("F", CultureInfo.InvariantCulture));
+            CadaPago = decimal.Parse((PrimaTotalProRata / Mensualidades).ToString("F", CultureInfo.InvariantCulture));
             RoboParcial = decimal.Parse(RoboParcial.ToString("F", CultureInfo.InvariantCulture));
             MenoresDesde16 = decimal.Parse(MenoresDesde16.ToString("F", CultureInfo.InvariantCulture));
             MenoresDesde18 = decimal.Parse(MenoresDesde18.ToString("F", CultureInfo.InvariantCulture));

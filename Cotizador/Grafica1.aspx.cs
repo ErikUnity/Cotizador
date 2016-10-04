@@ -292,6 +292,8 @@ namespace Cotizador
             }
 
             ConfigureColors1();
+            ChartControl1.Width = 864;
+            ChartControl1.Height = 550;
             ChartControl1.Charts.Clear();
             ChartControl1.Charts.Add(chart);
 
@@ -300,6 +302,14 @@ namespace Cotizador
             ChartControl1.RedrawChart();
             dt.Clear();
             dt.Dispose();
+            try
+            {
+                this.Chart1.Visible = false;
+                this.Chart2.Visible = false;
+                this.Chart3.Visible = false;
+            }
+            catch (Exception)
+            { }
         }
         private void Chart2Line()
         {
@@ -328,6 +338,8 @@ namespace Cotizador
             }
 
             ConfigureColors2();
+            ChartControl2.Width = 864;
+            ChartControl2.Height = 550;
             ChartControl2.Charts.Clear();
             ChartControl2.Charts.Add(chart);
 
@@ -336,6 +348,14 @@ namespace Cotizador
             ChartControl2.RedrawChart();
             dt1.Clear();
             dt1.Dispose();
+            try
+            {
+                this.Chart1.Visible = false;
+                this.Chart2.Visible = false;
+                this.Chart3.Visible = false;
+            }
+            catch (Exception)
+            { }
         }
 
         private void Chart3Line()
@@ -365,6 +385,8 @@ namespace Cotizador
             }
 
             ConfigureColors3();
+            ChartControl3.Width = 864;
+            ChartControl3.Height = 550;
             ChartControl3.Charts.Clear();
             ChartControl3.Charts.Add(chart);
 
@@ -373,6 +395,14 @@ namespace Cotizador
             ChartControl3.RedrawChart();
             dt2.Clear();
             dt2.Dispose();
+            try
+            {
+                this.Chart1.Visible = false;
+                this.Chart2.Visible = false;
+                this.Chart3.Visible = false;
+            }
+            catch (Exception)
+            { }
         }
 
         private void ConfigureColors1()
@@ -699,6 +729,8 @@ namespace Cotizador
             }
 
             ConfigureColors1();
+            ChartControl1.Width = 864;
+            ChartControl1.Height = 550;
             ChartControl1.Charts.Clear();
             ChartControl1.Charts.Add(chart);
 
@@ -708,6 +740,14 @@ namespace Cotizador
 
             dt.Clear();
             dt.Dispose();
+            try
+            {
+                this.Chart1.Visible = false;
+                this.Chart2.Visible = false;
+                this.Chart3.Visible = false;
+            }
+            catch (Exception)
+            { }
         }
         private void Chart2Bar()
         {
@@ -734,6 +774,8 @@ namespace Cotizador
             }
 
             ConfigureColors2();
+            ChartControl2.Width = 864;
+            ChartControl2.Height = 550;
             ChartControl2.Charts.Clear();
             ChartControl2.Charts.Add(chart);
 
@@ -743,6 +785,14 @@ namespace Cotizador
 
             dt1.Clear();
             dt1.Dispose();
+            try
+            {
+                this.Chart1.Visible = false;
+                this.Chart2.Visible = false;
+                this.Chart3.Visible = false;
+            }
+            catch (Exception)
+            { }
         }
         private void Chart3Bar()
         {
@@ -769,6 +819,8 @@ namespace Cotizador
             }
 
             ConfigureColors3();
+            ChartControl3.Width = 864;
+            ChartControl3.Height = 550;
             ChartControl3.Charts.Clear();
             ChartControl3.Charts.Add(chart);
 
@@ -778,6 +830,15 @@ namespace Cotizador
 
             dt2.Clear();
             dt2.Dispose();
+            try
+            {
+                this.Chart1.Visible = false;
+                this.Chart2.Visible = false;
+                this.Chart3.Visible = false;
+            }
+            catch (Exception)
+            {   }
+
         }
         protected void Button2_Click(object sender, EventArgs e)
         {
