@@ -53,11 +53,12 @@ namespace Cotizador
 
             ImprimirEstado lista = new ImprimirEstado();
             List<ImprimirEstado> data = new List<ImprimirEstado>();
-            DataTable content = AccesoDatos.RegresaTablaMySql("select concat(Nombre,' ' , Apellidos) as Nombre, Correo, Telefono, Fecha, DateDiff(curdate(), Fecha) as Dias  from trans_correosenviados where ifnull(Paso3,0) != 1 order by Fecha desc");
+            DataTable content = AccesoDatos.RegresaTablaMySql("select indice as id, concat(Nombre,' ' , Apellidos) as Nombre, Correo, Telefono, Fecha, DateDiff(curdate(), Fecha) as Dias  from trans_correosenviados where ifnull(Paso3,0) != 1 order by Fecha desc");
 
             foreach (DataRow rw in content.Rows)
             {
                 lista = new ImprimirEstado();
+                lista.Id = rw["id"].ToString();
                 lista.Nombre = rw["Nombre"].ToString();
                 lista.Correo = rw["Correo"].ToString();
                 lista.Telefono = rw["Telefono"].ToString();
@@ -257,6 +258,13 @@ namespace Cotizador
         public class ImprimirEstado
         {
             public ImprimirEstado() { }
+
+            private string _Id = "";
+            public string Id
+            {
+                get { return _Id; }
+                set { this._Id = value; }
+            }
 
             private string _Nombre = "";
             public string Nombre
@@ -877,10 +885,15 @@ namespace Cotizador
         public static void CierrePorAbandono(string _id, string _motivo)
         {
             string fecha = System.DateTime.Now.ToString();
+            string verifica = AccesoDatos.RegresaCadena_1_ResultadoMysql("Select count(*) from trans_correosenviados where indice =" + _id + " and Paso3 = 1");
             _motivo += " " + fecha;
-            string sql = "update trans_correosenviados set abandono ='" + _motivo  + "', Paso3 = 1, FechaInicio = curdate() where indice = " + _id;
-            AccesoDatos.EjecutaQueryMySql(sql);
-
+            if (verifica != "0")
+            { }
+            else
+            {
+                string sql = "update trans_correosenviados set abandono ='" + _motivo + "', Paso3 = 1, FechaInicio = curdate() where indice = " + _id;
+                AccesoDatos.EjecutaQueryMySql(sql);
+            }
         }
 
         public static void ActualizaPaso2(string _id)

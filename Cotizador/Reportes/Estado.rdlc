@@ -6,28 +6,28 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>1.2202in</Width>
+              <Width>1.17724in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.2202in</Width>
+              <Width>1.17724in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.2202in</Width>
+              <Width>1.17724in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.2202in</Width>
+              <Width>1.17724in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.2202in</Width>
+              <Width>1.17724in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>0.97135in</Width>
+              <Width>0.92839in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.2202in</Width>
+              <Width>1.17724in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.82437in</Width>
+              <Width>1.78141in</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -107,7 +107,7 @@
         <Top>0.74875in</Top>
         <Left>0.10292in</Left>
         <Height>0.47917in</Height>
-        <Width>10.11695in</Width>
+        <Width>9.7732in</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -132,13 +132,16 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
+              <Width>0.66667in</Width>
+            </TablixColumn>
+            <TablixColumn>
               <Width>3.03434in</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>2.06559in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.06559in</Width>
+              <Width>1.30517in</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>2.06559in</Width>
@@ -151,6 +154,36 @@
             <TablixRow>
               <Height>0.25in</Height>
               <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox2">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Id</Value>
+                              <Style />
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox2</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
                 <TablixCell>
                   <CellContents>
                     <Textbox Name="Textbox8">
@@ -306,6 +339,36 @@
             <TablixRow>
               <Height>0.25in</Height>
               <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Id">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!Id.Value</Value>
+                              <Style />
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Id</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
                 <TablixCell>
                   <CellContents>
                     <Textbox Name="Nombre1">
@@ -467,6 +530,7 @@
             <TablixMember />
             <TablixMember />
             <TablixMember />
+            <TablixMember />
           </TablixMembers>
         </TablixColumnHierarchy>
         <TablixRowHierarchy>
@@ -483,7 +547,7 @@
         <Top>1.29736in</Top>
         <Left>0.12109in</Left>
         <Height>0.5in</Height>
-        <Width>9.84878in</Width>
+        <Width>9.75503in</Width>
         <ZIndex>2</ZIndex>
         <Style>
           <Border>
@@ -495,7 +559,7 @@
     <Height>1.9571in</Height>
     <Style />
   </Body>
-  <Width>10.21987in</Width>
+  <Width>9.87612in</Width>
   <Page>
     <PageHeight>12in</PageHeight>
     <Style />
@@ -517,6 +581,10 @@
         <CommandText>/* Local Query */</CommandText>
       </Query>
       <Fields>
+        <Field Name="Id">
+          <DataField>Id</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
         <Field Name="Nombre">
           <DataField>Nombre</DataField>
           <rd:TypeName>System.String</rd:TypeName>
