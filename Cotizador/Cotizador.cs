@@ -14,6 +14,7 @@ using System.Net.Mail;
 using System.Xml;
 using System.Collections.Generic;
 using System.Globalization;
+using System;
 
 
 namespace Cotizador
@@ -170,8 +171,7 @@ namespace Cotizador
                 ImpresionAbandonos lista = new ImpresionAbandonos();
                 lista.id = rw["indice"].ToString();
                 lista.motivo = rw["abandono"].ToString();
-
-
+                
                 data.Add(lista);
             }
 
@@ -302,6 +302,7 @@ namespace Cotizador
 
 
         }
+
         public static List<Impresion> ReporteCotizacion1(string CodigoEmpresa, decimal SumaAsegurada, bool RoboParcial, bool Menores16, bool Menores18, bool ExcesosRC, decimal _RoboParcial, string NombreCliente, string DescripcionVehiculo, string mensajetipo)
         {
 
@@ -341,6 +342,8 @@ namespace Cotizador
             lista.DescripcionVehiculo = DescripcionVehiculo;
             lista.MotoDeduciblePorDañosyAccidentes = Calculo.MotoDeduciblesPorDañosyAccidentes;
             lista.MotoDeducibleRobo = Calculo.MotoDeducibles_Robo;
+            lista.DeduciblePerdidaParcial = Calculo.deducible_parcial;
+            lista.DeducibleRoboTotal = Calculo.deducible_robo_total;
             data.Add(lista);
 
             return data;
@@ -1112,6 +1115,88 @@ namespace Cotizador
 
             return resultado;
         }
+        public static decimal ObtieneValor_deducible_parcial(string Codigo)
+        {
+            decimal resultado = 0;
+
+            DataTable content = new DataTable();
+            content = AccesoDatos.RegresaTablaMySql("Select deducible_parcial from maestro_reglasnegocio where CodigoEmpresa = '" + Codigo + "'");
+            DataView dv = new DataView(content);
+            foreach (DataRow rw in content.Rows)
+            {
+                if (rw[0].ToString() != null && rw[0].ToString().Trim() != "")
+                {
+                    resultado = decimal.Parse(rw[0].ToString());
+                }
+            }
+
+            return resultado;
+        }
+
+        public static decimal ObtieneValor_deducible_robo_total(string _id, decimal _SumaAsegurada, string CodigoEmpresa)
+        {
+            decimal resultado = 0;
+            string año_evaluado = AccesoDatos.RegresaCadena_1_ResultadoMysql("Select Modelo from trans_correosenviados where indice = " + _id);
+            string marca = AccesoDatos.RegresaCadena_1_ResultadoMysql("Select Marca from trans_correosenviados where indice = " + _id);
+            string linea = AccesoDatos.RegresaCadena_1_ResultadoMysql("Select Linea from trans_correosenviados where indice = " + _id);
+            string tipovehiculo = AccesoDatos.RegresaCadena_1_ResultadoMysql("Select TipoDeVehiculo from trans_correosenviados where indice = " + _id);
+            string codigo_marca = AccesoDatos.RegresaCadena_1_ResultadoMysql("Select indice from marca where descripcion = '" + marca + "'");
+            decimal porcentaje_general = Decimal.Parse( AccesoDatos.RegresaCadena_1_ResultadoMysql("Select  deducible_parcial  from maestro_reglasnegocio where CodigoEmpresa= '"+ CodigoEmpresa  +"'"));
+            string año = "";
+            string MayorMenor = "";
+            decimal Porcentaje = 0;
+            string _tipo_vehiculo = "";
+
+            DataTable content = new DataTable();
+            content = AccesoDatos.RegresaTablaMySql("Select Año, MayorMenor, Porcentaje, TipoVehiculo from maestro_reglasdevehiculos where Marca = '"+ marca +"' and upper('"+ linea +"')");
+
+            foreach (DataRow rw in content.Rows)
+            {
+                 año = rw["Año"].ToString();
+                 MayorMenor = rw["MayorMenor"].ToString();
+                 Porcentaje = decimal.Parse(rw["Porcentaje"].ToString());
+                 _tipo_vehiculo = rw["TipoVehiculo"].ToString();
+                 break;
+            }
+            if (content.Rows.Count > 0)
+            {
+
+                if (MayorMenor == ">")
+                {
+                    if (Decimal.Parse(año_evaluado) > Decimal.Parse(año) || Decimal.Parse(año) == 0 )
+                    {
+                        resultado = _SumaAsegurada * Porcentaje;
+                    }
+                }
+
+                if (MayorMenor == "*")
+                {
+  
+                        resultado = _SumaAsegurada * Porcentaje;
+    
+                }
+
+            }
+
+            string vehiculo = ConfigurationManager.AppSettings["VehiculoExcluido"].ToString();
+            DataTable Tipo = new DataTable();
+            Tipo = AccesoDatos.RegresaTablaMySql("Select  Porcentaje from maestro_reglasdevehiculos where Marca = '" + marca + "' and TipoVehiculo = '" + vehiculo + "'");
+            if (Tipo.Rows.Count > 0)
+            {
+                foreach (DataRow rw in content.Rows)
+                {
+                    Porcentaje = decimal.Parse(rw["Porcentaje"].ToString());
+                    break;
+                }
+                 resultado = _SumaAsegurada * Porcentaje;
+            }
+
+            if (resultado == 0)
+            { resultado = _SumaAsegurada * porcentaje_general; }
+
+            return resultado;
+        }
+
         public static decimal ObtieneValor_Asisto(string Codigo)
         {
             decimal resultado = 0;
@@ -1486,6 +1571,8 @@ namespace Cotizador
         public decimal MotoDeduciblesPorDañosyAccidentes = 0;
         public decimal MotoDeducibles_Robo = 0;
         public decimal PrimaNetaMotoRC = 0;
+        public decimal deducible_parcial = 0;
+        public decimal deducible_robo_total = 0;
         /// <summary>
         /// Ejecuta los valores de las formulas de acuerdo a la empresa para el calculo de la cotización.
         /// </summary>
@@ -1497,7 +1584,7 @@ namespace Cotizador
         /// <param name="_ExcesoRC"></param>
         /// <param name="_RoboParcial"></param>
         /// <param name="MensajeTipo"></param>
-        public Valores(string _Codigo, decimal _SumaAsegurada, bool _roboParcial, bool _MenoresDesde16, bool _MenoresDesde18, bool _ExcesoRC, decimal _RoboParcial, int MensajeTipo)
+        public Valores(string _Codigo, decimal _SumaAsegurada, bool _roboParcial, bool _MenoresDesde16, bool _MenoresDesde18, bool _ExcesoRC, decimal _RoboTotal, int MensajeTipo)
         {
             decimal equipo_especial = 0;
             decimal cien = 100;
@@ -1515,8 +1602,12 @@ namespace Cotizador
             decimal MotoPorcentaje_PorServicio = Cotizadores.ObtieneMotoPorcentaje_PorServicio(_Codigo);
             decimal emision = 0;
             decimal PorcenajeGastosPorEmision = Cotizadores.ObtieneValor_GastosEmision(_Codigo);
-            decimal Mensualidades = Cotizadores.ObtieneValor_Mensualidades(_Codigo); 
- 
+            decimal Mensualidades = Cotizadores.ObtieneValor_Mensualidades(_Codigo);
+
+            deducible_parcial = Cotizadores.ObtieneValor_deducible_parcial(_Codigo);
+            deducible_parcial = _SumaAsegurada * deducible_parcial;
+            deducible_robo_total = _RoboTotal;
+
             Codigo = _Codigo;
             SumaAsegurada = _SumaAsegurada;
             Exceso_RC_ElevacionDeCobertura = Cotizadores.ObtieneElecacionDeCoberturaRC(_Codigo);
@@ -1645,33 +1736,33 @@ namespace Cotizador
 
 
 
-            if (_roboParcial)
-            {
-                equipo_especial = SumaAsegurada * (cien) / (mil);
-                if (_RoboParcial > equipo_especial)
-                {
-                    RoboParcial = equipo_especial * (cien) / (mil);
-                }
-                else
-                {
-                    RoboParcial = _RoboParcial * (cien) / (mil);
-                }
+            //if (_roboParcial)
+            //{
+            //    equipo_especial = SumaAsegurada * (cien) / (mil);
+            //    if (_RoboParcial > equipo_especial)
+            //    {
+            //        RoboParcial = equipo_especial * (cien) / (mil);
+            //    }
+            //    else
+            //    {
+            //        RoboParcial = _RoboParcial * (cien) / (mil);
+            //    }
 
-                CoberturaAdicional += RoboParcial;
+            //    CoberturaAdicional += RoboParcial;
 
-            }
-            else
-            {
-                equipo_especial = SumaAsegurada * (cien) / (mil);
-                if (_RoboParcial > equipo_especial)
-                {
-                    RoboParcial = equipo_especial * (cien) / (mil);
-                }
-                else
-                {
-                    RoboParcial = _RoboParcial * (cien) / (mil);
-                }
-            }
+            //}
+            //else
+            //{
+            //    equipo_especial = SumaAsegurada * (cien) / (mil);
+            //    if (_RoboParcial > equipo_especial)
+            //    {
+            //        RoboParcial = equipo_especial * (cien) / (mil);
+            //    }
+            //    else
+            //    {
+            //        RoboParcial = _RoboParcial * (cien) / (mil);
+            //    }
+            //}
 
 
             if (_MenoresDesde16)
@@ -2210,6 +2301,18 @@ namespace Cotizador
         {
             get { return _MotoDeducibleRobo; }
             set { this._MotoDeducibleRobo = value; }
+        }
+        private decimal _DeduciblePerdidaParcial = 0;
+        public decimal DeduciblePerdidaParcial
+        {
+            get { return _DeduciblePerdidaParcial; }
+            set { this._DeduciblePerdidaParcial = value; }
+        }
+        private decimal _DeducibleRoboTotal = 0;
+        public decimal DeducibleRoboTotal
+        {
+            get { return _DeducibleRoboTotal; }
+            set { this._DeducibleRoboTotal = value; }
         }
 
     }

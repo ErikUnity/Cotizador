@@ -41,7 +41,12 @@ namespace Cotizador
               Session["Menores16"] = "false";
               Session["Menores18"] = "false";
               Session["ExcesosRC"] = "false";
-              Session["_RoboParcial"] ="0";
+              string SumAsegurada = rw["SumaAsegurada"].ToString();
+              if (SumAsegurada == "")
+                  SumAsegurada = "0";
+              string CodigoEmpresa = rw["CodigoEmpresa"].ToString();
+              string _RoboParcial = Cotizadores.ObtieneValor_deducible_robo_total(cotizacion, Decimal.Parse(SumAsegurada), CodigoEmpresa).ToString();
+              Session["_RoboParcial"] = _RoboParcial;
               Session["NombreCliente"] = rw["NombreCliente"];
               Session["DescripcionVehiculo"] = rw["DescripcionVehiculo"];
               tiposeguro = rw["TipoSeguro"].ToString();

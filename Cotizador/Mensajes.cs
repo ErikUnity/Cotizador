@@ -108,49 +108,49 @@ namespace Cotizador
 
         public static string AlmacenarPdf1(string nombre, string CodigoEmpresa, decimal SumaAsegurada, bool RoboParcial, bool Menores16, bool Menores18, bool ExcesosRC, decimal _RoboParcial, string NombreCliente, string DescripcionVehiculo)
         {
-            // Setup DataSet
+            //// Setup DataSet
 
 
-            // Create Report DataSource
-            ReportDataSource rds = new ReportDataSource("CotizadorRoble", Cotizadores.ReporteCotizacion1( CodigoEmpresa, SumaAsegurada, RoboParcial,  Menores16,  Menores18, ExcesosRC,  _RoboParcial, NombreCliente,  DescripcionVehiculo,"0"));
+            //// Create Report DataSource
+            //ReportDataSource rds = new ReportDataSource("CotizadorRoble", Cotizadores.ReporteCotizacion1( CodigoEmpresa, SumaAsegurada, RoboParcial,  Menores16,  Menores18, ExcesosRC,  _RoboParcial, NombreCliente,  DescripcionVehiculo,"0"));
             string path = HttpContext.Current.Request.PhysicalApplicationPath;
             string archivo = path + @"Documentos\" + nombre.Replace(" ", "_").Replace(".", "") + ".pdf";
-            // Variables
-            Warning[] warnings;
-            string[] streamIds;
-            string mimeType = string.Empty;
-            string encoding = string.Empty;
-            string extension = string.Empty;
-            LimpiarArchivo(archivo);
-            // Setup the report viewer object and get the array of bytes
-            ReportViewer viewer = new ReportViewer();
-            viewer.ProcessingMode = ProcessingMode.Local;
-            viewer.LocalReport.ReportPath = path + @"Reportes\CotizadorRoble.rdlc";
-            viewer.LocalReport.DataSources.Add(rds); // Add datasource here
+            //// Variables
+            //Warning[] warnings;
+            //string[] streamIds;
+            //string mimeType = string.Empty;
+            //string encoding = string.Empty;
+            //string extension = string.Empty;
+            //LimpiarArchivo(archivo);
+            //// Setup the report viewer object and get the array of bytes
+            //ReportViewer viewer = new ReportViewer();
+            //viewer.ProcessingMode = ProcessingMode.Local;
+            //viewer.LocalReport.ReportPath = path + @"Reportes\CotizadorRoble.rdlc";
+            //viewer.LocalReport.DataSources.Add(rds); // Add datasource here
 
-            byte[] info = viewer.LocalReport.Render("PDF", null, out mimeType, out encoding, out extension, out streamIds, out warnings);
-            try
-            {
-                using (FileStream fs = new FileStream(path + @"Documentos\" + nombre.Replace(" ", "_").Replace(".", "") + ".pdf",
-                    FileMode.Create, FileAccess.Write, FileShare.None))
-                {
+            //byte[] info = viewer.LocalReport.Render("PDF", null, out mimeType, out encoding, out extension, out streamIds, out warnings);
+            //try
+            //{
+            //    using (FileStream fs = new FileStream(path + @"Documentos\" + nombre.Replace(" ", "_").Replace(".", "") + ".pdf",
+            //        FileMode.Create, FileAccess.Write, FileShare.None))
+            //    {
 
-                    fs.Write(info, 0, info.Length);
-                    if (fs != null)
-                    {
-                        ((IDisposable)fs).Dispose();
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
+            //        fs.Write(info, 0, info.Length);
+            //        if (fs != null)
+            //        {
+            //            ((IDisposable)fs).Dispose();
+            //        }
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
 
-                Helper.RegistrarEvento("Error al escribir el archivo pdf " + ex.Message);
-            }
+            //    Helper.RegistrarEvento("Error al escribir el archivo pdf " + ex.Message);
+            //}
   
 
 
-             viewer.Dispose();
+            // viewer.Dispose();
            
              return archivo; 
         
@@ -161,45 +161,45 @@ namespace Cotizador
 
 
             // Create Report DataSource
-            ReportDataSource rds = new ReportDataSource("CotizadorRoble", Cotizadores.ReporteCotizacion1(CodigoEmpresa, SumaAsegurada, RoboParcial, Menores16, Menores18, ExcesosRC, _RoboParcial, NombreCliente, DescripcionVehiculo,"0"));
+            // ReportDataSource rds = new ReportDataSource("CotizadorRoble", Cotizadores.ReporteCotizacion1(CodigoEmpresa, SumaAsegurada, RoboParcial, Menores16, Menores18, ExcesosRC, _RoboParcial, NombreCliente, DescripcionVehiculo,"0"));
             string path = HttpContext.Current.Request.PhysicalApplicationPath;
             string archivo = path + @"Documentos\" + nombre.Replace(" ", "_").Replace(".", "") + "2.pdf";
-            // Variables
-            Warning[] warnings;
-            string[] streamIds;
-            string mimeType = string.Empty;
-            string encoding = string.Empty;
-            string extension = string.Empty;
-            LimpiarArchivo(archivo);
-            // Setup the report viewer object and get the array of bytes
-            ReportViewer viewer = new ReportViewer();
-            viewer.ProcessingMode = ProcessingMode.Local;
-            viewer.LocalReport.ReportPath = path + @"Reportes\CotizadorRobleRCivil.rdlc";
-            viewer.LocalReport.DataSources.Add(rds); // Add datasource here
+            //// Variables
+            //Warning[] warnings;
+            //string[] streamIds;
+            //string mimeType = string.Empty;
+            //string encoding = string.Empty;
+            //string extension = string.Empty;
+            //LimpiarArchivo(archivo);
+            //// Setup the report viewer object and get the array of bytes
+            //ReportViewer viewer = new ReportViewer();
+            //viewer.ProcessingMode = ProcessingMode.Local;
+            //viewer.LocalReport.ReportPath = path + @"Reportes\CotizadorRobleRCivil.rdlc";
+            //viewer.LocalReport.DataSources.Add(rds); // Add datasource here
 
-            byte[] info = viewer.LocalReport.Render("PDF", null, out mimeType, out encoding, out extension, out streamIds, out warnings);
-            try
-            {
-                using (FileStream fs = new FileStream(path + @"Documentos\" + nombre.Replace(" ", "_").Replace(".", "") + "2.pdf",
-                    FileMode.Create, FileAccess.Write, FileShare.None))
-                {
+            //byte[] info = viewer.LocalReport.Render("PDF", null, out mimeType, out encoding, out extension, out streamIds, out warnings);
+            //try
+            //{
+            //    using (FileStream fs = new FileStream(path + @"Documentos\" + nombre.Replace(" ", "_").Replace(".", "") + "2.pdf",
+            //        FileMode.Create, FileAccess.Write, FileShare.None))
+            //    {
 
-                    fs.Write(info, 0, info.Length);
-                    if (fs != null)
-                    {
-                        ((IDisposable)fs).Dispose();
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
+            //        fs.Write(info, 0, info.Length);
+            //        if (fs != null)
+            //        {
+            //            ((IDisposable)fs).Dispose();
+            //        }
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
 
-                Helper.RegistrarEvento("Error al escribir el archivo pdf " + ex.Message);
-            }
+            //    Helper.RegistrarEvento("Error al escribir el archivo pdf " + ex.Message);
+            //}
 
 
 
-            viewer.Dispose();
+            //viewer.Dispose();
 
             return archivo; 
 

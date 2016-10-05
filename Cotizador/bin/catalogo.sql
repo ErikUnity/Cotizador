@@ -236,6 +236,33 @@ INSERT INTO `maestro_link_externo` (`indice`, `Link`, `CodigoEmpresa`, `descripc
 /*!40000 ALTER TABLE `maestro_link_externo` ENABLE KEYS */;
 
 
+-- Dumping structure for table catalogo.maestro_reglasdevehiculos
+CREATE TABLE IF NOT EXISTS `maestro_reglasdevehiculos` (
+  `indice` int(11) NOT NULL AUTO_INCREMENT,
+  `Marca` varchar(300) DEFAULT '0',
+  `Linea` varchar(300) DEFAULT '0',
+  `Año` varchar(300) DEFAULT '0',
+  `MayorMenor` varchar(10) DEFAULT '0',
+  `Porcentaje` decimal(10,2) DEFAULT '0.00',
+  `TipoVehiculo` varchar(300) DEFAULT NULL,
+  KEY `indice` (`indice`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+
+-- Dumping data for table catalogo.maestro_reglasdevehiculos: ~0 rows (approximately)
+DELETE FROM `maestro_reglasdevehiculos`;
+/*!40000 ALTER TABLE `maestro_reglasdevehiculos` DISABLE KEYS */;
+INSERT INTO `maestro_reglasdevehiculos` (`indice`, `Marca`, `Linea`, `Año`, `MayorMenor`, `Porcentaje`, `TipoVehiculo`) VALUES
+	(1, '780', '3', '0', '*', 0.25, NULL),
+	(2, '781', 'Lancer', '2006', '>', 0.25, NULL),
+	(3, '780', '*', '0', '*', 0.25, 'Pickup'),
+	(4, '775', 'Yaris', '2008', '>', 0.25, NULL),
+	(5, '962', 'Civic', '2008', '>', 0.25, NULL),
+	(6, '793', 'K', '2008', '>', 0.25, NULL),
+	(7, '775', 'Corolla', '2008', '>', 0.25, NULL),
+	(8, '775', 'Hilux', '0', '>', 0.25, NULL);
+/*!40000 ALTER TABLE `maestro_reglasdevehiculos` ENABLE KEYS */;
+
+
 -- Dumping structure for table catalogo.maestro_reglasnegocio
 CREATE TABLE IF NOT EXISTS `maestro_reglasnegocio` (
   `indice` int(11) NOT NULL AUTO_INCREMENT,
@@ -267,6 +294,7 @@ CREATE TABLE IF NOT EXISTS `maestro_reglasnegocio` (
   `PrimaNetaPickUpRC` decimal(10,2) DEFAULT NULL,
   `PrimaNetaMotoRC` decimal(10,2) DEFAULT NULL,
   `Mensualidades` int(11) DEFAULT NULL,
+  `deducible_parcial` decimal(10,2) DEFAULT NULL,
   PRIMARY KEY (`indice`),
   UNIQUE KEY `codigo` (`CodigoEmpresa`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
@@ -274,13 +302,13 @@ CREATE TABLE IF NOT EXISTS `maestro_reglasnegocio` (
 -- Dumping data for table catalogo.maestro_reglasnegocio: ~6 rows (approximately)
 DELETE FROM `maestro_reglasnegocio`;
 /*!40000 ALTER TABLE `maestro_reglasnegocio` DISABLE KEYS */;
-INSERT INTO `maestro_reglasnegocio` (`indice`, `CodigoEmpresa`, `base`, `suma_asegurada_limite`, `porcentaje_menor_100`, `porcentaje_mayor_100`, `costo`, `robo_parcial`, `Menores_desde_16`, `Menores_desde_18`, `Exceso_RC`, `gastos_emision`, `asisto`, `iva`, `Exceso_RC_ElevacionDeCobertura`, `Exceso_RC_Base`, `PrimaNetaRC`, `MenorNombradoRC`, `PorcentajeResponsabilidadCivil`, `MotoDanosATercerosBase`, `MotoPorcentaje_DeducibleDañosYAccidentes`, `MotoSumaLimiteParaCalculo`, `MotoPorcentaje_DeducibleRobo`, `MotoPorcentaje_Cobro`, `MotoCobro_PorServicio`, `MotoPorcentaje_PorServicio`, `PrimaNetaPickUpRC`, `PrimaNetaMotoRC`, `Mensualidades`) VALUES
-	(1, 'Codisa', 1000.00, 100000.00, 2.500, 2.000, 500.00, 267.54, 500.00, 1000.00, 200.00, 0.05, 145.45, 0.12, 250000.00, 700000.00, 900.00, NULL, 5.00, 300000.00, 0.05, 700.00, 0.02, 0.05, 250.00, 7.00, 1100.00, 500.00, 10),
-	(2, 'Telus', 1000.00, 100000.00, 2.500, 2.000, 500.00, 267.54, 500.00, 1000.00, 200.00, 0.05, 145.45, 0.12, 250000.00, 700000.00, 900.00, NULL, 5.00, 300000.00, 0.05, 700.00, 0.02, 0.05, 250.00, 7.00, 1100.00, 500.00, 10),
-	(3, 'Fogel', 1000.00, 100000.00, 2.500, 2.000, 500.00, 267.54, 500.00, 1000.00, 200.00, 0.05, 145.45, 0.12, 250000.00, 700000.00, 900.00, NULL, 5.00, 300000.00, 0.05, 700.00, 0.02, 0.05, 250.00, 7.00, 1100.00, 500.00, 10),
-	(4, 'Capgemini', 1000.00, 100000.00, 2.500, 2.000, 500.00, 267.54, 500.00, 1000.00, 200.00, 0.05, 145.45, 0.12, 250000.00, 700000.00, 900.00, NULL, 5.00, 300000.00, 0.05, 700.00, 0.02, 0.05, 250.00, 7.00, 1100.00, 500.00, 10),
-	(5, 'CEG', 1000.00, 100000.00, 2.500, 2.000, 500.00, 267.54, 500.00, 1000.00, 200.00, 0.05, 145.45, 0.12, 250000.00, 700000.00, 900.00, NULL, 5.00, 300000.00, 0.05, 700.00, 0.02, 0.05, 250.00, 7.00, 1100.00, 500.00, 10),
-	(6, 'Citibank', 1000.00, 100000.00, 2.500, 2.000, 500.00, 267.54, 500.00, 1000.00, 200.00, 0.05, 145.45, 0.12, 250000.00, 800000.00, 900.00, NULL, 5.00, 300000.00, 0.05, 700.00, 0.02, 0.05, 250.00, 7.00, 1100.00, 500.00, 12);
+INSERT INTO `maestro_reglasnegocio` (`indice`, `CodigoEmpresa`, `base`, `suma_asegurada_limite`, `porcentaje_menor_100`, `porcentaje_mayor_100`, `costo`, `robo_parcial`, `Menores_desde_16`, `Menores_desde_18`, `Exceso_RC`, `gastos_emision`, `asisto`, `iva`, `Exceso_RC_ElevacionDeCobertura`, `Exceso_RC_Base`, `PrimaNetaRC`, `MenorNombradoRC`, `PorcentajeResponsabilidadCivil`, `MotoDanosATercerosBase`, `MotoPorcentaje_DeducibleDañosYAccidentes`, `MotoSumaLimiteParaCalculo`, `MotoPorcentaje_DeducibleRobo`, `MotoPorcentaje_Cobro`, `MotoCobro_PorServicio`, `MotoPorcentaje_PorServicio`, `PrimaNetaPickUpRC`, `PrimaNetaMotoRC`, `Mensualidades`, `deducible_parcial`) VALUES
+	(1, 'Codisa', 1000.00, 100000.00, 2.500, 2.000, 500.00, 267.54, 500.00, 1000.00, 200.00, 0.05, 145.45, 0.12, 250000.00, 700000.00, 900.00, NULL, 5.00, 300000.00, 0.05, 700.00, 0.02, 0.05, 250.00, 7.00, 1100.00, 500.00, 10, 0.03),
+	(2, 'Telus', 1000.00, 100000.00, 2.500, 2.000, 500.00, 267.54, 500.00, 1000.00, 200.00, 0.05, 145.45, 0.12, 250000.00, 700000.00, 900.00, NULL, 5.00, 300000.00, 0.05, 700.00, 0.02, 0.05, 250.00, 7.00, 1100.00, 500.00, 10, 0.03),
+	(3, 'Fogel', 1000.00, 100000.00, 2.500, 2.000, 500.00, 267.54, 500.00, 1000.00, 200.00, 0.05, 145.45, 0.12, 250000.00, 700000.00, 900.00, NULL, 5.00, 300000.00, 0.05, 700.00, 0.02, 0.05, 250.00, 7.00, 1100.00, 500.00, 10, 0.03),
+	(4, 'Capgemini', 1000.00, 100000.00, 2.500, 2.000, 500.00, 267.54, 500.00, 1000.00, 200.00, 0.05, 145.45, 0.12, 250000.00, 700000.00, 900.00, NULL, 5.00, 300000.00, 0.05, 700.00, 0.02, 0.05, 250.00, 7.00, 1100.00, 500.00, 10, 0.03),
+	(5, 'CEG', 1000.00, 100000.00, 2.500, 2.000, 500.00, 267.54, 500.00, 1000.00, 200.00, 0.05, 145.45, 0.12, 250000.00, 700000.00, 900.00, NULL, 5.00, 300000.00, 0.05, 700.00, 0.02, 0.05, 250.00, 7.00, 1100.00, 500.00, 10, 0.03),
+	(6, 'Citibank', 1000.00, 100000.00, 2.500, 2.000, 500.00, 267.54, 500.00, 1000.00, 200.00, 0.05, 145.45, 0.12, 250000.00, 800000.00, 900.00, NULL, 5.00, 300000.00, 0.05, 700.00, 0.02, 0.05, 250.00, 7.00, 1100.00, 500.00, 12, 0.03);
 /*!40000 ALTER TABLE `maestro_reglasnegocio` ENABLE KEYS */;
 
 
@@ -576,9 +604,9 @@ CREATE TABLE IF NOT EXISTS `trans_correosenviados` (
   `correocierre` varchar(250) DEFAULT 'dania.mairen@unitypromotores.com',
   `abandono` varchar(800) DEFAULT NULL,
   PRIMARY KEY (`indice`)
-) ENGINE=InnoDB AUTO_INCREMENT=315 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=317 DEFAULT CHARSET=utf8;
 
--- Dumping data for table catalogo.trans_correosenviados: ~78 rows (approximately)
+-- Dumping data for table catalogo.trans_correosenviados: ~81 rows (approximately)
 DELETE FROM `trans_correosenviados`;
 /*!40000 ALTER TABLE `trans_correosenviados` DISABLE KEYS */;
 INSERT INTO `trans_correosenviados` (`indice`, `Nombre`, `Apellidos`, `Correo`, `TipoDeVehiculo`, `Linea`, `Marca`, `Telefono`, `Modelo`, `SumaAsegurada`, `Fecha`, `TipoSeguro`, `contactar`, `CodigoEmpresa`, `ComoContactar`, `Paso1`, `Paso2`, `Paso3`, `Nit`, `DPI`, `Direccion`, `Zona`, `Municipio`, `ingreso`, `status`, `FechaInicio`, `prima`, `passaporte`, `nacimiento`, `mensajetipo`, `correocierre`, `abandono`) VALUES
@@ -661,7 +689,9 @@ INSERT INTO `trans_correosenviados` (`indice`, `Nombre`, `Apellidos`, `Correo`, 
 	(311, 'dania', 'mairen', 'dania.mairen@unitypromotores.com', 'Automóvil', 'civic', 'HONDA', '58593587', '2003', 0.00, '2016-10-03 09:21:31', 'Responsabilidad Civil', 'dania.mairen@unitypromotores.com', 'Citibank', 'Por Telefono  Inmediatamente', b'1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'RD8A722', NULL, NULL, 1221.30, NULL, '19440914', 2, 'dania.mairen@unitypromotores.com', NULL),
 	(312, 'asdf', 'sdfa', 'dania.mairen@unitypromotores.com', 'Motocicleta', 'fdaf', 'BAJAJ', '58593587', '2001', 14000.00, '2016-10-03 09:27:07', 'Seguro Completo', 'dania.mairen@unitypromotores.com', 'CEG', 'Por Telefono  Inmediatamente', b'1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '9TNCPMKK', NULL, NULL, 1377.60, NULL, '00010101', 7, 'dania.mairen@unitypromotores.com', NULL),
 	(313, 'Seguro Completo', 'Citibank', 'erik.castaneda@unitypromotores.com', 'Automóvil', 'XK', 'ACCU', '65465465', '2001', 170000.00, '2016-10-04 11:41:20', 'Seguro Completo', 'erik.castaneda@unitypromotores.com', 'Codisa', 'Por Telefono  Inmediatamente', b'1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'RDHRV6SS', NULL, NULL, 4530.90, NULL, '20161003', 1, 'dania.mairen@unitypromotores.com', NULL),
-	(314, 'Seguro Completo', 'Citibank', 'erik.castaneda@unitypromotores.com', 'Automóvil', 'XT', 'ACCU', '65465465', '2001', 150000.00, '2016-10-04 11:43:24', 'Seguro Completo', 'erik.castaneda@unitypromotores.com', 'Citibank', 'Por Telefono  Inmediatamente', b'1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0G9TEZPP', NULL, NULL, 4082.90, NULL, '20161003', 1, 'dania.mairen@unitypromotores.com', NULL);
+	(314, 'Seguro Completo', 'Citibank', 'erik.castaneda@unitypromotores.com', 'Automóvil', 'XT', 'ACCU', '65465465', '2001', 150000.00, '2016-10-04 11:43:24', 'Seguro Completo', 'erik.castaneda@unitypromotores.com', 'Citibank', 'Por Telefono  Inmediatamente', b'1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0G9TEZPP', NULL, NULL, 4082.90, NULL, '20161003', 1, 'dania.mairen@unitypromotores.com', NULL),
+	(315, 'Deducible Parciales', 'Prueba', 'erik.castaneda@unitypromotores.com', 'Automóvil', '3', 'MAZDA', '65465465', '2006', 125000.00, '2016-10-05 12:08:31', 'Seguro Completo', 'erik.castaneda@unitypromotores.com', 'Codisa', 'Por Telefono  Inmediatamente', b'1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '07A7S500', NULL, NULL, 3522.90, NULL, '20161004', 1, 'dania.mairen@unitypromotores.com', NULL),
+	(316, 'Alex', 'Sosa', 'asosa@elroble.com', 'Camioneta', 'x6', 'BMW', '59185115', '2015', 200000.00, '2016-10-05 12:13:49', 'Seguro Completo', 'asosa@elroble.com', 'Codisa', 'Por Telefono  Inmediatamente', b'1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0HI182II', NULL, NULL, 5202.90, NULL, '19821001', 1, 'dania.mairen@unitypromotores.com', NULL);
 /*!40000 ALTER TABLE `trans_correosenviados` ENABLE KEYS */;
 
 

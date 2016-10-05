@@ -99,7 +99,7 @@
                                         </tr>
                                         <tr>
                                             <td style="text-align:right">
-                                               <table><tr><td>Cotizaciones en Tramite......................</td><td  style="text-align:right"><asp:Button ID="Button4" runat="server" OnClick="Button4_Click" Text="En Tramite" Width="150px" /></td></tr></table> 
+                                               <table><tr><td>Cotizaciones en Tramite........................</td><td  style="text-align:right"><asp:Button ID="Button4" runat="server" OnClick="Button4_Click" Text="En Tramite" Width="150px" /></td></tr></table> 
                                             </td>
                                         </tr>
                                         <tr>

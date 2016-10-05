@@ -2798,11 +2798,15 @@ o mayor a Q.150,000</Value>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value />
-                              <Style />
+                              <Value>="Q. " &amp; Trim(Format(First(Fields!DeduciblePerdidaParcial.Value),"#,##0.00"))</Value>
+                              <Style>
+                                <FontFamily>Candara</FontFamily>
+                              </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox135</rd:DefaultName>
@@ -2865,11 +2869,15 @@ o mayor a Q.150,000</Value>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value />
-                              <Style />
+                              <Value>="Q. " &amp; Trim(Format(First(Fields!DeducibleRoboTotal.Value),"#,##0.00"))</Value>
+                              <Style>
+                                <FontFamily>Candara</FontFamily>
+                              </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox245</rd:DefaultName>
@@ -2884,6 +2892,7 @@ o mayor a Q.150,000</Value>
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
+                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
               </TablixCells>
@@ -3670,7 +3679,15 @@ o mayor a Q.150,000</Value>
         </Field>
         <Field Name="MotoDeducibleRobo">
           <DataField>MotoDeducibleRobo</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="DeduciblePerdidaParcial">
+          <DataField>DeduciblePerdidaParcial</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="DeducibleRoboTotal">
+          <DataField>DeducibleRoboTotal</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
       </Fields>
       <rd:DataSetInfo>
