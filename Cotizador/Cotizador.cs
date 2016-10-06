@@ -1148,7 +1148,7 @@ namespace Cotizador
             string _tipo_vehiculo = "";
 
             DataTable content = new DataTable();
-            content = AccesoDatos.RegresaTablaMySql("Select Año, MayorMenor, Porcentaje, TipoVehiculo from maestro_reglasdevehiculos where Marca = '"+ marca +"' and upper('"+ linea +"')");
+            content = AccesoDatos.RegresaTablaMySql("Select Año, MayorMenor, Porcentaje, TipoVehiculo from maestro_reglasdevehiculos where Marca = '" + codigo_marca + "' and upper(linea) = upper('" + linea + "')");
 
             foreach (DataRow rw in content.Rows)
             {
@@ -1165,14 +1165,14 @@ namespace Cotizador
                 {
                     if (Decimal.Parse(año_evaluado) > Decimal.Parse(año) || Decimal.Parse(año) == 0 )
                     {
-                        resultado = _SumaAsegurada * Porcentaje;
+                        resultado = (_SumaAsegurada * Porcentaje)/100 ;
                     }
                 }
 
                 if (MayorMenor == "*")
                 {
   
-                        resultado = _SumaAsegurada * Porcentaje;
+                        resultado = (_SumaAsegurada * Porcentaje)/100;
     
                 }
 
@@ -1180,15 +1180,15 @@ namespace Cotizador
 
             string vehiculo = ConfigurationManager.AppSettings["VehiculoExcluido"].ToString();
             DataTable Tipo = new DataTable();
-            Tipo = AccesoDatos.RegresaTablaMySql("Select  Porcentaje from maestro_reglasdevehiculos where Marca = '" + marca + "' and TipoVehiculo = '" + vehiculo + "'");
+            Tipo = AccesoDatos.RegresaTablaMySql("Select  Porcentaje from maestro_reglasdevehiculos where Marca = '" + codigo_marca + "' and TipoVehiculo = '" + vehiculo + "'");
             if (Tipo.Rows.Count > 0)
             {
-                foreach (DataRow rw in content.Rows)
+                foreach (DataRow rw in Tipo.Rows)
                 {
                     Porcentaje = decimal.Parse(rw["Porcentaje"].ToString());
                     break;
                 }
-                 resultado = _SumaAsegurada * Porcentaje;
+                 resultado = _SumaAsegurada * Porcentaje / 100;
             }
 
             if (resultado == 0)
@@ -1656,7 +1656,7 @@ namespace Cotizador
 
                 }
 
-                if (SumaAsegurada > SumaLimiteParaCalculo)
+                if (SumaAsegurada >= SumaLimiteParaCalculo)
                 {
                     if (((SumaAsegurada * Porcentaje_Mayor_100 / 100) + Costo + Asisto) < MontoBase)
                     {
