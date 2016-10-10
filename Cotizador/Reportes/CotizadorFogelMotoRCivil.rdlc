@@ -632,7 +632,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Prima Anual fraccionada en 12 pagos descontado de planilla</Value>
+                              <Value>Prima Anual fraccionada en 10 pagos TC</Value>
                               <Style>
                                 <FontFamily>Candara</FontFamily>
                               </Style>
@@ -707,7 +707,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>12 Pagos mensuales por:</Value>
+                              <Value>10 Pagos mensuales por:</Value>
                               <Style>
                                 <FontFamily>Candara</FontFamily>
                               </Style>
@@ -766,7 +766,6 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
-                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
               </TablixCells>
@@ -849,45 +848,6 @@
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox248</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Style>None</Style>
-                        </Border>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                    <ColSpan>2</ColSpan>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell />
-              </TablixCells>
-            </TablixRow>
-            <TablixRow>
-              <Height>0.39583in</Height>
-              <TablixCells>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="Textbox250">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>La póliza  de este programa tiene vigencia del 01/08/2016 al 01/08/2017,  por lo cual la prima y el número de pagos variará dependiendo de la fecha de inclusión de su vehículo.</Value>
-                              <Style>
-                                <FontFamily>Candara</FontFamily>
-                                <Color>DarkBlue</Color>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style />
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Textbox250</rd:DefaultName>
                       <Style>
                         <Border>
                           <Style>None</Style>
@@ -1004,13 +964,12 @@
             <TablixMember />
             <TablixMember />
             <TablixMember />
-            <TablixMember />
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>CotizadorRoble</DataSetName>
         <Top>1.12375in</Top>
         <Left>0.28in</Left>
-        <Height>5.65625in</Height>
+        <Height>5.26042in</Height>
         <Width>7.34376in</Width>
         <Style>
           <Border>
